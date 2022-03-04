@@ -1,14 +1,26 @@
 import React, { useEffect } from 'react';
 import { Col, Container, Nav, Navbar, Row } from 'react-bootstrap';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { listProperties } from '../actions/generalAction';
+import axios from 'axios'
 
 function Home() {
+  const dispatch = useDispatch()
+  const propertyList=useSelector(state=>state.propertyList)
+  const {loading , error , property} = propertyList;
 
   useEffect(() => {
     window.scrollTo(0, 0);
+    dispatch(listProperties())
+    if(property){
+      console.log(property.properties,'hoyy');
+    }
+    
+
 }, []);
   return (
-    <div className="home">
+    <div className="home"> 
       <div
         className="home-container"
         style={{ backgroundImage: `url("../assets/image/homebg3.jpeg")` }}
@@ -18,7 +30,7 @@ function Home() {
             <Col md={8}>
               <Navbar.Brand className="logo">
               <Link to="/"> <img src="../assets/image/logo.png" alt="" /></Link>
-              </Navbar.Brand>
+              </Navbar.Brand> 
             </Col>
 
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />

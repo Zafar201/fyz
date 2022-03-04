@@ -35,7 +35,7 @@ function About() {
                     {' '}
                     <Nav.Link
                       href="#deets"
-                      style={{ color: ' #D9B061 !important;' }}
+                      style={{color: "#D9B061 !important" }}
                     >
                       About Us
                     </Nav.Link>

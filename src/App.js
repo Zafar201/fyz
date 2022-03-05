@@ -1,4 +1,4 @@
-
+import * as React from 'react';
 import './App.css';
 import About from './screen/About';
 import Contact from './screen/Contact';

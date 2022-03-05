@@ -6,7 +6,8 @@ export const listProperties = () => async (dispatch) => {
     console.log("heloo1");
     try {    
       const { data } = await axios.get('https://tawi-backend.herokuapp.com/api/users/get-properties')      
-      dispatch({ type: PROPERTIES_LIST_SUCCESS, payload: data }); 
+      dispatch({ type: PROPERTIES_LIST_SUCCESS, payload: data.properties }); 
+      console.log(data.properties,'data');
     } catch (error) {
       const message =
         error.response && error.response.data.message

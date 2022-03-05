@@ -1008,9 +1008,11 @@ select:focus {
   box-sizing: border-box;
   border-radius: 68px;
   margin-bottom: 20px;
+  height: 76px;
+  align-items: center;
 }
 .dashboard-3 img {
-  margin-top: -33px;
+  /* margin-top: -33px; */
   height: 24px;
 }
 
@@ -1216,4 +1218,32 @@ width: 85%;
   margin-left: 13px;
   margin-right: 12px;
   height: 20px;
+}
+
+/* Alert */
+.loading {
+  display: block !important;
+}
+.success {
+  color: #20a020;
+}
+.danger {
+  color: #a02020;
+}
+.alert {
+  padding: 1rem;
+  border: 0.1rem solid transparent;
+  border-radius: 0.5rem;
+}
+.alert-info {
+  color: #2020a0;
+  background-color: #e0e0ff;
+}
+.alert-danger {
+  color: #a02020;
+  background-color: #ffe0e0;
+}
+.alert-success {
+  color: #20a020;
+  background-color: #eeffe0;
 }

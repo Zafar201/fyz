@@ -12,6 +12,8 @@ import AdminLogin from './screen/AdminLogin';
 import DashBoard from './screen/DashBoard';
 import AddRoom from './screen/AddRoom';
 import AddProperty from './screen/AddProperty';
+import PropertyEdit from './screen/PropertyEdit';
+// import PropertyEdit from '/screen/PropertyEdit'
 // import Row,Col,Button from 'react-bootstrap'
 
 function App() {
@@ -26,6 +28,9 @@ function App() {
       <Route path="admin" element={<AdminLogin/>}>   </Route>
       <Route path="dashboard" element={<DashBoard/>}>   </Route>
       <Route path="addroom" element={<AddRoom/>}>   </Route>
+      <Route path="/property/:id/edit"  element={<PropertyEdit/>}
+              exact
+            ></Route>
       <Route path="addproperty" element={<AddProperty/>}>   </Route>
 
 

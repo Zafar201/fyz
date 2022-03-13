@@ -1,8 +1,29 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Col, Container, Row } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
+import { addproperty, addProperty } from '../actions/generalAction';
+import LoadingBox from '../components/LoadingBox';
+import MessageBox from '../components/MessageBox';
 
 function AddProperty() {
+  const navigate = useNavigate();
+  const [name, setName] = useState('');
+  const [address, setAddress] = useState('');
+  const [map, setMap] = useState('');
+  const [description, setDescription] = useState('');
+  const dispatch = useDispatch()
+
+  const propertyCreate=useSelector(state=>state.propertyCreate)
+  const {loading,error,success,newproperty} =propertyCreate
+  const submitHandler=(e)=>{
+    e.preventDefault();
+    dispatch(addproperty(name,address,map,description))
+    navigate('/dashboard')
+    console.log(name,address,map,'namsn');
+    console.log(error,newproperty,'heyy');
+  }
+  
   return (
     <div>
           <div className='admin-nav'>
@@ -25,25 +46,49 @@ function AddProperty() {
                <Row>
                    <h1>Add Property</h1>
                </Row>
+               {/* {loading && <LoadingBox></LoadingBox>} */}
+                {error && <MessageBox variant="danger">{error}</MessageBox>}
+               <form onSubmit={submitHandler}>
                <Row>
                    <Col>
-                     <h2>Name of property</h2>
-                     <input type="text" />
-                   </Col>
-                   <Col>
+                    
                    <h2>Name of property</h2>
-                     <input type="text" />
+                     <input type="text"
+                        id="name"
+                        placeholder="Enter name"
+                        required
+                        onChange={(e) => setName(e.target.value)}/>
                    </Col>
                    <Col>
-                     <h2>Name of property</h2>
-                     <input type="text" />
+                   <h2>Address</h2>
+                     <input type="text"
+                     id="address"
+                     placeholder="Enter Address"
+                     required
+                     onChange={(e) => setAddress(e.target.value)}
+                     />
+                   </Col>
+                   <Col>
+                   <h2>Map</h2>
+                     <input type="text" 
+                     id="map"
+                     placeholder="Enter map"
+                     required
+                     onChange={(e) => setMap(e.target.value)}/>
                    </Col>
                </Row>
 
                <Row style={{paddingTop:"30px"}}>
                    <h2>Description <span>(100-140 words)</span></h2>
-                   <textarea name="description" id="description" cols="25" rows="10"></textarea>
+                   <textarea 
+                    name="description" 
+                    id="description"
+                    placeholder="Enter name"
+                    
+                    onChange={(e) => setDescription(e.target.value)}
+                   cols="25" rows="10"></textarea>
                </Row>
+            
 
                <Row>
                    <Col className='addproperty-2' md={4}>
@@ -72,6 +117,7 @@ function AddProperty() {
                <Row className='addproperty-4'>
                    <button>Submit</button>
                </Row>
+               </form>
            </Container>
            
        </div>

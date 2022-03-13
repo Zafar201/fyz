@@ -945,9 +945,10 @@ select:focus {
 
 .dashboard {
   background: #e5e5e5;
-  height: 100vh;
+  height: auto;
   line-height: 68px;
   padding-top: 34px;
+  padding-bottom: 80px;
 }
 .dashboard h1 {
   font-family: Raleway;
@@ -1014,6 +1015,7 @@ select:focus {
 .dashboard-3 img {
   /* margin-top: -33px; */
   height: 24px;
+  cursor: pointer;
 }
 
 /* addproperty */

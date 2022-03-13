@@ -1,28 +1,40 @@
 import React, { useEffect } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
-import { listProperties } from '../actions/generalAction';
+import { Link, useNavigate } from 'react-router-dom';
+import { deleteProperty, listProperties } from '../actions/generalAction';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
+import { DELETE_PROPERTIES_RESET } from '../constants/generalConstants';
 
 
 function DashBoard() {
   const dispatch = useDispatch()
+  const navigate = useNavigate();
   
   const propertyList=useSelector(state=>state.propertyList)
-  const {loading , error , property} = propertyList;
+  const {loading , error , properties} = propertyList;
+
+  const propertyDelete=useSelector(state=>state.propertyDelete)
+  const {success} = propertyDelete
 
   useEffect(() => {
+    if(success){
+      dispatch({type:DELETE_PROPERTIES_RESET})
+    }
     window.scrollTo(0, 0);
     dispatch(listProperties())
-    console.log(property,"clll");
+    // console.log(properties,"clll");
     
 
-}, [dispatch]);
-const ok=(()=>{
-  console.log(property[0],"cl");
-})
+}, [dispatch,success,listProperties]);
+const deleteHandler=(property)=>{
+  if (window.confirm('Are you sure to delete?')) {
+     dispatch(deleteProperty(property._id))
+     console.log(property._id,'id');
+  }
+  
+}
   return <div>
       <div className='admin-nav'>
        <Container>
@@ -47,7 +59,7 @@ const ok=(()=>{
                       <h1>Your Properties</h1>
                    </Col>
                    <Col >
-                  <button style={{float:"right"}}  onClick={ok}>+ Add Property </button>  
+               <Link to='/addproperty'>  <button style={{float:"right"}} >+ Add Property </button>  </Link> 
                </Col>
                </Row>
               
@@ -72,24 +84,24 @@ const ok=(()=>{
                
                {loading?<LoadingBox>{loading}</LoadingBox>:
                error?<MessageBox>{error}</MessageBox>:
-               property && property.map((item)=>(
-                <Row  className='dashboard-3'>  
+               properties && properties.map((property)=>(
+                <Row key={property._id} className='dashboard-3'>  
               
-                   
+                  
                 <Col md={1}>
                 </Col>
               <Col>
-                <h3>{item.name}</h3>
+                <h3>{property.name}</h3>
               </Col>
               <Col>
-                <h4>{item.address}</h4>
+                <h4>{property.address}</h4>
               </Col>
               <Col>
                 <img src="../assets/image/visible.png" alt="" />
               </Col>
               <Col>
-              <img style={{marginRight:"16px"}} src="../assets/image/edit.png" alt="" />
-              <img src="../assets/image/dlt.png" alt="" />
+              <img onClick={() => navigate(`/property/${property._id}/edit`)} style={{marginRight:"16px"}} src="../assets/image/edit.png" alt="" />
+              <img src="../assets/image/dlt.png" alt="" onClick={() => deleteHandler(property)}/>
               </Col>                                                                                                                                          
              </Row>  
                ))}

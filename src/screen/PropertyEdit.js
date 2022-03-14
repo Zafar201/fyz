@@ -25,6 +25,7 @@ function PropertyEdit() {
   useEffect(()=>{
     if (successUpdate) {
       navigate('/dashboard');
+      console.log('heyyyyyyyy');
     }
     if(!property || property._id !== propertyId || successUpdate){
       dispatch({type:UPDATE_PROPERTIES_RESET})
@@ -39,7 +40,7 @@ function PropertyEdit() {
         setDescription(property.description);
         console.log(property,'edits');
     }   
-  },[dispatch,property,propertyId,navigate])
+  },[dispatch,property,propertyId,navigate,successUpdate])
   const submitHandler=(e)=>{
     e.preventDefault()
     dispatch(updateProperty({

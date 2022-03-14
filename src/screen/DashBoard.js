@@ -24,8 +24,7 @@ function DashBoard() {
     }
     window.scrollTo(0, 0);
     dispatch(listProperties())
-    // console.log(properties,"clll");
-    
+    // console.log(properties,"clll"); 
 
 }, [dispatch,success,listProperties]);
 const deleteHandler=(property)=>{

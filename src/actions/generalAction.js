@@ -72,7 +72,7 @@ export const updateProperty=(property)=>async(dispatch)=>{
   dispatch({type:UPDATE_PROPERTIES_REQUEST,payload:property});
   console.log('1');
   try{
-    const {data} = await axios.put(`https://tawi-backend.herokuapp.com/api/users/update-property/${property._id},`,property)
+    const {data} = await axios.put(`https://tawi-backend.herokuapp.com/api/users/update-property/${property._id}`,property)
     dispatch({type:UPDATE_PROPERTIES_SUCCESS,payload:data});
     console.log('2');
     console.log(data,'dts');

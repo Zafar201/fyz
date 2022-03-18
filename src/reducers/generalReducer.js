@@ -1,4 +1,4 @@
-import { ADD_PROPERTIES_FAIL, ADD_PROPERTIES_REQUEST, ADD_PROPERTIES_RESET, ADD_PROPERTIES_SUCCESS, DELETE_PROPERTIES_FAIL, DELETE_PROPERTIES_REQUEST, DELETE_PROPERTIES_RESET, DELETE_PROPERTIES_SUCCESS, PROPERTIES_DETAILS_FAIL, PROPERTIES_DETAILS_REQUEST, PROPERTIES_DETAILS_SUCCESS, PROPERTIES_LIST_FAIL, PROPERTIES_LIST_REQUEST, PROPERTIES_LIST_SUCCESS, UPDATE_PROPERTIES_FAIL, UPDATE_PROPERTIES_REQUEST, UPDATE_PROPERTIES_RESET, UPDATE_PROPERTIES_SUCCESS } from "../constants/generalConstants";
+import { ADD_PROPERTIES_FAIL, ADD_PROPERTIES_REQUEST, ADD_PROPERTIES_RESET, ADD_PROPERTIES_SUCCESS, DELETE_PROPERTIES_FAIL, DELETE_PROPERTIES_REQUEST, DELETE_PROPERTIES_RESET, DELETE_PROPERTIES_SUCCESS, PROPERTIES_DETAILS_FAIL, PROPERTIES_DETAILS_REQUEST, PROPERTIES_DETAILS_SUCCESS, PROPERTIES_LIST_FAIL, PROPERTIES_LIST_REQUEST, PROPERTIES_LIST_SUCCESS, ROOM_DETAILS_FAIL, ROOM_DETAILS_REQUEST, ROOM_DETAILS_SUCCESS, UPDATE_PROPERTIES_FAIL, UPDATE_PROPERTIES_REQUEST, UPDATE_PROPERTIES_RESET, UPDATE_PROPERTIES_SUCCESS } from "../constants/generalConstants";
 
 export const propertyListReducer = (state = { loading:true,properties:[] }, action) => {
     switch (action.type) {
@@ -73,3 +73,44 @@ export const propertyUpdateReducer= (state= {}, action)=>{
       return state;        
   }
 }
+
+
+export const addRoomReducer = (state = { loading: true }, action) => {
+  switch (action.type) {
+      case ADD_PROPERTIES_REQUEST:
+          return { loading: true }
+      case ADD_PROPERTIES_SUCCESS:
+          return { loading: false, newroom: action.payload ,}
+      case ADD_PROPERTIES_FAIL:
+          return { loading: false, error: action.payload }
+      default:
+          return state;
+  }
+}
+export const getRoomDetailsReducer =(state={loading:true,rooms:[]},action)=>{
+  switch(action.type){
+    case ROOM_DETAILS_REQUEST:
+      return {loading:true}
+    case ROOM_DETAILS_SUCCESS:
+      return {loading:false,rooms:action.payload}
+    case ROOM_DETAILS_FAIL:
+      return {loading:false, error:action.payload}
+    default:
+      return state;      
+  }
+}
+
+
+export const roomDetailsReducer =(state={loading:true},action)=>{
+  switch(action.type){
+    case ROOM_DETAILS_REQUEST:
+      return {loading:true}
+    case ROOM_DETAILS_SUCCESS:
+      return {loading:false,room:action.payload}
+    case ROOM_DETAILS_FAIL:
+      return {loading:false, error:action.payload}
+    default:
+      return state;      
+  }
+}
+

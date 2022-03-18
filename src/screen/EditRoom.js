@@ -1,12 +1,14 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, Navigate, useNavigate, useParams } from "react-router-dom";
-import { addRoom } from "../actions/generalAction";
+import { addRoom, detailsProperty, detailsRoom, getRooms, getRoomsDetails } from "../actions/generalAction";
+import LoadingBox from "../components/LoadingBox";
+import MessageBox from "../components/MessageBox";
 
-function AddRoom() {
+function EditRoom() {
   const params = useParams();
-  const { id: propertyId } = params;
+  const { id: roomId } = params;
   const [name, setName] = useState('');
   const [occupancy, setOccupency] = useState('');
   const [description,setDescription] = useState('')
@@ -18,18 +20,32 @@ function AddRoom() {
   const dispatch = useDispatch()
   const navigate =useNavigate()
 
-  // const addRoom = useSelector(state=>state.addRoom)
-  // const {loading, error, success, newRoom} = addRoom
+  const roomDetails = useSelector(state=>state.roomDetails)
+  const {loading,error,room} = roomDetails;
 
-  // const addRoom=useSelector(state=>state.addRoom)
-  // const { success} = addRoom;
+  const getRooms = useSelector(state=>state.getRooms)
+  const {loading:loadingRooms,error:errorRooms,rooms}= getRooms;
+
+//   const propertyDetails = useSelector(state=>state.propertyDetails)
+//   const {loading:loadingProperty,error:errorProperty,property} = propertyDetails;
+
+
+  useEffect(() => {
+    // dispatch(getRoomsDetails(propertyId))
+    dispatch(detailsRoom(roomId))
+    // console.log('heyyyy',property.rooms[0]._id);
+    // if ( property._id == propertyId  ) {
+    //     dispatch(detailsProperty(propertyId));
+    //   console.log(property.rooms, "prop");
+    // }
+  }, [dispatch]);
 
  
   
   const submitHandler=(e)=>{
     e.preventDefault()
-    dispatch(addRoom(name,description,occupancy,size,price1,price2,price3,price4,propertyId))
-    navigate(`/property/${propertyId}`)
+    // dispatch(addRoom(name,description,occupancy,size,price1,price2,price3,price4,propertyId))
+    // navigate(`/property/${propertyId}`)
   }
   
   return (
@@ -52,11 +68,14 @@ function AddRoom() {
           </Row>
         </Container>
       </div>
+      {loadingRooms? <LoadingBox></LoadingBox>:
+      errorRooms?<MessageBox>{errorRooms}</MessageBox>:(
 
+      
       <div className="addproperty">
         <Container>
           <Row>
-            <h1>Add Room</h1>
+            <h1>Edit Room</h1>
           </Row>
           <form onSubmit={submitHandler}>
           <Row>
@@ -425,8 +444,9 @@ function AddRoom() {
           </form>
         </Container>
       </div>
+      )}
     </div>
   );
 }
 
-export default AddRoom;
+export default EditRoom;

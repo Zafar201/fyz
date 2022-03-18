@@ -90,7 +90,7 @@ const deleteHandler=(property)=>{
                 <Col md={1}>
                 </Col>
               <Col>
-                <h3>{property.name}</h3>
+                <h3 onClick={() => navigate(`/property/${property._id}`)}>{property.name}</h3>
               </Col>
               <Col>
                 <h4>{property.address}</h4>

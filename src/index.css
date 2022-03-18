@@ -990,6 +990,7 @@ select:focus {
   line-height: 39px;
   letter-spacing: -0.02em;
   color: #051d97;
+  cursor: pointer;
 }
 .dashboard h4 {
   font-family: Raleway;

@@ -1,7 +1,7 @@
 // const { createStore } = require("redux");
 import {applyMiddleware, combineReducers, compose, createStore} from 'redux'
 import thunk from 'redux-thunk';
-import { addproperrtyReducer, propertyCreateReducer, propertyDeleteReducer, propertyDetailsReducer, propertyListReducer, propertyUpdateReducer } from './reducers/generalReducer';
+import { addproperrtyReducer, addRoomReducer, getRoomDetailsReducer, propertyCreateReducer, propertyDeleteReducer, propertyDetailsReducer, propertyListReducer, propertyUpdateReducer, roomDetailsReducer } from './reducers/generalReducer';
 
 const initialState ={};
 const reducer=combineReducers({
@@ -10,6 +10,9 @@ const reducer=combineReducers({
  propertyDelete:propertyDeleteReducer,
  propertyDetails:propertyDetailsReducer,
  propertyUpdate:propertyUpdateReducer,
+ roomAdd:addRoomReducer,
+ roomDetails:roomDetailsReducer,
+ getRooms:getRoomDetailsReducer,
 })
 
 

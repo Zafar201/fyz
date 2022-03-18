@@ -38,18 +38,18 @@ function PropertyEdit() {
         setAddress(property.address);
         setMap(property.map);
         setDescription(property.description);
-        console.log(property,'edits');
+        console.log(name,address,map,'edits');
     }   
   },[dispatch,property,propertyId,navigate,successUpdate])
   const submitHandler=(e)=>{
     e.preventDefault()
-    dispatch(updateProperty({
-      _id:propertyId,
+    dispatch(updateProperty(
+      propertyId,
       name,
       address,
       map,
       description
-    }))
+    ))
    console.log(name,address,map,'helooo');
     
   }

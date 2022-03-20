@@ -69,7 +69,7 @@ function PropertyDetails() {
           <Container>
             <Row className="dashboard-1">
               <Col>
-                <h1>Your Properties:{property.name}</h1>
+                <h1> Property:{property.name}</h1>
               </Col>
               <Col>
                 
@@ -104,7 +104,7 @@ function PropertyDetails() {
                       <h3>{room.name}</h3>
                     </Col>
                     <Col>
-                      <h4>{room._id}</h4>
+                      <h4>{room.occupancy}</h4>
                     </Col>
                     <Col>
                  

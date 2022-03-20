@@ -136,20 +136,15 @@ function RoomUi() {
 </div> 
 <div className="about-4" >
         <Container>
-          <Row>
+        <Row>
             <Col md={3}></Col>
-
-            <Col className="about-4-fnt">
-              <img src="../assets/image/wtsp.png" alt="" />
-              +91 94464 65516
-            </Col>
             <Col className="about-4-fnt">
               <img src="../assets/image/phone.png" alt="" />
-              +91 94464 65516
+               0484-7180465
             </Col>
             <Col className="about-4-fnt">
               <img src="../assets/image/email.png" alt="" />
-              tawilifestyleconcierge@gmail.com
+              info@tawifacilities.com
             </Col>
             <Col md={2}></Col>
           </Row>

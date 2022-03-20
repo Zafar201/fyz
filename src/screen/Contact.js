@@ -93,14 +93,14 @@ function Contact() {
               <img src="../assets/image/email.png" alt="" />
             </Row>
             <Row className="contact-right2">
-              <p>tawilifestyleconcierge@gmail.com</p>
+              <p>info@tawifacilities.com</p>
             </Row>
 
             <Row className="contact-right1">
               <img src="../assets/image/phone.png" alt="" />
             </Row>
             <Row className="contact-right2">
-              <p>+91 94464 65516</p>
+              <p> 0484-7180465</p>
             </Row>
 
             <Row className="contact-right3">

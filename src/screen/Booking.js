@@ -1,30 +1,13 @@
-import React, { useEffect } from 'react';
-import { Col, Container, Nav, Navbar, Row } from 'react-bootstrap';
-import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
-import { listProperties } from '../actions/generalAction';
-import axios from 'axios'
+import React from 'react'
+import { Col, Container, Nav, Navbar, Row } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 
-function Home() {
-  const dispatch = useDispatch()
-  const propertyList=useSelector(state=>state.propertyList)
-  const {loading , error , property} = propertyList;
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-    dispatch(listProperties())
-   
-    if(!loading && !!error){
-      console.log(property,'hoyy');
-    }
-    
-
-}, []);
+function Booking() {
   return (
-    <div className="home"> 
-      <div
+    <div>
+       <div
         className="home-container"
-        style={{ backgroundImage: `url("../assets/image/homebg3.jpeg")` }}
+        style={{ backgroundImage: `url("../assets/image/homebg3.jpeg")`,height:"100vh" }}
       >
         <Navbar collapseOnSelect expand="lg" variant="dark">
           <Container className="nav-pad">
@@ -65,99 +48,32 @@ function Home() {
           </Container>
         </Navbar>
 
-        {/* <Container className="home-2">
-          <Row style={{ justifyContent: 'center' }}>
-            <h1>Book your stay.</h1>
-            <Row className="home-box">
-              <Col className="home-box-1">
-                <Row className='home-box-mob'> 
-                  <Col md={3}>
-                    <img src="../assets/image/Vect.png" alt="" />
-                  </Col>
-                  <Col>
-                    <Row>
-                      <h2>Date in</h2>
-                    </Row>
-                    <Row>
-                      <p3>Sat, 29 Jan</p3>
-                    </Row>
-                  </Col>
-                </Row>
-              </Col>
-
-              <Col className="home-box-2">
-                <Row className='home-box-mob'>
-                  <Col md={3}>
-                    <img src="../assets/image/Vect.png" alt="" />
-                  </Col>
-                  <Col>
-                    <Row>
-                      <h2>Date out</h2>
-                    </Row>
-                    <Row>
-                      <p3>Sat, 29 Jan</p3>
-                    </Row>
-                  </Col>
-                </Row>
-              </Col>
-
-              <Col className="home-box-3">
-                <Row>
-                  <Col>
-                    <h4>Check availability</h4>
-                  </Col>
-                  <Col md={3} style={{ paddingLeft: '0px' }} className='home-search'>
-                    <img src="../assets/image/search.png" alt="" />
-                  </Col>
-                </Row>
-              </Col> 
-            </Row>
-          </Row>
-        </Container> */}
+       
 
         <Container>
-          <Row className="home-tawi">
-            <h1>The Tawi Experience</h1>
+          <Row className="booking-1">
+            <h1>Book your stay</h1>
             <p>
-              The Maldives, the island country with azure water, is the favorite
-              destination for Indians, and Tawi Facilities makes it memorable.
-              The company provides exclusive high-quality luxury and
-              ultra-luxury resorts. Tawi Explores offers travelers the
-              convenience to choose and book the best luxury and ultra-luxury
-              resort online for travelers from all tier cities and towns in
-              India to access the best resorts in the Maldives with a few
-              clicks.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+                reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur
             </p>
+
+          </Row>
+          <Row className='booking-2'>
+              <Col md={1}>
+                <img src="../assets/image/calender.png" alt="" />
+              </Col>
+              <Col>
+                <h2>29 January - 30 January</h2>
+              </Col>
+              
+              
           </Row>
         </Container>
       </div>
-
-      <div className="home-2-container">
-        <Container>
-          <Row className="home-2-explore">
-            <h4>Explore with us</h4>
-            <p>
-              A limitless horizon. Teal skies that melt into turquoise waters,
-              and a gentle breeze that cocoons you. Picture the most
-              breath-taking beach you’ve ever stepped foot on, and an impossibly
-              idyllic island that makes for a dream getaway. 
-              Maldives, officially the Republic of Maldives, is a country in the
-              Indian subcontinent of Asia, situated in the Indian Ocean. It lies
-              southwest of Sri Lanka and India, about 750 kilometres from the
-              Asian continent's mainland. Comprising a territory spanning
-              roughly 90,000 square kilometres including the sea, land area of
-              all the islands comprises 298 square kilometres .
-            </p>
-          </Row>
-        </Container>
-
-        <Container className="home-2-rec">
-          <Row>
-            <h1>Experience each moment!</h1>
-          </Row>
-        </Container>
-             
-        <div className='home-card'>     
+      <div className='home-card card-2'>     
         <Container className="home-3">
           <Row>
             <Col style={{ padding: '0px' }} md={3} className="home-3-img">
@@ -183,7 +99,7 @@ function Home() {
                   </p>
                 </Row>
                 <Row>
-                <Link to="/propertyui">   <h6>Explore</h6> </Link>
+                <Link to="/contact">   <h6>Explore</h6> </Link>
                 </Row>
               </Container>
             </Col>
@@ -225,14 +141,13 @@ function Home() {
                 </Row>
 
                 <Row>
-                <Link to="/propertyui">   <h6>Explore</h6> </Link>
+                <Link to="/contact">   <h6>Explore</h6> </Link>
                 </Row>
               </Container>
             </Col>
           </Row>
         </Container>
         </div>
-
 
         <div className='home-card'>  
         <Container className="home-3">
@@ -269,50 +184,16 @@ function Home() {
                   </p>
                 </Row>
 
-                <Link to="/propertyui">   <h6>Explore</h6> </Link>
+                <Link to="/contact">   <h6>Explore</h6> </Link>
                 <Row></Row>
               </Container>
             </Col>
           </Row>
         </Container>
         </div>
-         
-        <Container>
-        <Row style={{placeContent:"center"}} >
-          <img style={{width:"95px",paddingTop:"78px"}} src="../assets/image/whiteline.png" alt="" />
-        </Row>
-        </Container>
 
 
-        {/* <Container className='home-review'>
-        <Row className='' style={{placeContent:"center",paddingTop:"78px"}} >
-          <h1>Reviews</h1>
-        </Row>
-        <Row>
-          <Col>
-           <Row>
-             <h2>Lorem ipsum dolor sit amet, consectetur 
-adipiscing elit, sed do eiusmod tempor 
-incididunt ut labore et dolore magna aliqua.
- Ut enim ad minim veniam, quis nostrud 
-exercitation ullamco laboris </h2>
-           </Row>
-          </Col>
-          <Col>
-          sdfsdfsd
-          </Col>
-          <Col>
-          sdgdsggggggggg
-          </Col>
-          <Col>
-          sgdsgdfsg
-          </Col>
-        </Row>
-        </Container> */}
-        
-      </div>
-
-      <div className="about-4">
+        <div className="about-4" style={{marginTop:"80px"}}>
         <Container>
           <Row>
             <Col md={3}></Col>
@@ -356,8 +237,9 @@ exercitation ullamco laboris </h2>
           </Row>
         </Container>
       </div>
+        
     </div>
-  );
+  )
 }
 
-export default Home;
+export default Booking

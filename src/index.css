@@ -825,7 +825,7 @@ a {
   line-height: 42px;
   color: #585858;
 }
-.admin-nav img{
+.admin-nav img {
   height: 40px;
 }
 .login {
@@ -889,17 +889,17 @@ textarea:focus,
 select:focus {
   outline: none;
 }
-.login-rem{
+.login-rem {
   padding-top: 30px;
 }
-.login-rem p{
+.login-rem p {
   font-family: Raleway;
   font-style: normal;
   font-weight: bold;
   font-size: 17px;
   /* line-height: 81.4%; */
   /* text-align: right; */
-  color: #3812D0;
+  color: #3812d0;
 }
 
 .login button {
@@ -1160,27 +1160,27 @@ select:focus {
   text-align: center;
   color: #000000;
 }
-.login-rem span{
+.login-rem span {
   font-family: Raleway;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 17px;
-    color: #3A3A3A;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 17px;
+  color: #3a3a3a;
 }
-input[type=checkbox] {
+input[type='checkbox'] {
   /* visibility: hidden; */
 }
-.lang{
-background: rgba(196, 196, 196, 0.22);
-border-radius: 41px;
-width: auto;
+.lang {
+  background: rgba(196, 196, 196, 0.22);
+  border-radius: 41px;
+  width: auto;
 }
-.lang img{
+.lang img {
   margin-left: 17px;
-    margin-top: 12px;
-    height: 20px;
+  margin-top: 12px;
+  height: 20px;
 }
-.lang p{
+.lang p {
   font-family: Raleway;
   font-style: normal;
   font-weight: normal;
@@ -1195,29 +1195,29 @@ width: auto;
     margin-left: 67px;
     margin-top: 19px;
 } */
-.admin-logo img{
+.admin-logo img {
   height: 65px;
 }
-.select select{
-  background: #FFFFFF;
-    border: 1px solid #C6C6C6;
-    box-sizing: border-box;
-    border-radius: 10px;
-    width: 83%;
-    height: 50px;
+.select select {
+  background: #ffffff;
+  border: 1px solid #c6c6c6;
+  box-sizing: border-box;
+  border-radius: 10px;
+  width: 83%;
+  height: 50px;
 }
-.addprice input{
+.addprice input {
   border: none !important;
-    width: 85%;
+  width: 85%;
 }
-.addprice .price{
-  background: #FFFFFF;
-border: 1px solid #C6C6C6;
-box-sizing: border-box;
-border-radius: 10px;
-width: 85%;
+.addprice .price {
+  background: #ffffff;
+  border: 1px solid #c6c6c6;
+  box-sizing: border-box;
+  border-radius: 10px;
+  width: 85%;
 }
-.price img{
+.price img {
   margin-left: 13px;
   margin-right: 12px;
   height: 20px;
@@ -1249,4 +1249,401 @@ width: 85%;
 .alert-success {
   color: #20a020;
   background-color: #eeffe0;
+}
+
+.amneties-active {
+  background-color: #2020a0 !important;
+}
+/* Booking */
+.booking-1 h1{
+  font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 70px;
+    line-height: 82px;
+    letter-spacing: -0.025em;
+    color: #F0F0F8;
+    padding-top: 64px;
+}
+.booking-1 p{
+   font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 23px;
+    line-height: 140.4%;
+    color: #F0F0F8;
+    width: 70%;
+}
+.booking-2{
+  padding-top: 30px;
+}
+.booking-2 img{
+  height: 28px;
+}
+.booking-2 h2{
+  font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 21px;
+    line-height: 140.4%;
+    /* text-align: center; */
+    color: #F0F0F8;
+    margin-left: -69px;
+}
+.card-2{
+  margin-top: -160px;
+}
+
+/* Propertyui */
+.propertyui{
+  background: #E5E5E5;
+  padding-bottom: 110px;
+}
+.propertyui-2 img{
+  width: 360px;
+}
+.propertyui-2 h2{
+  font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 44px;
+    line-height: 97.35%;
+    letter-spacing: -0.045em;
+    color: #121B3D;
+}
+.cl2 img{
+  height: 29px;
+  width: 27px;
+}
+.propertyui-2 h3{
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 23px;
+  line-height: 140.4%;
+  /* text-align: center; */
+  color: #121B3D;
+}
+.propertyui-2 p{
+  font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 23px;
+    line-height: 37px;
+    color: #121B3D;
+    padding-top: 53px;
+}
+.prop-card{
+  background: #FFFFFF;
+box-shadow: 11px 14px 40px rgba(0, 0, 0, 0.15);
+border-radius: 25px;
+}
+.prop-card img{
+  height: 280px;
+}
+.prop-card h2{
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 42px;
+  line-height: 97.35%;
+  letter-spacing: -0.045em;
+  color: #121B3D;
+}
+.prop-img img{
+  height: 19px;
+}
+.prop-img{
+  display: flex;
+}
+.prop-pd{
+  padding-left: 20px;
+}
+.prop-img p{
+  padding-left: 12px;
+}
+.prop-card h3{
+  font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 21px;
+    line-height: 97.35%;
+    letter-spacing: -0.02em;
+    color: #121B3D;
+    padding-top: 21px;
+}
+.prop-card h4{
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 43px;
+  line-height: 97.35%;
+  letter-spacing: -0.045em;
+  color: #121B3D;
+}
+.prop-card button{
+  background: #3F52FF;
+    box-shadow: 0px 4px 13px rgb(0 0 0 / 25%);
+    border-radius: 9px;
+    padding: 14px;
+    border: none;
+    width: 154px;
+    float: right;
+    margin-right: 65px;
+    font-size: 20px;
+    line-height: 97.35%;
+    letter-spacing: -0.045em;
+    color: #FFFFFF;
+}
+.prop-ed img{
+  width: 28px;
+}
+.prop-ed{
+  padding-top: 25px;
+}
+.prop-ed p{
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: opx;
+  color: #121B3D;
+  padding-top: 0px;
+  margin-top: -4px;
+}
+.roomui-img img{
+  width: 35px;
+}
+.roomui-img h5{
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 18px;
+  letter-spacing: -0.03em;
+  color: #000000;
+}
+.roomui-img .col{
+  text-align: center !important;
+}
+.roomui-img{
+  padding-top: 30px;
+}
+.roomui-2 h6{
+  font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 38px;
+    line-height: 97.35%;
+    letter-spacing: -0.045em;
+    color: #121B3D;
+}
+.roomui-2 button{
+  width: 177px;
+    height: 51px;
+    background: #3F52FF;
+    box-shadow: 0px 4px 13px rgb(0 0 0 / 25%);
+    border-radius: 9px;
+    border: none;
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 17px;
+    line-height: 97.35%;
+    letter-spacing: -0.045em;
+    color: #FFFFFF;
+}
+.roomui-2{
+  padding-top: 60px;
+}
+.roomui h3{
+  font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 17px;
+    line-height: 160.4%;
+    /* text-align: center; */
+    color: #121B3D;
+    margin-left: -9px;
+}
+.roomui2 img{
+  height: 22px;
+    width: 23px;
+}
+.roomui h2{
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 37px;
+  line-height: 83.35%;
+  letter-spacing: -0.045em;
+  color: #121B3D;
+}
+
+@media screen and (min-device-width: 1203px) {
+  .roomuiimg img{
+    width: 440px;
+  }
+}
+.confirm h1{
+  font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 23px;
+    line-height: 97.35%;
+    letter-spacing: -0.045em;
+    color: #505050;
+    /* padding-top: 51px; */
+    padding-left: 0;
+}
+.confirm input{
+  background: #FFFFFF;
+    border-radius: 9px;
+    border: none;
+    width: 438px;
+    height: 44px;
+    /* padding-bottom: 80px; */
+    margin-bottom: 38px;
+}
+.small-input input{
+  width: 260px;
+}
+.small-input1 input{
+  width: 120px;
+}
+.small-input1{
+  padding-left: 0 !important;
+}
+.confirm select{
+  width: 364px;
+    height: 50px;
+    left: 152px;
+    top: 771px;
+    background: #FFFFFF;
+    border: none;
+    border-radius: 9px;
+}
+.confirm-card{
+  width: 364px;
+    height: auto;
+    left: 152px;
+    top: 771px;
+    background: #FFFFFF;
+    border: none;
+    border-radius: 9px;
+    padding-bottom: 35px;
+
+
+}
+.confirm-card img{
+  /* width: 107px; */
+  height: 150px;
+    padding-top: 14px;
+}
+.confirm-card h6{
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 97.35%;
+  letter-spacing: -0.045em;
+  padding-top: 14px;
+}
+
+.confirm-card h3{
+  font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 140.4%;
+    text-align: center;
+    color: #000000;
+    padding-left: 0;
+    margin-left: 0;
+}
+.confirm-card h4{
+  font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 140.4%;
+    text-align: right;
+    text-decoration-line: line-through;
+    color: #000000;
+    margin-right: 14px;
+}
+.confirm-card p2{
+  font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 25px;
+    line-height: 140.4%;
+    /* text-align: center; */
+    color: #000000;
+
+}
+.confirm-card h7{
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 26px;
+  line-height: 140.4%;
+  text-align: right;
+  color: #000000;
+  margin-right: -50px;
+}
+.pl .col{
+  padding-left: 0 !important;
+}
+.confirm  button{
+  width: 351px;
+    height: 48px;
+    left: 1225px;
+    top: 872px;
+    background: #3F52FF;
+    box-shadow: 0px 4px 13px rgb(0 0 0 / 25%);
+    border-radius: 9px;
+    border: none;
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 21px;
+    line-height: 97.35%;
+    letter-spacing: -0.045em;
+    color: #FFFFFF;
+    margin-top: 30px;
+}
+.propertyui .navbar-dark .navbar-nav .nav-link{
+  color: black !important;
+}
+.bg div{
+  width: 140.88px;
+height: 166.77px;
+left: 268.9px;
+top: 289.22px;
+
+background: #E1E1E1;
+border-radius: 0px;
+transform: matrix(0, 1, -1, 0, 0, 0);
+}
+
+/*     height: 26px; margin-top: 13px;
+    margin-left: 9px;     font-size: 10px; */
+
+.small img{
+  height: 26px;
+}    
+.small p{
+  font-size: 11px;
+  margin-top: 11px;
+  margin-left: 6px;
+}
+.confirm-card p5{
+  font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 10px;
+    line-height: 148.4%;
+    /* text-align: center; */
+    color: #121B3D;
 }

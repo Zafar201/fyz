@@ -6,6 +6,7 @@ import {
   deleteProperty,
   detailsProperty,
   listProperties,
+  deleteRooms,
 } from "../actions/generalAction";
 import LoadingBox from "../components/LoadingBox";
 import MessageBox from "../components/MessageBox";
@@ -25,11 +26,19 @@ function PropertyDetails() {
 
   useEffect(() => {
     dispatch(detailsProperty(propertyId));
+
     if (!loading && !error) {
       console.log(property.rooms, "prop");
     }
   }, [dispatch, detailsProperty]);
 
+  const toComponentB=(roomId)=>{
+    navigate(`/room/${propertyId}/edit`,{state:roomId});
+      }
+
+      const deleteHandler=(room)=>{
+        dispatch(deleteRooms(propertyId,room._id))
+      }
   return (
     <div>
       <div className="admin-nav">
@@ -98,16 +107,17 @@ function PropertyDetails() {
                       <h4>{room._id}</h4>
                     </Col>
                     <Col>
+                 
                       <img src="../assets/image/visible.png" alt="" />
                     </Col>
                     <Col>
                       <img  
-                        onClick={() => navigate(`/room/${room._id}/edit`)}     
+                        onClick={()=>{toComponentB(room._id)}}    
                         style={{ marginRight: "16px" }}
                         src="../assets/image/edit.png"
                         alt=""
                       />
-                      <img src="../assets/image/dlt.png" alt="" />
+                      <img src="../assets/image/dlt.png" onClick={() => deleteHandler(room)}alt="" />
                     </Col>
                   </Row>
                 ))}

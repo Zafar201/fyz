@@ -93,14 +93,14 @@ function Contact() {
               <img src="../assets/image/email.png" alt="" />
             </Row>
             <Row className="contact-right2">
-              <p>tawilifestyleconcierge@gmail.com</p>
+              <p>info@tawifacilities.com</p>
             </Row>
 
             <Row className="contact-right1">
               <img src="../assets/image/phone.png" alt="" />
             </Row>
             <Row className="contact-right2">
-              <p>+91 94464 65516</p>
+              <p> 0484-7180465</p>
             </Row>
 
             <Row className="contact-right3">
@@ -130,20 +130,15 @@ function Contact() {
 
       <div className="about-4" style={{ marginTop: '70px' }}>
         <Container>
-          <Row>
+        <Row>
             <Col md={3}></Col>
-
-            <Col className="about-4-fnt">
-              <img src="../assets/image/wtsp.png" alt="" />
-              +91 94464 65516
-            </Col>
             <Col className="about-4-fnt">
               <img src="../assets/image/phone.png" alt="" />
-              +91 94464 65516
+               0484-7180465
             </Col>
             <Col className="about-4-fnt">
               <img src="../assets/image/email.png" alt="" />
-              tawilifestyleconcierge@gmail.com
+              info@tawifacilities.com
             </Col>
             <Col md={2}></Col>
           </Row>

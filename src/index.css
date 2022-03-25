@@ -1626,10 +1626,6 @@ background: #E1E1E1;
 border-radius: 0px;
 transform: matrix(0, 1, -1, 0, 0, 0);
 }
-
-/*     height: 26px; margin-top: 13px;
-    margin-left: 9px;     font-size: 10px; */
-
 .small img{
   height: 26px;
 }    
@@ -1647,3 +1643,65 @@ transform: matrix(0, 1, -1, 0, 0, 0);
     /* text-align: center; */
     color: #121B3D;
 }
+
+/* Super Admin */
+.superadmin-top{
+  width: 100%;
+  align-items: center;
+}
+.superadmin-top h1{
+font-family: 'Raleway';
+font-style: normal;
+font-weight: 500;
+font-size: 31px;
+letter-spacing: -0.04em;
+color: #000000;
+padding-top: 14px;
+text-align-last: center;
+}
+.superadmin-top img{
+  padding: 20px 0px 24px 29px;
+}
+.superadmin-bg{
+  background: #E5E5E5;
+}
+.superadmin-2 h2{
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 31px;
+  letter-spacing: -0.04em;
+  color: #000000;
+  padding-top: 23px;
+  text-align-last: center;
+  }
+  .superadmin-2{
+    width: 100%;
+  }
+  .superadmin-2 h3{
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 58px;
+    line-height: 58px;
+    text-align: center;
+    letter-spacing: -0.04em;
+    color: #000000;
+    padding-top: 54px;
+  }
+  .superadmin{
+    background: #E5E5E5;
+    height: 100vh;
+  }
+  .superadmin-active h2{
+    background: #F3F3F3;
+    padding-bottom: 16px;
+  }
+  .superadmin-bg2 h1{
+    padding: 59px 0px 61px 29px;
+    background: 
+    #F3F3F3;
+  }
+  .superadmin-2 span{
+    font-size: 37px;
+  }

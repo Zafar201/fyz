@@ -30,8 +30,7 @@ function PropertyEdit() {
     if(!property || property._id !== propertyId || successUpdate){
       dispatch({type:UPDATE_PROPERTIES_RESET})
         dispatch(detailsProperty(propertyId))
-        console.log(property,'edit');
-        
+        console.log(property,'edit');      
     }
     else{
         setName(property.name);
@@ -43,13 +42,13 @@ function PropertyEdit() {
   },[dispatch,property,propertyId,navigate,successUpdate])
   const submitHandler=(e)=>{
     e.preventDefault()
-    dispatch(updateProperty(
-      propertyId,
+    dispatch(updateProperty({
+      _id:propertyId,
       name,
       address,
       map,
       description
-    ))
+    }))
    console.log(name,address,map,'helooo');
     
   }

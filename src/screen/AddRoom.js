@@ -113,6 +113,7 @@ function AddRoom() {
                 onChange={(e) => setDescription(e.target.value)}
                 cols="25"
                 rows="10"
+                required
               ></textarea>
             </Row>
 
@@ -165,6 +166,7 @@ function AddRoom() {
                 <select
                   name="cars"
                   id="cars"
+                  required
                   onChange={(e) => setBedType(e.target.value)}
                 >
                   <option value="not selected">Please Select</option>

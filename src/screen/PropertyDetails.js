@@ -10,7 +10,7 @@ import {
 } from "../actions/generalAction";
 import LoadingBox from "../components/LoadingBox";
 import MessageBox from "../components/MessageBox";
-import { DELETE_PROPERTIES_RESET } from "../constants/generalConstants";
+import { ADD_ROOM_RESET, DELETE_PROPERTIES_RESET } from "../constants/generalConstants";
 
 function PropertyDetails() {
   const params = useParams();
@@ -25,7 +25,9 @@ function PropertyDetails() {
   //   const {success} = propertyDelete
 
   useEffect(() => {
+    // dispatch({type:ADD_ROOM_RESET})
     dispatch(detailsProperty(propertyId));
+   
 
     if (!loading && !error) {
       console.log(property.rooms, "prop");

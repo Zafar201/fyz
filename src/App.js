@@ -19,6 +19,7 @@ import Booking from './screen/Booking';
 import PropertyUi from './screen/PropertyUi';
 import RoomUi from './screen/RoomUi';
 import ConfirmBooking from './screen/ConfirmBooking';
+import SuperAdmin from './superAdmin/SuperAdmin';
 // import PropertyEdit from '/screen/PropertyEdit'
 // import Row,Col,Button from 'react-bootstrap'
 
@@ -32,6 +33,7 @@ function App() {
       <Route path="/about" element={<About/>}>   </Route>  
       <Route path="/contact" element={<Contact/>}>   </Route>  
       <Route path="/admin" element={<AdminLogin/>}>   </Route>
+      <Route path="/superadmin" element={<SuperAdmin/>}>   </Route>
       <Route path="/dashboard" element={<DashBoard/>}>   </Route>
       <Route path="/booking" element={<Booking/>}>   </Route>
       <Route path="/propertyui" element={<PropertyUi/>}>   </Route>

@@ -68,6 +68,9 @@ function PropertyUi() {
                  
                </div> */}
             </Col>
+            <Container>
+
+           
             <Col md={4}>
                <img src="../assets/image/home2.png" alt="" />
             </Col>
@@ -91,6 +94,7 @@ function PropertyUi() {
                   
               </Row>
             </Col>
+            </Container>
          </Row>
       </Container>
 

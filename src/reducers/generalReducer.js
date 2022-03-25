@@ -106,7 +106,7 @@ export const roomDetailsReducer =(state={loading:true},action)=>{
     case ROOM_DETAILS_REQUEST:
       return {loading:true}
     case ROOM_DETAILS_SUCCESS:
-      return {loading:false,room:action.payload}
+      return {loading:false,room:action.payload.room}
     case ROOM_DETAILS_FAIL:
       return {loading:false, error:action.payload}
     default:

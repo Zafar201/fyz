@@ -24,13 +24,17 @@ function EditRoom() {
   const { roooms, setRoooms } = useState(false);
   const { id: propertyId } = params;
   const [name, setName] = useState('');
-  const [occupancy, setOccupency] = useState('');
+  const [occupancy, setOccupancy] = useState('');
   const [description, setDescription] = useState('');
   const [size, setSize] = useState('');
-  const [price1, setPrice1] = useState('');
-  const [price2, setPrice2] = useState('');
-  const [price3, setPrice3] = useState('');
-  const [price4, setPrice4] = useState('');
+
+  const [bedType,setBedType]= useState('')
+  // const [amenities,setAmenities] = useState('')
+  const [amneties, setAmneties] = useState([]);
+  const [first, setFirst] = useState('');
+  const [second, setSecond] = useState('');
+  const [third, setThird] = useState('');
+  const [fourth, setFourth] = useState('');
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const location = useLocation();
@@ -39,43 +43,58 @@ function EditRoom() {
   const roomDetails = useSelector(state=>state.roomDetails)
   const {loading,error,room} = roomDetails;
 
-  const getRooms = useSelector((state) => state.getRooms);
-  const { loading: loadingRooms, error: errorRooms, rooms } = getRooms;
+  const roomUpdate= useSelector(state=>state.roomUpdate)
+  const {loading:loadingUpdate,error:errorUpdate,success:successUpdate}=roomUpdate;
 
-  //   const propertyDetails = useSelector(state=>state.propertyDetails)
-  //   const {loading:loadingProperty,error:errorProperty,property} = propertyDetails;
 
   useEffect(() => {
-    dispatch(getRoomsDetails(propertyId));
-    if (loadingRooms) {
-      console.log('loding');
-    } else if (errorRooms) {
-      console.log('error');
-    } else {
-      for (let i = 0; i < rooms.length; i++) {
-        if (rooms[i]._id == location.state) {
-          console.log(rooms[i], 'okboss');
-        }
-      }
-      const sc = rooms.filter((e) => e._id == location.state);
-      console.log(sc[0], 'sss');
+    if (successUpdate) {
+      navigate('/dashboard');
+      console.log('heyyyyyyyy');   
     }
-
-    dispatch(detailsRoom(propertyId, location.state));
-  }, [dispatch]);
+    if(!room || successUpdate || room._id !== location.state){
+      dispatch(detailsRoom(propertyId, location.state)); 
+    }
+      if(!loading && !error){
+        setName(room.name);
+        setOccupancy(room.address);
+        setDescription(room.description);
+        setSize(room.size)
+        setBedType(room.bedType)
+        setAmneties(room.amenities)
+        setFirst(room.price.first)
+        setSecond(room.price.second)
+        setThird(room.price.third)
+        setFourth(room.price.fourth)
+      }           
+    
+    console.log(room,'room');
+  }, [dispatch,propertyId,location.state,room,successUpdate]);
 
   const submitHandler = (e) => {
     e.preventDefault();
-    dispatch(updateRoom(
-      propertyId,
-      location.state,
+    dispatch(updateRoom({
+      propId:propertyId,
+      roomId:location.state,
       name,
       description,
       occupancy,
-    ))
-    // dispatch(addRoom(name,description,occupancy,size,price1,price2,price3,price4,propertyId))
-    // navigate(`/property/${propertyId}`)
+      size,
+      bedType,
+      amneties,
+      price:{first,second,third,fourth}
+   }))
+   
   };
+
+  const amnetiesFun = (a) => {
+    if (amneties.includes(a)) {
+      setAmneties(amneties.filter(item => item !== a))
+    } else {
+      setAmneties([...amneties, a]);
+    }
+    console.log(amneties);
+  }
 
   return (
     <div>
@@ -98,16 +117,9 @@ function EditRoom() {
         </Container>
       </div>
 
-      {loadingRooms ? (
-        <LoadingBox></LoadingBox>
-      ) : errorRooms ? (
-        <MessageBox>{errorRooms}</MessageBox>
-      ) : (
-        <div className="addproperty">
-          {rooms
-            .filter((e) => e._id == location.state)
-            .map((sRoom) => (
-            
+      {loading? <LoadingBox></LoadingBox>:
+      error? <MessageBox>{error}</MessageBox>:( 
+        <div className="addproperty">         
               <Container>
                 <Row>
                   <h1>Edit Room:{propertyId}</h1>
@@ -116,14 +128,13 @@ function EditRoom() {
                 <form onSubmit={submitHandler}>
                   <Row>
                     <Col>
-                      <h2>Room name</h2>
+                      <h2>Room name </h2>
                       <input
                         type="text"
                         id="name"
-                        // value={sRoom.name}
-                        placeholder="Enter name"
-                        // value={rooms[i].name}
-                        // required
+                        defaultValue={room.name}
+                        placeholder="Enter name"   
+                        required
                         onChange={(e) => setName(e.target.value)}
                       />
                     </Col>
@@ -144,7 +155,7 @@ function EditRoom() {
                     <textarea
                       name="description"
                       id="description"
-                      value={sRoom.description}
+                      defaultValue={room.description}
                       onChange={(e) => setDescription(e.target.value)}
                       cols="25"
                       rows="10"
@@ -176,8 +187,8 @@ function EditRoom() {
                         id="occupency"
                         placeholder="Enter occupency"
                         // required
-                        value={sRoom.occupancy}
-                        onChange={(e) => setOccupency(e.target.value)}
+                        defaultValue={room.occupancy}
+                        onChange={(e) => setOccupancy(e.target.value)}
                       />
                     </Col>
                     <Col>
@@ -186,7 +197,7 @@ function EditRoom() {
                         type="text"
                         id="size"
                         placeholder="Enter size"
-                        value={sRoom.size}
+                        defaultValue={room.size}
                         // required
                         onChange={(e) => setSize(e.target.value)}
                       />
@@ -199,7 +210,8 @@ function EditRoom() {
                   <Row className="select">
                     <Col>
                       <h2>Bed Type</h2>
-                      <select name="cars" id="cars">
+                      <select name="cars" id="cars"
+                      onChange={(e) => setBedType(e.target.value)}>
                         <option value="volvo">Volvo</option>
                         <option value="saab">Saab</option>
                         <option value="mercedes">Mercedes</option>
@@ -211,224 +223,224 @@ function EditRoom() {
                   </Row>
 
                   <div className="addroom-5">
-                    <Row>
-                      <h5>Amneties</h5>
-                    </Row>
-                    <Row>
-                      <Col>
-                        <Row>
-                          <img src="/assets/image/icon.png" alt="" />
-                        </Row>
-                        <Row>
-                          <h6>Bathtub</h6>
-                        </Row>
-                      </Col>
-                      <Col>
-                        <Row>
-                          <img src="/assets/image/icon2.png" alt="" />
-                        </Row>
-                        <Row>
-                          <h6>Bathtub</h6>
-                        </Row>
-                      </Col>
-                      <Col>
-                        <Row>
-                          <img src="/assets/image/icon.png" alt="" />
-                        </Row>
-                        <Row>
-                          <h6>Bathtub</h6>
-                        </Row>
-                      </Col>
-                      <Col>
-                        <Row>
-                          <img src="/assets/image/icon.png" alt="" />
-                        </Row>
-                        <Row>
-                          <h6>Bathtub</h6>
-                        </Row>
-                      </Col>
-                      <Col>
-                        <Row>
-                          <img src="/assets/image/icon.png" alt="" />
-                        </Row>
-                        <Row>
-                          <h6>Bathtub</h6>
-                        </Row>
-                      </Col>
-                      <Col>
-                        <Row>
-                          <img src="/assets/image/icon.png" alt="" />
-                        </Row>
-                        <Row>
-                          <h6>Bathtub</h6>
-                        </Row>
-                      </Col>
-                      <Col style={{ background: 'none' }}></Col>
-                      <Col style={{ background: 'none' }}></Col>
-                    </Row>
-                  </div>
-                  <div className="addroom-5">
-                    <Row>
-                      <Col>
-                        <Row>
-                          <img src="/assets/image/icon.png" alt="" />
-                        </Row>
-                        <Row>
-                          <h6>Bathtub</h6>
-                        </Row>
-                      </Col>
-                      <Col>
-                        <Row>
-                          <img src="/assets/image/icon2.png" alt="" />
-                        </Row>
-                        <Row>
-                          <h6>Bathtub</h6>
-                        </Row>
-                      </Col>
-                      <Col>
-                        <Row>
-                          <img src="/assets/image/icon.png" alt="" />
-                        </Row>
-                        <Row>
-                          <h6>Bathtub</h6>
-                        </Row>
-                      </Col>
-                      <Col>
-                        <Row>
-                          <img src="/assets/image/icon.png" alt="" />
-                        </Row>
-                        <Row>
-                          <h6>Bathtub</h6>
-                        </Row>
-                      </Col>
-                      <Col>
-                        <Row>
-                          <img src="/assets/image/icon.png" alt="" />
-                        </Row>
-                        <Row>
-                          <h6>Bathtub</h6>
-                        </Row>
-                      </Col>
-                      <Col>
-                        <Row>
-                          <img src="/assets/image/icon.png" alt="" />
-                        </Row>
-                        <Row>
-                          <h6>Bathtub</h6>
-                        </Row>
-                      </Col>
-                      <Col style={{ background: 'none' }}></Col>
-                      <Col style={{ background: 'none' }}></Col>
-                    </Row>
-                  </div>
-                  <div className="addroom-5">
-                    <Row>
-                      <Col>
-                        <Row>
-                          <img src="/assets/image/icon.png" alt="" />
-                        </Row>
-                        <Row>
-                          <h6>Bathtub</h6>
-                        </Row>
-                      </Col>
-                      <Col>
-                        <Row>
-                          <img src="/assets/image/icon2.png" alt="" />
-                        </Row>
-                        <Row>
-                          <h6>Bathtub</h6>
-                        </Row>
-                      </Col>
-                      <Col>
-                        <Row>
-                          <img src="/assets/image/icon.png" alt="" />
-                        </Row>
-                        <Row>
-                          <h6>Bathtub</h6>
-                        </Row>
-                      </Col>
-                      <Col>
-                        <Row>
-                          <img src="/assets/image/icon.png" alt="" />
-                        </Row>
-                        <Row>
-                          <h6>Bathtub</h6>
-                        </Row>
-                      </Col>
-                      <Col>
-                        <Row>
-                          <img src="/assets/image/icon.png" alt="" />
-                        </Row>
-                        <Row>
-                          <h6>Bathtub</h6>
-                        </Row>
-                      </Col>
-                      <Col>
-                        <Row>
-                          <img src="/assets/image/icon.png" alt="" />
-                        </Row>
-                        <Row>
-                          <h6>Bathtub</h6>
-                        </Row>
-                      </Col>
-                      <Col style={{ background: 'none' }}></Col>
-                      <Col style={{ background: 'none' }}></Col>
-                    </Row>
-                  </div>
-                  <div className="addroom-5">
-                    <Row>
-                      <Col>
-                        <Row>
-                          <img src="/assets/image/icon.png" alt="" />
-                        </Row>
-                        <Row>
-                          <h6>Bathtub</h6>
-                        </Row>
-                      </Col>
-                      <Col>
-                        <Row>
-                          <img src="/assets/image/icon2.png" alt="" />
-                        </Row>
-                        <Row>
-                          <h6>Bathtub</h6>
-                        </Row>
-                      </Col>
-                      <Col>
-                        <Row>
-                          <img src="/assets/image/icon.png" alt="" />
-                        </Row>
-                        <Row>
-                          <h6>Bathtub</h6>
-                        </Row>
-                      </Col>
-                      <Col>
-                        <Row>
-                          <img src="/assets/image/icon.png" alt="" />
-                        </Row>
-                        <Row>
-                          <h6>Bathtub</h6>
-                        </Row>
-                      </Col>
-                      <Col>
-                        <Row>
-                          <img src="/assets/image/icon.png" alt="" />
-                        </Row>
-                        <Row>
-                          <h6>Bathtub</h6>
-                        </Row>
-                      </Col>
-                      <Col>
-                        <Row>
-                          <img src="./assets/image/icon.png" alt="" />
-                        </Row>
-                        <Row>
-                          <h6>Bathtub</h6>
-                        </Row>
-                      </Col>
-                      <Col style={{ background: 'none' }}></Col>
-                      <Col style={{ background: 'none' }}></Col>
-                    </Row>
-                  </div>
+              <Row>
+                <h5>Amneties</h5>
+              </Row>
+              <Row>
+                <Col onClick={() => amnetiesFun('Bathtub')} className={amneties.includes("Bathtub") ? "amneties-active" : null}>
+                  <Row>
+                    <img src="/assets/image/icon.png" alt="" />
+                  </Row>
+                  <Row>
+                    <h6>Bathtub</h6>
+                  </Row>
+                </Col>
+                <Col onClick={() => amnetiesFun('Bathtub1')} className={amneties.includes("Bathtub1") ? "amneties-active" : null}>
+                  <Row>
+                    <img src="/assets/image/icon2.png" alt="" />
+                  </Row>
+                  <Row>
+                    <h6>Bathtub1</h6>
+                  </Row>
+                </Col>
+                <Col onClick={() => amnetiesFun('Bathtub2')} className={amneties.includes("Bathtub2") ? "amneties-active" : null}>
+                  <Row>
+                    <img src="/assets/image/icon.png" alt="" />
+                  </Row>
+                  <Row>
+                    <h6>Bathtub2</h6>
+                  </Row>
+                </Col>
+                <Col onClick={() => amnetiesFun('Bathtub3')} className={amneties.includes("Bathtub3") ? "amneties-active" : null}>
+                  <Row>
+                    <img src="/assets/image/icon.png" alt="" />
+                  </Row>
+                  <Row>
+                    <h6>Bathtub3</h6>
+                  </Row>
+                </Col>
+                <Col onClick={() => amnetiesFun('Bathtub4')} className={amneties.includes("Bathtub4") ? "amneties-active" : null}>
+                  <Row>
+                    <img src="/assets/image/icon.png" alt="" />
+                  </Row>
+                  <Row>
+                    <h6>Bathtub4</h6>
+                  </Row>
+                </Col>
+                <Col onClick={() => amnetiesFun('Bathtub5')} className={amneties.includes("Bathtub5") ? "amneties-active" : null}>
+                  <Row>
+                    <img src="/assets/image/icon.png" alt="" />
+                  </Row>
+                  <Row>
+                    <h6>Bathtub5</h6>
+                  </Row>
+                </Col>
+                <Col style={{ background: 'none' }}></Col>
+                <Col style={{ background: 'none' }}></Col>
+              </Row>
+            </div>
+            <div className="addroom-5">
+              <Row>
+                <Col onClick={() => amnetiesFun('Bathtub6')} className={amneties.includes("Bathtub6") ? "amneties-active" : null}>
+                  <Row>
+                    <img src="/assets/image/icon.png" alt="" />
+                  </Row>
+                  <Row>
+                    <h6>Bathtub</h6>
+                  </Row>
+                </Col>
+                <Col onClick={() => amnetiesFun('Bathtub7')} className={amneties.includes("Bathtub7") ? "amneties-active" : null}>
+                  <Row>
+                    <img src="/assets/image/icon2.png" alt="" />
+                  </Row>
+                  <Row>
+                    <h6>Bathtub</h6>
+                  </Row>
+                </Col>
+                <Col onClick={() => amnetiesFun('Bathtub8')} className={amneties.includes("Bathtub8") ? "amneties-active" : null}>
+                  <Row>
+                    <img src="/assets/image/icon.png" alt="" />
+                  </Row>
+                  <Row>
+                    <h6>Bathtub</h6>
+                  </Row>
+                </Col>
+                <Col onClick={() => amnetiesFun('Bathtub9')} className={amneties.includes("Bathtub9") ? "amneties-active" : null}>
+                  <Row>
+                    <img src="/assets/image/icon.png" alt="" />
+                  </Row>
+                  <Row>
+                    <h6>Bathtub</h6>
+                  </Row>
+                </Col>
+                <Col onClick={() => amnetiesFun('Bathtub10')} className={amneties.includes("Bathtub10") ? "amneties-active" : null}>
+                  <Row>
+                    <img src="/assets/image/icon.png" alt="" />
+                  </Row>
+                  <Row>
+                    <h6>Bathtub</h6>
+                  </Row>
+                </Col>
+                <Col onClick={() => amnetiesFun('Bathtub11')} className={amneties.includes("Bathtub11") ? "amneties-active" : null}>
+                  <Row>
+                    <img src="/assets/image/icon.png" alt="" />
+                  </Row>
+                  <Row>
+                    <h6>Bathtub</h6>
+                  </Row>
+                </Col>
+                <Col style={{ background: 'none' }}></Col>
+                <Col style={{ background: 'none' }}></Col>
+              </Row>
+            </div>
+            <div className="addroom-5">
+              <Row>
+                <Col onClick={() => amnetiesFun('Bathtub12')} className={amneties.includes("Bathtub12") ? "amneties-active" : null}>
+                  <Row>
+                    <img src="/assets/image/icon.png" alt="" />
+                  </Row>
+                  <Row>
+                    <h6>Bathtub</h6>
+                  </Row>
+                </Col>
+                <Col onClick={() => amnetiesFun('Bathtub13')} className={amneties.includes("Bathtub13") ? "amneties-active" : null}>
+                  <Row>
+                    <img src="/assets/image/icon2.png" alt="" />
+                  </Row>
+                  <Row>
+                    <h6>Bathtub</h6>
+                  </Row>
+                </Col>
+                <Col onClick={() => amnetiesFun('Bathtub14')} className={amneties.includes("Bathtub14") ? "amneties-active" : null}>
+                  <Row>
+                    <img src="/assets/image/icon.png" alt="" />
+                  </Row>
+                  <Row>
+                    <h6>Bathtub</h6>
+                  </Row>
+                </Col>
+                <Col onClick={() => amnetiesFun('Bathtub15')} className={amneties.includes("Bathtub15") ? "amneties-active" : null}>
+                  <Row>
+                    <img src="/assets/image/icon.png" alt="" />
+                  </Row>
+                  <Row>
+                    <h6>Bathtub</h6>
+                  </Row>
+                </Col>
+                <Col onClick={() => amnetiesFun('Bathtub16')} className={amneties.includes("Bathtub16") ? "amneties-active" : null}>
+                  <Row>
+                    <img src="/assets/image/icon.png" alt="" />
+                  </Row>
+                  <Row>
+                    <h6>Bathtub</h6>
+                  </Row>
+                </Col>
+                <Col onClick={() => amnetiesFun('Bathtub17')} className={amneties.includes("Bathtub17") ? "amneties-active" : null}>
+                  <Row>
+                    <img src="/assets/image/icon.png" alt="" />
+                  </Row>
+                  <Row> 
+                    <h6>Bathtub</h6>
+                  </Row>
+                </Col>
+                <Col style={{ background: 'none' }}></Col>
+                <Col style={{ background: 'none' }}></Col>
+              </Row>
+            </div>
+            <div className="addroom-5">
+              <Row>
+                <Col onClick={() => amnetiesFun('Bathtub18')} className={amneties.includes("Bathtub18") ? "amneties-active" : null}>
+                  <Row>
+                    <img src="/assets/image/icon.png" alt="" />
+                  </Row>
+                  <Row>
+                    <h6>Bathtub</h6>
+                  </Row>
+                </Col>
+                <Col onClick={() => amnetiesFun('Bathtub19')} className={amneties.includes("Bathtub19") ? "amneties-active" : null}>
+                  <Row>
+                    <img src="/assets/image/icon2.png" alt="" />
+                  </Row>
+                  <Row>
+                    <h6>Bathtub</h6>
+                  </Row>
+                </Col>
+                <Col onClick={() => amnetiesFun('Bathtub20')} className={amneties.includes("Bathtub20") ? "amneties-active" : null}>
+                  <Row>
+                    <img src="/assets/image/icon.png" alt="" />
+                  </Row>
+                  <Row>
+                    <h6>Bathtub</h6>
+                  </Row>
+                </Col>
+                <Col onClick={() => amnetiesFun('Bathtub21')} className={amneties.includes("Bathtub21") ? "amneties-active" : null}>
+                  <Row>
+                    <img src="/assets/image/icon.png" alt="" />
+                  </Row>
+                  <Row>
+                    <h6>Bathtub</h6>
+                  </Row>
+                </Col>
+                <Col onClick={() => amnetiesFun('Bathtub22')} className={amneties.includes("Bathtub22") ? "amneties-active" : null}>
+                  <Row>
+                    <img src="/assets/image/icon.png" alt="" />
+                  </Row>
+                  <Row>
+                    <h6>Bathtub</h6>
+                  </Row>
+                </Col>
+                <Col onClick={() => amnetiesFun('Bathtub23')} className={amneties.includes("Bathtub23") ? "amneties-active" : null}>
+                  <Row>
+                    <img src="/assets/image/icon.png" alt="" />
+                  </Row>
+                  <Row>
+                    <h6>Bathtub</h6>
+                  </Row>
+                </Col>
+                <Col style={{ background: 'none' }}></Col>
+                <Col style={{ background: 'none' }}></Col>
+              </Row>
+            </div>
 
                   <Row style={{ paddingTop: '30px' }}>
                     <h1>Add Price</h1>
@@ -437,26 +449,27 @@ function EditRoom() {
                     <Col>
                       <h2>Reserve Experience</h2>
                       <div className="price">
-                        <img src="../assets/image/dollar.png" alt="" />
+                        <img src="/assets/image/dollar.png" alt="" />
                         <input
                           type="text"
                           id="price1"
                           placeholder="Enter the amount"
                           // required
-                          onChange={(e) => setPrice1(e.target.value)}
+                          defaultValue={room.price.first}
+                          onChange={(e) => setFirst(e.target.value)}
                         />
                       </div>
                     </Col>
                     <Col>
                       <h2>Reserve Plan Flex</h2>
                       <div className="price">
-                        <img src="../assets/image/dollar.png" alt="" />
+                        <img src="/assets/image/dollar.png" alt="" />
                         <input
                           type="text"
                           id="price2"
                           placeholder="Enter the amount"
-                          // required
-                          onChange={(e) => setPrice2(e.target.value)}
+                          defaultValue={room.price.second}
+                          onChange={(e) => setSecond(e.target.value)}
                         />
                       </div>
                     </Col>
@@ -467,12 +480,13 @@ function EditRoom() {
                     <Col>
                       <h2>Spa & Wellness</h2>
                       <div className="price">
-                        <img src="../assets/image/dollar.png" alt="" />
+                        <img src="/assets/image/dollar.png" alt="" />
                         <input
                           type="text"
                           id="price3"
                           // required
-                          onChange={(e) => setPrice3(e.target.value)}
+                          defaultValue={room.price.third}
+                          onChange={(e) => setThird(e.target.value)}
                           placeholder="Enter the amount"
                         />
                       </div>
@@ -480,12 +494,13 @@ function EditRoom() {
                     <Col>
                       <h2>Stay More Pay Less</h2>
                       <div className="price">
-                        <img src="../assets/image/dollar.png" alt="" />
+                        <img src="/assets/image/dollar.png" alt="" />
                         <input
                           type="text"
                           id="price4"
                           // required
-                          onChange={(e) => setPrice4(e.target.value)}
+                          defaultValue={room.price.fourth}
+                          onChange={(e) => setFourth(e.target.value)}
                           placeholder="Enter the amount"
                         />
                       </div>
@@ -497,12 +512,9 @@ function EditRoom() {
                     <button type="submit">Submit</button>
                   </Row>
                 </form>
-              </Container>
-             ))} 
+              </Container>      
         </div>
-     
-      )}
-  
+     )}
   </div>
   );
 }

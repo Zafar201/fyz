@@ -64,11 +64,11 @@ export const detailsProperty = (propertyId) => async (dispatch) => {
   }
 };  
 
-export const updateProperty=(propId,name,address,map,description)=>async(dispatch)=>{
-  dispatch({type:UPDATE_PROPERTIES_REQUEST,payload:propId,name,address,map,description});
-  console.log(propId,name,address,map,'1');
+export const updateProperty=(property)=>async(dispatch)=>{
+  dispatch({type:UPDATE_PROPERTIES_REQUEST,property});
+  console.log(property,'id');
   try{
-    const {data} = await axios.put(`https://tawi-backend.herokuapp.com/api/users/update-property/${propId}`,name,address,map,description)
+    const {data} = await axios.put(`https://tawi-backend.herokuapp.com/api/users/update-property/${property._id}`,property)
     dispatch({type:UPDATE_PROPERTIES_SUCCESS,payload:data});
     console.log('2');
     console.log(data,'dts');
@@ -82,11 +82,11 @@ export const updateProperty=(propId,name,address,map,description)=>async(dispatc
   }
 }
 
-export const addRoom = (name,description,occupancy,size,bedType,amenities,price1,price2,price3,price4,propId) =>async(dispatch)=>{
-    dispatch({type:ADD_ROOM_REQUEST,payload:name,description,occupancy,size,bedType,amenities,price1,price2,price3,price4,propId});
-    console.log(amenities,'am1');
+export const addRoom = (name,description,occupancy,size,bedType,amenities,first,second,third,fourth,propId) =>async(dispatch)=>{
+    dispatch({type:ADD_ROOM_REQUEST,payload:name,description,occupancy,size,bedType,amenities,price:{first,second,third,fourth},propId});
+    console.log('am1');
     try{
-        const {data} = await axios.post('https://tawi-backend.herokuapp.com/api/users/add-room',{name,description,occupancy,size,bedType,amenities,price1,price2,price3,price4,propId})
+        const {data} = await axios.post('https://tawi-backend.herokuapp.com/api/users/add-room',{name,description,occupancy,size,bedType,amenities,price:{first,second,third,fourth},propId})
          dispatch({type:ADD_ROOM_SUCCESS,payload:data})
          console.log(amenities,'am2');
     }catch(error){
@@ -114,12 +114,12 @@ export const getRoomsDetails = (propertyId) => async (dispatch) => {
 };  
 
 export const detailsRoom = (propId,roomId) => async(dispatch)=>{
-  dispatch({type:ROOM_DETAILS_REQUEST,payload:roomId});
+  dispatch({type:ROOM_DETAILS_REQUEST,propId,roomId});
   console.log(roomId,'prop,roomo');
   try{
-     const {data} = await axios.get(`https://tawi-backend.herokuapp.com/api/users/get-a-room/${propId}`,{"roomId":roomId})
+     const {data} = await axios.get(`https://tawi-backend.herokuapp.com/api/users/get-a-room/id?propId=${propId}&roomId=${roomId}`,)
      dispatch({type:ROOM_DETAILS_SUCCESS,payload:data})
-     console.log(data,'dts');
+    //  console.log(data,'dts');
   }catch(error){
       const message =
       error.response && error.response.data.message
@@ -133,9 +133,9 @@ export const detailsRoom = (propId,roomId) => async(dispatch)=>{
   export const deleteRooms = (propId,roomId) => async (dispatch) => {
     dispatch({ type: DELETE_ROOM_REQUEST ,propId,roomId});
     try {
-    const {data}=  await axios.delete(`https://tawi-backend.herokuapp.com/api/users/delete-room/id?propId=${propId}&roomId=${roomId}`,propId,roomId)
+    const {data}=  await axios.delete(`https://tawi-backend.herokuapp.com/api/users/delete-room/id?propId=${propId}&roomId=${roomId}`)
        
-      dispatch({ type: DELETE_ROOM_SUCCESS ,payload:data});
+      dispatch({ type: DELETE_ROOM_SUCCESS ,payload:data.room});
     } catch (error) {
       const message =
         error.response && error.response.data.message
@@ -146,11 +146,11 @@ export const detailsRoom = (propId,roomId) => async(dispatch)=>{
   };
 
 
-  export const updateRoom=(propId,roomId,name,description,occupancy)=>async(dispatch)=>{
-    dispatch({type:UPDATE_ROOM_REQUEST,propId,roomId,name,description,occupancy});
+  export const updateRoom=(room)=>async(dispatch)=>{
+    dispatch({type:UPDATE_ROOM_REQUEST,room});
     console.log('1');
     try{
-      const {data} = await axios.put('https://tawi-backend.herokuapp.com/api/users/update-room/',propId,roomId,name,description,occupancy)
+      const {data} = await axios.put('https://tawi-backend.herokuapp.com/api/users/update-room/',room)
       dispatch({type:UPDATE_ROOM_SUCCESS,payload:data});
       console.log('2');
       console.log(data,'dts');

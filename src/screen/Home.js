@@ -1,18 +1,23 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Col, Container, Nav, Navbar, Row } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { listProperties } from '../actions/generalAction';
 import axios from 'axios'
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 function Home() {
   const dispatch = useDispatch()
   const propertyList=useSelector(state=>state.propertyList)
   const {loading , error , property} = propertyList;
+  const [selectedDate, setSelectedDate] = useState(null);
+  const [selectedDate2, setSelectedDate2] = useState(null);
 
   useEffect(() => {
     window.scrollTo(0, 0);
     dispatch(listProperties())
+    console.log(selectedDate,'dte');
    
     if(!loading && !!error){
       console.log(property,'hoyy');
@@ -20,6 +25,15 @@ function Home() {
     
 
 }, []);
+// const isWeekday = (date) => {
+//   // const day = getDate(date);
+//   return date.slice(0,9);
+// };
+const date= ()=>{
+  
+  console.log(selectedDate,'dte');
+  console.log(selectedDate2);
+}
   return (
     <div className="home"> 
       <div
@@ -65,7 +79,7 @@ function Home() {
           </Container>
         </Navbar>
 
-        {/* <Container className="home-2">
+        <Container className="home-2">
           <Row style={{ justifyContent: 'center' }}>
             <h1>Book your stay.</h1>
             <Row className="home-box">
@@ -76,10 +90,11 @@ function Home() {
                   </Col>
                   <Col>
                     <Row>
-                      <h2>Date in</h2>
+                    <h2>Date in</h2>
+                      
                     </Row>
                     <Row>
-                      <p3>Sat, 29 Jan</p3>
+                       <DatePicker selected={selectedDate} dateFormat="yyyy/MM/dd"  onChange={date=> setSelectedDate(date)} minDate={new Date()}/>
                     </Row>
                   </Col>
                 </Row>
@@ -95,7 +110,7 @@ function Home() {
                       <h2>Date out</h2>
                     </Row>
                     <Row>
-                      <p3>Sat, 29 Jan</p3>
+                    <DatePicker selected={selectedDate2}  onChange={date=> setSelectedDate2(date)} minDate={new Date()}/>
                     </Row>
                   </Col>
                 </Row>
@@ -104,7 +119,7 @@ function Home() {
               <Col className="home-box-3">
                 <Row>
                   <Col>
-                    <h4>Check availability</h4>
+                    <h4 onClick={date}>Check availability</h4>
                   </Col>
                   <Col md={3} style={{ paddingLeft: '0px' }} className='home-search'>
                     <img src="../assets/image/search.png" alt="" />
@@ -113,7 +128,7 @@ function Home() {
               </Col> 
             </Row>
           </Row>
-        </Container> */}
+        </Container>
 
         <Container>
           <Row className="home-tawi">

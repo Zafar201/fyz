@@ -13,6 +13,7 @@ function PropertyEdit() {
   const params = useParams();
   const { id: propertyId} = params;
   const [address, setAddress] = useState('');
+  const [location, setLocation] = useState('');
   const [map, setMap] = useState('');
   const [description, setDescription] = useState('');
   const dispatch = useDispatch()
@@ -35,6 +36,7 @@ function PropertyEdit() {
     else{
         setName(property.name);
         setAddress(property.address);
+        setLocation(property.location);
         setMap(property.map);
         setDescription(property.description);
         console.log(name,address,map,'edits');
@@ -46,6 +48,7 @@ function PropertyEdit() {
       _id:propertyId,
       name,
       address,
+      location,
       map,
       description
     }))
@@ -102,6 +105,21 @@ function PropertyEdit() {
                 onChange={(e) => setAddress(e.target.value)}
                 value={address}
                 />
+              </Col>
+              <Col>
+              <h2>location</h2>
+                <select
+                  name="location"
+                  id="location"
+                  required
+                  onChange={(e) => setLocation(e.target.value)}
+                 
+                >
+                  <option value={location}>{location}</option>
+                  <option value="kerala">kerala</option>
+                  <option value="maldives">maldives</option>
+                  <option value="jammu">jammu</option>
+                </select>
               </Col>
               <Col>
               <h2>Map</h2>

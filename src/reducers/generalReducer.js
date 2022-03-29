@@ -1,4 +1,4 @@
-import { ADD_PROPERTIES_FAIL, ADD_PROPERTIES_REQUEST, ADD_PROPERTIES_RESET, ADD_PROPERTIES_SUCCESS, DELETE_PROPERTIES_FAIL, DELETE_PROPERTIES_REQUEST, DELETE_PROPERTIES_RESET, DELETE_PROPERTIES_SUCCESS, DELETE_ROOM_FAIL, DELETE_ROOM_REQUEST, DELETE_ROOM_RESET, DELETE_ROOM_SUCCESS, GET_ROOMS_DETAILS_FAIL, GET_ROOMS_DETAILS_REQUEST, GET_ROOMS_DETAILS_SUCCESS, PROPERTIES_DETAILS_FAIL, PROPERTIES_DETAILS_REQUEST, PROPERTIES_DETAILS_SUCCESS, PROPERTIES_LIST_FAIL, PROPERTIES_LIST_REQUEST, PROPERTIES_LIST_SUCCESS, ROOM_DETAILS_FAIL, ROOM_DETAILS_REQUEST, ROOM_DETAILS_SUCCESS, UPDATE_PROPERTIES_FAIL, UPDATE_PROPERTIES_REQUEST, UPDATE_PROPERTIES_RESET, UPDATE_PROPERTIES_SUCCESS, UPDATE_ROOM_FAIL, UPDATE_ROOM_REQUEST, UPDATE_ROOM_RESET, UPDATE_ROOM_SUCCESS } from "../constants/generalConstants";
+import { ADD_PROPERTIES_FAIL, ADD_PROPERTIES_REQUEST, ADD_PROPERTIES_RESET, ADD_PROPERTIES_SUCCESS, ADD_ROOM_FAIL, ADD_ROOM_REQUEST, ADD_ROOM_RESET, ADD_ROOM_SUCCESS, CHECK_PROPERTIES_FAIL, CHECK_PROPERTIES_REQUEST, CHECK_PROPERTIES_RESET, CHECK_PROPERTIES_SUCCESS, DELETE_PROPERTIES_FAIL, DELETE_PROPERTIES_REQUEST, DELETE_PROPERTIES_RESET, DELETE_PROPERTIES_SUCCESS, DELETE_ROOM_FAIL, DELETE_ROOM_REQUEST, DELETE_ROOM_RESET, DELETE_ROOM_SUCCESS, GET_ROOMS_DETAILS_FAIL, GET_ROOMS_DETAILS_REQUEST, GET_ROOMS_DETAILS_SUCCESS, PROPERTIES_DETAILS_FAIL, PROPERTIES_DETAILS_REQUEST, PROPERTIES_DETAILS_SUCCESS, PROPERTIES_LIST_FAIL, PROPERTIES_LIST_REQUEST, PROPERTIES_LIST_SUCCESS, ROOM_DETAILS_FAIL, ROOM_DETAILS_REQUEST, ROOM_DETAILS_SUCCESS, UPDATE_PROPERTIES_FAIL, UPDATE_PROPERTIES_REQUEST, UPDATE_PROPERTIES_RESET, UPDATE_PROPERTIES_SUCCESS, UPDATE_ROOM_FAIL, UPDATE_ROOM_REQUEST, UPDATE_ROOM_RESET, UPDATE_ROOM_SUCCESS } from "../constants/generalConstants";
 
 export const propertyListReducer = (state = { loading:true,properties:[] }, action) => {
     switch (action.type) {
@@ -22,9 +22,11 @@ export const propertyListReducer = (state = { loading:true,properties:[] }, acti
         case ADD_PROPERTIES_REQUEST:
             return { loading: true }
         case ADD_PROPERTIES_SUCCESS:
-            return { loading: false, newproperty: action.payload }
+            return { loading: false, newproperty: action.payload ,success:true}
         case ADD_PROPERTIES_FAIL:
             return { loading: false, error: action.payload }
+        case ADD_PROPERTIES_RESET:
+          return {};    
         default:
             return state;
     }
@@ -77,12 +79,14 @@ export const propertyUpdateReducer= (state= {}, action)=>{
 
 export const addRoomReducer = (state = { loading: true }, action) => {
   switch (action.type) {
-      case ADD_PROPERTIES_REQUEST:
+      case ADD_ROOM_REQUEST:
           return { loading: true }
-      case ADD_PROPERTIES_SUCCESS:
-          return { loading: false, newroom: action.payload ,}
-      case ADD_PROPERTIES_FAIL:
+      case ADD_ROOM_SUCCESS:
+          return { loading: false, newroom: action.payload ,success:true}
+      case ADD_ROOM_FAIL:
           return { loading: false, error: action.payload }
+      case ADD_ROOM_RESET:
+        return {};
       default:
           return state;
   }
@@ -143,5 +147,20 @@ export const roomUpdateReducer= (state= {}, action)=>{
       return {};
     default:
       return state;        
+  }
+}
+
+export const checkPropertyReducer = (state = { loading: true }, action) => {
+  switch (action.type) {
+      case CHECK_PROPERTIES_REQUEST:
+          return { loading: true }
+      case CHECK_PROPERTIES_SUCCESS:
+          return { loading: false, prop: action.payload.properties }
+      case CHECK_PROPERTIES_FAIL:
+          return { loading: false, error: action.payload }
+      case ADD_PROPERTIES_RESET:
+        return {};    
+      default:
+          return state;
   }
 }

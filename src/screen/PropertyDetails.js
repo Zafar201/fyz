@@ -10,7 +10,7 @@ import {
 } from "../actions/generalAction";
 import LoadingBox from "../components/LoadingBox";
 import MessageBox from "../components/MessageBox";
-import { ADD_ROOM_RESET, DELETE_PROPERTIES_RESET } from "../constants/generalConstants";
+import { ADD_ROOM_RESET, DELETE_PROPERTIES_RESET, DELETE_ROOM_RESET } from "../constants/generalConstants";
 
 function PropertyDetails() {
   const params = useParams();
@@ -21,25 +21,35 @@ function PropertyDetails() {
   const propertyDetails = useSelector((state) => state.propertyDetails);
   const { loading, error, property } = propertyDetails;
 
-  //   const propertyDelete=useSelector(state=>state.propertyDelete)
-  //   const {success} = propertyDelete
+  const roomAdd=useSelector(state=>state.roomAdd)
+  const { success} = roomAdd;
 
-  useEffect(() => {
-    // dispatch({type:ADD_ROOM_RESET})
+
+    const roomDelete=useSelector(state=>state.roomDelete)
+    const {success:succesDelete} = roomDelete
+
+  useEffect(() => { 
+    if(success){
+      dispatch({type:ADD_ROOM_RESET})
+    }
+    if(succesDelete){
+      dispatch({type:DELETE_ROOM_RESET})
+    }
     dispatch(detailsProperty(propertyId));
-   
-
     if (!loading && !error) {
       console.log(property.rooms, "prop");
     }
-  }, [dispatch, detailsProperty]);
+  }, [dispatch, detailsProperty,success,succesDelete]);
 
   const toComponentB=(roomId)=>{
     navigate(`/room/${propertyId}/edit`,{state:roomId});
       }
 
       const deleteHandler=(room)=>{
-        dispatch(deleteRooms(propertyId,room._id))
+        if (window.confirm('Are you sure to delete?')){
+          dispatch(deleteRooms(propertyId,room._id))
+        }
+        
       }
   return (
     <div>

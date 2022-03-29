@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { Col, Container, Nav, Navbar, Row } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
-import { listProperties } from '../actions/generalAction';
+import { Link, useNavigate } from 'react-router-dom';
+import { checkProperty, listProperties } from '../actions/generalAction';
 import axios from 'axios'
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import {format} from 'date-fns'
 
 function Home() {
   const dispatch = useDispatch()
@@ -13,6 +14,10 @@ function Home() {
   const {loading , error , property} = propertyList;
   const [selectedDate, setSelectedDate] = useState(null);
   const [selectedDate2, setSelectedDate2] = useState(null);
+  const [location, setLocation] = useState('');
+  const [adult, setAdult] = useState('');
+  const [child, setChild] = useState('');
+  const navigate = useNavigate()
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -22,17 +27,24 @@ function Home() {
     if(!loading && !!error){
       console.log(property,'hoyy');
     }
-    
+      
+   
 
 }, []);
-// const isWeekday = (date) => {
-//   // const day = getDate(date);
-//   return date.slice(0,9);
-// };
+
+
 const date= ()=>{
   
-  console.log(selectedDate,'dte');
-  console.log(selectedDate2);
+  const startingDate = format(selectedDate, "MM-dd-yyyy")
+  const endingDate = format(selectedDate2, "MM-dd-yyyy")
+
+  // console.log(startingDate);
+  // console.log(endingDate);
+  // console.log(location);
+  // console.log(adult,child);
+  // dispatch(checkProperty(location,adult,child,startingDate,endingDate))
+  navigate(`/search/location/${location}/adult/${adult}/child/${child}/startingDate/${startingDate}/endingDate/${endingDate}`);
+  // navigate(`/${location}/${adult}/${child}/${startingDate}/${endingDate}`)
 }
   return (
     <div className="home"> 
@@ -86,7 +98,7 @@ const date= ()=>{
               <Col className="home-box-1">
                 <Row className='home-box-mob'> 
                   <Col md={3}>
-                    <img src="../assets/image/Vect.png" alt="" />
+                    {/* <img src="../assets/image/Vect.png" alt="" /> */}
                   </Col>
                   <Col>
                     <Row>
@@ -94,7 +106,14 @@ const date= ()=>{
                       
                     </Row>
                     <Row>
-                       <DatePicker selected={selectedDate} dateFormat="yyyy/MM/dd"  onChange={date=> setSelectedDate(date)} minDate={new Date()}/>
+                       <DatePicker 
+                       selected={selectedDate} 
+                     
+                       dateFormat="MM/dd/yyyy"  
+                       onChange={date=> setSelectedDate(date)}
+                
+                   
+                       minDate={new Date()}/>
                     </Row>
                   </Col>
                 </Row>
@@ -103,15 +122,71 @@ const date= ()=>{
               <Col className="home-box-2">
                 <Row className='home-box-mob'>
                   <Col md={3}>
-                    <img src="../assets/image/Vect.png" alt="" />
+                    {/* <img src="../assets/image/Vect.png" alt="" /> */}
                   </Col>
                   <Col>
                     <Row>
                       <h2>Date out</h2>
                     </Row>
                     <Row>
-                    <DatePicker selected={selectedDate2}  onChange={date=> setSelectedDate2(date)} minDate={new Date()}/>
+                    <DatePicker 
+                    dateFormat="MM/dd/yyyy"  
+                    selected={selectedDate2}  
+                    onChange={date=> setSelectedDate2(date)} 
+                
+                    minDate={new Date()}/>
                     </Row>
+                  </Col>
+                </Row>
+              </Col>
+
+              <Col className="home-box-2">
+                <Row className='home-box-mob'>
+                  <Col md={3}>
+                    {/* <img src="../assets/image/Vect.png" alt="" /> */}
+                  </Col>
+                  <Col>
+                    <Row>
+                      <h2>no.od guest</h2>
+                      adult  <input 
+                      type="number" 
+                      id="adult"
+                      placeholder="Enter numbers"
+                      required
+                      onChange={(e) => setAdult(e.target.value)}/>
+                      child  <input 
+                      type="number"
+                      id="child"
+                      placeholder="Enter numbers"
+                      required
+                      onChange={(e) => setChild(e.target.value)} />
+                    </Row>
+                  
+                  </Col>
+                </Row>
+              </Col>
+
+              <Col className="home-box-2">
+                <Row className='home-box-mob'>
+                  <Col md={3}>
+                    {/* <img src="../assets/image/Vect.png" alt="" /> */}
+                  </Col>
+                  <Col>
+                    <Row>
+                      <h2>location</h2>
+                      <select
+                        name="location"
+                        id="location"
+                        required
+                        onChange={(e) => setLocation(e.target.value)}
+                >
+                  <option value="not selected">Please Select</option>
+                  <option value="kerala">kerala</option>
+                  <option value="maldives">maldives</option>
+                  <option value="jammu">jammu</option>
+                </select>
+                    </Row>
+                  
                   </Col>
                 </Row>
               </Col>
@@ -122,12 +197,15 @@ const date= ()=>{
                     <h4 onClick={date}>Check availability</h4>
                   </Col>
                   <Col md={3} style={{ paddingLeft: '0px' }} className='home-search'>
-                    <img src="../assets/image/search.png" alt="" />
+                    {/* <img src="../assets/image/search.png" alt="" /> */}
                   </Col>
                 </Row>
               </Col> 
             </Row>
           </Row>
+
+
+          
         </Container>
 
         <Container>

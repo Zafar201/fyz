@@ -1,14 +1,17 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, Navigate, useNavigate, useParams } from 'react-router-dom';
 import { addRoom } from '../actions/generalAction';
+import { ADD_ROOM_RESET } from '../constants/generalConstants';
 
 function AddRoom() {
   const params = useParams();
   const { id: propertyId } = params;
   const [name, setName] = useState('');
   const [occupancy, setOccupency] = useState('');
+  const [adult, setAdult] = useState('');
+  const [child, setChild] = useState('');
   const [description, setDescription] = useState('');
   const [size, setSize] = useState('');
   const [bedType, setBedType] = useState('');
@@ -23,8 +26,14 @@ function AddRoom() {
   // const addRoom = useSelector(state=>state.addRoom)
   // const {loading, error, success, newRoom} = addRoom
 
-  // const addRoom=useSelector(state=>state.addRoom)
-  // const { success} = addRoom;
+  const roomAdd=useSelector(state=>state.roomAdd)
+  const { success} = roomAdd;
+
+  useEffect(()=>{
+     if(success){
+       dispatch({type:ADD_ROOM_RESET})
+     }
+  },[])
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -32,7 +41,8 @@ function AddRoom() {
       addRoom(
         name,
         description,
-        occupancy,
+        adult,
+        child,
         size,
         bedType,
         amneties,
@@ -136,31 +146,42 @@ function AddRoom() {
 
             <Row className="addroom-4">
               <Col>
-                <h2>Occupancy</h2>
+                <h2>Adualt</h2>
                 <input
-                  type="text"
-                  id="occupency"
-                  placeholder="Enter occupency"
+                  type="number"
+                  id="adult"
+                  placeholder="Enter numbers"
                   required
-                  onChange={(e) => setOccupency(e.target.value)}
+                  onChange={(e) => setAdult(e.target.value)}
                 />
               </Col>
               <Col>
-                <h2>Room Size (sq. ft)</h2>
+                <h2>Child</h2>
                 <input
-                  type="text"
-                  id="size"
-                  placeholder="Enter size"
+                  type="number"
+                  id="child"
+                  placeholder="Enter numbers"
                   required
-                  onChange={(e) => setSize(e.target.value)}
+                  onChange={(e) => setChild(e.target.value)}
                 />
               </Col>
+             
               <Col>
                 {/* <h2>Name of property</h2>
                      <input type="text" /> */}
               </Col>
             </Row>
             <Row className="select">
+            <Col>
+                <h2>Room Size (sq. ft)</h2>
+                <input
+                  type="number"
+                  id="size"
+                  placeholder="Enter size"
+                  required
+                  onChange={(e) => setSize(e.target.value)}
+                />
+              </Col>
               <Col>
                 <h2>Bed Type</h2>
                 <select
@@ -409,7 +430,7 @@ function AddRoom() {
                 <div className="price">
                   <img src="../assets/image/dollar.png" alt="" />
                   <input
-                    type="text"
+                    type="number"
                     id="price1"
                     placeholder="Enter the amount"
                     required
@@ -422,7 +443,7 @@ function AddRoom() {
                 <div className="price">
                   <img src="../assets/image/dollar.png" alt="" />
                   <input
-                    type="text"
+                    type="number"
                     id="price2"
                     placeholder="Enter the amount"
                     required
@@ -439,7 +460,7 @@ function AddRoom() {
                 <div className="price">
                   <img src="../assets/image/dollar.png" alt="" />
                   <input
-                    type="text"
+                    type="number"
                     id="price3"
                     required
                     onChange={(e) => setPrice3(e.target.value)}
@@ -452,7 +473,7 @@ function AddRoom() {
                 <div className="price">
                   <img src="../assets/image/dollar.png" alt="" />
                   <input
-                    type="text"
+                    type="number"
                     id="price4"
                     required
                     onChange={(e) => setPrice4(e.target.value)}

@@ -30,7 +30,7 @@ function EditRoom() {
   const [description, setDescription] = useState('');
   const [size, setSize] = useState('');
   const [bedType, setBedType] = useState('');
-  const [amenities, setAmenities] = useState([]);
+  const [amneties, setAmneties] = useState([]);
   const [first, setFirst] = useState('');
   const [second, setSecond] = useState('');
   const [third, setThird] = useState('');
@@ -66,7 +66,7 @@ function EditRoom() {
       setDescription(room.description);
       setSize(room.size);
       setBedType(room.bedType);
-      setAmenities(room.amenities);
+      setAmneties(room.amenities);
       setFirst(room.price.first);
       setSecond(room.price.second);
       setThird(room.price.third);
@@ -88,19 +88,19 @@ function EditRoom() {
         child,
         size,
         bedType,
-        amenities,
+        amneties,
         price: { first, second, third, fourth },
       })
     );
   };
 
   const amnetiesFun = (a) => {
-    if (amenities.includes(a)) {
-      setAmenities(amenities.filter((item) => item !== a));
+    if (amneties.includes(a)) {
+      setAmneties(amneties.filter((item) => item !== a));
     } else {
-      setAmenities([...amenities, a]);
+      setAmneties([...amneties, a]);
     }
-    console.log(amenities);
+    console.log(amneties);
   };
 
   return (
@@ -255,7 +255,7 @@ function EditRoom() {
                   <Col
                     onClick={() => amnetiesFun('Bathtub')}
                     className={
-                      amenities.includes('Bathtub') ? 'amneties-active' : null
+                      amneties.includes('Bathtub') ? 'amneties-active' : null
                     }
                   >
                     <Row>
@@ -268,7 +268,7 @@ function EditRoom() {
                   <Col
                     onClick={() => amnetiesFun('Bathtub1')}
                     className={
-                      amenities.includes('Bathtub1') ? 'amneties-active' : null
+                      amneties.includes('Bathtub1') ? 'amneties-active' : null
                     }
                   >
                     <Row>
@@ -281,7 +281,7 @@ function EditRoom() {
                   <Col
                     onClick={() => amnetiesFun('Bathtub2')}
                     className={
-                      amenities.includes('Bathtub2') ? 'amneties-active' : null
+                      amneties.includes('Bathtub2') ? 'amneties-active' : null
                     }
                   >
                     <Row>
@@ -294,7 +294,7 @@ function EditRoom() {
                   <Col
                     onClick={() => amnetiesFun('Bathtub3')}
                     className={
-                      amenities.includes('Bathtub3') ? 'amneties-active' : null
+                      amneties.includes('Bathtub3') ? 'amneties-active' : null
                     }
                   >
                     <Row>
@@ -307,7 +307,7 @@ function EditRoom() {
                   <Col
                     onClick={() => amnetiesFun('Bathtub4')}
                     className={
-                      amenities.includes('Bathtub4') ? 'amneties-active' : null
+                      amneties.includes('Bathtub4') ? 'amneties-active' : null
                     }
                   >
                     <Row>
@@ -320,7 +320,7 @@ function EditRoom() {
                   <Col
                     onClick={() => amnetiesFun('Bathtub5')}
                     className={
-                      amenities.includes('Bathtub5') ? 'amneties-active' : null
+                      amneties.includes('Bathtub5') ? 'amneties-active' : null
                     }
                   >
                     <Row>
@@ -339,7 +339,7 @@ function EditRoom() {
                   <Col
                     onClick={() => amnetiesFun('Bathtub6')}
                     className={
-                      amenities.includes('Bathtub6') ? 'amneties-active' : null
+                      amneties.includes('Bathtub6') ? 'amneties-active' : null
                     }
                   >
                     <Row>
@@ -352,7 +352,7 @@ function EditRoom() {
                   <Col
                     onClick={() => amnetiesFun('Bathtub7')}
                     className={
-                      amenities.includes('Bathtub7') ? 'amneties-active' : null
+                      amneties.includes('Bathtub7') ? 'amneties-active' : null
                     }
                   >
                     <Row>
@@ -365,7 +365,7 @@ function EditRoom() {
                   <Col
                     onClick={() => amnetiesFun('Bathtub8')}
                     className={
-                      amenities.includes('Bathtub8') ? 'amneties-active' : null
+                      amneties.includes('Bathtub8') ? 'amneties-active' : null
                     }
                   >
                     <Row>
@@ -378,7 +378,7 @@ function EditRoom() {
                   <Col
                     onClick={() => amnetiesFun('Bathtub9')}
                     className={
-                      amenities.includes('Bathtub9') ? 'amneties-active' : null
+                      amneties.includes('Bathtub9') ? 'amneties-active' : null
                     }
                   >
                     <Row>
@@ -391,7 +391,7 @@ function EditRoom() {
                   <Col
                     onClick={() => amnetiesFun('Bathtub10')}
                     className={
-                      amenities.includes('Bathtub10') ? 'amneties-active' : null
+                      amneties.includes('Bathtub10') ? 'amneties-active' : null
                     }
                   >
                     <Row>
@@ -404,7 +404,7 @@ function EditRoom() {
                   <Col
                     onClick={() => amnetiesFun('Bathtub11')}
                     className={
-                      amenities.includes('Bathtub11') ? 'amneties-active' : null
+                      amneties.includes('Bathtub11') ? 'amneties-active' : null
                     }
                   >
                     <Row>
@@ -423,7 +423,7 @@ function EditRoom() {
                   <Col
                     onClick={() => amnetiesFun('Bathtub12')}
                     className={
-                      amenities.includes('Bathtub12') ? 'amneties-active' : null
+                      amneties.includes('Bathtub12') ? 'amneties-active' : null
                     }
                   >
                     <Row>
@@ -436,7 +436,7 @@ function EditRoom() {
                   <Col
                     onClick={() => amnetiesFun('Bathtub13')}
                     className={
-                      amenities.includes('Bathtub13') ? 'amneties-active' : null
+                      amneties.includes('Bathtub13') ? 'amneties-active' : null
                     }
                   >
                     <Row>
@@ -449,7 +449,7 @@ function EditRoom() {
                   <Col
                     onClick={() => amnetiesFun('Bathtub14')}
                     className={
-                      amenities.includes('Bathtub14') ? 'amneties-active' : null
+                      amneties.includes('Bathtub14') ? 'amneties-active' : null
                     }
                   >
                     <Row>
@@ -462,7 +462,7 @@ function EditRoom() {
                   <Col
                     onClick={() => amnetiesFun('Bathtub15')}
                     className={
-                      amenities.includes('Bathtub15') ? 'amneties-active' : null
+                      amneties.includes('Bathtub15') ? 'amneties-active' : null
                     }
                   >
                     <Row>
@@ -475,7 +475,7 @@ function EditRoom() {
                   <Col
                     onClick={() => amnetiesFun('Bathtub16')}
                     className={
-                      amenities.includes('Bathtub16') ? 'amneties-active' : null
+                      amneties.includes('Bathtub16') ? 'amneties-active' : null
                     }
                   >
                     <Row>
@@ -488,7 +488,7 @@ function EditRoom() {
                   <Col
                     onClick={() => amnetiesFun('Bathtub17')}
                     className={
-                      amenities.includes('Bathtub17') ? 'amneties-active' : null
+                      amneties.includes('Bathtub17') ? 'amneties-active' : null
                     }
                   >
                     <Row>
@@ -507,7 +507,7 @@ function EditRoom() {
                   <Col
                     onClick={() => amnetiesFun('Bathtub18')}
                     className={
-                      amenities.includes('Bathtub18') ? 'amneties-active' : null
+                      amneties.includes('Bathtub18') ? 'amneties-active' : null
                     }
                   >
                     <Row>
@@ -520,7 +520,7 @@ function EditRoom() {
                   <Col
                     onClick={() => amnetiesFun('Bathtub19')}
                     className={
-                      amenities.includes('Bathtub19') ? 'amneties-active' : null
+                      amneties.includes('Bathtub19') ? 'amneties-active' : null
                     }
                   >
                     <Row>
@@ -533,7 +533,7 @@ function EditRoom() {
                   <Col
                     onClick={() => amnetiesFun('Bathtub20')}
                     className={
-                      amenities.includes('Bathtub20') ? 'amneties-active' : null
+                      amneties.includes('Bathtub20') ? 'amneties-active' : null
                     }
                   >
                     <Row>
@@ -546,7 +546,7 @@ function EditRoom() {
                   <Col
                     onClick={() => amnetiesFun('Bathtub21')}
                     className={
-                      amenities.includes('Bathtub21') ? 'amneties-active' : null
+                      amneties.includes('Bathtub21') ? 'amneties-active' : null
                     }
                   >
                     <Row>
@@ -559,7 +559,7 @@ function EditRoom() {
                   <Col
                     onClick={() => amnetiesFun('Bathtub22')}
                     className={
-                      amenities.includes('Bathtub22') ? 'amneties-active' : null
+                      amneties.includes('Bathtub22') ? 'amneties-active' : null
                     }
                   >
                     <Row>
@@ -572,7 +572,7 @@ function EditRoom() {
                   <Col
                     onClick={() => amnetiesFun('Bathtub23')}
                     className={
-                      amenities.includes('Bathtub23') ? 'amneties-active' : null
+                      amneties.includes('Bathtub23') ? 'amneties-active' : null
                     }
                   >
                     <Row>

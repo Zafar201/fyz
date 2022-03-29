@@ -1053,6 +1053,14 @@ select:focus {
   width: 85%;
   height: 46px;
 }
+.addproperty select{
+  background: #ffffff;
+    border: 1px solid #c6c6c6;
+    box-sizing: border-box;
+    border-radius: 10px;
+    width: 85%;
+    height: 46px;
+}
 .addproperty textarea {
   background: #ffffff;
   border: 1px solid #c6c6c6;

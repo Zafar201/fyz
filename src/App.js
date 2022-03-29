@@ -20,6 +20,7 @@ import PropertyUi from './screen/PropertyUi';
 import RoomUi from './screen/RoomUi';
 import ConfirmBooking from './screen/ConfirmBooking';
 import SuperAdmin from './superAdmin/SuperAdmin';
+import SearchScreen from './screen/SearchScreen';
 // import PropertyEdit from '/screen/PropertyEdit'
 // import Row,Col,Button from 'react-bootstrap'
 
@@ -42,6 +43,11 @@ function App() {
       <Route path="/addroom/:id" element={<AddRoom/>}>   </Route>
       <Route path="/room/:id/edit" exact element={<EditRoom/>}>   </Route>
       <Route path="/property/:id/edit"  element={<PropertyEdit/>}
+              exact
+            ></Route>
+            <Route
+              path="/search/location/:location/adult/:adult/child/:child/startingDate/:startingDate/endingDate/:endingDate"
+              element={<SearchScreen />}
               exact
             ></Route>
      <Route path="/property/:id/"  element={<PropertyDetails/>}

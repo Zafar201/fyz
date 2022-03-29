@@ -5,7 +5,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { deleteProperty, listProperties } from '../actions/generalAction';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
-import { DELETE_PROPERTIES_RESET } from '../constants/generalConstants';
+import { ADD_PROPERTIES_RESET, DELETE_PROPERTIES_RESET } from '../constants/generalConstants';
 
 
 function DashBoard() {
@@ -18,15 +18,21 @@ function DashBoard() {
   const propertyDelete=useSelector(state=>state.propertyDelete)
   const {success} = propertyDelete
 
+  const propertyCreate = useSelector((state) => state.propertyCreate);
+  const {  success:propertySuccess } = propertyCreate;
+
   useEffect(() => {
     if(success){
       dispatch({type:DELETE_PROPERTIES_RESET})
+    }
+    if(propertySuccess){
+      dispatch({type:ADD_PROPERTIES_RESET})
     }
     window.scrollTo(0, 0);
     dispatch(listProperties())
     // console.log(properties,"clll"); 
 
-}, [dispatch,success,listProperties]);
+}, [dispatch,success,listProperties,propertySuccess]);
 const deleteHandler=(property)=>{
   if (window.confirm('Are you sure to delete?')) {
      dispatch(deleteProperty(property._id))
@@ -93,7 +99,7 @@ const deleteHandler=(property)=>{
                 <h3 onClick={() => navigate(`/property/${property._id}`)}>{property.name}</h3>
               </Col>
               <Col>
-                <h4>{property.address}</h4>
+                <h4>{property.location}</h4>
               </Col>
               <Col>
                 <img src="../assets/image/visible.png" alt="" />

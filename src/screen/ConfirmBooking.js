@@ -17,6 +17,9 @@ function ConfirmBooking() {
   const checkPropertys= useSelector(state=>state.checkPropertys)
   const {loading, error, prop}= checkPropertys
   const { adult,child,location,startingDate,endingDate,propId,roomId} = params;
+
+  const bookingConfirm= useSelector((state=>state.bookingConfirm))
+  const {success}=bookingConfirm
   const navigate = useNavigate()
   const [price, setPrice] = useState('');
   const [prices, setPrices] = useState('');
@@ -29,8 +32,11 @@ function ConfirmBooking() {
       setProps(filt)
 
     }
+    if(success){
+      alert("thank you for booking")
+    }
     window.scrollTo(0, 0);
-  }, []);
+  }, [success]);
 
   const submitHandler=(e)=>{
     e.preventDefault()

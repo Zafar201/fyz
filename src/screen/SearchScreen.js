@@ -3,7 +3,8 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { checkProperty } from '../actions/generalAction';
-
+import LoadingBox from '../components/LoadingBox';
+import MessageBox from '../components/MessageBox';
 
 function SearchScreen() {
     const params = useParams();
@@ -13,18 +14,14 @@ function SearchScreen() {
      const { adult,child,location,startingDate,endingDate } = params;
      console.log(adult,child,location);
      useEffect(()=>{
-        dispatch(checkProperty(location,adult,child,startingDate,endingDate))
-            if(!loading && !error){
-              console.log(prop[0],'pop');
-            }
-            
-
+        dispatch(checkProperty(location,adult,child,startingDate,endingDate))                       
       
      },[])
     
   return (
     <div>
-        SearchScreen
+     
+
         
         </div>
   )

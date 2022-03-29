@@ -1299,7 +1299,8 @@ input[type='checkbox'] {
     margin-left: -69px;
 }
 .card-2{
-  margin-top: -160px;
+     margin-top: -260px;
+    padding-bottom: 290px;
 }
 
 /* Propertyui */
@@ -1490,7 +1491,7 @@ border-radius: 25px;
 
 @media screen and (min-device-width: 1203px) {
   .roomuiimg img{
-    width: 440px;
+    width: 360px;
   }
 }
 .confirm h1{
@@ -1712,4 +1713,64 @@ text-align-last: center;
   }
   .superadmin-2 span{
     font-size: 37px;
+  }
+  .prop-img img{
+    height: 25px;
+  }
+  .prop-img h1{
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 24px;
+    line-height: 97.35%;
+    letter-spacing: -0.045em;
+    color: #121B3D;
+    opacity: 0.8;
+    margin-left: -50px;
+    padding-top: 0px !important;
+  }
+  .prop-btm{
+    padding-top: 12px;
+  }
+  .prop-btm h6{
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 47px;
+    line-height: 97.35%;
+    letter-spacing: -0.045em;
+    color: #121B3D;
+    text-decoration: none;
+  }
+  .prop-btm button{
+    background: #3F52FF;
+    box-shadow: 0px 4px 13px rgb(0 0 0 / 25%);
+    border-radius: 9px;
+    padding: 17px;
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 97.35%;
+    letter-spacing: -0.045em;
+    border: none;
+    color: #FFFFFF;
+    float: right;
+  }
+  .price-radio h1{
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 118.85%;
+    letter-spacing: -0.045em;
+    color: #121B3D;
+  }
+  .price-radio p2{
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 23px;
+    line-height: 118.85%;
+    text-align: right;
+    letter-spacing: -0.045em;
+    color: #121B3D;
   }

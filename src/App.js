@@ -36,10 +36,10 @@ function App() {
       <Route path="/admin" element={<AdminLogin/>}>   </Route>
       <Route path="/superadmin" element={<SuperAdmin/>}>   </Route>
       <Route path="/dashboard" element={<DashBoard/>}>   </Route>
-      <Route path="/booking" element={<Booking/>}>   </Route>
-      <Route path="/propertyui" element={<PropertyUi/>}>   </Route>
-      <Route path="/roomui" element={<RoomUi/>}>   </Route>
-      <Route path="/confirm" element={<ConfirmBooking/>}>   </Route>
+      {/* <Route path="/booking" element={<Booking/>}>   </Route> */}
+      {/* <Route path="/propertyui" element={<PropertyUi/>}>   </Route> */}
+      {/* <Route path="/roomui" element={<RoomUi/>}>   </Route> */}
+      {/* <Route path="/confirm" element={<ConfirmBooking/>}>   </Route> */}
       <Route path="/addroom/:id" element={<AddRoom/>}>   </Route>
       <Route path="/room/:id/edit" exact element={<EditRoom/>}>   </Route>
       <Route path="/property/:id/edit"  element={<PropertyEdit/>}
@@ -47,7 +47,22 @@ function App() {
             ></Route>
             <Route
               path="/search/location/:location/adult/:adult/child/:child/startingDate/:startingDate/endingDate/:endingDate"
-              element={<SearchScreen />}
+              element={<Booking />}
+              exact
+            ></Route>
+             <Route
+              path="/search/location/:location/adult/:adult/child/:child/startingDate/:startingDate/endingDate/:endingDate/propId/:propId"
+              element={<PropertyUi />}
+              exact
+            ></Route>
+            <Route
+              path="/search/location/:location/adult/:adult/child/:child/startingDate/:startingDate/endingDate/:endingDate/propId/:propId/roomId/:roomId"
+              element={<RoomUi />}
+              exact
+            ></Route>
+              <Route
+              path="/confirm/location/:location/adult/:adult/child/:child/startingDate/:startingDate/endingDate/:endingDate/propId/:propId/roomId/:roomId"
+              element={<ConfirmBooking />}
               exact
             ></Route>
      <Route path="/property/:id/"  element={<PropertyDetails/>}

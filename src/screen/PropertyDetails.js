@@ -110,7 +110,7 @@ function PropertyDetails() {
 
               {property.rooms &&
                 property.rooms.map((room) => (
-                  <Row className="dashboard-3">
+                  <Row key={room._id} className="dashboard-3">
                     <Col md={1}></Col>
                     <Col>
                       <h3>{room.name}</h3>

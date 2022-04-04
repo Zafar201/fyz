@@ -1,4 +1,5 @@
-import React, { useEffect } from 'react'
+import { format } from 'date-fns';
+import React, { useEffect, useState } from 'react'
 import { Col, Container, Nav, Navbar, Row } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate, useParams } from 'react-router-dom'
@@ -10,8 +11,10 @@ function Booking() {
     const params = useParams();
     const dispatch = useDispatch()
     const checkPropertys= useSelector(state=>state.checkPropertys)
+    // const [selectedDate, setSelectedDate] = useState(null);
     const {loading, error, prop}= checkPropertys
     const { adult,child,location,startingDate,endingDate } = params;
+    // const newDate = format(startingDate,'2')
     const navigate = useNavigate()
 
 
@@ -19,6 +22,11 @@ function Booking() {
       dispatch(checkProperty(location,adult,child,startingDate,endingDate))                       
     
    },[])
+
+  //  useEffect(()=>{
+  //   const startingDates = format(startingDate, "MM-dd")
+  //   console.log(startingDates,'st');
+  //  },[])
   return (
     <div>
      
@@ -85,7 +93,7 @@ function Booking() {
                 <img src="/assets/image/calender.png" alt="" />
               </Col>
               <Col>
-                <h2>29 January - 30 January</h2>
+                <h2>{startingDate} - {endingDate}</h2>
               </Col>
               
               

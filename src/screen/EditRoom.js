@@ -52,7 +52,7 @@ function EditRoom() {
 
   useEffect(() => {
     if (successUpdate) {
-      navigate('/dashboard');
+      navigate(`/property/${propertyId}`);
       console.log('heyyyyyyyy');
     }
     if (!room || successUpdate || room._id !== location.state) {

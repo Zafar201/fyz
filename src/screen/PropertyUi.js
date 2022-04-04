@@ -95,7 +95,7 @@ function PropertyUi() {
             </Col>
             <Col md={5}>
               <Row>
-                <h2>{props.name}</h2>
+                <h2>{prop.find((e)=>e._id== propId).name}</h2>
               </Row>
               <Row style={{paddingTop:"20px"}}>
                   <Col md={1} className='cl2'>
@@ -131,11 +131,33 @@ function PropertyUi() {
                 <Col>
                    <h2>{sRoom.name}</h2>
                 </Col>
-                <Col>
-                
+                <Col md={3}> 
+                  <Row className='prop-img'>
+                    <Col md={2}>
+                    <img src="/assets/image/ppl.png" alt="" />
+                    </Col>
+                    <Col>
+                    <p>2 people</p>
+                    </Col>
+                  
+                   
+                  </Row>
+                  <Row className='prop-img'>
+                    <Col md={2}>
+                    <img src="/assets/image/ppl.png" alt="" />
+                    </Col>
+                    <Col>
+                    <p>2 people</p>
+                    </Col>
+                   
+                  </Row>
                 </Col>
+           
+              
+        
+         
              </Row>
-             <div className='prop-img'>
+             {/* <div className='prop-img'>
                <div>
                   <img src="/assets/image/ppl.png" alt="" />
                </div>
@@ -148,7 +170,7 @@ function PropertyUi() {
                <div>
                <p>2 people</p>
                </div>
-             </div>
+             </div> */}
               <Row>
                  <h3>Forest View, Biking Activities, Private Pool</h3>
               </Row>

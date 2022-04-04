@@ -12,11 +12,11 @@ function Home() {
   const dispatch = useDispatch()
   const propertyList=useSelector(state=>state.propertyList)
   const {loading , error , property} = propertyList;
-  const [selectedDate, setSelectedDate] = useState(null);
-  const [selectedDate2, setSelectedDate2] = useState(null);
-  const [location, setLocation] = useState('');
-  const [adult, setAdult] = useState('');
-  const [child, setChild] = useState('');
+  const [selectedDate, setSelectedDate] = useState(new Date());
+  const [selectedDate2, setSelectedDate2] = useState(new Date());
+  const [location, setLocation] = useState("Kerala");
+  const [adult, setAdult] = useState();
+  const [child, setChild] = useState();
   const navigate = useNavigate()
 
   useEffect(() => {
@@ -37,14 +37,7 @@ const date= ()=>{
   
   const startingDate = format(selectedDate, "MM-dd-yyyy")
   const endingDate = format(selectedDate2, "MM-dd-yyyy")
-
-  // console.log(startingDate);
-  // console.log(endingDate);
-  // console.log(location);
-  // console.log(adult,child);
-  // dispatch(checkProperty(location,adult,child,startingDate,endingDate))
   navigate(`/search/location/${location}/adult/${adult}/child/${child}/startingDate/${startingDate}/endingDate/${endingDate}`);
-  // navigate(`/${location}/${adult}/${child}/${startingDate}/${endingDate}`)
 }
   return (
     <div className="home"> 
@@ -90,7 +83,8 @@ const date= ()=>{
             </Navbar.Collapse>
           </Container>
         </Navbar>
-
+      
+       <form >
         <Container className="home-2">
           <Row style={{ justifyContent: 'center' }}>
             <h1>Book your stay.</h1>
@@ -108,7 +102,7 @@ const date= ()=>{
                     <Row>
                        <DatePicker 
                        selected={selectedDate} 
-                     
+                       required
                        dateFormat="MM/dd/yyyy"  
                        onChange={date=> setSelectedDate(date)}
                 
@@ -130,7 +124,8 @@ const date= ()=>{
                     </Row>
                     <Row>
                     <DatePicker 
-                    dateFormat="MM/dd/yyyy"  
+                    dateFormat="MM/dd/yyyy" 
+                    required 
                     selected={selectedDate2}  
                     onChange={date=> setSelectedDate2(date)} 
                 
@@ -207,6 +202,7 @@ const date= ()=>{
 
           
         </Container>
+        </form>
 
         <Container>
           <Row className="home-tawi">

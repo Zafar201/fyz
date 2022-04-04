@@ -3,6 +3,8 @@ import { Col, Container, Nav, Navbar, Row } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { checkProperty, confirmBooking } from '../actions/generalAction';
+import LoadingBox from '../components/LoadingBox';
+import MessageBox from '../components/MessageBox';
 
 function ConfirmBooking() {
   const params = useParams();
@@ -34,9 +36,10 @@ function ConfirmBooking() {
     }
     if(success){
       alert("thank you for booking")
+      navigate('/')
     }
     window.scrollTo(0, 0);
-  }, [success]);
+  }, [success,dispatch]);
 
   const submitHandler=(e)=>{
     e.preventDefault()
@@ -87,7 +90,9 @@ function ConfirmBooking() {
             </Navbar.Collapse>
           </Container>
         </Navbar>
-        
+
+
+
         <form onSubmit={submitHandler}>
         <Container style={{ paddingTop: '50px' }}>
           <Row className="confirm">
@@ -135,6 +140,11 @@ function ConfirmBooking() {
                 </select>
               </Row>
             </Col>
+
+            {loading ? <LoadingBox></LoadingBox>:
+            error ? <MessageBox>{error}</MessageBox>:(
+
+         
             <Col md={{ span: 4, offset: 2 }}>
               <Row className="confirm-card">
                 <Container>
@@ -144,7 +154,7 @@ function ConfirmBooking() {
                     </Col>
                     <Col md={6}>
                       <Row>
-                        <h6>{props.name}</h6>
+                        <h6>{prop.find((e)=>e._id == propId ).rooms.find((e)=>e._id == roomId).name}</h6>
                       </Row>
                       <div className='d-flex small'>
                         <div>
@@ -188,6 +198,7 @@ function ConfirmBooking() {
                 <button type='submit'>confirm booking</button>
               </Row>
             </Col>
+               )}
           </Row>
         </Container>
         </form>

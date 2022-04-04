@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Col, Container, Nav, Navbar, Row } from 'react-bootstrap'
+import { RadioButton, RadioGroup, ReversedRadioButton } from 'react-radio-buttons';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import { checkProperty } from '../actions/generalAction';
@@ -30,9 +31,14 @@ function RoomUi() {
      const filterdPrice = prop.find((e)=>e._id == propId ).rooms.find((e)=>e._id == roomId).price;
      setPrice(filterdPrice)
      console.log(filterdPrice,'flll');
+     console.log(prices,'prs');
     }
     window.scrollTo(0, 0);
 }, [dispatch,props.name]);
+
+const onChange=(value)=>{
+  console.log(value);
+}
   return (
     <div>
         <div className="propertyui">
@@ -78,10 +84,6 @@ function RoomUi() {
 
 {loading ? <LoadingBox></LoadingBox>:
 error? <MessageBox></MessageBox>:
-// prop.find((e)=>e._id == propId).rooms.find((e)=>e._id == roomId).map((itm)=>(
-
-
-
 
 <Container>
  <Row className='propertyui-2  roomui'>
@@ -97,7 +99,7 @@ error? <MessageBox></MessageBox>:
               <img src="/assets/image/cl2.png" alt="" />
            </Col>
            <Col>
-           <h3>29 January - 30 January</h3>
+           <h3>{startingDate} - {endingDate}</h3>
            </Col>
         
        </Row>
@@ -105,7 +107,7 @@ error? <MessageBox></MessageBox>:
           
            <Col >
               
-              <h2>{props.name}</h2>
+              <h2>{prop.find((e)=>e._id == propId ).rooms.find((e)=>e._id == roomId).name}</h2>
            </Col>
        </Row>
        
@@ -125,38 +127,38 @@ error? <MessageBox></MessageBox>:
              </div>
     
        <Row className='roomui-img'>
+         {prop.find((e)=>e._id == propId ).rooms.find((e)=>e._id == roomId).amenities.map((amnt)=>(
+
+       
           <Col md={4}>
              <Row>
                <Col>
-                  <img src="/assets/image/ac.png" alt="" />
-                  <h5>Air Conditioner</h5>
+               <img src="/assets/image/ac.png" alt="" />
+                  {/* <img src={`/assets/image/${prop.find((e)=>e._id == propId ).rooms.find((e)=>e._id == roomId).amenities}`} alt="" /> */}
+                  <h5>{amnt}</h5>
                </Col>
-               <Col>
-                  <img src="/assets/image/ac.png" alt="" />
-                  <h5>Air Conditioner</h5>
-               </Col>
-             </Row>
-            
-            
+             
+             </Row>    
           </Col> 
+            ))}
           <Col className='price-radio' md={8}>
             <Row>
               <Col md={1}>
                 <input
                 type="radio"
                 id="Reserve Experience"
-                value="Reserve Experience"
+                value={price.first}
                 name="price"
                 required
                 checked
-                onChange={(e) => setPrices(e.target.value)}
+                // onChange={onchange}
                    ></input>
               </Col>
            <Col>
            <h1>Reserve Experience</h1>
            </Col>
            <Col md={3}>
-           <p2>${price.first}</p2> 
+           <p2>{prop.find((e)=>e._id == propId ).rooms.find((e)=>e._id == roomId).price.first}</p2> 
            </Col>
          
             </Row>
@@ -169,14 +171,14 @@ error? <MessageBox></MessageBox>:
                 name="price"
                 required
                 checked
-                onChange={(e) => setPrices(e.target.value)}
+                // onChange={onchange}
                    ></input>
               </Col>
            <Col>
            <h1>Reserve Plan Flex</h1>
            </Col>
            <Col  md={3}>
-            <p2>${price.second}</p2> 
+            <p2>{prop.find((e)=>e._id == propId ).rooms.find((e)=>e._id == roomId).price.second}</p2> 
            </Col>
          
             </Row>
@@ -196,7 +198,7 @@ error? <MessageBox></MessageBox>:
            <h1>ELENA Spa and Wellness</h1>
            </Col>
            <Col  md={3}>
-           <p2>  ${price.third}</p2>
+           <p2>  {prop.find((e)=>e._id == propId ).rooms.find((e)=>e._id == roomId).price.third}</p2>
            </Col>
          
             </Row>
@@ -214,6 +216,21 @@ error? <MessageBox></MessageBox>:
        </Row>
      </Col>
   </Row>
+{/* 
+  <RadioGroup onChange={ onChange } horizontal>
+  <RadioButton value='ok'>
+    Apple
+  </RadioButton>
+  <RadioButton value='ok'>
+    Orange
+  </RadioButton>
+  <RadioButton value="melon">
+    Melon
+  </RadioButton>
+  <ReversedRadioButton value={'ok'}>
+    Melon
+  </ReversedRadioButton>
+</RadioGroup> */}
 </Container>
 
 

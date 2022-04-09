@@ -251,7 +251,49 @@ function EditRoom() {
                 <Row>
                   <h5>Amneties</h5>
                 </Row>
+
                 <Row>
+                  <Col
+                    onClick={() => amnetiesFun('Air conditioner')}
+                    className={
+                      amenities.includes('Air conditioner') ? 'amneties-active' : null
+                    }
+                  >
+                    <Row>
+                      <img src="/assets/image/Air conditioner.png" alt="" />
+                    </Row>
+                    <Row>
+                      <h6>Air conditioner</h6>
+                    </Row>
+                  </Col>
+
+                  <Col
+                    onClick={() => amnetiesFun('Bathrobe')}
+                    className={
+                      amenities.includes('Bathrobe') ? 'amneties-active' : null
+                    }
+                  >
+                    <Row>
+                      <img src="/assets/image/Bathrobe.png" alt="" />
+                    </Row>
+                    <Row>
+                      <h6>Bathrobe</h6>
+                    </Row>
+                  </Col>
+
+                  <Col
+                    onClick={() => amnetiesFun('Bathroom amneties')}
+                    className={
+                      amenities.includes('Bathroom amneties') ? 'amneties-active' : null
+                    }
+                  >
+                    <Row>
+                      <img src="/assets/image/Bathroom amneties.png" alt="" />
+                    </Row>
+                    <Row>
+                      <h6>Bathroom amneties</h6>
+                    </Row>
+                  </Col>
                   <Col
                     onClick={() => amnetiesFun('Bathtub')}
                     className={
@@ -259,75 +301,36 @@ function EditRoom() {
                     }
                   >
                     <Row>
-                      <img src="/assets/image/icon.png" alt="" />
+                      <img src="/assets/image/Bathtub.png" alt="" />
                     </Row>
                     <Row>
                       <h6>Bathtub</h6>
                     </Row>
                   </Col>
                   <Col
-                    onClick={() => amnetiesFun('Bathtub1')}
+                    onClick={() => amnetiesFun('Bidet')}
                     className={
-                      amenities.includes('Bathtub1') ? 'amneties-active' : null
+                      amenities.includes('Bidet') ? 'amneties-active' : null
                     }
                   >
                     <Row>
-                      <img src="/assets/image/icon2.png" alt="" />
+                      <img src="/assets/image/Bidet.png" alt="" />
                     </Row>
                     <Row>
-                      <h6>Bathtub1</h6>
+                      <h6>Bidet</h6>
                     </Row>
                   </Col>
                   <Col
-                    onClick={() => amnetiesFun('Bathtub2')}
+                    onClick={() => amnetiesFun('CableSatellite Television')}
                     className={
-                      amenities.includes('Bathtub2') ? 'amneties-active' : null
+                      amenities.includes('CableSatellite Television') ? 'amneties-active' : null
                     }
                   >
                     <Row>
                       <img src="/assets/image/icon.png" alt="" />
                     </Row>
                     <Row>
-                      <h6>Bathtub2</h6>
-                    </Row>
-                  </Col>
-                  <Col
-                    onClick={() => amnetiesFun('Bathtub3')}
-                    className={
-                      amenities.includes('Bathtub3') ? 'amneties-active' : null
-                    }
-                  >
-                    <Row>
-                      <img src="/assets/image/icon.png" alt="" />
-                    </Row>
-                    <Row>
-                      <h6>Bathtub3</h6>
-                    </Row>
-                  </Col>
-                  <Col
-                    onClick={() => amnetiesFun('Bathtub4')}
-                    className={
-                      amenities.includes('Bathtub4') ? 'amneties-active' : null
-                    }
-                  >
-                    <Row>
-                      <img src="/assets/image/icon.png" alt="" />
-                    </Row>
-                    <Row>
-                      <h6>Bathtub4</h6>
-                    </Row>
-                  </Col>
-                  <Col
-                    onClick={() => amnetiesFun('Bathtub5')}
-                    className={
-                      amenities.includes('Bathtub5') ? 'amneties-active' : null
-                    }
-                  >
-                    <Row>
-                      <img src="/assets/image/icon.png" alt="" />
-                    </Row>
-                    <Row>
-                      <h6>Bathtub5</h6>
+                      <h6>CableSatellite Television</h6>
                     </Row>
                   </Col>
                   <Col style={{ background: 'none' }}></Col>
@@ -337,165 +340,81 @@ function EditRoom() {
               <div className="addroom-5">
                 <Row>
                   <Col
-                    onClick={() => amnetiesFun('Bathtub6')}
+                    onClick={() => amnetiesFun('Coffe Tea maker')}
                     className={
-                      amenities.includes('Bathtub6') ? 'amneties-active' : null
+                      amenities.includes('Coffe Tea maker') ? 'amneties-active' : null
                     }
                   >
                     <Row>
-                      <img src="/assets/image/icon.png" alt="" />
+                      <img src="/assets/image/Coffe Tea maker.png" alt="" />
                     </Row>
                     <Row>
-                      <h6>Bathtub</h6>
+                      <h6>Coffe Tea maker</h6>
                     </Row>
                   </Col>
                   <Col
-                    onClick={() => amnetiesFun('Bathtub7')}
+                    onClick={() => amnetiesFun('Fire Alarm')}
                     className={
-                      amenities.includes('Bathtub7') ? 'amneties-active' : null
+                      amenities.includes('Fire Alarm') ? 'amneties-active' : null
                     }
                   >
                     <Row>
-                      <img src="/assets/image/icon2.png" alt="" />
+                      <img src="/assets/image/Fire Alarm.png" alt="" />
                     </Row>
                     <Row>
-                      <h6>Bathtub</h6>
+                      <h6>Fire Alarm</h6>
                     </Row>
                   </Col>
                   <Col
-                    onClick={() => amnetiesFun('Bathtub8')}
+                    onClick={() => amnetiesFun('Hair Dryer')}
                     className={
-                      amenities.includes('Bathtub8') ? 'amneties-active' : null
+                      amenities.includes('Hair Dryer') ? 'amneties-active' : null
                     }
                   >
                     <Row>
-                      <img src="/assets/image/icon.png" alt="" />
+                      <img src="/assets/image/Hair Dryer.png" alt="" />
                     </Row>
                     <Row>
-                      <h6>Bathtub</h6>
+                      <h6>Hair Dryer</h6>
                     </Row>
                   </Col>
                   <Col
-                    onClick={() => amnetiesFun('Bathtub9')}
+                    onClick={() => amnetiesFun('High Definition (HD) Flat panel Television')}
                     className={
-                      amenities.includes('Bathtub9') ? 'amneties-active' : null
+                      amenities.includes('High Definition (HD) Flat panel Television') ? 'amneties-active' : null
                     }
                   >
                     <Row>
-                      <img src="/assets/image/icon.png" alt="" />
+                      <img src="/assets/image/High Definition (HD) Flat panel Television.png" alt="" />
                     </Row>
                     <Row>
-                      <h6>Bathtub</h6>
+                      <h6>HD Flat panel Television</h6>
                     </Row>
                   </Col>
                   <Col
-                    onClick={() => amnetiesFun('Bathtub10')}
+                    onClick={() => amnetiesFun('Housekeeping service')}
                     className={
-                      amenities.includes('Bathtub10') ? 'amneties-active' : null
+                      amenities.includes('Housekeeping service') ? 'amneties-active' : null
                     }
                   >
                     <Row>
-                      <img src="/assets/image/icon.png" alt="" />
+                      <img src="/assets/image/Housekeeping service.png" alt="" />
                     </Row>
                     <Row>
-                      <h6>Bathtub</h6>
+                      <h6>Housekeeping service</h6>
                     </Row>
                   </Col>
                   <Col
-                    onClick={() => amnetiesFun('Bathtub11')}
+                    onClick={() => amnetiesFun('Closets in room')}
                     className={
-                      amenities.includes('Bathtub11') ? 'amneties-active' : null
+                      amenities.includes('Closets in room') ? 'amneties-active' : null
                     }
                   >
                     <Row>
-                      <img src="/assets/image/icon.png" alt="" />
+                      <img src="/assets/image/Closets in room.png" alt="" />
                     </Row>
                     <Row>
-                      <h6>Bathtub</h6>
-                    </Row>
-                  </Col>
-                  <Col style={{ background: 'none' }}></Col>
-                  <Col style={{ background: 'none' }}></Col>
-                </Row>
-              </div>
-              <div className="addroom-5">
-                <Row>
-                  <Col
-                    onClick={() => amnetiesFun('Bathtub12')}
-                    className={
-                      amenities.includes('Bathtub12') ? 'amneties-active' : null
-                    }
-                  >
-                    <Row>
-                      <img src="/assets/image/icon.png" alt="" />
-                    </Row>
-                    <Row>
-                      <h6>Bathtub</h6>
-                    </Row>
-                  </Col>
-                  <Col
-                    onClick={() => amnetiesFun('Bathtub13')}
-                    className={
-                      amenities.includes('Bathtub13') ? 'amneties-active' : null
-                    }
-                  >
-                    <Row>
-                      <img src="/assets/image/icon2.png" alt="" />
-                    </Row>
-                    <Row>
-                      <h6>Bathtub</h6>
-                    </Row>
-                  </Col>
-                  <Col
-                    onClick={() => amnetiesFun('Bathtub14')}
-                    className={
-                      amenities.includes('Bathtub14') ? 'amneties-active' : null
-                    }
-                  >
-                    <Row>
-                      <img src="/assets/image/icon.png" alt="" />
-                    </Row>
-                    <Row>
-                      <h6>Bathtub</h6>
-                    </Row>
-                  </Col>
-                  <Col
-                    onClick={() => amnetiesFun('Bathtub15')}
-                    className={
-                      amenities.includes('Bathtub15') ? 'amneties-active' : null
-                    }
-                  >
-                    <Row>
-                      <img src="/assets/image/icon.png" alt="" />
-                    </Row>
-                    <Row>
-                      <h6>Bathtub</h6>
-                    </Row>
-                  </Col>
-                  <Col
-                    onClick={() => amnetiesFun('Bathtub16')}
-                    className={
-                      amenities.includes('Bathtub16') ? 'amneties-active' : null
-                    }
-                  >
-                    <Row>
-                      <img src="/assets/image/icon.png" alt="" />
-                    </Row>
-                    <Row>
-                      <h6>Bathtub</h6>
-                    </Row>
-                  </Col>
-                  <Col
-                    onClick={() => amnetiesFun('Bathtub17')}
-                    className={
-                      amenities.includes('Bathtub17') ? 'amneties-active' : null
-                    }
-                  >
-                    <Row>
-                      <img src="/assets/image/icon.png" alt="" />
-                    </Row>
-                    <Row>
-                      <h6>Bathtub</h6>
+                      <h6>Closets in room</h6>
                     </Row>
                   </Col>
                   <Col style={{ background: 'none' }}></Col>
@@ -505,81 +424,165 @@ function EditRoom() {
               <div className="addroom-5">
                 <Row>
                   <Col
-                    onClick={() => amnetiesFun('Bathtub18')}
+                    onClick={() => amnetiesFun('Pool View')}
                     className={
-                      amenities.includes('Bathtub18') ? 'amneties-active' : null
+                      amenities.includes('Pool View') ? 'amneties-active' : null
                     }
                   >
                     <Row>
-                      <img src="/assets/image/icon.png" alt="" />
+                      <img src="/assets/image/Pool View.png" alt="" />
                     </Row>
                     <Row>
-                      <h6>Bathtub</h6>
+                      <h6>Pool View</h6>
                     </Row>
                   </Col>
                   <Col
-                    onClick={() => amnetiesFun('Bathtub19')}
+                    onClick={() => amnetiesFun('In Room Movies')}
                     className={
-                      amenities.includes('Bathtub19') ? 'amneties-active' : null
+                      amenities.includes('In Room Movies') ? 'amneties-active' : null
                     }
                   >
                     <Row>
-                      <img src="/assets/image/icon2.png" alt="" />
+                      <img src="/assets/image/In Room Movies.png" alt="" />
                     </Row>
                     <Row>
-                      <h6>Bathtub</h6>
+                      <h6>In Room Movies</h6>
                     </Row>
                   </Col>
                   <Col
-                    onClick={() => amnetiesFun('Bathtub20')}
+                    onClick={() => amnetiesFun('Instant Hot Water')}
                     className={
-                      amenities.includes('Bathtub20') ? 'amneties-active' : null
+                      amenities.includes('Instant Hot Water') ? 'amneties-active' : null
                     }
                   >
                     <Row>
-                      <img src="/assets/image/icon.png" alt="" />
+                      <img src="/assets/image/Instant Hot Water.png" alt="" />
                     </Row>
                     <Row>
-                      <h6>Bathtub</h6>
+                      <h6>Instant Hot Water</h6>
                     </Row>
                   </Col>
                   <Col
-                    onClick={() => amnetiesFun('Bathtub21')}
+                    onClick={() => amnetiesFun('Minibar')}
                     className={
-                      amenities.includes('Bathtub21') ? 'amneties-active' : null
+                      amenities.includes('Minibar') ? 'amneties-active' : null
                     }
                   >
                     <Row>
-                      <img src="/assets/image/icon.png" alt="" />
+                      <img src="/assets/image/Minibar.png" alt="" />
                     </Row>
                     <Row>
-                      <h6>Bathtub</h6>
+                      <h6>Minibar</h6>
                     </Row>
                   </Col>
                   <Col
-                    onClick={() => amnetiesFun('Bathtub22')}
+                    onClick={() => amnetiesFun('On the Beach')}
                     className={
-                      amenities.includes('Bathtub22') ? 'amneties-active' : null
+                      amenities.includes('On the Beach') ? 'amneties-active' : null
                     }
                   >
                     <Row>
-                      <img src="/assets/image/icon.png" alt="" />
+                      <img src="/assets/image/On the Beach.png" alt="" />
                     </Row>
                     <Row>
-                      <h6>Bathtub</h6>
+                      <h6>On the Beach</h6>
                     </Row>
                   </Col>
                   <Col
-                    onClick={() => amnetiesFun('Bathtub23')}
+                    onClick={() => amnetiesFun('Outdoor Space')}
                     className={
-                      amenities.includes('Bathtub23') ? 'amneties-active' : null
+                      amenities.includes('Outdoor Space') ? 'amneties-active' : null
                     }
                   >
                     <Row>
-                      <img src="/assets/image/icon.png" alt="" />
+                      <img src="/assets/image/Outdoor Space.png" alt="" />
                     </Row>
                     <Row>
-                      <h6>Bathtub</h6>
+                      <h6>Outdoor Space</h6>
+                    </Row>
+                  </Col>
+                  <Col style={{ background: 'none' }}></Col>
+                  <Col style={{ background: 'none' }}></Col>
+                </Row>
+              </div>
+              <div className="addroom-5">
+                <Row>
+                  <Col
+                    onClick={() => amnetiesFun('Private Bathroom')}
+                    className={
+                      amenities.includes('Private Bathroom') ? 'amneties-active' : null
+                    }
+                  >
+                    <Row>
+                      <img src="/assets/image/Private Bathroom.png" alt="" />
+                    </Row>
+                    <Row>
+                      <h6>Private Bathroom</h6>
+                    </Row>
+                  </Col>
+                  <Col
+                    onClick={() => amnetiesFun('Private Pool')}
+                    className={
+                      amenities.includes('Private Pool') ? 'amneties-active' : null
+                    }
+                  >
+                    <Row>
+                      <img src="/assets/image/Private Pool.png" alt="" />
+                    </Row>
+                    <Row>
+                      <h6>Private Pool</h6>
+                    </Row>
+                  </Col>
+                  <Col
+                    onClick={() => amnetiesFun('Safe')}
+                    className={
+                      amenities.includes('Safe') ? 'amneties-active' : null
+                    }
+                  >
+                    <Row>
+                      <img src="/assets/image/Safe.png" alt="" />
+                    </Row>
+                    <Row>
+                      <h6>Safe</h6>
+                    </Row>
+                  </Col>
+                  <Col
+                    onClick={() => amnetiesFun('Sea View')}
+                    className={
+                      amenities.includes('Sea View') ? 'amneties-active' : null
+                    }
+                  >
+                    <Row>
+                      <img src="/assets/image/Sea View.png" alt="" />
+                    </Row>
+                    <Row>
+                      <h6>Sea View</h6>
+                    </Row>
+                  </Col>
+                  <Col
+                    onClick={() => amnetiesFun('Seperate toilet area')}
+                    className={
+                      amenities.includes('Seperate toilet area') ? 'amneties-active' : null
+                    }
+                  >
+                    <Row>
+                      <img src="/assets/image/Seperate toilet area.png" alt="" />
+                    </Row>
+                    <Row>
+                      <h6>Seperate toilet area</h6>
+                    </Row>
+                  </Col>
+                  <Col
+                    onClick={() => amnetiesFun('Shower')}
+                    className={
+                      amenities.includes('Shower') ? 'amneties-active' : null
+                    }
+                  >
+                    <Row>
+                      <img src="/assets/image/Shower.png" alt="" />
+                    </Row>
+                    <Row>
+                      <h6>Shower</h6>
                     </Row>
                   </Col>
                   <Col style={{ background: 'none' }}></Col>

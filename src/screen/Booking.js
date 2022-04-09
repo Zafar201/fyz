@@ -123,21 +123,12 @@ function Booking() {
                 </Row>        
                 <Row>
                   <p>
-                    Wake up to the rhythm of waves washing ashore in the
-                    Maldives. Your loved one is by your side. It’s 14th February
-                    - a very special day indeed. You wonder if you made the
-                    right decision to come to the Maldives for Valentine’s day.
-                    You open the windows to let in the sunshine and the salty
-                    tang of the balmy air. Romance, tranquillity and the sweet
-                    scent of possibilities is in the air. You know you’ve made
-                    the right choice; neither of you would rather be elsewhere.
-                    A day of romance, thrills, and adventure awaits you in the
-                    sunny isles of the Maldives.
+                   {itm.description}
                   </p>
                 </Row>
                 <Row className='prop-btm'>
                   <Col>
-                    <h6>₹ 1,20,850</h6>
+                    {/* <h6>₹ 1,20,850</h6> */}
                   </Col>
                   <Col>
                     <button onClick={() => navigate(`/search/location/${location}/adult/${adult}/child/${child}/startingDate/${startingDate}/endingDate/${endingDate}/propId/${itm._id}`)}>Select room</button>

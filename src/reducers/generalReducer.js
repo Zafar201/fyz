@@ -155,7 +155,7 @@ export const checkPropertyReducer = (state = { loading: true}, action) => {
       case CHECK_PROPERTIES_REQUEST:
           return { loading: true }
       case CHECK_PROPERTIES_SUCCESS:
-          return { loading: false, prop: action.payload.properties }
+          return { loading: false, prop: action.payload.properties, pri:action.payload.properties }
       case CHECK_PROPERTIES_FAIL:
           return { loading: false, error: action.payload }
       case ADD_PROPERTIES_RESET:

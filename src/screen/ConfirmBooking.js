@@ -18,8 +18,8 @@ function ConfirmBooking() {
   
   const checkPropertys= useSelector(state=>state.checkPropertys)
   const {loading, error, prop}= checkPropertys
-  const { adult,child,location,startingDate,endingDate,propId,roomId} = params;
-
+  const { adult,child,location,startingDate,endingDate,propId,roomId,prices:price1} = params;
+  console.log(price1,'1');
   const bookingConfirm= useSelector((state=>state.bookingConfirm))
   const {success}=bookingConfirm
   const navigate = useNavigate()
@@ -43,7 +43,7 @@ function ConfirmBooking() {
 
   const submitHandler=(e)=>{
     e.preventDefault()
-    dispatch(confirmBooking(propId,roomId,name,email,phone,country,startingDate,endingDate,amount))
+    dispatch(confirmBooking(propId,roomId,name,email,phone,country,startingDate,endingDate,price1))
 
   }
   return (
@@ -182,10 +182,16 @@ function ConfirmBooking() {
                     </Col>
                   </Row>
                   <Row style={{ paddingTop: '40px' }} className="pl">
+                    <Col md={7}>
                     <h6>selected plan</h6>
+                    </Col>
+                    <Col>
+                      <h6>{price1}</h6>
+                    </Col>
+                    
                   </Row>
                   <Row className="pl">
-                   
+                    
                   </Row>
                 
                   <hr />

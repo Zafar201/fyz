@@ -3,7 +3,7 @@ import { Col, Container, Nav, Navbar, Row } from 'react-bootstrap'
 import { RadioButton, RadioGroup, ReversedRadioButton } from 'react-radio-buttons';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate, useParams } from 'react-router-dom'
-import { checkProperty } from '../actions/generalAction';
+import { checkProperties, checkProperty } from '../actions/generalAction';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
 
@@ -13,32 +13,36 @@ function RoomUi() {
   const [props,setProps]=useState('')
   
   const checkPropertys= useSelector(state=>state.checkPropertys)
-  const {loading, error, prop}= checkPropertys
+  const {loading, error, prop, pri}= checkPropertys
   const { adult,child,location,startingDate,endingDate,propId,roomId} = params;
   const navigate = useNavigate()
-  const [price, setPrice] = useState('');
   const [prices, setPrices] = useState('');
+  console.log(prices,'cs');
   useEffect(() => {
+
     dispatch(checkProperty( location,adult,child,startingDate,endingDate))
+
     console.log(roomId);
     if(!loading && !error){
       const filt = prop.find((e)=>e._id == propId ).rooms.find((e)=>e._id == roomId);
       console.log(filt.price.first,'filt');
       setProps(filt)
 
-     
-     console.log(price.first,'pr');
+      setPrices(prop.find((e)=>e._id == propId ).rooms.find((e)=>e._id == roomId).price.first)
+
      const filterdPrice = prop.find((e)=>e._id == propId ).rooms.find((e)=>e._id == roomId).price;
-     setPrice(filterdPrice)
      console.log(filterdPrice,'flll');
      console.log(prices,'prs');
     }
     window.scrollTo(0, 0);
 }, [dispatch,props.name]);
 
-const onChange=(value)=>{
-  console.log(value);
+const sal = (e) => {
+  console.log(e.target.value);
+  setPrices(e.target.value)
 }
+
+
   return (
     <div>
         <div className="propertyui">
@@ -125,74 +129,81 @@ error? <MessageBox></MessageBox>:
                <p>2 people</p>
                </div>
              </div>
+
+
+
+             <Container>
+               <Row>
+                 
+               </Row>
+             </Container>
     
        <Row className='roomui-img'>
-         {prop.find((e)=>e._id == propId ).rooms.find((e)=>e._id == roomId).amenities.map((amnt)=>(
-
-       
-          <Col md={4}>
+           <Col  md={4}>
+        
              <Row>
-               <Col>
-               <img src="/assets/image/ac.png" alt="" />
-                  {/* <img src={`/assets/image/${prop.find((e)=>e._id == propId ).rooms.find((e)=>e._id == roomId).amenities}`} alt="" /> */}
+             {prop.find((e)=>e._id == propId ).rooms.find((e)=>e._id == roomId).amenities.map((amnt,i)=>(
+               <Col md={6} style={{textAlignLast:"center"}}>
+               <img src={`/assets/image/${amnt}.png`} alt="" />
                   <h5>{amnt}</h5>
                </Col>
-             
-             </Row>    
-          </Col> 
-            ))}
+               ))} 
+             </Row>   
+              
+          </Col>               
+       
           <Col className='price-radio' md={8}>
             <Row>
               <Col md={1}>
                 <input
                 type="radio"
                 id="Reserve Experience"
-                value={price.first}
+                value={prop.find((e)=>e._id == propId ).rooms.find((e)=>e._id == roomId).price.first}
                 name="price"
                 required
-                checked
-                // onChange={onchange}
-                   ></input>
+                checked 
+                onClick={sal}
+                   />
               </Col>
            <Col>
-           <h1>Reserve Experience</h1>
+              <h1>Reserve Experience</h1>
+              <h6>View plans exclusive</h6>
            </Col>
            <Col md={3}>
            <p2>{prop.find((e)=>e._id == propId ).rooms.find((e)=>e._id == roomId).price.first}</p2> 
            </Col>
          
             </Row>
-            <Row>
+            <Row >
               <Col md={1}>
                 <input
                 type="radio"
                 id="Reserve Plan Flex"
-                value="Reserve Plan Flex"
+                value={prop.find((e)=>e._id == propId ).rooms.find((e)=>e._id == roomId).price.first}
                 name="price"
                 required
                 checked
-                // onChange={onchange}
-                   ></input>
+                onClick={sal}
+                   />
               </Col>
-           <Col>
-           <h1>Reserve Plan Flex</h1>
-           </Col>
-           <Col  md={3}>
-            <p2>{prop.find((e)=>e._id == propId ).rooms.find((e)=>e._id == roomId).price.second}</p2> 
-           </Col>
-         
+              <Col>
+                  <h1>Reserve Plan Flex</h1>
+              </Col>
+              <Col  md={3}>
+                  <p2>{prop.find((e)=>e._id == propId ).rooms.find((e)=>e._id == roomId).price.second}</p2> 
+              </Col>
             </Row>
             <Row>
               <Col md={1}>
                 <input
                 type="radio"
                 id="ELENA Spa and Wellness"
-                value="ELENA Spa and Wellness"
+                value={prop.find((e)=>e._id == propId ).rooms.find((e)=>e._id == roomId).price.third}
                 name="price"
                 required
                 checked
-                onChange={(e) => setPrices(e.target.value)}
-                   ></input>
+                onClick={sal}
+                   />
               </Col>
            <Col>
            <h1>ELENA Spa and Wellness</h1>
@@ -204,14 +215,14 @@ error? <MessageBox></MessageBox>:
             </Row>
           </Col> 
        
-              
+   
        </Row>
        <Row className='roomui-2'>
            <Col>
              {/* <h6>₹ 1,20,850</h6> */}
            </Col>
            <Col>
-              <button onClick={() => navigate(`/confirm/location/${location}/adult/${adult}/child/${child}/startingDate/${startingDate}/endingDate/${endingDate}/propId/${propId}/roomId/${roomId}`)}>Proceed to book</button> 
+              <button onClick={() => navigate(`/confirm/location/${location}/adult/${adult}/child/${child}/startingDate/${startingDate}/endingDate/${endingDate}/propId/${propId}/roomId/${roomId}/prices/${prices}`)}>Proceed to book</button> 
            </Col>
        </Row>
      </Col>

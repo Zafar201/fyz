@@ -1158,12 +1158,21 @@ select:focus {
   border-radius: 10px;
   margin: 20px;
 }
-.addroom-5 img {
-  padding: 12px 26px 10px 26px;
+
+@media screen and (min-device-width: 800px) {
+  .addroom-5 img {
+    padding: 7px 14px 5px 14px;
+  }
 }
+@media screen and (min-device-width: 1203px) {
+  .addroom-5 img {
+    padding: 12px 31px 10px 31px;
+  }
+}
+
 .addroom-5 h6 {
   font-size: 13px;
-  line-height: 15px;
+  /* line-height: 15px; */
   letter-spacing: -0.03em;
   text-align: center;
   color: #000000;
@@ -1432,9 +1441,9 @@ border-radius: 25px;
   letter-spacing: -0.03em;
   color: #000000;
 }
-.roomui-img .col{
+/* .roomui-img .col{
   text-align: center !important;
-}
+} */
 .roomui-img{
   padding-top: 30px;
 }
@@ -1773,4 +1782,9 @@ text-align-last: center;
     text-align: right;
     letter-spacing: -0.045em;
     color: #121B3D;
+  }
+  .price-border{
+    border-bottom: 1px solid rgba(0, 0, 0, 0.18);
+    margin-bottom: 17px;
+
   }

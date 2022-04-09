@@ -95,19 +95,18 @@ function PropertyUi() {
             </Col>
             <Col md={5}>
               <Row>
-                <h2>{prop.find((e)=>e._id== propId).name}</h2>
+                <h2>{prop.find((e)=>e._id== propId).name ? prop.find((e)=>e._id== propId).name : ""}</h2>
               </Row>
               <Row style={{paddingTop:"20px"}}>
                   <Col md={1} className='cl2'>
                      <img src="/assets/image/cl2.png" alt="" />
                   </Col>
                   <Col >
-                     <h3>29 January - 30 January</h3>
+                     <h3>{startingDate} - {endingDate}</h3>
                   </Col>
               </Row>
               <Row>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et 
-                  dolore magna aliqua. Ut enim ad minim veniam,</p>
+                <p>{prop.find((e)=>e._id== propId).description}</p>
               </Row>
               <Row>
                   
@@ -176,7 +175,7 @@ function PropertyUi() {
               </Row>
                <Row style={{paddingTop:"35px"}}>
                   <Col>
-                    <h4>₹ 1,20,850</h4>
+                    {/* <h4>₹ 1,20,850</h4> */}
                   </Col>
 
                   <Col>

@@ -1346,8 +1346,8 @@ input[type='checkbox'] {
   font-family: 'Raleway';
     font-style: normal;
     font-weight: 400;
-    font-size: 23px;
-    line-height: 37px;
+    font-size: 20px;
+    /* line-height: 37px; */
     color: #121B3D;
     padding-top: 53px;
 }
@@ -1356,8 +1356,15 @@ input[type='checkbox'] {
 box-shadow: 11px 14px 40px rgba(0, 0, 0, 0.15);
 border-radius: 25px;
 }
-.prop-card img{
-  height: 280px;
+.props-card{
+  padding-right:0px;
+}
+.props-card img{
+  /* height: 280px; */
+  width:100%;
+}
+.prop-room-vect{
+  margin-top:-17px !important;
 }
 .prop-card h2{
   font-family: 'Raleway';
@@ -1382,13 +1389,15 @@ border-radius: 25px;
 }
 .prop-card h3{
   font-family: 'Raleway';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 21px;
-    line-height: 97.35%;
-    letter-spacing: -0.02em;
-    color: #121B3D;
-    padding-top: 21px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 126.85%;
+  
+  
+  letter-spacing: 0.01em;
+  
+  color: #828282;
 }
 .prop-card h4{
   font-family: 'Montserrat';

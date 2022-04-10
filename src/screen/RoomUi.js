@@ -18,7 +18,7 @@ function RoomUi() {
   const navigate = useNavigate()
   const [prices, setPrices] = useState('');
   const [name,setName] = useState('')
-  console.log(prices,'cs');
+ 
   useEffect(() => {
 
     dispatch(checkProperty( location,adult,child,startingDate,endingDate))
@@ -30,16 +30,17 @@ function RoomUi() {
       setProps(filt)
 
       setPrices(prop.find((e)=>e._id == propId ).rooms.find((e)=>e._id == roomId).price.first)
+      setName('ELENA Spa and Wellness')
 
      const filterdPrice = prop.find((e)=>e._id == propId ).rooms.find((e)=>e._id == roomId).price;
-     console.log(filterdPrice,'flll');
-     console.log(prices,'prs');
+     
+    
     }
     window.scrollTo(0, 0);
-}, [dispatch,props.name]);
+}, [dispatch,props.name,setName,setPrices]);
 
 const sal = (e) => {
-  console.log(e.target.id);
+  console.log(prices,"pri");
   setPrices(e.target.value)
   setName(e.target.id)
   // console.log(name,prices,'ok');
@@ -187,7 +188,7 @@ error? <MessageBox></MessageBox>:
                 <input
                 type="radio"
                 id="Reserve Plan Flex"
-                value={prop.find((e)=>e._id == propId ).rooms.find((e)=>e._id == roomId).price.first}
+                value={prop.find((e)=>e._id == propId ).rooms.find((e)=>e._id == roomId).price.second}
                 name="price"
                 required
                 checked

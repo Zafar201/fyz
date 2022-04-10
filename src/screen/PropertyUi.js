@@ -37,6 +37,11 @@ function PropertyUi() {
     // console.log(filterd,'fl');
 
 }, [dispatch,props]);
+const truncate=(str,n)=>{
+  return str.length>n?str.substr(0,n-1)+ "...." :str
+}
+
+
   return (
     <div>
        {loading? <LoadingBox></LoadingBox>:
@@ -93,7 +98,7 @@ function PropertyUi() {
             <Col md={4}>
                <img src="/assets/image/home2.png" alt="" />
             </Col>
-            <Col md={5}>
+            <Col md={8}>
               <Row>
                 <h2>{prop.find((e)=>e._id== propId).name ? prop.find((e)=>e._id== propId).name : ""}</h2>
               </Row>
@@ -120,7 +125,7 @@ function PropertyUi() {
       {prop.find((e)=>e._id==propId).rooms.map((sRoom)=>(
       <Container key={sRoom._id} style={{paddingTop:"100px"}}>
         <Row className='prop-card'>
-          <Col md={4} style={{paddingLeft:"0"}}>
+          <Col md={4} style={{paddingLeft:"0"}} className='props-card'>
             <img src="/assets/image/hurawalhi2.png" alt="" />
           </Col>
 
@@ -130,15 +135,14 @@ function PropertyUi() {
                 <Col>
                    <h2>{sRoom.name}</h2>
                 </Col>
-                <Col md={3}> 
-                  <Row className='prop-img'>
+                <Col md={3} className='prop-room-vect'> 
+                <Row className='prop-img'>
                     <Col md={2}>
                     <img src="/assets/image/ppl.png" alt="" />
                     </Col>
                     <Col>
-                    <p>{adult}</p>
+                    <p>{child}</p>
                     </Col>
-                  
                    
                   </Row>
                   <Row className='prop-img'>
@@ -150,37 +154,30 @@ function PropertyUi() {
                     </Col>
                    
                   </Row>
-                </Col>
-           
-              
-        
-         
+                  <Row className='prop-img'>
+                    <Col md={2}>
+                    <img src="/assets/image/bed.png" alt="" />
+                    </Col>
+                    <Col>
+                    <p>{sRoom.bedType}</p>
+                    </Col>
+                   
+                  </Row>
+                </Col>           
              </Row>
-             {/* <div className='prop-img'>
-               <div>
-                  <img src="/assets/image/ppl.png" alt="" />
-               </div>
-               <div>
-                 <p>2 people</p>
-               </div>
-               <div className='prop-pd'>
-                 <img src="/assets/image/bed.png" alt="" />
-               </div>
-               <div>
-               <p>2 people</p>
-               </div>
-             </div> */}
+           
               <Row>
-                 <h3>Forest View, Biking Activities, Private Pool</h3>
+                 <h3>{truncate(sRoom.description,250)}</h3>
               </Row>
+           
                <Row style={{paddingTop:"35px"}}>
                   <Col>
-                    {/* <h4>₹ 1,20,850</h4> */}
+              
                   </Col>
 
                   <Col>
                     <button onClick={() => navigate(`/search/location/${location}/adult/${adult}/child/${child}/startingDate/${startingDate}/endingDate/${endingDate}/propId/${propId}/roomId/${sRoom._id}`)}>Book now</button>
-                   {/* <button ></button>  */}
+              
                   </Col>
                </Row>
           </Col>

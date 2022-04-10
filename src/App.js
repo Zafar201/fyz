@@ -21,8 +21,7 @@ import RoomUi from './screen/RoomUi';
 import ConfirmBooking from './screen/ConfirmBooking';
 import SuperAdmin from './superAdmin/SuperAdmin';
 import SearchScreen from './screen/SearchScreen';
-// import PropertyEdit from '/screen/PropertyEdit'
-// import Row,Col,Button from 'react-bootstrap'
+
 
 function App() {
   return (
@@ -61,7 +60,7 @@ function App() {
               exact
             ></Route>
               <Route
-              path="/confirm/location/:location/adult/:adult/child/:child/startingDate/:startingDate/endingDate/:endingDate/propId/:propId/roomId/:roomId/prices/:prices"
+              path="/confirm/location/:location/adult/:adult/child/:child/startingDate/:startingDate/endingDate/:endingDate/propId/:propId/roomId/:roomId/prices/:prices/name/:name"
               element={<ConfirmBooking />}
               exact
             ></Route>

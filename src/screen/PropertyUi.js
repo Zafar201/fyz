@@ -136,7 +136,7 @@ function PropertyUi() {
                     <img src="/assets/image/ppl.png" alt="" />
                     </Col>
                     <Col>
-                    <p>2 people</p>
+                    <p>{adult}</p>
                     </Col>
                   
                    
@@ -146,7 +146,7 @@ function PropertyUi() {
                     <img src="/assets/image/ppl.png" alt="" />
                     </Col>
                     <Col>
-                    <p>2 people</p>
+                    <p>{child}</p>
                     </Col>
                    
                   </Row>

@@ -18,7 +18,7 @@ function ConfirmBooking() {
   
   const checkPropertys= useSelector(state=>state.checkPropertys)
   const {loading, error, prop}= checkPropertys
-  const { adult,child,location,startingDate,endingDate,propId,roomId,prices:price1} = params;
+  const { adult,child,location,startingDate,endingDate,propId,roomId,prices:price1,name:selectedplan} = params;
   console.log(price1,'1');
   const bookingConfirm= useSelector((state=>state.bookingConfirm))
   const {success}=bookingConfirm
@@ -34,12 +34,14 @@ function ConfirmBooking() {
       setProps(filt)
 
     }
-    if(success){
-      alert("thank you for booking")
-      navigate('/')
-    }
+  
     window.scrollTo(0, 0);
   }, [success,dispatch]);
+
+  if(success){
+    alert("thank you for booking")
+    navigate('/')
+  }
 
   const submitHandler=(e)=>{
     e.preventDefault()
@@ -161,13 +163,13 @@ function ConfirmBooking() {
                           <img src="/assets/image/ppl.png" alt="" />
                         </div>
                         <div>
-                          <p>2 people</p>
+                          <p>{adult}</p>
                         </div>
                         <div className="prop-pd">
                           <img src="/assets/image/bed.png" alt="" />
                         </div>
                         <div>
-                          <p>2 people</p>
+                          <p>{child}</p>
                         </div>
                       </div>
                       <Row> 
@@ -175,7 +177,7 @@ function ConfirmBooking() {
                         <img style={{height:"31px",marginTop:"-17px"}} src="/assets/image/cl2.png" alt="" />
                         </Col>
                         <Col>
-                          <p5>29 January - 30 January</p5>
+                          <p5>{startingDate} - {endingDate}</p5>
                         </Col>
                        
                       </Row>
@@ -183,20 +185,26 @@ function ConfirmBooking() {
                   </Row>
                   <Row style={{ paddingTop: '40px' }} className="pl">
                     <Col md={7}>
-                    <h6>selected plan</h6>
+                    <h6>Selected Plan</h6>
                     </Col>
-                    <Col>
+                    {/* <Col>
                       <h6>{price1}</h6>
-                    </Col>
+                    </Col> */}
                     
                   </Row>
                   <Row className="pl">
-                    
+                   <h5>{selectedplan} </h5> 
                   </Row>
                 
                   <hr />
-                  <Row style={{ paddingTop: '20px' }}>
-                   
+                  <Row style={{ paddingTop: '20px' }} className='pl-2'>
+                    <Col>
+                      <h3>Expected Price</h3>
+                    </Col>
+                    <Col>
+                      <h1>{price1}</h1>
+                    </Col>
+                    
                   </Row>
                 </Container>
               </Row>

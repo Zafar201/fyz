@@ -17,6 +17,7 @@ function RoomUi() {
   const { adult,child,location,startingDate,endingDate,propId,roomId} = params;
   const navigate = useNavigate()
   const [prices, setPrices] = useState('');
+  const [name,setName] = useState('')
   console.log(prices,'cs');
   useEffect(() => {
 
@@ -38,8 +39,15 @@ function RoomUi() {
 }, [dispatch,props.name]);
 
 const sal = (e) => {
-  console.log(e.target.value);
+  console.log(e.target.id);
   setPrices(e.target.value)
+  setName(e.target.id)
+  // console.log(name,prices,'ok');
+
+}
+
+const zaf=(value)=>{
+   console.log(value,'st')
 }
 
 
@@ -120,13 +128,13 @@ error? <MessageBox></MessageBox>:
                   <img src="/assets/image/ppl.png" alt="" />
                </div>
                <div>
-                 <p>2 people</p>
+                 <p>{adult}</p>
                </div>
                <div className='prop-pd'>
                  <img src="/assets/image/bed.png" alt="" />
                </div>
                <div>
-               <p>2 people</p>
+               <p>{child}</p>
                </div>
              </div>
 
@@ -161,7 +169,7 @@ error? <MessageBox></MessageBox>:
                 value={prop.find((e)=>e._id == propId ).rooms.find((e)=>e._id == roomId).price.first}
                 name="price"
                 required
-                checked 
+                checked ={true}
                 onClick={sal}
                    />
               </Col>
@@ -184,6 +192,7 @@ error? <MessageBox></MessageBox>:
                 required
                 checked
                 onClick={sal}
+                
                    />
               </Col>
               <Col>
@@ -203,6 +212,7 @@ error? <MessageBox></MessageBox>:
                 required
                 checked
                 onClick={sal}
+                
                    />
               </Col>
            <Col>
@@ -222,7 +232,7 @@ error? <MessageBox></MessageBox>:
              {/* <h6>₹ 1,20,850</h6> */}
            </Col>
            <Col>
-              <button onClick={() => navigate(`/confirm/location/${location}/adult/${adult}/child/${child}/startingDate/${startingDate}/endingDate/${endingDate}/propId/${propId}/roomId/${roomId}/prices/${prices}`)}>Proceed to book</button> 
+              <button onClick={() => navigate(`/confirm/location/${location}/adult/${adult}/child/${child}/startingDate/${startingDate}/endingDate/${endingDate}/propId/${propId}/roomId/${roomId}/prices/${prices}/name/${name}`)}>Proceed to book</button> 
            </Col>
        </Row>
      </Col>

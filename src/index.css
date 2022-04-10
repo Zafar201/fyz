@@ -1613,6 +1613,47 @@ border-radius: 25px;
 .pl .col{
   padding-left: 0 !important;
 }
+.pl h4{
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 27px;
+  line-height: 118.85%;
+  letter-spacing: -0.045em;
+  color: #121B3D;
+  margin-left: 28px
+}
+.pl-2 h3{
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 23px;
+  line-height: 140.4%;
+  text-align: center;
+  color: #000000;
+}
+.pl-2 h1{
+  font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 29px;
+    line-height: 140.4%;
+    text-align: right;
+    color: #000000;
+}
+.pl h5{
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 26px;
+    line-height: 118.85%;
+    letter-spacing: -0.045em;
+    color: #121B3D;
+    margin-left: 25PX;
+}
+.pl h6{
+  font-size: 22px;
+}
 .confirm  button{
   width: 351px;
     height: 48px;
@@ -1645,10 +1686,10 @@ border-radius: 0px;
 transform: matrix(0, 1, -1, 0, 0, 0);
 }
 .small img{
-  height: 26px;
+  height: 31px;
 }    
 .small p{
-  font-size: 11px;
+  font-size: 18px;
   margin-top: 11px;
   margin-left: 6px;
 }

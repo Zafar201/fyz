@@ -6,7 +6,7 @@ function SuperAdmin() {
     <div className='superadmin'>
        
              <Row className='superadmin-top'>
-                 <Col className='superadmin-bg'>
+                 <Col className='superadmin-bg' cd={3}>
                      <Row>
                         <img src="../assets/image/logo-admin.png" alt="" />
                      </Row>
@@ -28,7 +28,7 @@ function SuperAdmin() {
              </Row>
         
              <Row className='superadmin-2'> 
-              <Col >
+              <Col cd={3}>
                  <div className='superadmin-active'>
                     <h2 >User Details</h2>
                  </div>

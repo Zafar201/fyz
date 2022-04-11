@@ -1535,9 +1535,7 @@ border-radius: 25px;
 .small-input input{
   width: 260px;
 }
-.small-input1 input{
-  width: 120px;
-}
+
 .small-input1{
   padding-left: 0 !important;
 }
@@ -1561,6 +1559,9 @@ border-radius: 25px;
     padding-bottom: 35px;
 
 
+}
+.small-input1 select{
+  width: 120px;
 }
 .confirm-card img{
   /* width: 107px; */

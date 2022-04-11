@@ -191,11 +191,11 @@ export const detailsRoom = (propId,roomId) => async(dispatch)=>{
 
 
 
-export const confirmBooking = (propId,roomId,name,email,phone,country,from,to,price) =>async(dispatch)=>{
+export const confirmBooking = (propId,roomId,name,email,code,phone,country,from,to,price) =>async(dispatch)=>{
   dispatch({type:CONFIRM_BOOING_REQUEST,propId,roomId,name,email,phone,country,from,to,price});
 
   try{
-      const {data} =await axios.post("https://tawi-backend.herokuapp.com/api/clients/confirm-booking",{propId,roomId,name,email,phone,country,from,to,price})
+      const {data} =await axios.post("https://tawi-backend.herokuapp.com/api/clients/confirm-booking",{propId,roomId,name,email,phone:code+phone,country,from,to,price})
       dispatch({type:CONFIRM_BOOING_SUCCESS,payload:data})
 
   }catch(error){

@@ -126,16 +126,22 @@ error? <MessageBox></MessageBox>:
        
          <div className='prop-img prop-ed'>
                <div>
-                  <img src="/assets/image/ppl.png" alt="" />
+                  <img src="/assets/image/adult.png" alt="" />
                </div>
                <div>
                  <p>{adult}</p>
+               </div>
+               <div>
+                  <img src="/assets/image/child2.png" alt="" />
+               </div>
+               <div>
+                 <p>{child}</p>
                </div>
                <div className='prop-pd'>
                  <img src="/assets/image/bed.png" alt="" />
                </div>
                <div>
-               <p>{child}</p>
+               <p>{prop.find((e)=>e._id == propId ).rooms.find((e)=>e._id == roomId).bedType}</p>
                </div>
              </div>
 
@@ -180,6 +186,27 @@ error? <MessageBox></MessageBox>:
            </Col>
            <Col md={3}>
            <p2>{prop.find((e)=>e._id == propId ).rooms.find((e)=>e._id == roomId).price.first}</p2> 
+           </Col>
+         
+            </Row>
+            <Row>
+              <Col md={1}>
+                <input
+                type="radio"
+                id="Reserve "
+                value={prop.find((e)=>e._id == propId ).rooms.find((e)=>e._id == roomId).price.fourth}
+                name="price"
+                required
+                checked ={true}
+                onClick={sal}
+                   />
+              </Col>
+           <Col>
+              <h1>Reserved</h1>
+              {/* <h6>View plans exclusive</h6> */}
+           </Col>
+           <Col md={3}>
+           <p2>{prop.find((e)=>e._id == propId ).rooms.find((e)=>e._id == roomId).price.fourth}</p2> 
            </Col>
          
             </Row>

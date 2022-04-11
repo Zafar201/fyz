@@ -138,7 +138,7 @@ const truncate=(str,n)=>{
                 <Col md={3} className='prop-room-vect'> 
                 <Row className='prop-img'>
                     <Col md={2}>
-                    <img src="/assets/image/ppl.png" alt="" />
+                    <img src="/assets/image/child2.png" alt="" />
                     </Col>
                     <Col>
                     <p>{child}</p>
@@ -147,10 +147,10 @@ const truncate=(str,n)=>{
                   </Row>
                   <Row className='prop-img'>
                     <Col md={2}>
-                    <img src="/assets/image/ppl.png" alt="" />
+                    <img src="/assets/image/adult.png" alt="" />
                     </Col>
                     <Col>
-                    <p>{child}</p>
+                    <p>{adult}</p>
                     </Col>
                    
                   </Row>

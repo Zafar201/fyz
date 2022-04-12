@@ -64,6 +64,11 @@ function App() {
               element={<ConfirmBooking />}
               exact
             ></Route>
+             <Route
+              path="/confirm/location/:location/adult/:adult/child/:child/startingDate/:startingDate/endingDate/:endingDate/propId/:propId/roomId/:roomId/prices//name//"
+              element={<ConfirmBooking />}
+             
+            ></Route>
      <Route path="/property/:id/"  element={<PropertyDetails/>}
               exact
             ></Route>

@@ -1,6 +1,7 @@
 // const { createStore } = require("redux");
 import {applyMiddleware, combineReducers, compose, createStore} from 'redux'
 import thunk from 'redux-thunk';
+import { countListReducer,bookingListReducer ,approveBookingReducer,rejectBookingReducer} from './reducers/adminReducer';
 import { addproperrtyReducer, addRoomReducer, bookingConfirmReducer, checkPropertyReducer, getRoomDetailsReducer, getRoomsDetailsReducer, propertyCreateReducer, propertyDeleteReducer, propertyDetailsReducer, propertyListReducer, propertyUpdateReducer, roomDeleteReducer, roomDetailsReducer, roomUpdateReducer } from './reducers/generalReducer';
 
 const initialState ={};
@@ -17,6 +18,10 @@ const reducer=combineReducers({
  roomUpdate:roomUpdateReducer,
  checkPropertys:checkPropertyReducer,
  bookingConfirm:bookingConfirmReducer,
+ countList:countListReducer,
+ bookingList:bookingListReducer,
+ approveBooking:approveBookingReducer,
+ rejectBooking:rejectBookingReducer,
 })
 
 

@@ -177,18 +177,6 @@ export const detailsRoom = (propId,roomId) => async(dispatch)=>{
     }
 }
 
-// export const checkProperties = (location,adult,child,from,to,propId,roomId) =>async(dispatch)=>{
-//   dispatch({type:CHECK_PROPERty_REQUEST,payload:location,adult,child,from,to});
-
-//   try{
-//       const {data} =await axios.post("https://tawi-backend.herokuapp.com/api/clients/check-availability",{location,adult,child,from,to})
-//       dispatch({type:CHECK_PROPERty_SUCCESS,payload:data.find((e)=>e._id == propId ).rooms.find((e)=>e._id == roomId)})
-
-//   }catch(error){
-//       dispatch({type:CHECK_PROPERty_FAIL,payload:error.message})
-//   }
-// }
-
 
 
 export const confirmBooking = (propId,roomId,name,email,code,phone,country,from,to,price) =>async(dispatch)=>{

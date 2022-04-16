@@ -1,7 +1,21 @@
-import React from 'react'
+import React, { useEffect } from 'react';
 import { Col, Container, Row } from 'react-bootstrap'
+import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { getCountDetails } from '../actions/adminAction';
+import LoadingBox from '../components/LoadingBox';
+import MessageBox from '../components/MessageBox';
+
 
 function SuperAdmin() {
+   const countList = useSelector((state) => state.countList);
+   const { loading, error, count } = countList;
+   const dispatch = useDispatch()
+   useEffect(() => {
+      dispatch(getCountDetails())
+     
+  }, [dispatch]);
+
   return (
     <div className='superadmin'>
        
@@ -12,7 +26,7 @@ function SuperAdmin() {
                      </Row>
                  </Col>
                  <Col className='superadmin-bg2'>
-                     <Row>
+                     <Row className='superadmin-nav-active'>
                        <h1>update user</h1>
                      </Row>
                  </Col>
@@ -26,7 +40,10 @@ function SuperAdmin() {
                  </Col>
                 
              </Row>
-        
+            {loading ? <LoadingBox></LoadingBox>:
+            error ? <MessageBox>{error}</MessageBox>:(
+
+          <>
              <Row className='superadmin-2'> 
               <Col cd={3}>
                  <div className='superadmin-active'>
@@ -36,18 +53,18 @@ function SuperAdmin() {
                     <h2>User Details</h2>
                  </div>
                  <div>
-                     <h2>Update Booking</h2>
+               <Link to='/updatebooking'> <h2>Update Booking</h2></Link>
                  </div>
               </Col>
                  
                  <Col>
-                    <h3>3500 <br /> <span>Users</span> </h3>
+                    <h3>{count.users}<br /> <span>Users</span> </h3>
                  </Col>
                  <Col>
-                 <h3>3500 <br /> <span>Users</span></h3>
+                 <h3>{count.properties}<br /> <span>Properties</span></h3>
                  </Col>
                  <Col>
-                 <h3>3500 <br /><span>Users</span></h3>
+                 <h3>{count.rooms}<br /><span>Rooms</span></h3>
                  </Col>
                  <Col md={2}>
                     
@@ -63,13 +80,13 @@ function SuperAdmin() {
               </Col>
                  
                  <Col>
-                    <h3>3500 <br /> <span>Users</span></h3>
+                    <h3>{count.bookings}<br /> <span>Booking</span></h3>
                  </Col>
                  <Col>
-                 <h3>3500 <br /> <span>Users</span></h3>
+                 <h3>{count.cBookings} <br /> <span>Completed Booking</span></h3>
                  </Col>
                  <Col>
-                 <h3>3500 <br /> <span>Users</span></h3>
+                 <h3>{count.pBookings}<br /> <span>Pending Bookings</span></h3>
                  </Col>
                  <Col md={2}>
                     
@@ -77,8 +94,8 @@ function SuperAdmin() {
                  
              </Row>
       
-             
-    
+             </>      
+      )}
     </div>
   )
 }

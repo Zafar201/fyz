@@ -1717,6 +1717,8 @@ transform: matrix(0, 1, -1, 0, 0, 0);
 .superadmin-top{
   width: 100%;
   align-items: center;
+  display:flex;
+  background:white;
 }
 .superadmin-top h1{
 font-family: 'Raleway';
@@ -1727,12 +1729,14 @@ letter-spacing: -0.04em;
 color: #000000;
 padding-top: 14px;
 text-align-last: center;
+margin-right:30px;
 }
-.superadmin-top img{
+/* .superadmin-top img{
   padding: 20px 0px 24px 29px;
-}
+} */
 .superadmin-bg{
   background: #E5E5E5;
+  padding:9px;
 }
 .superadmin-2 h2{
   font-family: 'Raleway';
@@ -1767,9 +1771,8 @@ text-align-last: center;
     padding-bottom: 16px;
   }
   .superadmin-bg2 h1{
-    padding: 59px 0px 61px 29px;
-    background: 
-    #F3F3F3;
+    /* padding: 59px 0px 61px 29px; */
+   
   }
   .superadmin-2 span{
     font-size: 37px;
@@ -1839,3 +1842,323 @@ text-align-last: center;
     margin-bottom: 17px;
 
   }
+
+  .superAdminHome h2{
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 31px;
+    letter-spacing: -0.04em;
+    color: #000000;
+    padding-top: 23px;
+    text-align-last: center;
+    }
+.superAdminHome-side{
+  background: #E5E5E5;
+  height:100vh;
+}
+.superAdminHome-Top{
+  background: antiquewhite;
+  display: flex;
+  height: 80px;
+}
+.superAdminHome-Top h1{
+  margin-right:30px;
+}
+.updateuser-body input{
+  background: #FFFFFF;
+    box-shadow: 0px 4px 21px rgb(0 0 0 / 11%);
+    border-radius: 35px;
+    border: none;
+    width: 30%;
+    margin-top: 84px;
+    margin-left: 82px;
+    height: 51px;
+}    
+.upadteuser-body h1{
+  font-family: 'Raleway';
+font-style: normal;
+font-weight: 500;
+font-size: 31px;
+line-height: 83px;
+letter-spacing: -0.04em;
+color: #000000;
+opacity: 0.75;
+margin-left: 76px;
+margin-top: 36px;
+}
+.updateuser-body-card h4{
+  font-family: 'Raleway';
+font-style: normal;
+font-weight: 500;
+font-size: 31px;
+line-height: 83px;
+
+letter-spacing: -0.04em;
+
+color: #000000;
+}
+.updateuser-body-card{
+  width: 80%;
+  background: #FFFFFF;
+  margin-left: 70PX !important;
+  margin-bottom:25px;
+}
+.updateuser-body-card img{
+  float:right;
+}
+.updateuser-body h1{
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 31px;
+  line-height: 83px;
+  letter-spacing: -0.04em;
+  color: #000000;
+  width: 60%;
+  opacity: 0.75;
+  margin-left: 70px;
+  margin-top: 32px;
+  
+}
+.updateuser{
+  height:auto;
+}
+
+
+.signup-body{
+  margin-top:90px !important;
+}
+.signup-body-card{
+  background: #FFFFFF;
+    height: 70px !important;
+    /* margin-top: 50px !important; */
+    margin-left: 75px !important;
+    margin-bottom:40px !important;
+    align-items:center;
+    width: 75%;
+
+}
+.signup-body-card h4{
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 25px;
+  line-height: 267.9%;
+  /* identical to box height, or 67px */
+  
+  letter-spacing: -0.04em;
+  
+color: #000000;
+}
+
+.signup-body-card button{
+  background: #434BFF;
+  border-radius: 2px;
+  border: none;
+  width: 100px;
+  padding: 6px;
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 16px;
+  text-align: center;
+  color: #FFFFFF;
+
+}
+.signup-body-button button{
+  background: white;
+    border: 1px solid #9E9E9E;
+    box-sizing: border-box;
+    border-radius: 2px;
+    margin-left: 30px;
+    color: black;
+}
+
+.superadmin-nav-active{
+
+    background: #F3F3F3;
+    padding: 22px;
+
+}
+.updatebooking-body{
+   margin-top:100px !important;
+   margin-left:200px !important;
+   display:grid !important;
+  }
+
+.updatebooking-body h1{
+  font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 33px;
+    line-height: 267.9%;
+    letter-spacing: -0.04em;
+    color: #000000;
+}
+
+.updatebooking-body input{
+  background: #FFFFFF;
+    border: none;
+    width: 65%;
+    font-family: 'Raleway';
+    font-style: italic;
+    font-weight: 500;
+    font-size: 25px;
+    line-height: 267.9%;
+    letter-spacing: -0.04em;
+    color: #000000;
+    height: 63px;
+}
+.updatebooking .row>* {
+  padding-right:0px !important;
+}
+.updatebooking{
+  height:auto;
+}
+.updatebooking-body button{
+  background: #434BFF;
+  border-radius: 4px;
+  border: none;
+  width: 170px;
+  height: 54px;
+  font-weight: 700;
+  font-size: 20px;
+  /* line-height: 18px; */
+  text-align: center;
+  color: #FFFFFF;
+  margin-top: 25px;
+}
+
+
+.updatebooking-body-card {
+  background: #FFFFFF;
+  height: 82px;
+  margin-top: 47px !important;
+  width: 95%;
+  margin-bottom: 30px;
+  align-items:center;
+  margin-left:20px !important;
+}
+
+.updatebooking-body-card h4{
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 27px;
+  line-height: 32px;
+  /* identical to box height */
+  
+  letter-spacing: -0.02em;
+  
+  color: #051D97;
+}
+
+.updatebooking-body-card button{
+  width: 140px;
+  height: 38px;
+  background: #434BFF;
+  border-radius: 2px;
+  border: none;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 16px;
+  text-align: center;
+  color: #FFFFFF;
+}
+
+.acceptbooking-body h1{
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 58px;
+  line-height: 68px;
+  letter-spacing: -0.04em;
+  color: #312B74;
+}
+
+.acceptbooking{
+  margin-top: 64px !important;
+  margin-left: 35px;
+}
+.acceptbooking-body-2 h1{
+  font-family: 'Raleway';
+font-style: normal;
+font-weight: 700;
+font-size: 27px;
+line-height: 32px;
+
+letter-spacing: -0.04em;
+
+color: #000000;
+
+
+}
+.acceptbooking-body-2 h4{
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 37px;
+  line-height: 43px;
+  letter-spacing: -0.02em;
+  
+  color: #051D97;
+}
+.acceptbooking-body-3{
+  MARGIN-TOP: 55PX !important;
+  MARGIN-BOTTOM: 75PX !important;
+}
+
+.acceptbooking-body-3 h1{
+  font-family: 'Raleway';
+  font-style: italic;
+  font-weight: 600;
+  font-size: 37px;
+  line-height: 43px;
+  letter-spacing: -0.02em;
+  text-decoration-line: underline;
+  color: #051D97;
+}
+
+
+.acceptbooking-body-btn button{
+background: #434BFF;
+border-radius: 6px;
+border: none;
+width: 108px;
+height: 60px;
+width: 200px;
+font-size: 31px;
+line-height: 36px;
+text-align: center;
+color: #FFFFFF;
+height: 70px;
+border-radius: 6px;
+}
+
+.acceptbooking-body-btn2 button{
+  background: transparent;
+  border-radius: 6px;
+  border: none;
+  width: 108px;
+  height: 60px;
+  width: 200px;
+  font-size: 31px;
+  line-height: 36px;
+  text-align: center;
+  color: black;
+  box-sizing: border-box;
+  border-radius: 6px;
+  height: 70px;
+  border: 1px solid #747474;
+  }
+
+.acceptbooking-body-3 h4{
+
+  font-size: 31px;
+  line-height: 36px;
+  text-align: center;
+  text-decoration-line: underline;
+  color: #313131;
+}

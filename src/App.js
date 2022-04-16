@@ -20,7 +20,12 @@ import PropertyUi from './screen/PropertyUi';
 import RoomUi from './screen/RoomUi';
 import ConfirmBooking from './screen/ConfirmBooking';
 import SuperAdmin from './superAdmin/SuperAdmin';
+import UpdateUser from './superAdmin/UpdateUser';
 import SearchScreen from './screen/SearchScreen';
+import SuperAdminHome from './superAdmin/SuperAdminHome';
+import SignUpRequest from './superAdmin/SignUpRequest';
+import UpdateBooking from './superAdmin/UpdateBooking';
+import AcceptBooking from './superAdmin/AcceptBooking';
 
 
 function App() {
@@ -33,12 +38,13 @@ function App() {
       <Route path="/about" element={<About/>}>   </Route>  
       <Route path="/contact" element={<Contact/>}>   </Route>  
       <Route path="/admin" element={<AdminLogin/>}>   </Route>
-      <Route path="/superadmin" element={<SuperAdmin/>}>   </Route>
       <Route path="/dashboard" element={<DashBoard/>}>   </Route>
-      {/* <Route path="/booking" element={<Booking/>}>   </Route> */}
-      {/* <Route path="/propertyui" element={<PropertyUi/>}>   </Route> */}
-      {/* <Route path="/roomui" element={<RoomUi/>}>   </Route> */}
-      {/* <Route path="/confirm" element={<ConfirmBooking/>}>   </Route> */}
+      <Route path="/superadmin" element={<SuperAdmin/>}>   </Route>
+      <Route path="/updateuser" element={<UpdateUser/>}>   </Route>
+      {/* <Route path="/updateuser" element={<UpdateUser/>}>   </Route> */}
+      <Route path="/signuprequest" element={<SignUpRequest/>}>   </Route>
+      <Route path="/updatebooking" element={<UpdateBooking/>}>   </Route>
+      <Route path="/acceptbooking/propId/:propId/bookId/:bookId" element={<AcceptBooking/>}>   </Route>
       <Route path="/addroom/:id" element={<AddRoom/>}>   </Route>
       <Route path="/room/:id/edit" exact element={<EditRoom/>}>   </Route>
       <Route path="/property/:id/edit"  element={<PropertyEdit/>}

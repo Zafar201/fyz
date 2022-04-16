@@ -294,7 +294,7 @@ function ConfirmBooking() {
                     
                   </Row>
                   <Row className="pl">
-                   <h5>{selectedplan} </h5> 
+                   <h5>{selectedplan ? selectedplan : "please select a plan"} </h5> 
                   </Row>
                 
                   <hr />
@@ -303,7 +303,7 @@ function ConfirmBooking() {
                       <h3>Expected Price</h3>
                     </Col>
                     <Col>
-                      <h1>{price1}</h1>
+                      <h1>{price1 ? price1 : "Please select a price"}</h1>
                     </Col>
                     
                   </Row>

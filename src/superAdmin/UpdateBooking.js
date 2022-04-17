@@ -59,7 +59,7 @@ if(rejectSuccess){
              <Row className='superadmin-2'> 
               <Col md={3}>
                  <div >
-                    <h2 >User Details</h2>
+                 <Link to='/superadmin'> <h2 >User Details</h2></Link> 
                  </div>
                  <div>
                     <h2>User Details</h2>
@@ -86,7 +86,11 @@ if(rejectSuccess){
                      <h4>{data.propName}</h4>
                    </Col>
                    <Col >
-                     <h4>{data._id}</h4>
+                     {data.adminApproved? (
+                       <MessageBox>approved</MessageBox>
+                     ):(
+                       <h4>Not approved</h4>
+                     )}
                    </Col>
                    <Col >
                      <h4>username</h4>

@@ -67,7 +67,7 @@ function AcceptBooking() {
              <Row className='superadmin-2'> 
               <Col md={3}>
                  <div >
-                    <h2 >User Details</h2>
+                  <Link to='/superadmin'> <h2 >User Details</h2></Link> 
                  </div>
                  <div>
                     <h2>Property Status</h2>
@@ -138,24 +138,27 @@ function AcceptBooking() {
                      </Col>
 
                    
-                       
-                        <Col className='acceptbooking-body-btn'>
-                        {property.bookings.find((e)=>e._id == bookId).adminApproved ?
+                     {property.bookings.find((e)=>e._id == bookId).adminApproved?
                         <MessageBox>approved</MessageBox>:(
-                           <button onClick={approve} type='submit'>Accept</button> 
+                           <>
+                        <Col className='acceptbooking-body-btn'>
+                       
+                               <button onClick={approve} type='submit'>Accept</button> 
+                       </Col>
+                      
+                             <Col className='acceptbooking-body-btn2'>
+                                  <button onClick={reject} type='submit'>Decline</button>
+                             </Col>
+                        
+                     
+                   
+                       </>
                         )
                            
                         }
-                        
-                       </Col>
-                     <Col className='acceptbooking-body-btn2'>
-                            <button onClick={reject} type='submit'>Decline</button>
-                     </Col>
-                    
-                   
             
                    <Col>
-                      <h4>   Go Back  </h4>
+                 <Link to='/updatebooking'><h4 >   Go Back  </h4></Link>     
                    </Col>
                  </Row>
              

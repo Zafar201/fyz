@@ -26,6 +26,8 @@ import SuperAdminHome from './superAdmin/SuperAdminHome';
 import SignUpRequest from './superAdmin/SignUpRequest';
 import UpdateBooking from './superAdmin/UpdateBooking';
 import AcceptBooking from './superAdmin/AcceptBooking';
+import CreateAcount from './screen/CreateAcount';
+import CreatePassword from './screen/CreatePassword';
 
 
 function App() {
@@ -38,6 +40,8 @@ function App() {
       <Route path="/about" element={<About/>}>   </Route>  
       <Route path="/contact" element={<Contact/>}>   </Route>  
       <Route path="/admin" element={<AdminLogin/>}>   </Route>
+      <Route path="/register" element={<CreateAcount/>}>   </Route>
+      <Route path="/createpass" element={<CreatePassword/>}>   </Route>
       <Route path="/dashboard" element={<DashBoard/>}>   </Route>
       <Route path="/superadmin" element={<SuperAdmin/>}>   </Route>
       <Route path="/updateuser" element={<UpdateUser/>}>   </Route>

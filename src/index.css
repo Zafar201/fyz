@@ -2162,3 +2162,73 @@ border-radius: 6px;
   text-decoration-line: underline;
   color: #313131;
 }
+
+/* register */
+.register-body h1{
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 53px;
+  line-height: 68px;
+  letter-spacing: -0.04em;
+  padding-top: 60px;
+  color: #312B74;
+  padding-left: 0px;
+
+}
+.register-body p{
+  font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 25px;
+    line-height: 32px;
+    letter-spacing: -0.04em;
+    color: #312B74;
+    padding-left: 0px;
+}
+.register-body-1 input{
+  width: 319px;
+  height: 63px;
+  left: 241px;
+  top: 389px;
+  background: #FFFFFF;
+  border: 1px solid #C6C6C6;
+  box-sizing: border-box;
+  border-radius: 10px;
+  margin-bottom: 44px;
+
+}
+.register{
+  background-color: #E5E5E5;
+  height: auto;
+ 
+}
+.register-body-2 input{
+  width: 388px;
+    height: 63px;
+    background: #FFFFFF;
+    border: 1px solid #C6C6C6;
+    box-sizing: border-box;
+    border-radius: 10px;
+    margin-bottom: 44px;
+}
+.register textarea{
+  width: 388px;
+  height: 230px;
+  left: 241px;
+  top: 980px;
+  background: #FFFFFF;
+  border: 1px solid #C6C6C6;
+  box-sizing: border-box;
+  border-radius: 10px;
+}
+.register button{
+  width: 202px;
+    height: 69px;
+    /* left: 241px; */
+    margin-top: 42px;
+    /* top: 1398px; */
+    margin-bottom: 110px;
+    background: #312B74;
+    border-radius: 4px;
+}

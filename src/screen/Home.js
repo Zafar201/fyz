@@ -7,6 +7,7 @@ import axios from 'axios'
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import {format} from 'date-fns'
+import HotDeals from '../components/HotDeals';
 
 function Home() {
   const dispatch = useDispatch()
@@ -17,8 +18,12 @@ function Home() {
   const [location, setLocation] = useState("Kerala");
   const [adult, setAdult] = useState();
   const [child, setChild] = useState();
+  const [showHot, setShowHot] = useState(false)
   const navigate = useNavigate()
 
+  const close=()=>{
+    setShowHot(false)
+  }
   useEffect(() => {
     window.scrollTo(0, 0);
     dispatch(listProperties())
@@ -28,9 +33,12 @@ function Home() {
       console.log(property,'hoyy');
     }
       
-   
+    const timeout = setTimeout(() => {
+      setShowHot(true)
+    }, 2000)
+    return () => clearTimeout(timeout)    
 
-}, []);
+}, [setShowHot,dispatch]);
 
 
 const date= ()=>{
@@ -41,6 +49,9 @@ const date= ()=>{
 }
   return (
     <div className="home"> 
+    <HotDeals
+    show={showHot}
+    close={close}/>
       <div
         className="home-container"
         style={{ backgroundImage: `url("../assets/image/homebg3.jpeg")` }}

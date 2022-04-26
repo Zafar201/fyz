@@ -35,7 +35,7 @@ if(rejectSuccess){
              <Row className='superadmin-top'>
                  <Col className='superadmin-bg' >
                      <Row> 
-                         <Col md={2}>
+                         <Col >
                          <img src="../assets/image/logo-admin.png" alt="" />
                          </Col>
                        

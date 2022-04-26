@@ -1,9 +1,30 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Col, Container, Row } from 'react-bootstrap';
+import { useDispatch, useSelector } from 'react-redux';
+import { createAccount } from '../actions/generalAction';
 import { Link } from 'react-router-dom';
 
 function CreateAcount() {
+  const [name, setName] = useState("")
+  const [name2, setName2] = useState("")
+  const [email, setEmail] = useState("")
+  const [phone, setPhone] = useState("")
+  const [address, setAddress] = useState("")
+  const accountCreate= useSelector(state=>state.accountCreate)
+  const {loading,error,success} = accountCreate
+  const dispatch = useDispatch()
+
+  const submitHandler=(e)=>{
+    e.preventDefault()
+    dispatch(createAccount(name,name2,email,phone,address))
+    if(error){
+      console.log(error)
+    }
+ 
+    
+  }
   return (
+  
     <div>
          <div className='admin-nav'>
        <Container>
@@ -29,36 +50,39 @@ function CreateAcount() {
            <Row >
               <h1>Create Account</h1>
            </Row>
+           <form onSubmit={submitHandler}>
            <Row className='register-body-1' style={{marginTop:"60px"}}>
                <Col md={4}>
                   <p>First name</p>
-                  <input type="text" />
+                <input type="text" id="name" name="name" onChange={(e)=>setName(e.target.value)} />
                </Col>
                <Col md={4}>
-                    <p>First name</p>
-                    <input type="text" />
+                    <p>Last name</p>
+                    <input type="text" id="name2" name="name2" onChange={(e)=>setName2(e.target.value)}/>
                </Col>
            </Row>
            <Row className='register-body-2'>
-                <p>First name</p>
-               <input type="text" />
+                <p>Email Address</p>
+               <input type="text" id="email" name="email" onChange={(e)=>setEmail(e.target.value)}/>
            </Row>
            <Row className='register-body-2'>
-                <p>First name</p>
-               <input type="text" />
+                <p>Phone number</p>
+               <input type="text" id="phone" name="phone" onChange={(e)=>setPhone(e.target.value)}/>
            </Row>
            <Row>
                <p>Address</p>
                <textarea
-                  name="description"
-                  id="description" 
+                  name="address"
+                  id="address" 
                   cols="4"
                   rows="5"
+                  onChange={(e)=>setAddress(e.target.value)}
                 ></textarea>
            </Row>
            <Row>
-              <Link to='/createpass'><button>Submit</button></Link> 
+              <button type='submit'>Submit</button> 
            </Row>
+           </form>
        </Container>
        </div>
     </div>

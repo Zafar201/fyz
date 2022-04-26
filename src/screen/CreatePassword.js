@@ -1,8 +1,18 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Col, Container, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { createPassword} from '../actions/adminAction';
+import { useDispatch, useSelector } from 'react-redux';
 
 function CreatePassword() {
+  const [password,setPassword]= useState("")
+  const [confirmPassword,setConfirmPassword] =useState("")
+  const dispatch = useDispatch()
+
+  const submitHandler=(e)=>{
+    e.preventDefault()
+    dispatch(createPassword(password))
+  }
   return (
     <div>
            <div className='admin-nav'>
@@ -24,6 +34,7 @@ function CreatePassword() {
        </Container>
        </div>
 
+      <form onSubmit={submitHandler}>
        <div className='register'>
        <Container className='register-body'>
        <Row >
@@ -32,19 +43,19 @@ function CreatePassword() {
       
            <Row className='register-body-2' style={{marginTop:"60px"}}>
                 <p>Enter password</p>
-               <input type="text" />
+               <input type="password" id='password' onChange={(e)=>setPassword(e.target.value)}/>
            </Row>
            <Row className='register-body-2'>
                 <p>Confirm password</p>
-               <input type="text" />
+               <input type="password" id='password'  onChange={(e)=>setConfirmPassword(e.target.value)} />
            </Row>
      
            <Row>
-               <button>Submit</button>
+               <button type='submit'>Submit</button>
            </Row>
        </Container>
        </div>
-        
+       </form> 
     </div>
   )
 }

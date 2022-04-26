@@ -1,4 +1,4 @@
-import { APPROVE_BOOKING_FAIL, APPROVE_BOOKING_REQUEST, APPROVE_BOOKING_SUCCESS, COUNT_LIST_FAIL, COUNT_LIST_REQUEST, COUNT_LIST_SUCCESS, GET_BOOKING_LIST_FAIL, GET_BOOKING_LIST_REQUEST, GET_BOOKING_LIST_SUCCESS, REJECT_BOOKING_FAIL, REJECT_BOOKING_REQUEST, REJECT_BOOKING_SUCCESS } from "../constants/adminConstants";
+import {CREATE_PASSWORD_REQUEST,CREATE_PASSWORD_SUCCESS,CREATE_PASSWORD_FAIL, APPROVE_BOOKING_FAIL, APPROVE_BOOKING_REQUEST, APPROVE_BOOKING_SUCCESS, APPROVE_USER_REQUEST,APPROVE_USER_SUCCESS,APPROVE_USER_FAIL, COUNT_LIST_FAIL, COUNT_LIST_REQUEST, COUNT_LIST_SUCCESS, GET_BOOKING_LIST_FAIL, GET_BOOKING_LIST_REQUEST, GET_BOOKING_LIST_SUCCESS, GET_SIGNUP_FAIL, GET_SIGNUP_REQUEST, GET_SIGNUP_SUCCESS, REJECT_BOOKING_FAIL, REJECT_BOOKING_REQUEST, REJECT_BOOKING_SUCCESS } from "../constants/adminConstants";
 import axios from 'axios'
 
 export const getCountDetails = () => async (dispatch) => {
@@ -60,5 +60,67 @@ export const getCountDetails = () => async (dispatch) => {
         ? error.response.data.message
         : error.message;
        dispatch({ type: REJECT_BOOKING_FAIL, error: message });
+    }
+  }
+
+  export const getSignUpRequest=()=>async(dispatch)=>{
+    dispatch({type:GET_SIGNUP_REQUEST})
+    try{
+      const {data}= await axios.get('https://tawi-backend.herokuapp.com/api/admin/get-signup-requests')
+      dispatch({type:GET_SIGNUP_SUCCESS,payload:data})
+    }catch(error){
+      const message =
+      error.response && error.response.data.message
+        ? error.response.data.message
+        : error.message;
+       dispatch({ type: GET_SIGNUP_FAIL, error: message });
+    
+    }
+  }
+
+  export const approveUser=(userId)=>async(dispatch)=>{
+    dispatch({type:APPROVE_USER_REQUEST});
+    try{
+      const {data} = await axios.put(`https://tawi-backend.herokuapp.com/api/admin/approve-user/${userId}`)
+      dispatch({type:APPROVE_USER_SUCCESS,payload:data});
+     
+    }catch(error){
+      const message =
+      error.response && error.response.data.message
+        ? error.response.data.message
+        : error.message;
+       dispatch({ type: APPROVE_USER_FAIL, error: message });
+    }
+  }
+
+  export const rejectUser=(userId)=>async(dispatch)=>{
+    dispatch({type:REJECT_BOOKING_REQUEST});
+    try{
+      const {data} = await axios.get(`https://tawi-backend.herokuapp.com/api/admin/reject-user/${userId}`)
+      dispatch({type:REJECT_BOOKING_SUCCESS,payload:data});
+     
+    }catch(error){
+      const message =
+      error.response && error.response.data.message
+        ? error.response.data.message
+        : error.message;
+       dispatch({ type: REJECT_BOOKING_FAIL, error: message });
+    }
+  }
+
+
+  //6263cba1b6efdf5f1e2bd59e
+  export const createPassword=(password)=>async(dispatch)=>{
+    dispatch({type:CREATE_PASSWORD_REQUEST});
+    try{
+      const {data} = await axios.put(`https://tawi-backend.herokuapp.com/api/admin/update-password/6263cba1b6efdf5f1e2bd59e`,{password})
+      dispatch({type:CREATE_PASSWORD_SUCCESS,payload:data});
+     
+    }catch(error){
+      const message =
+      error.response && error.response.data.message
+        ? error.response.data.message
+        : error.message;
+       dispatch({ type: CREATE_PASSWORD_FAIL, error: message });
     }
   }

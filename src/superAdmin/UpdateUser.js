@@ -1,14 +1,15 @@
 import React from 'react'
 import { Col, Container, Row } from 'react-bootstrap'
+import { Link } from 'react-router-dom';
 
 function UpdateUser() {
   return (
      <div className='superadmin updateuser'>
        
              <Row className='superadmin-top'>
-                 <Col className='superadmin-bg' >
+                 <Col className='superadmin-bg' md={3}>
                      <Row> 
-                         <Col md={3}>
+                         <Col>
                          <img src="../assets/image/logo-admin.png" alt="" />
                          </Col>
                        
@@ -16,14 +17,14 @@ function UpdateUser() {
                  </Col>
                  <Col className='superadmin-bg2'>
                      <Row>
-                       <h1>update user</h1>
+                     <Link to='/superadmin'>     <h1>Activity Status</h1> </Link>
                      </Row>
                  </Col>
                  <Col className='superadmin-nav-active'>
                   <h1>Update User</h1>
                  </Col>
                  <Col>
-                 <h1>Mail to User</h1>
+                <Link to='/signuprequest'> <h1>Signup Request</h1></Link>
                  </Col>
                  <Col>
                  </Col>
@@ -31,7 +32,7 @@ function UpdateUser() {
              </Row>
         
              <Row className='superadmin-2'> 
-              <Col md={2}>
+              <Col md={3}>
                  <div className='superadmin-active'>
                     <h2 >User Details</h2>
                  </div>

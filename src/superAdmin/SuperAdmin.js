@@ -27,14 +27,14 @@ function SuperAdmin() {
                  </Col>
                  <Col className='superadmin-bg2'>
                      <Row className='superadmin-nav-active'>
-                       <h1>update user</h1>
+                       <h1>Activity status</h1>
                      </Row>
                  </Col>
                  <Col>
-                  <h1>Update User</h1>
+                 <Link to='/updateuser'> <h1>Update User</h1> </Link>
                  </Col>
                  <Col>
-                 <h1>Mail to User</h1>
+                 <Link to='/signuprequest'>  <h1>Sign up request</h1> </Link>
                  </Col>
                  <Col>
                  </Col>

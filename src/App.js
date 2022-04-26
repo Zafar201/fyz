@@ -28,6 +28,7 @@ import UpdateBooking from './superAdmin/UpdateBooking';
 import AcceptBooking from './superAdmin/AcceptBooking';
 import CreateAcount from './screen/CreateAcount';
 import CreatePassword from './screen/CreatePassword';
+import View from './components/View';
 
 
 function App() {
@@ -45,6 +46,7 @@ function App() {
       <Route path="/dashboard" element={<DashBoard/>}>   </Route>
       <Route path="/superadmin" element={<SuperAdmin/>}>   </Route>
       <Route path="/updateuser" element={<UpdateUser/>}>   </Route>
+      <Route path="/view" element={<View/>}>   </Route>
       {/* <Route path="/updateuser" element={<UpdateUser/>}>   </Route> */}
       <Route path="/signuprequest" element={<SignUpRequest/>}>   </Route>
       <Route path="/updatebooking" element={<UpdateBooking/>}>   </Route>

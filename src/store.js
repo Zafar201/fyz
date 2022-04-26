@@ -1,8 +1,8 @@
 // const { createStore } = require("redux");
 import {applyMiddleware, combineReducers, compose, createStore} from 'redux'
 import thunk from 'redux-thunk';
-import { countListReducer,bookingListReducer ,approveBookingReducer,rejectBookingReducer} from './reducers/adminReducer';
-import { addproperrtyReducer, addRoomReducer, bookingConfirmReducer, checkPropertyReducer, getRoomDetailsReducer, getRoomsDetailsReducer, propertyCreateReducer, propertyDeleteReducer, propertyDetailsReducer, propertyListReducer, propertyUpdateReducer, roomDeleteReducer, roomDetailsReducer, roomUpdateReducer } from './reducers/generalReducer';
+import {passwordCreateReducer, userRejectReducer,countListReducer,bookingListReducer ,approveBookingReducer,rejectBookingReducer,getSignupRequestReducer,userApproveReducer} from './reducers/adminReducer';
+import { addproperrtyReducer,accountCreateReducer, addRoomReducer, bookingConfirmReducer, checkPropertyReducer, getRoomDetailsReducer, getRoomsDetailsReducer, propertyCreateReducer, propertyDeleteReducer, propertyDetailsReducer, propertyListReducer, propertyUpdateReducer, roomDeleteReducer, roomDetailsReducer, roomUpdateReducer } from './reducers/generalReducer';
 
 const initialState ={};
 const reducer=combineReducers({
@@ -22,6 +22,11 @@ const reducer=combineReducers({
  bookingList:bookingListReducer,
  approveBooking:approveBookingReducer,
  rejectBooking:rejectBookingReducer,
+ accountCreate:accountCreateReducer,
+ signupCreate:getSignupRequestReducer,
+ approveUser:userApproveReducer,
+ rejectUser:userRejectReducer,
+ createPssword:passwordCreateReducer,
 })
 
 

@@ -34,7 +34,7 @@ function Home() {
     }
       
     const timeout = setTimeout(() => {
-      setShowHot(true)
+      setShowHot(false)
     }, 2000)
     return () => clearTimeout(timeout)    
 
@@ -153,7 +153,7 @@ const date= ()=>{
                   </Col>
                   <Col>
                     <Row>
-                      <h2>no.od guest</h2>
+                      <h2>no.of guest</h2>
                       adult  <input 
                       type="number" 
                       id="adult"

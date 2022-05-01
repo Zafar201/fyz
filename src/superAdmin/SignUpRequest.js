@@ -1,21 +1,35 @@
 import  React, { useEffect } from 'react'
 import { Col, Container, Row } from 'react-bootstrap'
-import { Link} from 'react-router-dom';
+import { Link, useParams} from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import {getSignUpRequest,approveUser,rejectUser } from '../actions/adminAction';
 import LoadingBox from "../components/LoadingBox";
 import MessageBox from "../components/MessageBox";
+import {APPROVE_USER_RESET ,REJECT_USER_RESET} from '../constants/adminConstants';
 
 function SignUpRequest() {
+  
 
    const dispatch = useDispatch()
    const signupCreate = useSelector((state) => state.signupCreate);
    const { loading, error, users } = signupCreate;
+   const approveUsers= useSelector((state)=>state.approveUser);
+   const {success} = approveUsers
+   const rejectUsers = useSelector((state)=>state.rejectUser);
+   const {success: succesReject} = rejectUsers
 
    useEffect(()=>{
        dispatch(getSignUpRequest())
-   },[dispatch])
+       if(success){
+         dispatch({type:APPROVE_USER_RESET})
+       }
+       if(succesReject){
+        dispatch({type:REJECT_USER_RESET})
+      }
 
+   },[dispatch,success,succesReject])
+
+   
    const approveHandler=(userId)=>{
       console.log('heloo',userId)
      dispatch(approveUser(userId))
@@ -111,9 +125,12 @@ users && users.map((user)=>(
      
     </Row>
   
+  
    
     </>
+    
      ))}
+    
 </Col>
   
     

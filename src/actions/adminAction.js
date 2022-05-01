@@ -1,5 +1,6 @@
 import {CREATE_PASSWORD_REQUEST,CREATE_PASSWORD_SUCCESS,CREATE_PASSWORD_FAIL, APPROVE_BOOKING_FAIL, APPROVE_BOOKING_REQUEST, APPROVE_BOOKING_SUCCESS, APPROVE_USER_REQUEST,APPROVE_USER_SUCCESS,APPROVE_USER_FAIL, COUNT_LIST_FAIL, COUNT_LIST_REQUEST, COUNT_LIST_SUCCESS, GET_BOOKING_LIST_FAIL, GET_BOOKING_LIST_REQUEST, GET_BOOKING_LIST_SUCCESS, GET_SIGNUP_FAIL, GET_SIGNUP_REQUEST, GET_SIGNUP_SUCCESS, REJECT_BOOKING_FAIL, REJECT_BOOKING_REQUEST, REJECT_BOOKING_SUCCESS } from "../constants/adminConstants";
 import axios from 'axios'
+import { USER_SIGNIN_SUCCESS } from "../constants/generalConstants";
 
 export const getCountDetails = () => async (dispatch) => {
     dispatch({ type: COUNT_LIST_REQUEST });
@@ -96,7 +97,7 @@ export const getCountDetails = () => async (dispatch) => {
   export const rejectUser=(userId)=>async(dispatch)=>{
     dispatch({type:REJECT_BOOKING_REQUEST});
     try{
-      const {data} = await axios.get(`https://tawi-backend.herokuapp.com/api/admin/reject-user/${userId}`)
+      const {data} = await axios.put(`https://tawi-backend.herokuapp.com/api/admin/reject-user/${userId}`)
       dispatch({type:REJECT_BOOKING_SUCCESS,payload:data});
      
     }catch(error){
@@ -110,11 +111,14 @@ export const getCountDetails = () => async (dispatch) => {
 
 
   //6263cba1b6efdf5f1e2bd59e
-  export const createPassword=(password)=>async(dispatch)=>{
+  export const createPassword=(password,userId)=>async(dispatch)=>{
     dispatch({type:CREATE_PASSWORD_REQUEST});
+    console.log(password,userId)
     try{
-      const {data} = await axios.put(`https://tawi-backend.herokuapp.com/api/admin/update-password/6263cba1b6efdf5f1e2bd59e`,{password})
+      const {data} = await axios.put(`https://tawi-backend.herokuapp.com/api/users/update-password/${userId}`,{password})
       dispatch({type:CREATE_PASSWORD_SUCCESS,payload:data});
+      dispatch({ type: USER_SIGNIN_SUCCESS, payload: data });
+      localStorage.setItem('userInfo', JSON.stringify(data));
      
     }catch(error){
       const message =

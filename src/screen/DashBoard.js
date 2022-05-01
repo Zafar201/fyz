@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
-import { Col, Container, Row } from 'react-bootstrap';
+import { Col, Container, Row ,Button} from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
-import { deleteProperty, listProperties } from '../actions/generalAction';
+import { deleteProperty, listProperties, signout } from '../actions/generalAction';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
 import { ADD_PROPERTIES_RESET, DELETE_PROPERTIES_RESET } from '../constants/generalConstants';
@@ -17,6 +17,9 @@ function DashBoard() {
 
   const propertyDelete=useSelector(state=>state.propertyDelete)
   const {success} = propertyDelete
+
+  const userSignin = useSelector((state) => state.userSignin);
+  const { userInfo } = userSignin;
 
   const propertyCreate = useSelector((state) => state.propertyCreate);
   const {  success:propertySuccess } = propertyCreate;
@@ -33,6 +36,10 @@ function DashBoard() {
     // console.log(properties,"clll"); 
 
 }, [dispatch,success,listProperties,propertySuccess]);
+
+const signoutHandler=()=>{
+  dispatch(signout());
+}
 const deleteHandler=(property)=>{
   if (window.confirm('Are you sure to delete?')) {
      dispatch(deleteProperty(property._id))
@@ -49,6 +56,12 @@ const deleteHandler=(property)=>{
                 <img src="../assets/image/logo-admin.png" alt="" />
                </Link>
                </Col>
+               <Col >
+               {userInfo && (
+                 <Button onClick={signoutHandler}>signout</Button>
+               )}
+               </Col>
+              
                <Col >
                  <img style={{float:"right"}} src="../assets/image/profile.png" alt="" />
                </Col>

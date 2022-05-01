@@ -1,9 +1,31 @@
-import React from 'react';
+import React, {useState,useEffect} from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link, useNavigate } from 'react-router-dom';
+import { signIn } from '../actions/generalAction';
 
 
 function AdminLogin() {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const navigate = useNavigate()
+    const dispatch = useDispatch();
+    const userSignin = useSelector((state) => state.userSignin);
+    const { userInfo, loading, error } = userSignin;
+  
+
+    const submitHanlder=(e)=>{
+        e.preventDefault()
+        dispatch(signIn(email, password))
+        
+    }
+    useEffect(()=>{
+         if(userInfo){
+            navigate('/dashboard')
+         }
+    },[userInfo])
+    // 
+
   return <div >
       <div className='admin-nav'>
        <Container>
@@ -24,7 +46,7 @@ function AdminLogin() {
        </Container>
        </div>
 
-       <div className='login'>
+       <form className='login' onSubmit={submitHanlder}>
           <Container>
               <Row>
                   <h1>Login</h1>
@@ -33,13 +55,24 @@ function AdminLogin() {
               <Row style={{justifyContent:"center",paddingTop:"48px"}} >
                   <div className='login-user'>
                       <img src="../assets/image/user.png" alt="" />
-                      <input type="text" placeholder='Username'/>
+                      <input 
+                       type="email"
+                       id="email"
+                       required
+                       onChange={(e) => setEmail(e.target.value)}
+                       placeholder='Email'/>
                   </div>
               </Row>
               <Row style={{justifyContent:"center",paddingTop:"27px"}}>
                   <div className='login-user'>
                       <img src="../assets/image/pass.png" alt="" />
-                      <input type="text" placeholder='Password'/>
+                      <input
+                       type="password"
+                       id="password"
+                       required
+                       onChange={(e) => setPassword(e.target.value)}
+                     
+                       placeholder='Password'/>
                   </div>
                  
               </Row>
@@ -56,13 +89,13 @@ function AdminLogin() {
                   </Col>
               </Row>
               <Row style={{justifyContent:"center",paddingTop:"32px"}}>
-                 <Link to='/dashboard'><button>Sign in</button></Link> 
+                 <button type='submit'>Sign in</button> 
               </Row>
               <Row>
                   <h3>Not registered yet? <span>Create an Account</span> </h3>
               </Row>
           </Container>
-       </div>
+       </form>
   </div>;
 }
 

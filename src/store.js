@@ -2,9 +2,15 @@
 import {applyMiddleware, combineReducers, compose, createStore} from 'redux'
 import thunk from 'redux-thunk';
 import {passwordCreateReducer, userRejectReducer,countListReducer,bookingListReducer ,approveBookingReducer,rejectBookingReducer,getSignupRequestReducer,userApproveReducer} from './reducers/adminReducer';
-import { addproperrtyReducer,accountCreateReducer, addRoomReducer, bookingConfirmReducer, checkPropertyReducer, getRoomDetailsReducer, getRoomsDetailsReducer, propertyCreateReducer, propertyDeleteReducer, propertyDetailsReducer, propertyListReducer, propertyUpdateReducer, roomDeleteReducer, roomDetailsReducer, roomUpdateReducer } from './reducers/generalReducer';
+import { addproperrtyReducer,accountCreateReducer, addRoomReducer, bookingConfirmReducer, checkPropertyReducer, getRoomDetailsReducer, getRoomsDetailsReducer, propertyCreateReducer, propertyDeleteReducer, propertyDetailsReducer, propertyListReducer, propertyUpdateReducer, roomDeleteReducer, roomDetailsReducer, roomUpdateReducer,userSigninReducer } from './reducers/generalReducer';
 
-const initialState ={};
+const initialState = {
+    userSignin: {
+      userInfo: localStorage.getItem('userInfo')
+        ? JSON.parse(localStorage.getItem('userInfo'))
+        : null,
+    },
+  };
 const reducer=combineReducers({
  propertyList:propertyListReducer,
  propertyCreate:addproperrtyReducer,
@@ -27,6 +33,7 @@ const reducer=combineReducers({
  approveUser:userApproveReducer,
  rejectUser:userRejectReducer,
  createPssword:passwordCreateReducer,
+ userSignin:userSigninReducer,
 })
 
 

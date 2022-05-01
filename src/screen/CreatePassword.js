@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Col, Container, Row } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useParams} from 'react-router-dom';
 import { createPassword} from '../actions/adminAction';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -8,11 +8,15 @@ function CreatePassword() {
   const [password,setPassword]= useState("")
   const [confirmPassword,setConfirmPassword] =useState("")
   const dispatch = useDispatch()
+  const params = useParams();
+  const { id: userId } = params;
+  
 
   const submitHandler=(e)=>{
     e.preventDefault()
-    dispatch(createPassword(password))
+    dispatch(createPassword(password,userId))
   }
+  console.log('heloo',userId)
   return (
     <div>
            <div className='admin-nav'>
@@ -47,7 +51,7 @@ function CreatePassword() {
            </Row>
            <Row className='register-body-2'>
                 <p>Confirm password</p>
-               <input type="password" id='password'  onChange={(e)=>setConfirmPassword(e.target.value)} />
+               <input type="password" id='confirmPassword'  onChange={(e)=>setConfirmPassword(e.target.value)} />
            </Row>
      
            <Row>

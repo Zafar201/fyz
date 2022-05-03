@@ -99,7 +99,7 @@ export const updateProperty=(property)=>async(dispatch,getState)=>{
     error.response && error.response.data.message
       ? error.response.data.message
       : error.message;
-     dispatch({ type: UPDATE_PROPERTIES_FAIL, error: message });
+     dispatch({ type: UPDATE_PROPERTIES_FAIL, payload: message });
      console.log('3');
   }
 }
@@ -121,7 +121,7 @@ export const addRoom = (name,description,adult,child,size,bedType,amenities,firs
     error.response && error.response.data.message
       ? error.response.data.message
       : error.message;
-     dispatch({ type: ADD_ROOM_FAIL, error: message });
+     dispatch({ type: ADD_ROOM_FAIL,payload: message });
     }
 }
 export const getRoomsDetails = (propertyId) => async (dispatch,getState) => {
@@ -161,7 +161,7 @@ export const detailsRoom = (propId,roomId) => async(dispatch,getState)=>{
       error.response && error.response.data.message
         ? error.response.data.message
         : error.message;
-       dispatch({ type: ROOM_DETAILS_FAIL, error: message });
+       dispatch({ type: ROOM_DETAILS_FAIL, payload: message });
       }
   }
 
@@ -204,7 +204,7 @@ export const detailsRoom = (propId,roomId) => async(dispatch,getState)=>{
       error.response && error.response.data.message
         ? error.response.data.message
         : error.message;
-       dispatch({ type: UPDATE_ROOM_FAIL, error: message });
+       dispatch({ type: UPDATE_ROOM_FAIL, payload: message });
        console.log('3');
     }
   }
@@ -247,7 +247,8 @@ export const createAccount=( f_name,l_name,email,phone,address)=>async(dispatch)
     error.response && error.response.data.message
       ? error.response.data.message
       : error.message;
-     dispatch({ type: CREATE_ACCOUNT_FAIL, error: message })
+     dispatch({ type: CREATE_ACCOUNT_FAIL, payload: error.response.data.message })
+    //  console.log('heloooo',error.response.data.message)
    }
 }
 
@@ -263,7 +264,7 @@ export const signIn =(email,password)=>async(dispatch)=>{
     error.response && error.response.data.message
       ? error.response.data.message
       : error.message;
-     dispatch({ type: USER_SIGNIN_FAIL, error: message })
+     dispatch({ type: USER_SIGNIN_FAIL, payload: message })
   }
 }
 

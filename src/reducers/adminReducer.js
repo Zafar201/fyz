@@ -108,7 +108,7 @@ export const countListReducer = (state = { loading:true,count:[] }, action) => {
       case CREATE_PASSWORD_REQUEST:
         return {loading:true};
       case CREATE_PASSWORD_SUCCESS:
-        return {loading:false,success:true};
+        return {loading:false,success:true, userInfo:action.payload};
       case CREATE_PASSWORD_FAIL:
         return {loading:false,error:action.payload}
       case CREATE_PASSWORD_RESET:

@@ -5,7 +5,7 @@ import { Navigate } from 'react-router-dom';
 const PrivateRoute = ({ children }) => {
   const userSignin = useSelector((state) => state.userSignin);
   const { userInfo } = userSignin;
-  return userInfo ? children : <Navigate to="/admin" />;
+  return userInfo ? children : <Navigate to="/admin"/>;
 };
 
 export default PrivateRoute;

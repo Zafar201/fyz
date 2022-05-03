@@ -19,6 +19,7 @@ function SignUpRequest() {
    const {success: succesReject} = rejectUsers
 
    useEffect(()=>{
+     
        dispatch(getSignUpRequest())
        if(success){
          dispatch({type:APPROVE_USER_RESET})

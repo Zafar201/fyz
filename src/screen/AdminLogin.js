@@ -3,6 +3,8 @@ import { Col, Container, Row } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { signIn } from '../actions/generalAction';
+import LoadingBox from '../components/LoadingBox';
+import MessageBox from '../components/MessageBox';
 
 
 function AdminLogin() {
@@ -24,7 +26,7 @@ function AdminLogin() {
             navigate('/dashboard')
          }
     },[userInfo])
-    // 
+
 
   return <div >
       <div className='admin-nav'>
@@ -51,6 +53,8 @@ function AdminLogin() {
               <Row>
                   <h1>Login</h1>
                   <p>Manage your properties</p>
+                  {loading && <LoadingBox> </LoadingBox> }
+                  {error && <MessageBox>{error}</MessageBox>}
               </Row>
               <Row style={{justifyContent:"center",paddingTop:"48px"}} >
                   <div className='login-user'>
@@ -92,7 +96,7 @@ function AdminLogin() {
                  <button type='submit'>Sign in</button> 
               </Row>
               <Row>
-                  <h3>Not registered yet? <span>Create an Account</span> </h3>
+                <Link to='/register'>  <h3>Not registered yet? <span>Create an Account</span> </h3></Link>
               </Row>
           </Container>
        </form>

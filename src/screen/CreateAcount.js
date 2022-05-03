@@ -1,8 +1,10 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 import { Col, Container, Row } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { createAccount } from '../actions/generalAction';
 import { Link } from 'react-router-dom';
+import LoadingBox from '../components/LoadingBox';
+import MessageBox from '../components/MessageBox';
 
 function CreateAcount() {
   const [name, setName] = useState("")
@@ -16,13 +18,18 @@ function CreateAcount() {
 
   const submitHandler=(e)=>{
     e.preventDefault()
-    dispatch(createAccount(name,name2,email,phone,address))
+    dispatch(createAccount(name,name2,email,phone,address))   
+  }
+  useEffect(()=>{
+    if(success){
+      alert("your account is created wait for admin approvel")
+    }
     if(error){
       console.log(error)
     }
+
+  },[success])
  
-    
-  }
   return (
   
     <div>
@@ -44,30 +51,54 @@ function CreateAcount() {
            </Row>
        </Container>
        </div>
-
+      
+ 
+    
       <div className='register'>
        <Container className='register-body'>
            <Row >
               <h1>Create Account</h1>
+              {loading && <LoadingBox> </LoadingBox> }
+              {error && <MessageBox>{error}</MessageBox>}
            </Row>
            <form onSubmit={submitHandler}>
            <Row className='register-body-1' style={{marginTop:"60px"}}>
                <Col md={4}>
                   <p>First name</p>
-                <input type="text" id="name" name="name" onChange={(e)=>setName(e.target.value)} />
+                <input type="text" 
+               
+                required 
+                id="name" 
+                name="name" 
+                onChange={(e)=>setName(e.target.value)} />
                </Col>
                <Col md={4}>
                     <p>Last name</p>
-                    <input type="text" id="name2" name="name2" onChange={(e)=>setName2(e.target.value)}/>
+                    <input 
+                    type="text" 
+                    required
+                    id="name2" 
+                    name="name2" 
+                    onChange={(e)=>setName2(e.target.value)}/>
                </Col>
            </Row>
            <Row className='register-body-2'>
                 <p>Email Address</p>
-               <input type="text" id="email" name="email" onChange={(e)=>setEmail(e.target.value)}/>
+               <input 
+               type="email" 
+               id="email" 
+               required 
+               ame="email" 
+               onChange={(e)=>setEmail(e.target.value)}/>
            </Row>
            <Row className='register-body-2'>
                 <p>Phone number</p>
-               <input type="text" id="phone" name="phone" onChange={(e)=>setPhone(e.target.value)}/>
+               <input 
+               type="number" 
+               id="phone" 
+               required 
+               name="phone" 
+               onChange={(e)=>setPhone(e.target.value)}/>
            </Row>
            <Row>
                <p>Address</p>
@@ -76,6 +107,7 @@ function CreateAcount() {
                   id="address" 
                   cols="4"
                   rows="5"
+                  required
                   onChange={(e)=>setAddress(e.target.value)}
                 ></textarea>
            </Row>

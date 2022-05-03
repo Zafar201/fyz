@@ -45,7 +45,7 @@ export const getCountDetails = () => async (dispatch) => {
       error.response && error.response.data.message
         ? error.response.data.message
         : error.message;
-       dispatch({ type: APPROVE_BOOKING_FAIL, error: message });
+       dispatch({ type: APPROVE_BOOKING_FAIL, payload: message });
     }
   }
 
@@ -60,7 +60,7 @@ export const getCountDetails = () => async (dispatch) => {
       error.response && error.response.data.message
         ? error.response.data.message
         : error.message;
-       dispatch({ type: REJECT_BOOKING_FAIL, error: message });
+       dispatch({ type: REJECT_BOOKING_FAIL,payload: message });
     }
   }
 
@@ -74,7 +74,7 @@ export const getCountDetails = () => async (dispatch) => {
       error.response && error.response.data.message
         ? error.response.data.message
         : error.message;
-       dispatch({ type: GET_SIGNUP_FAIL, error: message });
+       dispatch({ type: GET_SIGNUP_FAIL, payload: message });
     
     }
   }
@@ -90,7 +90,7 @@ export const getCountDetails = () => async (dispatch) => {
       error.response && error.response.data.message
         ? error.response.data.message
         : error.message;
-       dispatch({ type: APPROVE_USER_FAIL, error: message });
+       dispatch({ type: APPROVE_USER_FAIL, payload: message });
     }
   }
 
@@ -105,7 +105,7 @@ export const getCountDetails = () => async (dispatch) => {
       error.response && error.response.data.message
         ? error.response.data.message
         : error.message;
-       dispatch({ type: REJECT_BOOKING_FAIL, error: message });
+       dispatch({ type: REJECT_BOOKING_FAIL, payload: message });
     }
   }
 
@@ -125,6 +125,6 @@ export const getCountDetails = () => async (dispatch) => {
       error.response && error.response.data.message
         ? error.response.data.message
         : error.message;
-       dispatch({ type: CREATE_PASSWORD_FAIL, error: message });
+       dispatch({ type: CREATE_PASSWORD_FAIL, payload: message });
     }
   }

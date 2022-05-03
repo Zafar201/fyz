@@ -181,14 +181,14 @@ export const bookingConfirmReducer = (state = { loading: true }, action) => {
   }
 }
 
-export const accountCreateReducer =(state={loading:true},action)=>{
+export const accountCreateReducer =(state ={},action)=>{
   switch(action.type){
     case CREATE_ACCOUNT_REQUEST:
      return {loading:true}
     case CREATE_ACCOUNT_SUCCESS:
-      return {loading:false,success:true,message:action.payload}
+      return {loading:false,success:true}
     case CREATE_ACCOUNT_FAIL:
-      return {loading:false,error:action.payload}
+      return {loading:false, error:action.payload}
 
     default:
       return state  

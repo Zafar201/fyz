@@ -89,7 +89,13 @@ function App() {
               </PrivateRoute>
             }
           ></Route>
-          <Route path="/room/:id/edit" exact element={<EditRoom />}>
+          <Route path="/room/:id/edit" 
+          exact 
+          element={
+            <PrivateRoute>
+              <EditRoom/>
+            </PrivateRoute>
+          }>
             {" "}
           </Route>
           <Route
@@ -128,7 +134,11 @@ function App() {
           ></Route>
           <Route
             path="/property/:id/"
-            element={<PropertyDetails />}
+            element={
+              <PrivateRoute>
+                <PropertyDetails />
+              </PrivateRoute>
+            }
             exact
           ></Route>
 

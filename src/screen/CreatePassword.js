@@ -1,21 +1,35 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Col, Container, Row } from 'react-bootstrap';
-import { Link, useParams} from 'react-router-dom';
+import { Link, useNavigate, useParams} from 'react-router-dom';
 import { createPassword} from '../actions/adminAction';
 import { useDispatch, useSelector } from 'react-redux';
+import LoadingBox from '../components/LoadingBox';
+import MessageBox from '../components/MessageBox';
 
 function CreatePassword() {
   const [password,setPassword]= useState("")
   const [confirmPassword,setConfirmPassword] =useState("")
+  const passwordCreate= useSelector(state=>state.createPssword)
+  const {loading,error,success,userInfo} = passwordCreate
   const dispatch = useDispatch()
   const params = useParams();
   const { id: userId } = params;
-  
+  const navigate = useNavigate()
 
   const submitHandler=(e)=>{
     e.preventDefault()
-    dispatch(createPassword(password,userId))
+    if (password !== confirmPassword) {
+      alert('Password and confirm password are not match');
+    }else{
+      dispatch(createPassword(password,userId))
+    }
+  
   }
+  useEffect(()=>{
+    if(userInfo){
+      navigate('/dashboard')
+    }
+  },[userInfo])
   console.log('heloo',userId)
   return (
     <div>
@@ -43,6 +57,8 @@ function CreatePassword() {
        <Container className='register-body'>
        <Row >
               <h1>Create Password</h1>
+              {loading && <LoadingBox> </LoadingBox> }
+              {error && <MessageBox>{error}</MessageBox>}
            </Row>
       
            <Row className='register-body-2' style={{marginTop:"60px"}}>

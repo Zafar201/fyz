@@ -27,6 +27,9 @@ function SignUpRequest() {
        if(succesReject){
         dispatch({type:REJECT_USER_RESET})
       }
+      if(users.length === 0){
+        console.log('ok')
+      }
 
    },[dispatch,success,succesReject])
 
@@ -81,9 +84,9 @@ function SignUpRequest() {
     <div  className='superadmin-active'>
      <h2 >User Details</h2>
     </div>
-    <div>
+    {/* <div>
        <h2>User Details</h2>
-    </div>
+    </div> */}
     <div>
         <h2>Update Booking</h2>
     </div>
@@ -95,16 +98,20 @@ function SignUpRequest() {
        <input type='text' placeholder='Enter here'/>
        <button>Proceed </button>
     </Row> */}
+    
 
 {loading? <LoadingBox></LoadingBox>:
 error? <MessageBox>{error}</MessageBox>:
-users && users.map((user)=>(
+users &&  users.map((user)=>(
 
 <>
     <Row key={user._id} className='updatebooking-body-card'>
+  
       <Col md={2}>
         <h4>{user.f_name}</h4>
+      
       </Col>
+
 
        
          <Col md={1}>
@@ -125,13 +132,16 @@ users && users.map((user)=>(
      
      
     </Row>
-  
+   
   
    
     </>
     
      ))}
     
+    {/* {users && users.length > 0 (
+      <h1>heloo</h1>
+    )} */}
 </Col>
   
     

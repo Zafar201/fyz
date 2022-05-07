@@ -1908,11 +1908,16 @@ letter-spacing: -0.04em;
 
 color: #000000;
 }
+
 .updateuser-body-card{
   width: 80%;
   background: #FFFFFF;
   margin-left: 70PX !important;
   margin-bottom:25px;
+}
+.suspended{
+  opacity:0.3;
+  
 }
 .updateuser-body-card img{
   float:right;

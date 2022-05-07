@@ -1,8 +1,30 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import { Col, Container, Row } from 'react-bootstrap'
 import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import LoadingBox from '../components/LoadingBox';
+import MessageBox from '../components/MessageBox';
+import { getAllApprovedUsers, suspendUser } from '../actions/adminAction';
+import { SUSPEND_USER_RESET } from '../constants/adminConstants';
 
 function UpdateUser() {
+
+  const dispatch = useDispatch()
+  const Users = useSelector((state) => state.allUsersApproved);
+  const { loading, error, users } = Users;
+
+  const suspendedUsers = useSelector((state) => state.userSuspend);
+  const { success } = suspendedUsers;
+
+  useEffect(()=>{
+    dispatch(getAllApprovedUsers())
+    if(success){
+      dispatch({type:SUSPEND_USER_RESET})
+    }
+  },[dispatch,success])
+  const suspend=(userId)=>{
+    dispatch(suspendUser(userId))
+  }
   return (
      <div className='superadmin updateuser'>
        
@@ -36,13 +58,18 @@ function UpdateUser() {
                  <div className='superadmin-active'>
                     <h2 >User Details</h2>
                  </div>
-                 <div>
+                 {/* <div>
                     <h2>User Details</h2>
-                 </div>
+                 </div> */}
                  <div>
                      <h2>Update Booking</h2>
                  </div>
               </Col>
+              {loading ? <LoadingBox></LoadingBox>:
+              error? <MessageBox>{error}</MessageBox>:
+             
+
+           
                  
                  <Col>
                  <Row className='updateuser-body'>
@@ -51,33 +78,25 @@ function UpdateUser() {
                  <Row className='updateuser-body'>
                    <h1>Search results</h1>
                  </Row>
-                 <Row className='updateuser-body-card'>
+                 {users.map((user)=>(
+
+              
+                 <Row key={user._id}   className={`updateuser-body-card ${user.adminSuspended ? "suspended" : ""}`}>
                    <Col >
-                     <h4>username</h4>
+                     <h4>{user.f_name}</h4>
                    </Col>
                    <Col style={{alignSelf:"center"}}>
-                     <img src='../assets/image/nulluser.png' />
+                     {user.adminSuspended ?  <img onClick={() => suspend(user._id)} src='../assets/image/sus.png' />:(
+                         <img onClick={() => suspend(user._id)} src='../assets/image/nulluser.png' />
+                     )}
+                    
                    </Col>
                  </Row>
-                 <Row className='updateuser-body-card'>
-                   <Col >
-                     <h4>username</h4>
-                   </Col>
-                   <Col style={{alignSelf:"center"}}>
-                     <img src='../assets/image/nulluser.png' />
-                   </Col>
-                 </Row>
-                 <Row className='updateuser-body-card'>
-                   <Col >
-                     <h4>username</h4>
-                   </Col>
-                   <Col style={{alignSelf:"center"}}>
-                     <img src='../assets/image/nulluser.png' />
-                   </Col>
-                 </Row>
+               ))}
+                 
                  </Col>
                
-                 
+               } 
              </Row>
 
              <Row className='superadmin-2'> 

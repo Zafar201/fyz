@@ -10,7 +10,7 @@ import {
 } from "../actions/generalAction";
 import LoadingBox from "../components/LoadingBox";
 import MessageBox from "../components/MessageBox";
-import { ADD_ROOM_RESET, DELETE_PROPERTIES_RESET, DELETE_ROOM_RESET } from "../constants/generalConstants";
+import { ADD_ROOM_RESET, DELETE_PROPERTIES_RESET, DELETE_ROOM_RESET ,UPDATE_ROOM_RESET} from "../constants/generalConstants";
 
 function PropertyDetails() {
   const params = useParams();
@@ -27,6 +27,8 @@ function PropertyDetails() {
 
     const roomDelete=useSelector(state=>state.roomDelete)
     const {success:succesDelete} = roomDelete
+    const roomUpdate =useSelector(state=>state.roomUpdate )
+    const { success:successUpdate} = roomUpdate;
 
   useEffect(() => { 
     if(success){
@@ -35,11 +37,14 @@ function PropertyDetails() {
     if(succesDelete){
       dispatch({type:DELETE_ROOM_RESET})
     }
+    if(successUpdate){
+      dispatch({type:UPDATE_ROOM_RESET})
+    }
     dispatch(detailsProperty(propertyId));
     if (!loading && !error) {
       console.log(property.rooms, "prop");
     }
-  }, [dispatch, detailsProperty,success,succesDelete]);
+  }, [dispatch, detailsProperty,success,succesDelete,successUpdate]);
 
   const toComponentB=(roomId)=>{
     navigate(`/room/${propertyId}/edit`,{state:roomId});
@@ -100,7 +105,10 @@ function PropertyDetails() {
                   <h2>Room name</h2>
                 </Col>
                 <Col>
-                  <h2>Occupancy</h2>
+                  <h2>Adult</h2>
+                </Col>
+                <Col>
+                  <h2>Child</h2>
                 </Col>
                 <Col>
                   <h2>booking</h2>
@@ -116,7 +124,10 @@ function PropertyDetails() {
                       <h3>{room.name}</h3>
                     </Col>
                     <Col>
-                      <h4>{room.occupancy}</h4>
+                      <h4>{room.adult}</h4>
+                    </Col>
+                    <Col>
+                      <h4>{room.child}</h4>
                     </Col>
                     <Col>
                  

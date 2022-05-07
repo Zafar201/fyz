@@ -61,9 +61,9 @@ if(rejectSuccess){
                  <div >
                  <Link to='/superadmin'> <h2 >User Details</h2></Link> 
                  </div>
-                 <div>
+                 {/* <div>
                     <h2>User Details</h2>
-                 </div>
+                 </div> */}
                  <div className='superadmin-active'>
                      <h2>Update Booking</h2>
                  </div>

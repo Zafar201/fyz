@@ -1,7 +1,7 @@
 // const { createStore } = require("redux");
 import {applyMiddleware, combineReducers, compose, createStore} from 'redux'
 import thunk from 'redux-thunk';
-import {passwordCreateReducer, userRejectReducer,countListReducer,bookingListReducer ,approveBookingReducer,rejectBookingReducer,getSignupRequestReducer,userApproveReducer} from './reducers/adminReducer';
+import {passwordCreateReducer, userRejectReducer,countListReducer,bookingListReducer ,approveBookingReducer,rejectBookingReducer,getSignupRequestReducer,userApproveReducer, getAllUsersApproved, userSuspendReducer} from './reducers/adminReducer';
 import { addproperrtyReducer,accountCreateReducer, addRoomReducer, bookingConfirmReducer, checkPropertyReducer, getRoomDetailsReducer, getRoomsDetailsReducer, propertyCreateReducer, propertyDeleteReducer, propertyDetailsReducer, propertyListReducer, propertyUpdateReducer, roomDeleteReducer, roomDetailsReducer, roomUpdateReducer,userSigninReducer } from './reducers/generalReducer';
 
 const initialState = {
@@ -34,6 +34,8 @@ const reducer=combineReducers({
  rejectUser:userRejectReducer,
  createPssword:passwordCreateReducer,
  userSignin:userSigninReducer,
+ allUsersApproved:getAllUsersApproved,
+ userSuspend:userSuspendReducer,
 })
 
 

@@ -49,9 +49,9 @@ function SuperAdmin() {
                  <div className='superadmin-active'>
                     <h2 >User Details</h2>
                  </div>
-                 <div>
+                 {/* <div>
                     <h2>User Details</h2>
-                 </div>
+                 </div> */}
                  <div>
                <Link to='/updatebooking'> <h2>Update Booking</h2></Link>
                  </div>

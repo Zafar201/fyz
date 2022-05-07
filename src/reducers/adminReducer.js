@@ -1,4 +1,4 @@
-import {CREATE_PASSWORD_REQUEST,CREATE_PASSWORD_SUCCESS,CREATE_PASSWORD_FAIL,CREATE_PASSWORD_RESET, APPROVE_BOOKING_FAIL, APPROVE_BOOKING_REQUEST, APPROVE_BOOKING_RESET, APPROVE_BOOKING_SUCCESS,APPROVE_USER_REQUEST,APPROVE_USER_SUCCESS,APPROVE_USER_FAIL,APPROVE_USER_RESET, COUNT_LIST_FAIL, COUNT_LIST_REQUEST, COUNT_LIST_SUCCESS, GET_BOOKING_LIST_FAIL, GET_BOOKING_LIST_REQUEST, GET_BOOKING_LIST_SUCCESS, GET_SIGNUP_REQUEST,GET_SIGNUP_SUCCESS,GET_SIGNUP_FAIL, REJECT_BOOKING_FAIL, REJECT_BOOKING_REQUEST, REJECT_BOOKING_RESET, REJECT_BOOKING_SUCCESS ,REJECT_USER_REQUEST,REJECT_USER_SUCCESS,REJECT_USER_FAIL,REJECT_USER_RESET} from "../constants/adminConstants";
+import {SUSPEND_USER_REQUEST,SUSPEND_USER_SUCCESS,SUSPEND_USER_FAIL,SUSPEND_USER_RESET,GET_ALL_APPROVED_USER_REQUEST,GET_ALL_APPROVED_USER_SUCCESS,GET_ALL_APPROVED_USER_FAIL,CREATE_PASSWORD_REQUEST,CREATE_PASSWORD_SUCCESS,CREATE_PASSWORD_FAIL,CREATE_PASSWORD_RESET, APPROVE_BOOKING_FAIL, APPROVE_BOOKING_REQUEST, APPROVE_BOOKING_RESET, APPROVE_BOOKING_SUCCESS,APPROVE_USER_REQUEST,APPROVE_USER_SUCCESS,APPROVE_USER_FAIL,APPROVE_USER_RESET, COUNT_LIST_FAIL, COUNT_LIST_REQUEST, COUNT_LIST_SUCCESS, GET_BOOKING_LIST_FAIL, GET_BOOKING_LIST_REQUEST, GET_BOOKING_LIST_SUCCESS, GET_SIGNUP_REQUEST,GET_SIGNUP_SUCCESS,GET_SIGNUP_FAIL, REJECT_BOOKING_FAIL, REJECT_BOOKING_REQUEST, REJECT_BOOKING_RESET, REJECT_BOOKING_SUCCESS ,REJECT_USER_REQUEST,REJECT_USER_SUCCESS,REJECT_USER_FAIL,REJECT_USER_RESET} from "../constants/adminConstants";
 
 export const countListReducer = (state = { loading:true,count:[] }, action) => {
     switch (action.type) {
@@ -112,6 +112,36 @@ export const countListReducer = (state = { loading:true,count:[] }, action) => {
       case CREATE_PASSWORD_FAIL:
         return {loading:false,error:action.payload}
       case CREATE_PASSWORD_RESET:
+        return {};
+      default:
+        return state;        
+    }
+  }
+
+
+  export const getAllUsersApproved=(state={loading:true},action)=>{
+    switch(action.type){
+      case GET_ALL_APPROVED_USER_REQUEST:
+        return {loading:true};
+      case GET_ALL_APPROVED_USER_SUCCESS:
+        return {loading:false,users:action.payload};
+      case GET_ALL_APPROVED_USER_FAIL:
+        return {loading:false,error:action.payload}   
+      default:
+        return state;        
+    }
+  }
+
+
+  export const userSuspendReducer= (state= {}, action)=>{
+    switch(action.type){
+      case SUSPEND_USER_REQUEST:
+        return {loading:true};
+      case SUSPEND_USER_SUCCESS:
+        return {loading:false,success:true,message:action.payload};
+      case SUSPEND_USER_FAIL:
+        return {loading:false,error:action.payload}
+      case SUSPEND_USER_RESET:
         return {};
       default:
         return state;        

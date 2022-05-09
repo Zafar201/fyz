@@ -63,7 +63,7 @@ function PropertyDetails() {
           <Row>
             <Col className="admin-logo">
               <Link to="/">
-                <img src="../assets/image/logo-admin.png" alt="" />
+                <img src="../assets/image/log2.png" alt="" />
               </Link>
             </Col>
             <Col>
@@ -115,7 +115,10 @@ function PropertyDetails() {
                 </Col>
                 <Col></Col>
               </Row>
-
+              {property.rooms.length === 0 && (
+                 <MessageBox>no rooms added</MessageBox>
+              )}
+             
               {property.rooms &&
                 property.rooms.map((room) => (
                   <Row key={room._id} className="dashboard-3">

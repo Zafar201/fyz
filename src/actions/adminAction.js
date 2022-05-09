@@ -9,7 +9,7 @@ export const getCountDetails = () => async (dispatch,getState) => {
     } = getState();
     try {
       const { data } = await axios.get(`${URL}/api/admin/`,{
-        headers: { "x-auth-token": ` ${adminInfo.token}` }, 
+        headers: { "x-auth-token": `${adminInfo.token}` }, 
       });
       dispatch({ type: COUNT_LIST_SUCCESS, payload: data });
     } catch (error) {
@@ -30,7 +30,7 @@ export const getCountDetails = () => async (dispatch,getState) => {
     } = getState();
     try {
       const { data } = await axios.get(`${URL}/api/admin/get-all-bookings/`,{
-        headers: { "x-auth-token": ` ${adminInfo.token}` }, 
+        headers: { "x-auth-token": `${adminInfo.token}` }, 
       });
       dispatch({ type: GET_BOOKING_LIST_SUCCESS, payload: data });
     } catch (error) {
@@ -52,7 +52,7 @@ export const getCountDetails = () => async (dispatch,getState) => {
     console.log(adminInfo.token)
     try{
       const {data} = await axios.put(`${URL}/api/admin/approve-booking/${bookId}`,{
-        headers: { "x-auth-token": ` ${adminInfo.token}` },  
+        headers: { "x-auth-token": `${adminInfo.token}` },  
       })
       dispatch({type:APPROVE_BOOKING_SUCCESS,payload:data});
      
@@ -72,7 +72,7 @@ export const getCountDetails = () => async (dispatch,getState) => {
     } = getState();
     try{
       const {data} = await axios.put(`${URL}/api/admin/reject-booking/${bookId}`,{
-        headers: { "x-auth-token": ` ${adminInfo.token}` }, 
+        headers: { "x-auth-token": `${adminInfo.token}` }, 
       })
       dispatch({type:REJECT_BOOKING_SUCCESS,payload:data});
      
@@ -88,11 +88,12 @@ export const getCountDetails = () => async (dispatch,getState) => {
   export const getSignUpRequest=()=>async(dispatch,getState)=>{
     dispatch({type:GET_SIGNUP_REQUEST})
     const {
-      adminSignin: { adminInfo },
+      adminSignin: { adminInfo},
     } = getState(); 
+    
     try{
       const {data}= await axios.get(`${URL}/api/admin/get-signup-requests`,{
-        headers: { "x-auth-token": ` ${adminInfo.token}` }, 
+        headers: { "x-auth-token": `${adminInfo.token}` }, 
       })
       dispatch({type:GET_SIGNUP_SUCCESS,payload:data})
     }catch(error){
@@ -107,16 +108,17 @@ export const getCountDetails = () => async (dispatch,getState) => {
 
   export const approveUser=(userId)=>async(dispatch,getState)=>{
     dispatch({type:APPROVE_USER_REQUEST});
-    const {
-      adminSignin: { adminInfo },
-    } = getState();
+    const {adminSignin: { adminInfo },} = getState();
+    console.log(adminInfo.token)
     try{
       const {data} = await axios.put(`${URL}/api/admin/approve-user/${userId}`,{
-        headers: { "x-auth-token": ` ${adminInfo.token}` }, 
+        header:{"x-auth-token":` ${adminInfo.token}`},
       })
+      console.log(adminInfo.token,"succ")
       dispatch({type:APPROVE_USER_SUCCESS,payload:data});
      
     }catch(error){
+      console.log(adminInfo.token,'err')
       const message =
       error.response && error.response.data.message
         ? error.response.data.message
@@ -132,7 +134,7 @@ export const getCountDetails = () => async (dispatch,getState) => {
     } = getState();
     try{
       const {data} = await axios.put(`${URL}/api/admin/reject-user/${userId}`,{
-        headers: { "x-auth-token": ` ${adminInfo.token}` }, 
+        headers: { "x-auth-token": `${adminInfo.token}` }, 
       })
       dispatch({type:REJECT_BOOKING_SUCCESS,payload:data});
      
@@ -191,7 +193,7 @@ export const getCountDetails = () => async (dispatch,getState) => {
     } = getState();
     try{
       const {data} = await axios.put(`${URL}/api/admin/suspend-user/${userId}`,{
-        headers: { "x-auth-token": ` ${adminInfo.token}` }, 
+        headers: { "x-auth-token": `${adminInfo.token}` }, 
       })
       dispatch({type:SUSPEND_USER_SUCCESS,payload:data});
      
@@ -232,7 +234,7 @@ export const getCountDetails = () => async (dispatch,getState) => {
     } = getState();
     try{
       const {data} = await axios.put(`${URL}/api/admin/remove-suspend-user/${userId}`,{
-        headers: { "x-auth-token": ` ${adminInfo.token}` }, 
+        headers: { "x-auth-token": `${adminInfo.token}` }, 
       })
       dispatch({type:UN_SUSPEND_USER_SUCCESS,payload:data});
      

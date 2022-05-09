@@ -9,7 +9,7 @@ export const listProperties = () => async (dispatch,getState) => {
     } = getState();
     try {    
       const { data } = await axios.get('https://tawi-backend.herokuapp.com/api/users/get-properties',{
-        headers: { "x-auth-token": ` ${userInfo.token}` },
+        headers: { "x-auth-token": `${userInfo.token}` },
       })      
       dispatch({ type: PROPERTIES_LIST_SUCCESS, payload: data.properties }); 
       // console.log(data.properties,'data');
@@ -31,7 +31,7 @@ export const listProperties = () => async (dispatch,getState) => {
 
     try{
         const {data} =await axios.post("https://tawi-backend.herokuapp.com/api/users/add-property",{name,address,location,map,description},{
-          headers: { "x-auth-token": ` ${userInfo.token}` },
+          headers: { "x-auth-token": `${userInfo.token}` },
         })
         dispatch({type:ADD_PROPERTIES_SUCCESS,payload:data})
 
@@ -48,7 +48,7 @@ export const deleteProperty = (propertytId) => async (dispatch,getState) => {
   } = getState();
   try {
     await axios.delete(`https://tawi-backend.herokuapp.com/api/users/delete-property/${propertytId}`,{
-      headers: { "x-auth-token": ` ${userInfo.token}` },
+      headers: { "x-auth-token": `${userInfo.token}` },
     })
      
     dispatch({ type: DELETE_PROPERTIES_SUCCESS });
@@ -68,7 +68,7 @@ export const detailsProperty = (propertyId) => async (dispatch,getState) => {
   } = getState();
   try {
     const { data } = await axios.get(`https://tawi-backend.herokuapp.com/api/users/get-property/${propertyId}`,{
-      headers: { "x-auth-token": ` ${userInfo.token}` },
+      headers: { "x-auth-token": `${userInfo.token}` },
     });
     dispatch({ type: PROPERTIES_DETAILS_SUCCESS, payload: data });
   } catch (error) {
@@ -84,12 +84,10 @@ export const detailsProperty = (propertyId) => async (dispatch,getState) => {
 
 export const updateProperty=(property)=>async(dispatch,getState)=>{
   dispatch({type:UPDATE_PROPERTIES_REQUEST,property});
-  const {
-    userSignin: { userInfo },
-  } = getState();
+  const { userSignin: { userInfo },} = getState();
   try{
     const {data} = await axios.put(`${URL}/api/users/update-property/${property._id}`,property,{
-      headers: { "x-auth-token": ` ${userInfo.token}` },
+      headers: { "x-auth-token": `${userInfo.token}` },
     })
     dispatch({type:UPDATE_PROPERTIES_SUCCESS,payload:data});
     console.log('2');
@@ -112,7 +110,7 @@ export const addRoom = (name,description,adult,child,size,bedType,amenities,firs
     } = getState();
     try{
         const {data} = await axios.post('https://tawi-backend.herokuapp.com/api/users/add-room',{name,description,adult,child,size,bedType,amenities,price:{first,second,third,fourth},propId},{
-          headers: { "x-auth-token": ` ${userInfo.token}` },
+          headers: { "x-auth-token": `${userInfo.token}` },
         })
          dispatch({type:ADD_ROOM_SUCCESS,payload:data})
          console.log(amenities,'am2');
@@ -131,7 +129,7 @@ export const getRoomsDetails = (propertyId) => async (dispatch,getState) => {
   } = getState();
   try {
     const { data } = await axios.get(`https://tawi-backend.herokuapp.com/api/users/get-rooms/${propertyId}`,{
-      headers: { "x-auth-token": ` ${userInfo.token}` },
+      headers: { "x-auth-token": `${userInfo.token}` },
     });
     dispatch({ type: GET_ROOMS_DETAILS_SUCCESS, payload: data });
   } catch (error) {

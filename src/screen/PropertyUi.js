@@ -52,7 +52,7 @@ const truncate=(str,n)=>{
           <Container className="nav-pad">
             <Col md={8}>
               <Navbar.Brand className="logo">
-              <Link to="/"> <img src="/assets/image/logo-blue.png" alt="" /></Link>
+              <Link to="/"> <img src="/assets/image/log3.png" alt="" /></Link>
               </Navbar.Brand> 
             </Col>
 

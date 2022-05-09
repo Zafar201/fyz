@@ -110,7 +110,7 @@ function EditRoom() {
           <Row>
             <Col className="admin-logo">
               <Link to="/">
-                <img src="/assets/image/logo-admin.png" alt="" />
+                <img src="/assets/image/log2.png" alt="" />
               </Link>
             </Col>
             <Col>
@@ -132,8 +132,8 @@ function EditRoom() {
         <div className="addproperty">
           <Container>
             <Row>
-              <h1>Edit Room:{propertyId}</h1>
-              <p>{location.state}</p>
+              <h1>Edit Room:{room.name}</h1>
+              {/* <p>{location.state}</p> */}
             </Row>
             <form onSubmit={submitHandler}>
               <Row>

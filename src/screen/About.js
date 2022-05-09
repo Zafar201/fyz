@@ -17,7 +17,7 @@ function About() {
             <Col md={8} className="logo">
               <Link to="/">
                 {' '}
-                <img src="../assets/image/logo.png" alt="" />
+                <img src="../assets/image/log4.png" alt="" />
               </Link>
             </Col>
 

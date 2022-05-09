@@ -60,7 +60,7 @@ const date= ()=>{
           <Container className="nav-pad">
             <Col md={8}>
               <Navbar.Brand className="logo">
-              <Link to="/"> <img src="../assets/image/logo.png" alt="" /></Link>
+              <Link to="/"> <img src="../assets/image/log4.png" alt="" /></Link>
               </Navbar.Brand> 
             </Col>
 

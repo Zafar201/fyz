@@ -53,7 +53,7 @@ const deleteHandler=(property)=>{
            <Row>
            <Col className='admin-logo'>
                <Link to="/">    
-                <img src="../assets/image/logo-admin.png" alt="" />
+                <img src="../assets/image/log2.png" alt="" />
                </Link>
                </Col>
                <Col >
@@ -99,12 +99,14 @@ const deleteHandler=(property)=>{
                    
                    </Col>
                </Row>
-               
+              
                {loading?<LoadingBox>{loading}</LoadingBox>:
                error?<MessageBox>{error}</MessageBox>:
                properties && properties.map((property)=>(
                 <Row key={property._id} className='dashboard-3'>  
+               
               
+             
                   
                 <Col md={1}>
                 </Col>
@@ -122,11 +124,13 @@ const deleteHandler=(property)=>{
               <img src="../assets/image/dlt.png" alt="" onClick={() => deleteHandler(property)}/>
               </Col>                                                                                                                                          
              </Row>  
+             
+           
+              
                ))}
 
                   
-               
-                          
+                  
                </div>
            </Container>
 

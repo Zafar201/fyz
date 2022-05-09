@@ -6,6 +6,7 @@ import {getSignUpRequest,approveUser,rejectUser } from '../actions/adminAction';
 import LoadingBox from "../components/LoadingBox";
 import MessageBox from "../components/MessageBox";
 import {APPROVE_USER_RESET ,REJECT_USER_RESET} from '../constants/adminConstants';
+import ReactTooltip from "react-tooltip"; 
 
 function SignUpRequest() {
   
@@ -114,7 +115,7 @@ users &&  users.map((user)=>(
        
          <Col md={1}>
             
-            <img src='../assets/image/eyes.png'/>
+            <img data-tip data-for="registerTip" multiline src='../assets/image/eyes.png'/>
           </Col>
           <Col  md={{ span: 1, offset: 2 }}>
            <button type='submit'onClick={() => approveHandler(user._id)}>accept</button>
@@ -126,6 +127,23 @@ users &&  users.map((user)=>(
           <Col>
            <p>7:50pm</p>
           </Col>
+          <ReactTooltip  id="registerTip" multiline place="bottom" effect="solid" type='success'>
+           
+            <div>
+                {user.email} 
+           </div>
+             <div>
+               {user.phone}
+             </div>
+             <div>
+               {user.address}
+             </div>
+            
+            
+            
+             
+           
+            </ReactTooltip>
           </Col>
      
      

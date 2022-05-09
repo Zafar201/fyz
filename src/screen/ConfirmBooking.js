@@ -59,7 +59,7 @@ function ConfirmBooking() {
               <Navbar.Brand className="logo">
                 <Link to="/">
                   {' '}
-                  <img src="/assets/image/logo-blue.png" alt="" />
+                  <img src="/assets/image/log3.png" alt="" />
                 </Link>
               </Navbar.Brand>
             </Col>

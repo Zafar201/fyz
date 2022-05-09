@@ -81,7 +81,7 @@ if(rejectSuccess){
              property.bookings.map((data)=>(
 
             <>
-                 <Row key={data._id} className='updatebooking-body-card'>
+                 <Row key={data._id} className='updatebooking-body-card updatebooking-body-card2'>
                    <Col >
                      <h4>{data.propName}</h4>
                    </Col>
@@ -96,8 +96,9 @@ if(rejectSuccess){
                      <h4>username</h4>
                    </Col>
                    <Col >
-                     <h4>username</h4>
-                     <h4>username</h4>
+                     <h4>{data.name}</h4>
+                     <h4>{data.phone}</h4>
+                     {/* <h4>{data.email}</h4> */}
                    </Col>
                    <Col >
                      <h4>{data.price}</h4>

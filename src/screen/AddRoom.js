@@ -72,7 +72,7 @@ function AddRoom() {
           <Row>
             <Col className="admin-logo">
               <Link to="/">
-                <img src="../assets/image/logo-admin.png" alt="" />
+                <img src="../assets/image/log2.png" alt="" />
               </Link>
             </Col>
             <Col>

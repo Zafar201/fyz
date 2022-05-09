@@ -16,9 +16,8 @@ import PropertyUi from "./screen/PropertyUi";
 import RoomUi from "./screen/RoomUi";
 import ConfirmBooking from "./screen/ConfirmBooking";
 import SuperAdmin from "./superAdmin/SuperAdmin";
+import SuperAdminLogin from "./superAdmin/SuperAdminLogin";
 import UpdateUser from "./superAdmin/UpdateUser";
-import SearchScreen from "./screen/SearchScreen";
-import SuperAdminHome from "./superAdmin/SuperAdminHome";
 import SignUpRequest from "./superAdmin/SignUpRequest";
 import UpdateBooking from "./superAdmin/UpdateBooking";
 import AcceptBooking from "./superAdmin/AcceptBooking";
@@ -26,6 +25,7 @@ import CreateAcount from "./screen/CreateAcount";
 import CreatePassword from "./screen/CreatePassword";
 import View from "./components/View";
 import PrivateRoute from "./components/PrivateRoute";
+import AdminRoute from "./components/AdminRoute";
 
 function App() {
   return (
@@ -59,26 +59,53 @@ function App() {
               </PrivateRoute>
             }
           ></Route>
-          <Route path="/superadmin" element={<SuperAdmin />}>
+           <Route path="/superadminlogin" element={<SuperAdminLogin />}>
             {" "}
           </Route>
-          <Route path="/updateuser" element={<UpdateUser />}>
+          <Route path="/superadmin" 
+           element={
+            <AdminRoute>
+              <SuperAdmin />
+            </AdminRoute>
+          }>
+            {" "}
+          </Route>
+          <Route path="/updateuser" 
+          element={
+            <AdminRoute>
+              <UpdateUser />
+            </AdminRoute>
+          }>
             {" "}
           </Route>
           <Route path="/view" element={<View />}>
             {" "}
           </Route>
-          {/* <Route path="/updateuser" element={<UpdateUser/>}>   </Route> */}
-          <Route path="/signuprequest" element={<SignUpRequest />}>
+         
+          <Route path="/signuprequest" 
+           element={
+            <AdminRoute>
+              <SignUpRequest />
+            </AdminRoute>
+          }>
             {" "}
           </Route>
-          <Route path="/updatebooking" element={<UpdateBooking />}>
+          <Route path="/updatebooking" 
+          element={
+            <AdminRoute>
+              <UpdateBooking/>
+            </AdminRoute>
+          }>
             {" "}
           </Route>
           <Route
             path="/acceptbooking/propId/:propId/bookId/:bookId"
-            element={<AcceptBooking />}
-          >
+            
+            element={
+              <AdminRoute>
+                <AcceptBooking/>
+              </AdminRoute>
+            }>
             {" "}
           </Route>
           <Route

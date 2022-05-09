@@ -1,21 +1,27 @@
 import React, { useEffect } from 'react';
-import { Col, Container, Row } from 'react-bootstrap'
+import { Col, Container, Row,Button } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { getCountDetails } from '../actions/adminAction';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
+import {  adminSignout } from '../actions/adminAction';
 
 
 function SuperAdmin() {
    const countList = useSelector((state) => state.countList);
    const { loading, error, count } = countList;
+   
+   const adminsignin = useSelector((state) => state.adminSignin);
+   const { adminInfo } = adminsignin;
    const dispatch = useDispatch()
    useEffect(() => {
       dispatch(getCountDetails())
      
   }, [dispatch]);
-
+  const signoutHandler=()=>{
+   dispatch(adminSignout());
+ }
   return (
     <div className='superadmin'>
        
@@ -36,8 +42,9 @@ function SuperAdmin() {
                  <Col>
                  <Link to='/signuprequest'>  <h1>Sign up request</h1> </Link>
                  </Col>
-                 <Col>
-                 </Col>
+                 {adminInfo && (
+                 <Button onClick={signoutHandler}>signout</Button>
+               )}
                 
              </Row>
             {loading ? <LoadingBox></LoadingBox>:

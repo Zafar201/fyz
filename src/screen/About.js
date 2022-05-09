@@ -36,7 +36,7 @@ function About() {
                     <Nav.Link
                       href="#deets"
                       style={{color: "#D9B061 !important" }}
-                    >
+                    className='act'>
                       About Us
                     </Nav.Link>
                   </Link>{' '}

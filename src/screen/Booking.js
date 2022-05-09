@@ -21,12 +21,11 @@ function Booking() {
     useEffect(()=>{
       dispatch(checkProperty(location,adult,child,startingDate,endingDate))                       
     
-   },[])
+   },[dispatch])
 
-  //  useEffect(()=>{
-  //   const startingDates = format(startingDate, "MM-dd")
-  //   console.log(startingDates,'st');
-  //  },[])
+   const truncate=(str,n)=>{
+    return str.length>n?str.substr(0,n-1)+ "...." :str
+  }
   return (
     <div>
      
@@ -35,7 +34,7 @@ function Booking() {
         <>
        <div
         className="home-container"
-        style={{ backgroundImage: `url("/assets/image/homebg3.jpeg")`,height:"100vh" }}
+        style={{ backgroundImage: `url("/assets/image/homebg3.jpeg")`,height:"88vh" }}
       >
         <Navbar collapseOnSelect expand="lg" variant="dark">
           <Container className="nav-pad">
@@ -89,15 +88,14 @@ function Booking() {
 
           </Row>
           <Row className='booking-2'>
-              <Col md={1}>
+              <Col md={1} >
                 <img src="/assets/image/calender.png" alt="" />
               </Col>
-              <Col>
+              <Col md={3}>
                 <h2>{startingDate} - {endingDate}</h2>
-              </Col>
-              
-              
+              </Col>       
           </Row>
+
         </Container>
       </div>
       {prop.map((itm)=>(
@@ -123,7 +121,8 @@ function Booking() {
                 </Row>        
                 <Row>
                   <p>
-                   {itm.description}
+                  {truncate(itm.description,450)}
+                  
                   </p>
                 </Row>
                 <Row className='prop-btm'>

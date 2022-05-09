@@ -27,9 +27,7 @@ function SignUpRequest() {
        if(succesReject){
         dispatch({type:REJECT_USER_RESET})
       }
-      if(users.length === 0){
-        console.log('ok')
-      }
+     
 
    },[dispatch,success,succesReject])
 
@@ -139,9 +137,7 @@ users &&  users.map((user)=>(
     
      ))}
     
-    {/* {users && users.length > 0 (
-      <h1>heloo</h1>
-    )} */}
+ 
 </Col>
   
     

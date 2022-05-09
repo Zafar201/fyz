@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
-import { getAllApprovedUsers, suspendUser } from '../actions/adminAction';
+import { getAllApprovedUsers, suspendUser,unSuspendUser } from '../actions/adminAction';
 import { SUSPEND_USER_RESET } from '../constants/adminConstants';
 
 function UpdateUser() {
@@ -24,6 +24,9 @@ function UpdateUser() {
   },[dispatch,success])
   const suspend=(userId)=>{
     dispatch(suspendUser(userId))
+  }
+  const unsuspend=(userId)=>{
+    dispatch(unSuspendUser(userId))
   }
   return (
      <div className='superadmin updateuser'>
@@ -87,7 +90,7 @@ function UpdateUser() {
                    </Col>
                    <Col style={{alignSelf:"center"}}>
                      {user.adminSuspended ?  <img onClick={() => suspend(user._id)} src='../assets/image/sus.png' />:(
-                         <img onClick={() => suspend(user._id)} src='../assets/image/nulluser.png' />
+                         <img onClick={() => unsuspend(user._id)} src='../assets/image/nulluser.png' />
                      )}
                     
                    </Col>

@@ -97,7 +97,7 @@ function ConfirmBooking() {
 
 
 
-        <form onSubmit={submitHandler}>
+        <form onSubmit={submitHandler} className='form-mob'>
         <Container style={{ paddingTop: '50px' }}>
           <Row className="confirm">
             <Col>
@@ -222,7 +222,7 @@ function ConfirmBooking() {
 		
                   </select>
                 </Col>
-                <Col>
+                <Col className='mob-phone'>
                   <h1>Phone number</h1>
                   <input type="number"
                    id="number"  

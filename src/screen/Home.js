@@ -70,7 +70,7 @@ const date= ()=>{
                 <Col md={6}>
                   <Link to="/">
                     {' '}
-                    <Nav.Link href="#deets">Home</Nav.Link>{' '}
+                    <Nav.Link href="#deets" className='act'>Home</Nav.Link>{' '}
                   </Link>{' '}
                 </Col>
                 <Col md={6}>
@@ -100,11 +100,11 @@ const date= ()=>{
           <Row style={{ justifyContent: 'center' }}>
             <h1>Book your stay.</h1>
             <Row className="home-box">
-              <Col className="home-box-1">
+              <Col className="home-box-1" md={2} sm={6}>
                 <Row className='home-box-mob'> 
-                  <Col md={3}>
-                    {/* <img src="../assets/image/Vect.png" alt="" /> */}
-                  </Col>
+                  {/* <Col md={1}>
+                    <img src="../assets/image/Vect.png" alt="" />
+                  </Col> */}
                   <Col>
                     <Row>
                     <h2>Date in</h2>
@@ -124,11 +124,11 @@ const date= ()=>{
                 </Row>
               </Col>
 
-              <Col className="home-box-2">
+              <Col className="home-box-2" md={2} sm={6}>
                 <Row className='home-box-mob'>
-                  <Col md={3}>
-                    {/* <img src="../assets/image/Vect.png" alt="" /> */}
-                  </Col>
+                  {/* <Col md={1}>
+                    <img src="../assets/image/Vect.png" alt="" />
+                  </Col> */}
                   <Col>
                     <Row>
                       <h2>Date out</h2>
@@ -146,24 +146,45 @@ const date= ()=>{
                 </Row>
               </Col>
 
-              <Col className="home-box-2">
+              <Col className="home-box-2" md={1}>
                 <Row className='home-box-mob'>
-                  <Col md={3}>
+                  <Col md={1}>
                     {/* <img src="../assets/image/Vect.png" alt="" /> */}
                   </Col>
                   <Col>
                     <Row>
-                      <h2>no.of guest</h2>
-                      adult  <input 
+                      {/* <h2>no.of guest</h2> */}
+                      <h2>adult </h2>
+                       <input 
                       type="number" 
                       id="adult"
-                      placeholder="Enter numbers"
+                      // placeholder="Enter numbers"
                       required
                       onChange={(e) => setAdult(e.target.value)}/>
-                      child  <input 
+                      {/* child  <input 
                       type="number"
                       id="child"
                       placeholder="Enter numbers"
+                      required
+                      onChange={(e) => setChild(e.target.value)} /> */}
+                    </Row>
+                  
+                  </Col>
+                </Row>
+              </Col>
+              <Col className="home-box-2" md={1}>
+                <Row className='home-box-mob'>
+                  <Col md={1}>
+                    {/* <img src="../assets/image/Vect.png" alt="" /> */}
+                  </Col>
+                  <Col>
+                    <Row>
+                    
+                      <h2>child </h2>
+                      <input 
+                      type="number"
+                      id="child"
+                      // placeholder="Enter numbers"
                       required
                       onChange={(e) => setChild(e.target.value)} />
                     </Row>
@@ -174,7 +195,7 @@ const date= ()=>{
 
               <Col className="home-box-2">
                 <Row className='home-box-mob'>
-                  <Col md={3}>
+                  <Col md={1}>
                     {/* <img src="../assets/image/Vect.png" alt="" /> */}
                   </Col>
                   <Col>
@@ -199,11 +220,11 @@ const date= ()=>{
 
               <Col className="home-box-3">
                 <Row>
-                  <Col>
+                  <Col md={9}>
                     <h4 onClick={date}>Check availability</h4>
                   </Col>
-                  <Col md={3} style={{ paddingLeft: '0px' }} className='home-search'>
-                    {/* <img src="../assets/image/search.png" alt="" /> */}
+                  <Col md={1} style={{ paddingLeft: '0px' }} className='home-search'>
+                    <img src="../assets/image/search.png" alt="" />
                   </Col>
                 </Row>
               </Col> 
@@ -283,7 +304,7 @@ const date= ()=>{
                   </p>
                 </Row>
                 <Row>
-                <Link to="/propertyui">   <h6>Explore</h6> </Link>
+                {/* <Link to="/propertyui">   <h6>Explore</h6> </Link> */}
                 </Row>
               </Container>
             </Col>
@@ -325,7 +346,7 @@ const date= ()=>{
                 </Row>
 
                 <Row>
-                <Link to="/propertyui">   <h6>Explore</h6> </Link>
+                {/* <Link to="/propertyui">   <h6>Explore</h6> </Link> */}
                 </Row>
               </Container>
             </Col>
@@ -369,7 +390,7 @@ const date= ()=>{
                   </p>
                 </Row>
 
-                <Link to="/propertyui">   <h6>Explore</h6> </Link>
+                {/* <Link to="/propertyui">   <h6>Explore</h6> </Link> */}
                 <Row></Row>
               </Container>
             </Col>

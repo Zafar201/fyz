@@ -1,13 +1,18 @@
 // const { createStore } = require("redux");
 import {applyMiddleware, combineReducers, compose, createStore} from 'redux'
 import thunk from 'redux-thunk';
-import {passwordCreateReducer, userRejectReducer,countListReducer,bookingListReducer ,approveBookingReducer,rejectBookingReducer,getSignupRequestReducer,userApproveReducer, getAllUsersApproved, userSuspendReducer} from './reducers/adminReducer';
+import {passwordCreateReducer, userRejectReducer,countListReducer,bookingListReducer ,approveBookingReducer,rejectBookingReducer,getSignupRequestReducer,userApproveReducer, getAllUsersApproved, userSuspendReducer,adminSigninReducer, unSuspendReducer} from './reducers/adminReducer';
 import { addproperrtyReducer,accountCreateReducer, addRoomReducer, bookingConfirmReducer, checkPropertyReducer, getRoomDetailsReducer, getRoomsDetailsReducer, propertyCreateReducer, propertyDeleteReducer, propertyDetailsReducer, propertyListReducer, propertyUpdateReducer, roomDeleteReducer, roomDetailsReducer, roomUpdateReducer,userSigninReducer } from './reducers/generalReducer';
 
 const initialState = {
     userSignin: {
       userInfo: localStorage.getItem('userInfo')
         ? JSON.parse(localStorage.getItem('userInfo'))
+        : null,
+    },
+    adminSignin: {
+      adminInfo: localStorage.getItem('adminInfo')
+        ? JSON.parse(localStorage.getItem('adminInfo'))
         : null,
     },
   };
@@ -36,6 +41,8 @@ const reducer=combineReducers({
  userSignin:userSigninReducer,
  allUsersApproved:getAllUsersApproved,
  userSuspend:userSuspendReducer,
+ adminSignin:adminSigninReducer,
+ unSuspend:unSuspendReducer,
 })
 
 

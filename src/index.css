@@ -25,23 +25,23 @@
   padding: 21px 0px 28px 24px;
 }
 .about-2 h1 {
-  font-family: Vanitas-Extrabold;
-  font-size: 90px;
+  font-family: 'Raleway', sans-serif;
+  font-size: 82px;
   line-height: 115px;
   letter-spacing: -0.045em;
   padding-top: 80px;
   color: #e3e9ff;
-
+  font-weight: 600;
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 .about-2 p {
   width: 100%;
 
-  font-family: Raleway;
+  font-family: 'Raleway', sans-serif;
   font-style: normal;
   font-weight: normal;
-  font-size: 18px;
-  line-height: 31px;
+  font-size: 20px;
+  line-height: 30px;
 
   color: #dfdfdf;
   padding-bottom: 40px;
@@ -74,9 +74,9 @@
 }
 .team h1 {
   text-align: center;
-  font-family: Raleway;
+  font-family: 'Raleway', sans-serif;
   font-style: normal;
-  font-weight: 500;
+  font-weight: 600;
   font-size: 3rem;
   line-height: 97.35%;
   text-align: center;
@@ -85,9 +85,10 @@
   padding-top: 38px;
 }
 .team h2 {
-  font-family: Raleway;
+  font-family: 'Raleway', sans-serif;
   font-style: normal;
-  font-weight: bold;
+  font-weight: 700;
+  padding-top: 20px;
   font-size: 27px;
   line-height: 97.35%;
   text-align: center;
@@ -95,7 +96,7 @@
   color: #353c56;
 }
 .team p {
-  font-family: Raleway;
+  font-family: 'Raleway', sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 17px;
@@ -111,7 +112,7 @@
   border-radius: 224px 224px 30px 30px;
 }
 .team-1 {
-  padding-bottom: 40px;
+  padding-bottom: 75px;
 }
 .team-1 img {
   width: 98px;
@@ -124,7 +125,7 @@
   width: 92px;
 }
 .about-3 h1 {
-  font-family: Raleway;
+  font-family: 'Raleway', sans-serif;
   font-style: normal;
   font-weight: normal;
   padding: 14px 0px 0px 15px;
@@ -199,16 +200,16 @@
   padding-bottom: 82px;
 }
 .contact-2 h1 {
-  font-family: Vanitas-Extrabold;
+  font-family: 'Raleway',  sans-serif;
   font-size: 3.7rem;
-  /* line-height: 115px; */
+  font-weight:500;
   letter-spacing: -0.045em;
   color: #e3e9ff;
   text-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
   padding-top: 45px;
 }
 .contact-2 p {
-  font-family: Raleway;
+  font-family: 'Raleway', sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 23px;
@@ -223,7 +224,7 @@
   box-sizing: border-box;
   border-radius: 9px;
   width: 70%;
-  height: 40px;
+  height: 48px;
 }
 .contact-2 textarea {
   background: rgba(255, 255, 255, 0.12);
@@ -240,8 +241,9 @@
   padding: 22px;
 }
 .contact-right1 img {
-  height: 26px;
-  width: 58px;
+    height: 25px;
+    width: 53px;
+    margin-bottom: 10px;
 }
 .contact-right2 p {
   font-family: Montserrat;
@@ -252,6 +254,7 @@
   text-align: center;
   color: #ffffff;
   padding-bottom: 20px;
+  letter-spacing: 1.2px;
 }
 .contact-right3 img {
   height: 48px;
@@ -265,20 +268,36 @@
   line-height: 160.4%;
   text-align: center;
   color: #ffffff;
+  letter-spacing:1px;
 }
 .submit button {
   background: #f5f5f5;
-  box-shadow: 0px 4px 13px rgb(0 0 0 / 25%);
-  border-radius: 9px;
-  width: 16%;
-  margin-top: 15px;
-  border: none;
-  padding: 10px;
-  font-weight: 600;
-  font-size: 22px;
-  line-height: 97.35%;
-  letter-spacing: -0.045em;
-  color: #3f52ff;
+    box-shadow: 0px 4px 13px rgb(0 0 0 / 25%);
+    border-radius: 9px;
+    width: 138px;
+    margin-top: 15px;
+    border: none;
+    padding: 14px;
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 97.35%;
+    letter-spacing: -0.045em;
+    color: #3f52ff;
+}
+.submit{
+  align-items:center;
+}
+.submit h5{
+  font-family: ''Raleway', sans-serif';
+font-style: normal;
+font-weight: 600;
+font-size: 24px;
+line-height: 97.35%;
+letter-spacing: -0.045em;
+color: #DFDFDF;
+margin-top: 20px;
+cursor:pointer;
+
 }
 .contact-right {
   align-self: center;
@@ -300,7 +319,7 @@
   place-content: center;
 }
 .contact-map1 p {
-  font-family: Raleway;
+  font-family: 'Raleway', sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 22px;
@@ -331,7 +350,7 @@
   padding-top: 80px;
 }
 .home-2-bottom h1 {
-  font-family: Raleway;
+  font-family: 'Raleway', sans-serif;
   font-style: normal;
   font-weight: bold;
   font-size: 2.5rem;
@@ -341,7 +360,7 @@
   text-shadow: 2px 3px 2px rgb(0 0 0 / 25%);
 }
 .home-2-bottom p {
-  font-family: Raleway;
+  font-family: 'Raleway',  sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 1rem;
@@ -368,13 +387,23 @@
   background: #f0f0f8;
   border: 1px solid #c8caff;
   box-sizing: border-box;
-  border-radius: 80px;
+  border-radius: 20px;
   width: 75% !important;
   height: auto;
+  --bs-gutter-x: 0.8rem !important;
+}
+.home-box input{
+  margin-bottom:20px;
+  width:100%;
+  border-radius: 5px;
+  border:1px solid grey;
+}
+.home-box .row{
+  --bs-gutter-x: 0rem !important;
 }
 
 .home-box h2 {
-  font-family: Raleway;
+  font-family: 'Raleway',  sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 15px;
@@ -401,7 +430,7 @@
 }
 .home-box-1 {
   background: #ffffff;
-  border-radius: 107px 0px 0px 107px;
+  border-radius: 13px 0px 0px 11px;
 }
 .home-box-1 img {
   height: 36px;
@@ -414,7 +443,7 @@
   margin-top: 4px !important;
   margin-bottom: 4px;
   margin-left: 4px;
-  border-radius: 0px 16px 17px 0px;
+  border-radius: 0px ;
 }
 .home-box-2 img {
   height: 36px;
@@ -424,28 +453,30 @@
 .home-box-3 {
   background: #3f52ff;
   box-shadow: 2px 3px 8px rgb(0 0 0 / 11%);
-  border-radius: 0px 72px 72px 0px;
+  border-radius: 0px 14px 14px 0px;
   margin-top: 4px !important;
   margin-bottom: 4px;
   margin-left: 4px;
+  padding-top: 23px;
 }
 .home-box-3 h4 {
-  font-family: Raleway;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 18px;
-  line-height: 35px;
-  letter-spacing: -0.025em;
-  color: #ffffff;
-  padding-left: 46px;
-  padding-top: 4px;
+  font-family: 'Raleway',  sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 22px;
+    letter-spacing: -0.025em;
+    color: #ffffff;
+    padding-left: 10px;
+    padding-top: 4px;
 }
 .home-box-3 img {
-  padding-top: 12px;
-  height: 34px;
+  padding-top: 15px;
+    height: 35px;
+    margin-top: -6px;
 }
 .home-tawi h1 {
-  font-family: Raleway;
+  /* font-family: 'Raleway', sans-serif; */
   font-style: normal;
   font-weight: bold;
   font-size: 80px;
@@ -455,7 +486,7 @@
   padding-top: 72px;
 }
 .home-tawi p {
-  font-family: Raleway;
+  font-family: 'Raleway',  sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 22px;
@@ -466,7 +497,7 @@
   padding-bottom: 70px;
 }
 .home-2 p {
-  font-family: Raleway;
+  font-family: 'Raleway',  sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 1rem;
@@ -497,7 +528,7 @@
   padding-top: 7px;
 }
 .home-2-rec h1 {
-  font-family: Raleway;
+  font-family: 'Raleway',  sans-serif;
   font-style: normal;
   font-weight: 600;
   font-size: 56px;
@@ -532,7 +563,7 @@
 }
 
 .home-3 h1 {
-  font-family: Raleway;
+  font-family: 'Raleway', sans-serif;
   font-style: normal;
   font-weight: 600;
   font-size: 2rem;
@@ -547,7 +578,7 @@
   margin-top: -3px;
 }
 .home-3-1 {
-  font-family: Raleway;
+  font-family: 'Raleway', sans-serif;
   font-style: normal;
   font-weight: 300;
   font-size: 1rem;
@@ -557,7 +588,7 @@
   opacity: 0.8;
 }
 .home-3 p {
-  font-family: Raleway;
+  font-family: 'Raleway', sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 1rem;
@@ -576,7 +607,7 @@
   font-size: 1rem;
 }
 .home-3 h6 {
-  font-family: Raleway;
+  font-family: 'Raleway', sans-serif;
   font-style: normal;
   font-weight: bold;
   font-size: 21px;
@@ -604,6 +635,44 @@
   .home-3-img img {
     border-radius: 25px 25px 25px 25px;
   }
+  .props-card{
+    padding-right:0px !important;
+    
+  }
+  .props-card img{
+    border-radius: 0px 19px 33px 0px;
+  }
+  .propertyui-2 h3{
+    padding-left: 45px;
+    margin-top: -27px;
+
+  }
+  .prop-ui-2{
+    margin:12px !important;
+  }
+  .prop-room-vect{
+    display:inherit;
+    margin-top: 7px !important;
+  }
+  .prop-card{
+    margin:21px !important;
+  }
+  .booking-2 h2{
+    padding-left: 112px; 
+    margin-top: -25px;
+  }
+  .prop-img h1{
+    padding-left:85px; 
+    margin-top: -23px;
+  }
+  .prop-btm button {  
+    border-radius: 9px;
+    padding: 16px;
+    font-weight: 600;
+    font-size: 19px;
+    width: 162px;
+    margin-bottom: 18px;
+}
   .home-2 p {
     width: 62%;
   }
@@ -665,7 +734,7 @@ a {
   justify-content: center;
 }
 .home-2-explore h4 {
-  font-family: Raleway;
+  font-family: 'Raleway', sans-serif;
   font-style: normal;
   font-weight: 600;
   font-size: 54px;
@@ -674,7 +743,7 @@ a {
   color: #353c56;
 }
 .home-2-explore p {
-  font-family: Raleway;
+  font-family: 'Raleway', sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 19px;
@@ -685,7 +754,7 @@ a {
   padding-top: 25px;
 }
 .home-review h1 {
-  font-family: Raleway;
+  font-family: 'Raleway', sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 45px;
@@ -732,12 +801,12 @@ a {
     background: #ffffff;
     /* border-radius: 84px 0px 0px 18px !important; */
   }
-  .home-box-2 {
+  /* .home-box-2 {
     border-radius: 0px 45px 58px 0px;
-  }
-  .home-box-3 {
+  } */
+  /* .home-box-3 {
     border-radius: 0px 1px 72px 64px;
-  }
+  } */
   .home-box-mob {
     text-align: center;
   }
@@ -755,9 +824,9 @@ a {
     padding-left: 13px;
     padding-top: 4px;
   }
-  .HOME-BOX {
+  /* .HOME-BOX {
     border-radius: 66px 77px 0px 7px;
-  }
+  } */
   .navbar-nav {
     padding-top: 10px;
   }
@@ -900,7 +969,7 @@ select:focus {
   padding-top: 30px;
 }
 .login-rem p {
-  font-family: Raleway;
+  font-family: 'Raleway', sans-serif;
   font-style: normal;
   font-weight: bold;
   font-size: 17px;
@@ -916,7 +985,7 @@ select:focus {
   /* top: 734px; */
   background: #434bff;
   border-radius: 12px;
-  font-family: Raleway;
+  font-family: 'Raleway', sans-serif;
   font-style: normal;
   font-weight: bold;
   font-size: 1.2rem;
@@ -926,7 +995,7 @@ select:focus {
   color: #ffffff;
 }
 .login h3 {
-  font-family: Raleway;
+  font-family: 'Raleway', sans-serif;
   font-style: normal;
   font-weight: bold;
   font-size: 20px !important;
@@ -958,7 +1027,7 @@ select:focus {
   padding-bottom: 80px;
 }
 .dashboard h1 {
-  font-family: Raleway;
+  font-family: 'Raleway', sans-serif;
   font-style: normal;
   font-weight: bold;
   font-size: 3rem;
@@ -970,7 +1039,7 @@ select:focus {
   float: right;
   background: #434bff;
   border-radius: 12px;
-  font-family: Raleway;
+  font-family: 'Raleway', sans-serif;
   font-style: normal;
   font-weight: bold;
   font-size: 22px;
@@ -981,7 +1050,7 @@ select:focus {
   padding: 18px;
 }
 .dashboard h2 {
-  font-family: Raleway;
+  font-family: 'Raleway', sans-serif;
   font-style: normal;
   font-weight: bold;
   font-size: 23px;
@@ -990,7 +1059,7 @@ select:focus {
   color: #000000;
 }
 .dashboard h3 {
-  font-family: Raleway;
+  font-family: 'Raleway', sans-serif;
   font-style: normal;
   font-weight: bold;
   font-size: 28px;
@@ -1000,7 +1069,7 @@ select:focus {
   cursor: pointer;
 }
 .dashboard h4 {
-  font-family: Raleway;
+  font-family: 'Raleway', sans-serif;
   font-style: italic;
   font-weight: normal;
   font-size: 25px;
@@ -1033,7 +1102,7 @@ select:focus {
   padding-bottom: 90px;
 }
 .addproperty h1 {
-  font-family: Raleway;
+  font-family: 'Raleway', sans-serif;
   font-style: normal;
   font-weight: bold;
   font-size: 3rem;
@@ -1044,7 +1113,7 @@ select:focus {
   padding-bottom: 25px;
 }
 .addproperty h2 {
-  font-family: Raleway;
+  font-family: 'Raleway', sans-serif;
   font-style: normal;
   font-weight: 600;
   font-size: 1.4rem;
@@ -1086,7 +1155,7 @@ select:focus {
   border-radius: 4px;
   padding: 11px;
   width: 82%;
-  font-family: Raleway;
+  font-family: 'Raleway', sans-serif;
   font-style: normal;
   font-weight: 600;
   font-size: 1rem;
@@ -1105,7 +1174,7 @@ select:focus {
 }
 .addproperty-2 h3 {
   padding-top: 30px;
-  font-family: Raleway;
+  font-family: 'Raleway', sans-serif;
   font-style: normal;
   font-weight: 600;
   font-size: 1.5rem;
@@ -1130,7 +1199,7 @@ select:focus {
   top: 1566px;
   background: #434bff;
   border-radius: 4px;
-  font-family: Raleway;
+  font-family: 'Raleway', sans-serif;
   font-style: normal;
   font-weight: bold;
   font-size: 1.2rem;
@@ -1151,7 +1220,7 @@ select:focus {
 }
 
 .addroom-5 h5 {
-  font-family: Raleway;
+  font-family: 'Raleway', sans-serif;
   font-style: normal;
   font-weight: bold;
   font-size: 2.3rem;
@@ -1185,15 +1254,13 @@ select:focus {
   color: #000000;
 }
 .login-rem span {
-  font-family: Raleway;
+  font-family: 'Raleway', sans-serif;
   font-style: normal;
   font-weight: bold;
   font-size: 17px;
   color: #3a3a3a;
 }
-input[type='checkbox'] {
-  /* visibility: hidden; */
-}
+
 .lang {
   background: rgba(196, 196, 196, 0.22);
   border-radius: 41px;
@@ -1205,7 +1272,7 @@ input[type='checkbox'] {
   height: 20px;
 }
 .lang p {
-  font-family: Raleway;
+  font-family: 'Raleway', sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 17px;
@@ -1280,17 +1347,17 @@ input[type='checkbox'] {
 }
 /* Booking */
 .booking-1 h1{
-  font-family: 'Raleway';
+  font-family: ''Raleway', sans-serif';
     font-style: normal;
     font-weight: 700;
     font-size: 70px;
     line-height: 82px;
     letter-spacing: -0.025em;
     color: #F0F0F8;
-    padding-top: 64px;
+    padding-top: 90px;
 }
 .booking-1 p{
-   font-family: 'Raleway';
+   font-family: ''Raleway', sans-serif';
     font-style: normal;
     font-weight: 500;
     font-size: 23px;
@@ -1315,10 +1382,12 @@ input[type='checkbox'] {
     margin-left: -69px;
 }
 .card-2{
-     margin-top: -260px;
-    padding-bottom: 290px;
+  margin-top: -193px;
+  padding-bottom: 243px
 }
-
+.card-2:last-of-type {
+  padding-bottom: 30px !important;
+}
 /* Propertyui */
 .propertyui{
   background: #E5E5E5;
@@ -1328,7 +1397,7 @@ input[type='checkbox'] {
   width: 360px;
 }
 .propertyui-2 h2{
-  font-family: 'Raleway';
+  font-family: ''Raleway', sans-serif';
     font-style: normal;
     font-weight: 600;
     font-size: 44px;
@@ -1350,7 +1419,7 @@ input[type='checkbox'] {
   color: #121B3D;
 }
 .propertyui-2 p{
-  font-family: 'Raleway';
+  font-family: ''Raleway', sans-serif';
     font-style: normal;
     font-weight: 400;
     font-size: 20px;
@@ -1374,7 +1443,7 @@ border-radius: 25px;
   margin-top:-17px !important;
 }
 .prop-card h2{
-  font-family: 'Raleway';
+  font-family: ''Raleway', sans-serif';
   font-style: normal;
   font-weight: 600;
   font-size: 42px;
@@ -1396,15 +1465,12 @@ border-radius: 25px;
 }
 .prop-card h3{
   font-family: 'Raleway';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 126.85%;
-  
-  
-  letter-spacing: 0.01em;
-  
-  color: #828282;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 21px;
+    line-height: 126.85%;
+    letter-spacing: 0.01em;
+    color: #828282;
 }
 .prop-card h4{
   font-family: 'Montserrat';
@@ -1428,6 +1494,7 @@ border-radius: 25px;
     line-height: 97.35%;
     letter-spacing: -0.045em;
     color: #FFFFFF;
+    margin-bottom: 12px;
 }
 .prop-ed img{
   width: 28px;
@@ -1436,20 +1503,21 @@ border-radius: 25px;
   padding-top: 25px;
 }
 .prop-ed p{
-  font-family: 'Raleway';
+  font-family: ''Raleway', sans-serif';
   font-style: normal;
   font-weight: 400;
-  font-size: 18px;
+  font-size: 22px;
   line-height: opx;
   color: #121B3D;
   padding-top: 0px;
   margin-top: -4px;
+  margin-right: 21px;
 }
 .roomui-img img{
   width: 35px;
 }
 .roomui-img h5{
-  font-family: 'Raleway';
+  font-family: ''Raleway', sans-serif';
   font-style: normal;
   font-weight: 700;
   font-size: 12px;
@@ -1479,7 +1547,7 @@ border-radius: 25px;
     box-shadow: 0px 4px 13px rgb(0 0 0 / 25%);
     border-radius: 9px;
     border: none;
-    font-family: 'Raleway';
+    font-family: ''Raleway', sans-serif';
     font-style: normal;
     font-weight: 600;
     font-size: 17px;
@@ -1505,7 +1573,7 @@ border-radius: 25px;
     width: 23px;
 }
 .roomui h2{
-  font-family: 'Raleway';
+  font-family: ''Raleway', sans-serif';
   font-style: normal;
   font-weight: 600;
   font-size: 37px;
@@ -1520,7 +1588,7 @@ border-radius: 25px;
   }
 }
 .confirm h1{
-  font-family: 'Raleway';
+  font-family: ''Raleway', sans-serif';
     font-style: normal;
     font-weight: 400;
     font-size: 23px;
@@ -1548,7 +1616,7 @@ border-radius: 25px;
 }
 .confirm select{
   width: 364px;
-    height: 50px;
+    height: 43px;
     left: 152px;
     top: 771px;
     background: #FFFFFF;
@@ -1576,7 +1644,7 @@ border-radius: 25px;
     padding-top: 14px;
 }
 .confirm-card h6{
-  font-family: 'Raleway';
+  font-family: ''Raleway', sans-serif';
   font-style: normal;
   font-weight: 600;
   font-size: 28px;
@@ -1680,7 +1748,7 @@ border-radius: 25px;
     box-shadow: 0px 4px 13px rgb(0 0 0 / 25%);
     border-radius: 9px;
     border: none;
-    font-family: 'Raleway';
+    font-family: ''Raleway', sans-serif';
     font-style: normal;
     font-weight: 600;
     font-size: 21px;
@@ -1728,7 +1796,7 @@ transform: matrix(0, 1, -1, 0, 0, 0);
   background:white;
 }
 .superadmin-top h1{
-font-family: 'Raleway';
+font-family: ''Raleway', sans-serif';
 font-style: normal;
 font-weight: 500;
 font-size: 31px;
@@ -1746,7 +1814,7 @@ margin-right:30px;
   padding:9px;
 }
 .superadmin-2 h2{
-  font-family: 'Raleway';
+  font-family: ''Raleway', sans-serif';
   font-style: normal;
   font-weight: 500;
   font-size: 31px;
@@ -1780,10 +1848,7 @@ margin-right:30px;
     background: #F3F3F3;
     padding-bottom: 16px;
   }
-  .superadmin-bg2 h1{
-    /* padding: 59px 0px 61px 29px; */
-   
-  }
+  
   .superadmin-2 span{
     font-size: 37px;
   }
@@ -1791,7 +1856,7 @@ margin-right:30px;
     height: 25px;
   }
   .prop-img h1{
-    font-family: 'Raleway';
+    font-family: ''Raleway', sans-serif';
     font-style: normal;
     font-weight: 300;
     font-size: 24px;
@@ -1827,6 +1892,7 @@ margin-right:30px;
     border: none;
     color: #FFFFFF;
     float: right;
+    margin-bottom: 12px;
   }
   .price-radio h1{
     font-family: 'Montserrat';
@@ -1854,7 +1920,7 @@ margin-right:30px;
   }
 
   .superAdminHome h2{
-    font-family: 'Raleway';
+    font-family: ''Raleway', sans-serif';
     font-style: normal;
     font-weight: 500;
     font-size: 31px;
@@ -1886,7 +1952,7 @@ margin-right:30px;
     height: 51px;
 }    
 .upadteuser-body h1{
-  font-family: 'Raleway';
+  font-family: ''Raleway', sans-serif';
 font-style: normal;
 font-weight: 500;
 font-size: 31px;
@@ -1898,7 +1964,7 @@ margin-left: 76px;
 margin-top: 36px;
 }
 .updateuser-body-card h4{
-  font-family: 'Raleway';
+  font-family: ''Raleway', sans-serif';
 font-style: normal;
 font-weight: 500;
 font-size: 31px;
@@ -1923,7 +1989,7 @@ color: #000000;
   float:right;
 }
 .updateuser-body h1{
-  font-family: 'Raleway';
+  font-family: ''Raleway', sans-serif';
   font-style: normal;
   font-weight: 500;
   font-size: 31px;
@@ -1955,7 +2021,7 @@ color: #000000;
 
 }
 .signup-body-card h4{
-  font-family: 'Raleway';
+  font-family: ''Raleway', sans-serif';
   font-style: normal;
   font-weight: 600;
   font-size: 25px;
@@ -1973,7 +2039,7 @@ color: #000000;
   border: none;
   width: 100px;
   padding: 6px;
-  font-family: 'Raleway';
+  font-family: ''Raleway', sans-serif';
   font-style: normal;
   font-weight: 600;
   font-size: 14px;
@@ -2004,7 +2070,7 @@ color: #000000;
   }
 
 .updatebooking-body h1{
-  font-family: 'Raleway';
+  font-family: ''Raleway', sans-serif';
     font-style: normal;
     font-weight: 500;
     font-size: 33px;
@@ -2017,7 +2083,7 @@ color: #000000;
   background: #FFFFFF;
     border: none;
     width: 65%;
-    font-family: 'Raleway';
+    font-family: ''Raleway', sans-serif';
     font-style: italic;
     font-weight: 500;
     font-size: 25px;
@@ -2059,7 +2125,7 @@ color: #000000;
 }
 
 .updatebooking-body-card h4{
-  font-family: 'Raleway';
+  font-family: ''Raleway', sans-serif';
   font-style: normal;
   font-weight: 500;
   font-size: 27px;
@@ -2085,7 +2151,7 @@ color: #000000;
 }
 
 .acceptbooking-body h1{
-  font-family: 'Raleway';
+  font-family: ''Raleway', sans-serif';
   font-style: normal;
   font-weight: 700;
   font-size: 58px;
@@ -2099,7 +2165,7 @@ color: #000000;
   margin-left: 35px;
 }
 .acceptbooking-body-2 h1{
-  font-family: 'Raleway';
+  font-family: ''Raleway', sans-serif';
 font-style: normal;
 font-weight: 700;
 font-size: 27px;
@@ -2112,7 +2178,7 @@ color: #000000;
 
 }
 .acceptbooking-body-2 h4{
-  font-family: 'Raleway';
+  font-family: ''Raleway', sans-serif';
   font-style: normal;
   font-weight: 500;
   font-size: 37px;
@@ -2127,7 +2193,7 @@ color: #000000;
 }
 
 .acceptbooking-body-3 h1{
-  font-family: 'Raleway';
+  font-family: ''Raleway', sans-serif';
   font-style: italic;
   font-weight: 600;
   font-size: 37px;
@@ -2181,7 +2247,7 @@ border-radius: 6px;
 
 /* register */
 .register-body h1{
-  font-family: 'Raleway';
+  font-family: ''Raleway', sans-serif';
   font-style: normal;
   font-weight: 700;
   font-size: 53px;
@@ -2193,7 +2259,7 @@ border-radius: 6px;
 
 }
 .register-body p{
-  font-family: 'Raleway';
+  font-family: ''Raleway', sans-serif';
     font-style: normal;
     font-weight: 600;
     font-size: 25px;
@@ -2505,3 +2571,89 @@ border-radius: 6px;
 .popup h2{
   color:white;
 }
+
+.navbar-dark .navbar-nav .act{
+  color:#F8F263 !important;
+}
+
+
+@media only screen and (max-width: 767px){
+  .prop-room-vect {
+    margin-top: 22px !important;
+}
+.prop-img{
+   margin-right:19px !important;
+}
+.prop-img img{
+  height:31px;
+}
+.prop-img p {
+  padding-left: 12px;
+  font-size: 22px;
+  font-weight: 400;
+}
+.roomuiimg img{
+  width:100%;
+  padding-bottom:40px;
+}
+.form-mob{
+  margin:22px;
+}
+.confirm-card{
+  margin-top:53px !important;
+}
+.mob-phone{
+  margin-left: 101px;
+  margin-top: -67px !important;
+}
+.mob-phone input{
+ width:100%;
+}
+.confirm-card{
+  width:100%;
+}
+.small-input1 select {
+  width: 98px;
+}
+.confirm h1 {
+  font-size:18px
+}
+.home-box-3 h4 {
+  font-size: 14px;
+  line-height: 0px;
+}
+
+.home-box-3 img {
+  display:none;
+}
+}
+
+@media only screen and (min-width: 767px){
+  .amn-algn{
+    text-align-last:center;
+  }
+}
+
+@media only screen and (max-width: 470px){
+  .radio-mob{
+    margin-top:23px !important;
+  }
+  .rabio-mob-2{
+    margin-left: 33px;
+    margin-top: -24px !important;
+  }
+  .rabio-mob-3{
+   
+    margin-left: 270px;
+      margin-top: -50px !important;
+      width: 75px !important;
+  }
+}
+
+
+.navbar-collapse {
+  flex-basis: 100%;
+  flex-grow: 0 !important;
+  margin-right: 140px !important;
+  align-items: center;
+} 

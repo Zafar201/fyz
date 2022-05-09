@@ -44,7 +44,7 @@ function Contact() {
               <Col md={6}>
                 <Link to="/contact">
                   {' '}
-                  <Nav.Link href="#deets">Contact Us</Nav.Link>
+                  <Nav.Link href="#deets" className='act'>Contact Us</Nav.Link>
                 </Link>
               </Col>
             </Nav>
@@ -81,7 +81,13 @@ function Contact() {
                     ></textarea>
                   </Row>
                   <Row className='submit'>
+                    <Col md={3}>
                     <button>Submit</button>
+                    </Col>
+                    <Col md={2}>
+                       <h5>Clear form </h5>
+                    </Col>
+                   
                   </Row>
                 </div>
               </Row>

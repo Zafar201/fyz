@@ -158,7 +158,7 @@ error? <MessageBox></MessageBox>:
         
              <Row>
              {prop.find((e)=>e._id == propId ).rooms.find((e)=>e._id == roomId).amenities.map((amnt,i)=>(
-               <Col md={6} style={{textAlignLast:"center"}}>
+               <Col md={6} className='amn-algn' >
                <img src={`/assets/image/${amnt}.png`} alt="" />
                   <h5>{amnt}</h5>
                </Col>
@@ -168,7 +168,7 @@ error? <MessageBox></MessageBox>:
           </Col>               
        
           <Col className='price-radio' md={8}>
-            <Row>
+            <Row className='radio-mob'>
               <Col md={1}>
                 <input
                 type="radio"
@@ -180,11 +180,11 @@ error? <MessageBox></MessageBox>:
                 onClick={sal}
                    />
               </Col>
-           <Col>
+           <Col className='rabio-mob-2'>
               <h1>Reserve Experience</h1>
               <h6>View plans exclusive</h6>
            </Col>
-           <Col md={3}>
+           <Col md={3} className='rabio-mob-3'>
            <p2>{prop.find((e)=>e._id == propId ).rooms.find((e)=>e._id == roomId).price.first}</p2> 
            </Col>
          
@@ -201,11 +201,11 @@ error? <MessageBox></MessageBox>:
                 onClick={sal}
                    />
               </Col>
-           <Col>
+           <Col className='rabio-mob-2'>
               <h1>Reserved</h1>
-              {/* <h6>View plans exclusive</h6> */}
+              <h6>View plans exclusive</h6>
            </Col>
-           <Col md={3}>
+           <Col md={3} className='rabio-mob-3'>
            <p2>{prop.find((e)=>e._id == propId ).rooms.find((e)=>e._id == roomId).price.fourth}</p2> 
            </Col>
          
@@ -223,10 +223,11 @@ error? <MessageBox></MessageBox>:
                 
                    />
               </Col>
-              <Col>
+              <Col className='rabio-mob-2'>
                   <h1>Reserve Plan Flex</h1>
+                  <h6>View plans exclusive</h6>
               </Col>
-              <Col  md={3}>
+              <Col  md={3} className='rabio-mob-3'>
                   <p2>{prop.find((e)=>e._id == propId ).rooms.find((e)=>e._id == roomId).price.second}</p2> 
               </Col>
             </Row>
@@ -243,10 +244,11 @@ error? <MessageBox></MessageBox>:
                 
                    />
               </Col>
-           <Col>
+           <Col className='rabio-mob-2'>
            <h1>ELENA Spa and Wellness</h1>
+           <h6>View plans exclusive</h6>
            </Col>
-           <Col  md={3}>
+           <Col md={3} className='rabio-mob-3'>
            <p2>  {prop.find((e)=>e._id == propId ).rooms.find((e)=>e._id == roomId).price.third}</p2>
            </Col>
          

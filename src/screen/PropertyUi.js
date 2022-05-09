@@ -91,7 +91,7 @@ const truncate=(str,n)=>{
         {/* {prop.find((e)=>e._id==propId).map((property)=>( */}
      <>
      <Container>
-        <Row className='propertyui-2'>
+        <Row className='propertyui-2 prop-ui-2'>
        
 
            
@@ -167,7 +167,7 @@ const truncate=(str,n)=>{
              </Row>
            
               <Row>
-                 <h3>{truncate(sRoom.description,250)}</h3>
+                 <h3>{truncate(sRoom.description,150)}</h3>
               </Row>
            
                <Row style={{paddingTop:"35px"}}>

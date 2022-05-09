@@ -95,7 +95,7 @@ const truncate=(str,n)=>{
        
 
            
-            <Col md={4}>
+            <Col md={4} className='prop-wd'>
                <img src="/assets/image/home2.png" alt="" />
             </Col>
             <Col md={8}>

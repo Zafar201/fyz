@@ -2584,14 +2584,7 @@ border-radius: 6px;
 .prop-img{
    margin-right:19px !important;
 }
-.prop-img img{
-  height:31px;
-}
-.prop-img p {
-  padding-left: 12px;
-  font-size: 22px;
-  font-weight: 400;
-}
+
 .roomuiimg img{
   width:100%;
   padding-bottom:40px;
@@ -2626,6 +2619,9 @@ border-radius: 6px;
 .home-box-3 img {
   display:none;
 }
+.home-2-explore h4{
+  font-size:48px;
+}
 }
 
 @media only screen and (min-width: 767px){
@@ -2657,3 +2653,56 @@ border-radius: 6px;
   margin-right: 140px !important;
   align-items: center;
 } 
+
+
+@media only screen and (max-width: 565px){
+  .home-3 h1{
+    font-size:1.5rem;
+  }
+  .home-2-rec h1 {
+    font-size:30px;
+    line-height: 0px;
+}
+.dsblock{
+  display:block !important;
+}
+.home-box input{
+  width: 68%;
+  height: 35px;
+}
+.js-cntr{
+  justify-content:center;
+}
+.home-box-3 h4 {
+  font-size: 18px;
+    line-height: 24px;
+    letter-spacing: 0.1em;
+    margin-top: -13px;
+    margin-left: -10px;
+}
+.home-half{
+  width:48% !important;
+}
+.about-2 h1 {
+  font-size: 51px;
+}
+.team h1{
+  font-size: 2.6rem;
+}
+.booking-1 h1{
+  font-size:31px;
+  line-height:36px;
+
+}
+.prop-wd img{
+  width:100%;
+}
+.prop-img img{
+  height:28px;
+}
+.prop-img p {
+  padding-left: 2px;
+  font-size: 20px;
+  font-weight: 400
+}
+}

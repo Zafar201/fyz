@@ -100,7 +100,7 @@ const date= ()=>{
           <Row style={{ justifyContent: 'center' }}>
             <h1>Book your stay.</h1>
             <Row className="home-box">
-              <Col className="home-box-1" md={2} sm={6}>
+              <Col className="home-box-1" md={2} >
                 <Row className='home-box-mob'> 
                   {/* <Col md={1}>
                     <img src="../assets/image/Vect.png" alt="" />
@@ -124,7 +124,7 @@ const date= ()=>{
                 </Row>
               </Col>
 
-              <Col className="home-box-2" md={2} sm={6}>
+              <Col className="home-box-2" md={2} >
                 <Row className='home-box-mob'>
                   {/* <Col md={1}>
                     <img src="../assets/image/Vect.png" alt="" />
@@ -146,13 +146,13 @@ const date= ()=>{
                 </Row>
               </Col>
 
-              <Col className="home-box-2" md={1}>
+              <Col className="home-box-2 home-half" md={1}>
                 <Row className='home-box-mob'>
                   <Col md={1}>
                     {/* <img src="../assets/image/Vect.png" alt="" /> */}
                   </Col>
                   <Col>
-                    <Row>
+                    <Row className='js-cntr'>
                       {/* <h2>no.of guest</h2> */}
                       <h2>adult </h2>
                        <input 
@@ -172,13 +172,13 @@ const date= ()=>{
                   </Col>
                 </Row>
               </Col>
-              <Col className="home-box-2" md={1}>
+              <Col className="home-box-2 home-half" md={1}>
                 <Row className='home-box-mob'>
                   <Col md={1}>
                     {/* <img src="../assets/image/Vect.png" alt="" /> */}
                   </Col>
                   <Col>
-                    <Row>
+                    <Row className='js-cntr'>
                     
                       <h2>child </h2>
                       <input 
@@ -435,7 +435,7 @@ exercitation ullamco laboris </h2>
 
       <div className="about-4">
         <Container>
-          <Row>
+          <Row className='dsblock'>
             <Col md={3}></Col>
             <Col className="about-4-fnt">
               <img src="../assets/image/phone.png" alt="" />

@@ -36,14 +36,14 @@ if(rejectSuccess){
                  <Col className='superadmin-bg' >
                      <Row> 
                          <Col >
-                         <img src="../assets/image/logo-admin.png" alt="" />
+                         <img src="../assets/image/log3.png" alt="" />
                          </Col>
                        
                      </Row>
                  </Col>
                  <Col className='superadmin-bg2 superadmin-nav-active'>
                      <Row>
-                       <h1>update user</h1>
+                       <h1>Update user</h1>
                      </Row>
                  </Col>
                  <Col className=''>
@@ -70,11 +70,11 @@ if(rejectSuccess){
               </Col>
                  
                  <Col>
-                 <Row className='updatebooking-body'>
+                 {/* <Row className='updatebooking-body'>
                      <h1>Booking id</h1>
                     <input type='text' placeholder='Enter here'/>
                     <button>Proceed </button>
-                 </Row>
+                 </Row> */}
              
              {loading? <LoadingBox></LoadingBox>:
              error? <MessageBox>{error}</MessageBox>:
@@ -85,18 +85,18 @@ if(rejectSuccess){
                    <Col >
                      <h4>{data.propName}</h4>
                    </Col>
-                   <Col >
+                   <Col className='msg-pd'>
                      {data.adminApproved? (
-                       <MessageBox>approved</MessageBox>
+                       <MessageBox>Approved</MessageBox>
                      ):(
                        <h4>Not approved</h4>
                      )}
                    </Col>
                    <Col >
-                     <h4>username</h4>
+                     <h4>{data.name}</h4>
                    </Col>
                    <Col >
-                     <h4>{data.name}</h4>
+                     {/* <h4></h4> */}
                      <h4>{data.phone}</h4>
                      {/* <h4>{data.email}</h4> */}
                    </Col>
@@ -105,7 +105,7 @@ if(rejectSuccess){
                     
                    </Col>
                    <Col >
-                  <button onClick={() => navigate(`/acceptbooking/propId/${data.propId}/bookId/${data._id}`)}> view Booking</button>  
+                  <button onClick={() => navigate(`/acceptbooking/propId/${data.propId}/bookId/${data._id}`)}> View Booking</button>  
                    </Col>
                   
                  </Row>

@@ -57,13 +57,16 @@ const deleteHandler=(property)=>{
                </Link>
                </Col>
                <Col >
-               {userInfo && (
+               {/* {userInfo && (
                  <Button onClick={signoutHandler}>signout</Button>
-               )}
+               )} */}
                </Col>
               
                <Col >
-                 <img style={{float:"right"}} src="../assets/image/profile.png" alt="" />
+               {userInfo && (
+                 <Button style={{float:"right",backgroundColor:"#434bff"}} onClick={signoutHandler}>Signout</Button>
+               )}
+                 {/* <img style={{float:"right"}} src="../assets/image/profile.png" alt="" /> */}
                </Col>
            </Row>
        </Container>
@@ -92,9 +95,9 @@ const deleteHandler=(property)=>{
                    <Col>
                      <h2>location</h2>
                    </Col>
-                   <Col>
+                   {/* <Col>
                      <h2>booking</h2>
-                   </Col>
+                   </Col> */}
                    <Col>
                    
                    </Col>
@@ -116,9 +119,9 @@ const deleteHandler=(property)=>{
               <Col>
                 <h4>{property.location}</h4>
               </Col>
-              <Col>
+              {/* <Col>
                 <img src="../assets/image/visible.png" alt="" />
-              </Col>
+              </Col> */}
               <Col>
               <img onClick={() => navigate(`/property/${property._id}/edit`)} style={{marginRight:"16px"}} src="../assets/image/edit.png" alt="" />
               <img src="../assets/image/dlt.png" alt="" onClick={() => deleteHandler(property)}/>

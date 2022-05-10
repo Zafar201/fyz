@@ -98,7 +98,7 @@ const date= ()=>{
        <form >
         <Container className="home-2">
           <Row style={{ justifyContent: 'center' }}>
-            <h1>Book your stay.</h1>
+          <h1>The Tawi Experience</h1>
             <Row className="home-box">
               <Col className="home-box-1" md={2} >
                 <Row className='home-box-mob'> 
@@ -154,7 +154,7 @@ const date= ()=>{
                   <Col>
                     <Row className='js-cntr'>
                       {/* <h2>no.of guest</h2> */}
-                      <h2>adult </h2>
+                      <h2>Adult </h2>
                        <input 
                       type="number" 
                       id="adult"
@@ -180,7 +180,7 @@ const date= ()=>{
                   <Col>
                     <Row className='js-cntr'>
                     
-                      <h2>child </h2>
+                      <h2>Child </h2>
                       <input 
                       type="number"
                       id="child"
@@ -200,7 +200,7 @@ const date= ()=>{
                   </Col>
                   <Col>
                     <Row>
-                      <h2>location</h2>
+                      <h2>Location</h2>
                       <select
                         name="location"
                         id="location"
@@ -208,9 +208,9 @@ const date= ()=>{
                         onChange={(e) => setLocation(e.target.value)}
                 >
                   <option value="not selected">Please Select</option>
-                  <option value="kerala">kerala</option>
-                  <option value="maldives">maldives</option>
-                  <option value="jammu">jammu</option>
+                  <option value="kerala">Kerala</option>
+                  <option value="maldives">Maldives</option>
+                  <option value="jammu">Jammu</option>
                 </select>
                     </Row>
                   
@@ -236,7 +236,7 @@ const date= ()=>{
         </Container>
         </form>
 
-        <Container>
+        {/* <Container>
           <Row className="home-tawi">
             <h1>The Tawi Experience</h1>
             <p>
@@ -250,7 +250,7 @@ const date= ()=>{
               clicks.
             </p>
           </Row>
-        </Container>
+        </Container> */}
       </div>
 
       <div className="home-2-container">

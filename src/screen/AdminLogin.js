@@ -81,7 +81,7 @@ function AdminLogin() {
                  
               </Row>
               <Row className='login-rem'>
-                  <Col  md={{ span: 3, offset: 3 }}>
+                  {/* <Col  md={{ span: 3, offset: 3 }}>
                  
                       <input type="checkbox" /> <span>Remember me</span> 
                   
@@ -90,7 +90,7 @@ function AdminLogin() {
                     <p>Forgot credential?</p>
                   </Col>
                   <Col>
-                  </Col>
+                  </Col> */}
               </Row>
               <Row style={{justifyContent:"center",paddingTop:"32px"}}>
                  <button type='submit'>Sign in</button> 

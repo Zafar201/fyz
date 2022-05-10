@@ -23,6 +23,12 @@ function CreateAcount() {
   useEffect(()=>{
     if(success){
       alert("your account is created wait for admin approvel")
+      // window.location.href('/register')
+      // setName(e.target.value)== ''
+      // setName2('')
+      // setEmail('')
+      // setPhone('')
+      // setAddress('')
     }
     if(error){
       console.log(error)
@@ -63,7 +69,7 @@ function CreateAcount() {
            </Row>
            <form onSubmit={submitHandler}>
            <Row className='register-body-1' style={{marginTop:"60px"}}>
-               <Col md={4}>
+               <Col md={4} style={{paddingLeft:"0px"}}>
                   <p>First name</p>
                 <input type="text" 
                

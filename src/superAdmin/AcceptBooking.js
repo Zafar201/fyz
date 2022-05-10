@@ -25,9 +25,13 @@ function AcceptBooking() {
       dispatch(getBookings())    
   }, [dispatch,succesBooking,rejectSuccess]);
   if(succesBooking){
-     navigate('/updatebooking')
+     alert("Booking accepted")
+       navigate('/updatebooking')
+      
+   
   }
   if(rejectSuccess){
+   alert("Booking rejected")
    navigate('/updatebooking')
 }
 
@@ -38,6 +42,9 @@ function AcceptBooking() {
   const reject=()=>{
      dispatch(rejectBooking(bookId))
   }
+  const truncate=(str,n)=>{
+   return str.length>n?str.substr(0,n-1)+ "" :str
+ }
   return (
     <div className='superadmin updatebooking'>
        
@@ -45,7 +52,7 @@ function AcceptBooking() {
                  <Col className='superadmin-bg' >
                      <Row> 
                          <Col md={2}>
-                         <img src="/assets/image/logo-admin.png" alt="" />
+                         <img src="/assets/image/log3.png" alt="" />
                          </Col>
                        
                      </Row>
@@ -84,16 +91,16 @@ function AcceptBooking() {
                  
                  <Col className='acceptbooking'>
                  <Row className='acceptbooking-body'>
-                     <h1>Booking id</h1>
+                     <h1>Booking</h1>
                  </Row>
                  <Row className='acceptbooking-body-2'>
-                     <Col>
+                     <Col md={3}>
                         <h1> Property Name</h1>
                         <h4>{property.bookings.find((e)=>e._id == bookId).propName}</h4>
                      </Col>
                      <Col>
-                     <h1> helooo</h1>
-                        <h4>heloooo</h4>
+                     <h1 md={3}> Duration</h1>
+                        <h4>{property.bookings.find((e)=>e._id == bookId).duration}</h4>
                      </Col>
                      <Col>
                         <h1> Customer detail</h1>
@@ -104,14 +111,14 @@ function AcceptBooking() {
                      </Col>
                  </Row>
 
-                 <Row className='acceptbooking-body-2'>
-                     <Col>
-                        <h1> helooo</h1>
-                        <h4>heloooo</h4>
+                 <Row className='acceptbooking-body-2 acceptbooking-bodpd'>
+                     <Col md={3}>
+                        <h1> From</h1>
+                        <h4>{truncate(property.bookings.find((e)=>e._id == bookId).from,11)}</h4>
                      </Col>
-                     <Col>
-                     <h1> helooo</h1>
-                        <h4>heloooo</h4>
+                     <Col md={3}>
+                     <h1> To</h1>
+                        <h4>{truncate(property.bookings.find((e)=>e._id == bookId).to,11)}</h4>
                      </Col>
                    <Col>
                    
@@ -120,8 +127,8 @@ function AcceptBooking() {
 
                  <Row className='acceptbooking-body-2'>
                      <Col>
-                        <h1> plan selected</h1>
-                        <h4>{property.bookings.find((e)=>e._id == bookId).propId}</h4>
+                        <h1> Price selected</h1>
+                        <h4>{property.bookings.find((e)=>e._id == bookId).price}</h4>
                      </Col>
                      <Col>
                      

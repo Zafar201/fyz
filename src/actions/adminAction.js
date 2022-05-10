@@ -51,9 +51,7 @@ export const getCountDetails = () => async (dispatch,getState) => {
     } = getState();
     console.log(adminInfo.token)
     try{
-      const {data} = await axios.put(`${URL}/api/admin/approve-booking/${bookId}`,{
-        headers: { "x-auth-token": `${adminInfo.token}` },  
-      })
+      const {data} = await axios.put(`${URL}/api/admin/approve-booking/${bookId}`)
       dispatch({type:APPROVE_BOOKING_SUCCESS,payload:data});
      
     }catch(error){
@@ -71,9 +69,7 @@ export const getCountDetails = () => async (dispatch,getState) => {
       adminSignin: { adminInfo },
     } = getState();
     try{
-      const {data} = await axios.put(`${URL}/api/admin/reject-booking/${bookId}`,{
-        headers: { "x-auth-token": `${adminInfo.token}` }, 
-      })
+      const {data} = await axios.put(`${URL}/api/admin/reject-booking/${bookId}`)
       dispatch({type:REJECT_BOOKING_SUCCESS,payload:data});
      
     }catch(error){
@@ -111,9 +107,7 @@ export const getCountDetails = () => async (dispatch,getState) => {
     const {adminSignin: { adminInfo },} = getState();
     console.log(adminInfo.token)
     try{
-      const {data} = await axios.put(`${URL}/api/admin/approve-user/${userId}`,{
-        header:{"x-auth-token":` ${adminInfo.token}`},
-      })
+      const {data} = await axios.put(`${URL}/api/admin/approve-user/${userId}`,)
       console.log(adminInfo.token,"succ")
       dispatch({type:APPROVE_USER_SUCCESS,payload:data});
      
@@ -133,9 +127,7 @@ export const getCountDetails = () => async (dispatch,getState) => {
       adminSignin: { adminInfo },
     } = getState();
     try{
-      const {data} = await axios.put(`${URL}/api/admin/reject-user/${userId}`,{
-        headers: { "x-auth-token": `${adminInfo.token}` }, 
-      })
+      const {data} = await axios.put(`${URL}/api/admin/reject-user/${userId}`)
       dispatch({type:REJECT_BOOKING_SUCCESS,payload:data});
      
     }catch(error){
@@ -192,9 +184,7 @@ export const getCountDetails = () => async (dispatch,getState) => {
       adminSignin: { adminInfo },
     } = getState();
     try{
-      const {data} = await axios.put(`${URL}/api/admin/suspend-user/${userId}`,{
-        headers: { "x-auth-token": `${adminInfo.token}` }, 
-      })
+      const {data} = await axios.put(`${URL}/api/admin/suspend-user/${userId}`)
       dispatch({type:SUSPEND_USER_SUCCESS,payload:data});
      
     }catch(error){
@@ -233,9 +223,7 @@ export const getCountDetails = () => async (dispatch,getState) => {
       adminSignin: { adminInfo },
     } = getState();
     try{
-      const {data} = await axios.put(`${URL}/api/admin/remove-suspend-user/${userId}`,{
-        headers: { "x-auth-token": `${adminInfo.token}` }, 
-      })
+      const {data} = await axios.put(`${URL}/api/admin/remove-suspend-user/${userId}`)
       dispatch({type:UN_SUSPEND_USER_SUCCESS,payload:data});
      
     }catch(error){

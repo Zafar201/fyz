@@ -1,5 +1,5 @@
 import  React, { useEffect } from 'react'
-import { Col, Container, Row } from 'react-bootstrap'
+import { Col, Container, Row,Button } from 'react-bootstrap'
 import { Link, useParams} from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import {getSignUpRequest,approveUser,rejectUser } from '../actions/adminAction';
@@ -7,6 +7,7 @@ import LoadingBox from "../components/LoadingBox";
 import MessageBox from "../components/MessageBox";
 import {APPROVE_USER_RESET ,REJECT_USER_RESET} from '../constants/adminConstants';
 import ReactTooltip from "react-tooltip"; 
+import { adminSignout } from "../actions/adminAction";
 
 function SignUpRequest() {
   
@@ -18,14 +19,17 @@ function SignUpRequest() {
    const {success} = approveUsers
    const rejectUsers = useSelector((state)=>state.rejectUser);
    const {success: succesReject} = rejectUsers
-
+   const adminsignin = useSelector((state) => state.adminSignin);
+   const { adminInfo } = adminsignin;
    useEffect(()=>{
      
        dispatch(getSignUpRequest())
        if(success){
+         alert("User accepted")
          dispatch({type:APPROVE_USER_RESET})
        }
        if(succesReject){
+        alert("User rejected")
         dispatch({type:REJECT_USER_RESET})
       }
      
@@ -41,13 +45,18 @@ function SignUpRequest() {
       console.log('heloo',userId)
      dispatch(rejectUser(userId))
    }
+   const signoutHandler = () => {
+    if (window.confirm('Are you sure you want to signout?')){
+      dispatch(adminSignout());
+    }
+  };
   return (
 <div className='superadmin updatebooking'>   
 <Row className='superadmin-top'>
     <Col className='superadmin-bg' md={3}>
         <Row> 
             <Col >
-            <img src="../assets/image/logo-admin.png" alt="" />
+            <img src="../assets/image/log3.png" alt="" />
             </Col>   
         </Row>
     </Col>
@@ -69,10 +78,11 @@ function SignUpRequest() {
         </Row>
     </Col>
     <Col>
-    <Row>
-       
-          
-        </Row>
+    <Row className='sup-sg'>
+          {adminInfo && (
+                 <Button onClick={signoutHandler}>Signout</Button>
+               )}
+          </Row>
     </Col>
    
 </Row>
@@ -102,20 +112,14 @@ function SignUpRequest() {
 {loading? <LoadingBox></LoadingBox>:
 error? <MessageBox>{error}</MessageBox>:
 users &&  users.map((user)=>(
-
 <>
     <Row key={user._id} className='updatebooking-body-card'>
   
       <Col md={2}>
-        <h4>{user.f_name}</h4>
-      
-      </Col>
-
-
-       
-         <Col md={1}>
-            
-            <img data-tip data-for="registerTip" multiline src='../assets/image/eyes.png'/>
+        <h4>{user.f_name}</h4>     
+      </Col>      
+         <Col md={1}>         
+            {/* <img data-tip data-for="registerTip" multiline src='../assets/image/eyes.png'/> */}
           </Col>
           <Col  md={{ span: 1, offset: 2 }}>
            <button type='submit'onClick={() => approveHandler(user._id)}>accept</button>
@@ -124,11 +128,10 @@ users &&  users.map((user)=>(
           <button  type='submit'onClick={() => rejectHandler(user._id)}>decline</button>
           </Col>
           <Col>
-          <Col>
+          {/* <Col>
            <p>7:50pm</p>
-          </Col>
-          <ReactTooltip  id="registerTip" multiline place="bottom" effect="solid" type='success'>
-           
+          </Col> */}
+          <ReactTooltip  id="registerTip"  place="bottom" effect="solid" type='success'>         
             <div>
                 {user.email} 
            </div>
@@ -137,12 +140,7 @@ users &&  users.map((user)=>(
              </div>
              <div>
                {user.address}
-             </div>
-            
-            
-            
-             
-           
+             </div>           
             </ReactTooltip>
           </Col>
      

@@ -110,9 +110,9 @@ function PropertyDetails() {
                 <Col>
                   <h2>Child</h2>
                 </Col>
-                <Col>
+                {/* <Col>
                   <h2>booking</h2>
-                </Col>
+                </Col> */}
                 <Col></Col>
               </Row>
               {property.rooms.length === 0 && (
@@ -132,10 +132,10 @@ function PropertyDetails() {
                     <Col>
                       <h4>{room.child}</h4>
                     </Col>
-                    <Col>
+                    {/* <Col>
                  
                       <img src="../assets/image/visible.png" alt="" />
-                    </Col>
+                    </Col> */}
                     <Col>
                       <img  
                         onClick={()=>{toComponentB(room._id)}}    

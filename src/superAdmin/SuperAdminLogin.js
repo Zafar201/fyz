@@ -32,7 +32,7 @@ function SuperAdminLogin() {
            <Row>
                <Col className='admin-logo'>
                <Link to="/">    
-                <img src="../assets/image/logo-admin.png" alt="" />
+                <img src="../assets/image/log3.png" alt="" />
                </Link>
                </Col>
           
@@ -80,7 +80,7 @@ function SuperAdminLogin() {
                  
               </Row>
               <Row className='login-rem'>
-                  <Col  md={{ span: 3, offset: 3 }}>
+                  {/* <Col  md={{ span: 3, offset: 3 }}>
                  
                       <input type="checkbox" /> <span>Remember me</span> 
                   
@@ -89,14 +89,14 @@ function SuperAdminLogin() {
                     <p>Forgot credential?</p>
                   </Col>
                   <Col>
-                  </Col>
+                  </Col> */}
               </Row>
               <Row style={{justifyContent:"center",paddingTop:"32px"}}>
                  <button type='submit'>Sign in</button> 
               </Row>
-              <Row>
+              {/* <Row>
                 <Link to='/register'>  <h3>Not registered yet? <span>Create an Account</span> </h3></Link>
-              </Row>
+              </Row> */}
           </Container>
        </form>
         

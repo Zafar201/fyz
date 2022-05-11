@@ -44,8 +44,8 @@ function UpdateUser() {
       <Row className="superadmin-top">
         <Col className="superadmin-bg" md={3}>
           <Row>
-            <Col>
-              <img src="../assets/image/log3.png" alt="" />
+            <Col style={{textAlign:"center"}}>
+            <Link to='/superadmin'>   <img src="/assets/image/log3.png" alt="" /></Link> 
             </Col>
           </Row>
         </Col>
@@ -84,7 +84,7 @@ function UpdateUser() {
                     <h2>User Details</h2>
                  </div> */}
           <div>
-            <h2>Update Booking</h2>
+          <Link to='/updatebooking'> <h2>Update Booking</h2> </Link>
           </div>
         </Col>
         {loading ? (

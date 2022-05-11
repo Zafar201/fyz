@@ -344,7 +344,7 @@ cursor:pointer;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  height:100vh;
+  min-height:100vh;
 }
 .home-2-bottom {
   justify-content: center;
@@ -648,6 +648,9 @@ cursor:pointer;
     padding-left: 45px;
     margin-top: -27px;
 
+  }
+  .home-box{
+    margin-bottom:55px;
   }
   .prop-ui-2{
     margin:12px !important;
@@ -1794,7 +1797,7 @@ transform: matrix(0, 1, -1, 0, 0, 0);
 /* Super Admin */
 .superadmin-top{
   width: 100%;
-  align-items: center;
+  /* align-items: center; */
   display:flex;
   background:white;
 }
@@ -1808,6 +1811,7 @@ color: #000000;
 padding-top: 14px;
 text-align-last: center;
 margin-right:30px;
+margin-top:20px
 }
 /* .superadmin-top img{
   padding: 20px 0px 24px 29px;
@@ -1817,8 +1821,10 @@ margin-right:30px;
   padding:9px;
 }
 .superadmin-bg img{
-width: 47%;
-    margin-left: 101px;
+  width: 42%;
+    /* margin-left: 99px; */
+    margin-top: 19px;
+    margin-bottom: 17px;
 }
 .superadmin-2 h2{
   font-family: ''Raleway', sans-serif';
@@ -1846,10 +1852,15 @@ width: 47%;
     letter-spacing: -0.04em;
     color: #000000;
     padding-top: 54px;
+    background: blueviolet;
+    border-radius: 30px;
+    padding: 18px;
+    margin-top: 26px;
+
   }
   .superadmin{
     background: #E5E5E5;
-    height: 100vh;
+    min-height: 100vh;
   }
   .superadmin-active h2{
     background: #F3F3F3;
@@ -2074,7 +2085,7 @@ color: #000000;
 .superadmin-nav-active{
 
     background: #F3F3F3;
-    padding: 22px;
+    /* padding: 22px; */
 
 }
 .updatebooking-body{
@@ -2745,5 +2756,6 @@ padding-bottom: 64px;
 }
 .sup-sg .btn{
   width: 43% !important;
-  margin-left: 140px !important;
+    margin-top: 39px;
+    margin-left: 115px !important;
 }

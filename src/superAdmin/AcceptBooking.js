@@ -51,8 +51,8 @@ function AcceptBooking() {
              <Row className='superadmin-top'>
                  <Col className='superadmin-bg' >
                      <Row> 
-                         <Col md={2}>
-                         <img src="/assets/image/log3.png" alt="" />
+                         <Col  style={{textAlign:"center"}}>
+                     <Link to='/superadmin'>   <img src="/assets/image/log3.png" alt="" /></Link> 
                          </Col>
                        
                      </Row>

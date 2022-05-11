@@ -15,9 +15,9 @@ function Home() {
   const {loading , error , property} = propertyList;
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [selectedDate2, setSelectedDate2] = useState(new Date());
-  const [location, setLocation] = useState("Kerala");
-  const [adult, setAdult] = useState();
-  const [child, setChild] = useState();
+  const [location, setLocation] = useState("kerala");
+  const [adult, setAdult] = useState('0');
+  const [child, setChild] = useState('0');
   const [showHot, setShowHot] = useState(false)
   const navigate = useNavigate()
 
@@ -54,13 +54,13 @@ const date= ()=>{
     close={close}/>
       <div
         className="home-container"
-        style={{ backgroundImage: `url("../assets/image/homebg3.jpeg")` }}
+        style={{ backgroundImage: `url("../assets/image/61.jpg")` }}
       >
         <Navbar collapseOnSelect expand="lg" variant="dark">
           <Container className="nav-pad">
             <Col md={8}>
               <Navbar.Brand className="logo">
-              <Link to="/"> <img src="../assets/image/log4.png" alt="" /></Link>
+              <Link to="/"> <img src="../assets/image/log3.png" alt="" /></Link>
               </Navbar.Brand> 
             </Col>
 
@@ -160,13 +160,9 @@ const date= ()=>{
                       id="adult"
                       // placeholder="Enter numbers"
                       required
+                      value={adult}
                       onChange={(e) => setAdult(e.target.value)}/>
-                      {/* child  <input 
-                      type="number"
-                      id="child"
-                      placeholder="Enter numbers"
-                      required
-                      onChange={(e) => setChild(e.target.value)} /> */}
+                     
                     </Row>
                   
                   </Col>
@@ -184,6 +180,7 @@ const date= ()=>{
                       <input 
                       type="number"
                       id="child"
+                      value={child}
                       // placeholder="Enter numbers"
                       required
                       onChange={(e) => setChild(e.target.value)} />

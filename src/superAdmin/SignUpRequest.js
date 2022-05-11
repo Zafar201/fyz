@@ -55,8 +55,8 @@ function SignUpRequest() {
 <Row className='superadmin-top'>
     <Col className='superadmin-bg' md={3}>
         <Row> 
-            <Col >
-            <img src="../assets/image/log3.png" alt="" />
+            <Col style={{textAlign:"center"}}>
+            <Link to='/superadmin'>   <img src="/assets/image/log3.png" alt="" /></Link> 
             </Col>   
         </Row>
     </Col>
@@ -71,8 +71,8 @@ function SignUpRequest() {
    </Row>
     </Col>
      
-    <Col>
-    <Row className='superadmin-bg2 superadmin-nav-active'>
+    <Col className='superadmin-nav-active'>
+    <Row className='superadmin-bg2 '>
           <h1>Signup Request</h1>
           
         </Row>
@@ -97,7 +97,7 @@ function SignUpRequest() {
        <h2>User Details</h2>
     </div> */}
     <div>
-        <h2>Update Booking</h2>
+    <Link to='/updatebooking'> <h2>Update Booking</h2> </Link>
     </div>
  </Col>
     

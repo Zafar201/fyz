@@ -554,7 +554,7 @@ function ConfirmBooking() {
                 </Container>
               </Row>
               <Row>
-                <button type='submit'>confirm booking</button>
+                <button type='submit'>Confirm booking</button>
               </Row>
             </Col>
                )}

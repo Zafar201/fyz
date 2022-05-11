@@ -107,8 +107,8 @@ function SuperAdmin() {
       <Row className="superadmin-top">
         <Col className="superadmin-bg" md={3}>
           <Row>
-            <Col>
-              <img src="../assets/image/log3.png" alt="" />
+            <Col style={{textAlign:"center"}}>
+            <Link to='/superadmin'>   <img src="/assets/image/log3.png" alt="" /></Link> 
             </Col>
           </Row>
         </Col>
@@ -201,7 +201,8 @@ function SuperAdmin() {
                 </Col>
                 <Col>
                   <h3>
-                    {count.cBookings} <br /> <span>Completed Booking</span>
+                    {count.cBookings}
+                     <br /> <span>Completed Booking</span>
                   </h3>
                 </Col>
                 <Col>
@@ -213,7 +214,7 @@ function SuperAdmin() {
                 <Col md={2}></Col>
               </Row>
             </>
-          )}
+          )} 
         </Col>
       </Row>
 

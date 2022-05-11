@@ -35,15 +35,15 @@ if(rejectSuccess){
              <Row className='superadmin-top'>
                  <Col className='superadmin-bg' >
                      <Row> 
-                         <Col >
-                         <img src="../assets/image/log3.png" alt="" />
+                         <Col style={{textAlign:"center"}}>
+                         <Link to='/superadmin'>   <img src="/assets/image/log3.png" alt="" /></Link> 
                          </Col>
                        
                      </Row>
                  </Col>
                  <Col className='superadmin-bg2 superadmin-nav-active'>
                      <Row>
-                       <h1>Update user</h1>
+                     <Link to="/updateuser">     <h1>Update user</h1></Link>
                      </Row>
                  </Col>
                  <Col className=''>

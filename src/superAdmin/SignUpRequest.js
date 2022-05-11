@@ -107,6 +107,9 @@ function SignUpRequest() {
        <input type='text' placeholder='Enter here'/>
        <button>Proceed </button>
     </Row> */}
+    {!loading && !error && users.length == 0 && (
+    <MessageBox>No new signup requests </MessageBox>
+     )}
     
 
 {loading? <LoadingBox></LoadingBox>:

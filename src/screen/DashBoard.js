@@ -102,6 +102,10 @@ const deleteHandler=(property)=>{
                    
                    </Col>
                </Row>
+
+               {!loading && !error && properties.length === 0 && (
+                 <MessageBox>No properties addedd</MessageBox>
+               )}
               
                {loading?<LoadingBox>{loading}</LoadingBox>:
                error?<MessageBox>{error}</MessageBox>:

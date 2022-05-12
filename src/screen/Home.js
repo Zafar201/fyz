@@ -8,6 +8,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import {format} from 'date-fns'
 import HotDeals from '../components/HotDeals';
+import Footer from '../components/Footer';
 
 function Home() {
   const dispatch = useDispatch()
@@ -47,6 +48,10 @@ const date= ()=>{
   const endingDate = format(selectedDate2, "MM-dd-yyyy")
   navigate(`/search/location/${location}/adult/${adult}/child/${child}/startingDate/${startingDate}/endingDate/${endingDate}`);
 }
+
+const lux=()=>{
+  navigate('/luxury')
+}
   return (
     <div className="home"> 
     <HotDeals
@@ -58,22 +63,22 @@ const date= ()=>{
       >
         <Navbar collapseOnSelect expand="lg" variant="dark">
           <Container className="nav-pad">
-            <Col md={8}>
+            <Col md={4}>
               <Navbar.Brand className="logo">
-              <Link to="/"> <img src="../assets/image/log3.png" alt="" /></Link>
+              <Link to="/"> <img src="../assets/image/log1.png" alt="" /></Link>
               </Navbar.Brand> 
             </Col>
 
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
               <Nav>
-                <Col md={6}>
+                <Col md={4}>
                   <Link to="/">
                     {' '}
                     <Nav.Link href="#deets" className='act'>Home</Nav.Link>{' '}
                   </Link>{' '}
                 </Col>
-                <Col md={6}>
+                <Col md={4}>
                   <Link to="/about">
                     {' '}
                     <Nav.Link
@@ -85,6 +90,17 @@ const date= ()=>{
                   </Link>
                 </Col>
                 <Col md={6}>
+                  <Link to="/luxury">
+                    {' '}
+                    <Nav.Link
+                      href="#deets"
+                      style={{ color: ' #D9B061 !important;' }}
+                    >
+                     Luxury experience
+                    </Nav.Link>
+                  </Link>
+                </Col>
+                <Col md={4}>
                   <Link to="/contact">
                     {' '}
                     <Nav.Link href="#deets">Contact Us</Nav.Link>
@@ -100,7 +116,7 @@ const date= ()=>{
           <Row style={{ justifyContent: 'center' }}>
           <h1>The Tawi Experience</h1>
             <Row className="home-box">
-              <Col className="home-box-1" md={2} >
+              <Col className="home-box-1" md={3} >
                 <Row className='home-box-mob'> 
                   {/* <Col md={1}>
                     <img src="../assets/image/Vect.png" alt="" />
@@ -124,7 +140,7 @@ const date= ()=>{
                 </Row>
               </Col>
 
-              <Col className="home-box-2" md={2} >
+              <Col className="home-box-2" md={3} >
                 <Row className='home-box-mob'>
                   {/* <Col md={1}>
                     <img src="../assets/image/Vect.png" alt="" />
@@ -190,7 +206,7 @@ const date= ()=>{
                 </Row>
               </Col>
 
-              <Col className="home-box-2">
+              <Col className="home-box-2 home-halfs">
                 <Row className='home-box-mob'>
                   <Col md={1}>
                     {/* <img src="../assets/image/Vect.png" alt="" /> */}
@@ -215,12 +231,12 @@ const date= ()=>{
                 </Row>
               </Col>
 
-              <Col className="home-box-3">
+              <Col className="home-box-3 home-halfss" md={1}>
                 <Row>
-                  <Col md={9}>
-                    <h4 onClick={date}>Check availability</h4>
-                  </Col>
-                  <Col md={1} style={{ paddingLeft: '0px' }} className='home-search'>
+                  {/* <Col md={9}>
+                    <h4 >Check availability</h4>
+                  </Col> */}
+                  <Col onClick={date} style={{ paddingLeft: '0px' }} className='home-search'>
                     <img src="../assets/image/search.png" alt="" />
                   </Col>
                 </Row>
@@ -232,25 +248,21 @@ const date= ()=>{
           
         </Container>
         </form>
-
-        {/* <Container>
-          <Row className="home-tawi">
-            <h1>The Tawi Experience</h1>
-            <p>
-              The Maldives, the island country with azure water, is the favorite
-              destination for Indians, and Tawi Facilities makes it memorable.
-              The company provides exclusive high-quality luxury and
-              ultra-luxury resorts. Tawi Explores offers travelers the
-              convenience to choose and book the best luxury and ultra-luxury
-              resort online for travelers from all tier cities and towns in
-              India to access the best resorts in the Maldives with a few
-              clicks.
-            </p>
-          </Row>
-        </Container> */}
       </div>
+  
+    
 
-      <div className="home-2-container">
+
+      <div className="home-2-container">   
+    <Container>
+        <Row className='home-button'>
+          
+         <img onClick={lux} src="../assets/image/luxurystaybutton2.png" alt="" />
+       
+        </Row>
+     </Container>  
+
+
         <Container>
           <Row className="home-2-explore">
             <h4>Explore with us</h4>
@@ -400,75 +412,12 @@ const date= ()=>{
           <img style={{width:"95px",paddingTop:"78px"}} src="../assets/image/whiteline.png" alt="" />
         </Row>
         </Container>
-
-
-        {/* <Container className='home-review'>
-        <Row className='' style={{placeContent:"center",paddingTop:"78px"}} >
-          <h1>Reviews</h1>
-        </Row>
-        <Row>
-          <Col>
-           <Row>
-             <h2>Lorem ipsum dolor sit amet, consectetur 
-adipiscing elit, sed do eiusmod tempor 
-incididunt ut labore et dolore magna aliqua.
- Ut enim ad minim veniam, quis nostrud 
-exercitation ullamco laboris </h2>
-           </Row>
-          </Col>
-          <Col>
-          sdfsdfsd
-          </Col>
-          <Col>
-          sdgdsggggggggg
-          </Col>
-          <Col>
-          sgdsgdfsg
-          </Col>
-        </Row>
-        </Container> */}
         
       </div>
 
-      <div className="about-4">
-        <Container>
-          <Row className='dsblock'>
-            <Col md={3}></Col>
-            <Col className="about-4-fnt">
-              <img src="../assets/image/phone.png" alt="" />
-               0484-7180465
-            </Col>
-            <Col className="about-4-fnt">
-              <img src="../assets/image/email.png" alt="" />
-              info@tawifacilities.com
-            </Col>
-            <Col md={2}></Col>
-          </Row>
+      <Footer/>
 
-          <Row className="about-4-2">
-            <Col md={1}>
-              <p>About Us</p>
-            </Col>
-            <Col md={1}>
-              <p>Support</p>
-            </Col>
-            <Col md={1} className="about-4-2-pad">
-              <p>Follow us on</p>
-            </Col>
-            <Col>
-              <img src="../assets/image/instagram.png" alt="" />
-              <img src="../assets/image/facebook.png" alt="" />
-              <img src="../assets/image/youtube.png" alt="" />
-            </Col>
-            <Col md={7} className="copyright">
-              <p>
-              All material herein © 2005–2022 TAWI Facilities All Rights
-                Reserved.
-              </p>
-            </Col>
-          </Row>
-        </Container>
-      </div>
+    
     </div>
   );
 }

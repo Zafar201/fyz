@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { Col, Container, Nav, Navbar, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import Footer from '../components/Footer';
 
 function Contact() {
   useEffect(() => {
@@ -9,50 +10,74 @@ function Contact() {
   return (
     <>
     <div
-      className="contact"
-      style={{ backgroundImage: `url("../assets/image/contactbg3.jpeg")` }}
-    >
-      <Navbar collapseOnSelect expand="lg" variant="dark">
-        <Container className="nav-pad">
-          <Col md={8} className="logo">
-            <Link to="/">
-              {' '}
-              <img src="../assets/image/log4.png" alt="" />
-            </Link>
-          </Col>
+        className="luxury-container"
+        style={{ backgroundImage: `url("../assets/image/61.jpg")` }}
+      >
+        <Navbar collapseOnSelect expand="lg" variant="dark">
+          <Container className="nav-pad">
+            <Col md={4}>
+              <Navbar.Brand className="logo">
+              <Link to="/"> <img src="../assets/image/log1.png" alt="" /></Link>
+              </Navbar.Brand> 
+            </Col>
 
-          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-          <Navbar.Collapse id="responsive-navbar-nav">
-            <Nav>
-              <Col md={6}>
-                <Link to="/">
-                  {' '}
-                  <Nav.Link href="#deets">Home</Nav.Link>{' '}
-                </Link>
-              </Col>
-              <Col md={6}>
-                <Link to="/about">
-                  {' '}
-                  <Nav.Link
-                    href="#deets"
-                    style={{ color: ' #D9B061 !important;' }}
-                  >
-                    About Us
-                  </Nav.Link>
-                </Link>
-              </Col>
-              <Col md={6}>
-                <Link to="/contact">
-                  {' '}
-                  <Nav.Link href="#deets" className='act'>Contact Us</Nav.Link>
-                </Link>
-              </Col>
-            </Nav>
-          </Navbar.Collapse>
-        </Container>
-      </Navbar>
+            <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+            <Navbar.Collapse id="responsive-navbar-nav">
+              <Nav>
+                <Col md={4}>
+                  <Link to="/">
+                    {' '}
+                    <Nav.Link href="#deets" >Home</Nav.Link>{' '}
+                  </Link>{' '}
+                </Col>
+                <Col md={4}>
+                  <Link to="/about">
+                    {' '}
+                    <Nav.Link
+                      href="#deets"
+                      
+                      style={{ color: ' #D9B061 !important;' }}
+                    >
+                      About Us
+                    </Nav.Link>
+                  </Link>
+                </Col>
+                <Col md={6}>
+                  <Link to="/luxury">
+                    {' '}
+                    <Nav.Link
+                      href="#deets"
+                      
+                      style={{ color: ' #D9B061 !important;' }}
+                    >
+                     Luxury experience
+                    </Nav.Link>
+                  </Link>
+                </Col>
+                <Col md={4}>
+                  <Link to="/contact">
+                    {' '}
+                    <Nav.Link href="#deets" className='act'>Contact Us</Nav.Link>
+                  </Link>
+                </Col>
+              </Nav>
+            </Navbar.Collapse>
+          </Container>
+        </Navbar>
 
-      <Container className="contact-2">
+
+        <Container>
+           <Row className='luxury-logo'>
+                 <img src='../assets/image/Asset 20.png'  />
+            </Row>
+           <Row>
+                 <h1>Conact Us</h1>
+            </Row>
+         </Container>   
+    </div>
+
+
+        <Container className="contact-2">
         <Row>
           <Col md={8}>
             <Container>
@@ -71,7 +96,7 @@ function Contact() {
                     <input type="text" placeholder="Your email" />
                   </Row>
                   <Row>
-                    {/* <input type="text"  text/> */}
+                   
                     <textarea
                       name=""
                       id=""
@@ -110,7 +135,7 @@ function Contact() {
             </Row>
 
             <Row className="contact-right3">
-              <img src="../assets/image/location2.png" alt="" />
+              <img src="../assets/image/location.png" alt="" />
             </Row>
             <Row className='contact-right4'>
               <p>
@@ -121,7 +146,6 @@ function Contact() {
           </Col>
         </Row>
       </Container>
-      </div>
 
       <Container className='contact-map'>
         <Row className='contact-map1'>
@@ -134,45 +158,7 @@ function Contact() {
         </Row>
       </Container>
 
-      <div className="about-4" style={{ marginTop: '70px' }}>
-        <Container>
-        <Row>
-            <Col md={3}></Col>
-            <Col className="about-4-fnt">
-              <img src="../assets/image/phone.png" alt="" />
-               0484-7180465
-            </Col>
-            <Col className="about-4-fnt">
-              <img src="../assets/image/email.png" alt="" />
-              info@tawifacilities.com
-            </Col>
-            <Col md={2}></Col>
-          </Row>
-
-          <Row className="about-4-2">
-            <Col md={1}>
-              <p>About Us</p>
-            </Col>
-            <Col md={1}>
-              <p>Support</p>
-            </Col>
-            <Col md={1} className="about-4-2-pad">
-              <p>Follow us on</p>
-            </Col>
-            <Col>
-              <img src="../assets/image/instagram.png" alt="" />
-              <img src="../assets/image/facebook.png" alt="" />
-              <img src="../assets/image/youtube.png" alt="" />
-            </Col>
-            <Col md={7} className="copyright">
-              <p>
-              All material herein © 2005–2022 TAWI Facilities All Rights
-                Reserved.
-              </p>
-            </Col>
-          </Row>
-        </Container>
-      </div>
+     <Footer/>
     
     </>
   );

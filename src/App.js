@@ -26,6 +26,8 @@ import CreatePassword from "./screen/CreatePassword";
 import View from "./components/View";
 import PrivateRoute from "./components/PrivateRoute";
 import AdminRoute from "./components/AdminRoute";
+import LuxuryExperience from "./screen/LuxuryExperience";
+import Sliders from "./components/Sliders";
 
 function App() {
   return (
@@ -35,8 +37,14 @@ function App() {
           <Route path="/" element={<Home />}>
             {" "}
           </Route>
-
+        
           <Route path="/about" element={<About />}>
+            {" "}
+          </Route>
+          <Route path="/slider" element={<Sliders/>}>
+            {" "}
+          </Route>
+          <Route path="/luxury" element={<LuxuryExperience />}>
             {" "}
           </Route>
           <Route path="/contact" element={<Contact />}>

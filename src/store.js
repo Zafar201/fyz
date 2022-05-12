@@ -43,6 +43,7 @@ const reducer=combineReducers({
  userSuspend:userSuspendReducer,
  adminSignin:adminSigninReducer,
  unSuspend:unSuspendReducer,
+ 
 })
 
 

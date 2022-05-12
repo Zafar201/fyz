@@ -90,9 +90,12 @@ function AcceptBooking() {
 
                  
                  <Col className='acceptbooking'>
+                   
                  <Row className='acceptbooking-body'>
                      <h1>Booking</h1>
                  </Row>
+               
+                
                  <Row className='acceptbooking-body-2'>
                      <Col md={3}>
                         <h1> Property Name</h1>
@@ -138,6 +141,7 @@ function AcceptBooking() {
                    </Col>
                  </Row>
                  
+              
                  <Row className='acceptbooking-body-3'>
                      <Col>
                         {/* <h1> helooo</h1> */}
@@ -160,17 +164,13 @@ function AcceptBooking() {
                      
                    
                        </>
-                        )
-                           
-                        }
+                        )}
             
                    <Col>
                  <Link to='/updatebooking'><h4 >   Go Back  </h4></Link>     
                    </Col>
                  </Row>
-             
-                
-          
+            
            </Col>
                )}
                  

@@ -12,7 +12,10 @@ function AddProperty() {
   const [address, setAddress] = useState('');
   const [location, setLocation] = useState('');
   const [map, setMap] = useState('');
+  const [image, setImage] = useState('');
   const [description, setDescription] = useState('');
+  const [loadingUpload, setLoadingUpload] = useState(false);
+  const [errorUpload, setErrorUpload] = useState('');
   const dispatch = useDispatch();
 
   const propertyCreate = useSelector((state) => state.propertyCreate);
@@ -24,6 +27,9 @@ function AddProperty() {
     console.log(name, address, map, 'namsn');
     console.log(error, newproperty, 'heyy');
   };
+  const uploadFileHandler=()=>{
+
+  }
 
   return (
     <div>
@@ -117,20 +123,40 @@ function AddProperty() {
             </Row>
 
             <Row>
-              <Col className="addproperty-2" md={4}>
-                <button>
+              <Col className="addproperty-2" >
+                {/* <button >
                   <img src="../assets/image/cam.png" alt="" />
                   Add images <span>(upto 15 images)</span>
                 </button>
-                <h3>delete image</h3>
+                <h3>delete image</h3> */}
+                <label htmlFor="image">Image</label>
+                <input
+                id="image"
+                type="text"
+                placeholder="Enter image"
+                value={image}
+                onChange={(e) => setImage(e.target.value)}
+              ></input>
+              
               </Col>
 
-              <Col className="addproperty-3" md={{ span: 6, offset: 1 }}>
+              <Col>
+              <label htmlFor="imageFile">Image File</label>
+              <input
+                type="file"
+                id="imageFile"
+                label="Choose Image"
+                onChange={uploadFileHandler}
+              ></input>
+              
+              </Col>
+
+              {/* <Col className="addproperty-3" md={{ span: 6, offset: 1 }}>
                 <div style={{ backgroundColor: 'white' }}></div>
                 <div style={{ backgroundColor: ' #EBEBEB' }}></div>
                 <div style={{ backgroundColor: ' #E3E3E3;' }}></div>
                 <div style={{ backgroundColor: '#A7A6A6' }}></div>
-              </Col>
+              </Col> */}
             </Row>
 
             <Row className="addproperty-4">

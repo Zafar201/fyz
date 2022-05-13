@@ -9,7 +9,7 @@ import {
   suspendUser,
   unSuspendUser,
 } from "../actions/adminAction";
-import { SUSPEND_USER_RESET } from "../constants/adminConstants";
+import { SUSPEND_USER_RESET,UN_SUSPEND_USER_RESET } from "../constants/adminConstants";
 import ReactTooltip from "react-tooltip";
 import { adminSignout } from "../actions/adminAction";
 
@@ -20,6 +20,8 @@ function UpdateUser() {
 
   const suspendedUsers = useSelector((state) => state.userSuspend);
   const { success } = suspendedUsers;
+  const unSuspendedUsers = useSelector((state) => state.unSuspend);
+  const { success:UnsuspendSuccess } = unSuspendedUsers;
   const adminsignin = useSelector((state) => state.adminSignin);
   const { adminInfo } = adminsignin;
   useEffect(() => {
@@ -27,7 +29,10 @@ function UpdateUser() {
     if (success) {
       dispatch({ type: SUSPEND_USER_RESET });
     }
-  }, [dispatch, success]);
+    if(UnsuspendSuccess){
+      dispatch({type:UN_SUSPEND_USER_RESET})
+    }
+  }, [dispatch, success,UnsuspendSuccess]);
   const suspend = (userId) => {
     dispatch(suspendUser(userId));
   };
@@ -136,12 +141,12 @@ function UpdateUser() {
                 <Col style={{ alignSelf: "center" }}>
                   {user.adminSuspended ? (
                     <img
-                      onClick={() => suspend(user._id)}
+                      onClick={() => unsuspend(user._id)}
                       src="../assets/image/sus.png"
                     />
                   ) : (
                     <img
-                      onClick={() => unsuspend(user._id)}
+                      onClick={() => suspend(user._id)}
                       src="../assets/image/nulluser.png"
                     />
                   )}

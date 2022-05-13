@@ -1187,6 +1187,9 @@ select:focus {
   color: #ffffff;
   margin-top: 35px;
 }
+.addproperty-2{
+  margin-top:20px !important;
+}
 .addproperty-2 span {
   color: white;
   font-size: 14px;
@@ -3027,6 +3030,9 @@ padding-bottom: 64px;
   margin-top: -90px;
   cursor:pointer;
 }
+.slick-dots{
+ text-align-last:center;
+}
 
 @media only screen and (max-width: 600px){
   .bottom-img img{
@@ -3047,6 +3053,7 @@ padding-bottom: 64px;
 }
 .slick-dots{
   width: 94% !important;
+  text-align: center;
 }
 .slick-slide img{
   width:84% !important;
@@ -3068,5 +3075,11 @@ padding-bottom: 64px;
   font-size: 42px;
   line-height: 47px;
 
+}
+.luxury-4-box{
+margin:3px !important;
+}
+.slider{
+  margin-top: 37px;
 }
 } 

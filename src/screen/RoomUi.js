@@ -104,7 +104,7 @@ error? <MessageBox></MessageBox>:
      
      </Col>
      <Col md={4} className='roomuiimg'>
-        <img src="/assets/image/home2.png" alt="" />
+        <img src={prop.find((e)=>e._id == propId ).rooms.find((e)=>e._id == roomId).images.length !==0 &&  prop.find((e)=>e._id == propId ).rooms.find((e)=>e._id == roomId).images[0].location} alt="" />
      </Col>
      <Col md={6}>
        <Row>

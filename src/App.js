@@ -28,6 +28,9 @@ import PrivateRoute from "./components/PrivateRoute";
 import AdminRoute from "./components/AdminRoute";
 import LuxuryExperience from "./screen/LuxuryExperience";
 import Sliders from "./components/Sliders";
+import PropertyImage from "./screen/PropertyImage";
+import RoomImage from "./screen/RoomImage";
+import NewSlider from "./components/NewSlider";
 
 function App() {
   return (
@@ -39,6 +42,9 @@ function App() {
           </Route>
         
           <Route path="/about" element={<About />}>
+            {" "}
+          </Route>
+          <Route path="/newslider" element={<NewSlider />}>
             {" "}
           </Route>
           <Route path="/slider" element={<Sliders/>}>
@@ -106,6 +112,27 @@ function App() {
           }>
             {" "}
           </Route>
+          <Route
+            path="/addimage/:id"
+            
+            element={
+              <PrivateRoute>
+                <PropertyImage/>
+              </PrivateRoute>
+            }>
+            {" "}
+          </Route>
+          
+          <Route
+            path="/addimage/propId/:propId/roomId/:roomId"
+            
+            element={
+              <PrivateRoute>
+                <RoomImage/>
+              </PrivateRoute>
+            }>
+          </Route>
+
           <Route
             path="/acceptbooking/propId/:propId/bookId/:bookId"
             

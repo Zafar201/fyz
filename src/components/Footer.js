@@ -1,5 +1,6 @@
 import React from 'react'
 import { Col, Container, Nav, Navbar, Row } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 function Footer() {
   return (
@@ -20,17 +21,20 @@ function Footer() {
         </Row>
        <Row className='foooter-3' >
           <center>    <hr/></center>
-          <Col md={{ span: 1, offset: 3 }}>
+          <Col md={{ span: 1, offset: 2 }}>
           <h3>Home</h3>
           </Col>
           <Col md={1}>
-          <h3>About</h3>
+          <h3>About </h3>
           </Col>
           <Col md={2}>
           <h3>Luxury experience</h3>
           </Col>
           <Col md={2}>
           <h3>Book now</h3>
+          </Col>
+          <Col md={2}>
+          <Link to='/admin'><h3  style={{cursor:"pointer"}}>login</h3></Link>
           </Col>
           <center>    <hr/></center>
        </Row>  
@@ -41,7 +45,7 @@ function Footer() {
       <Row className='rights'>
         <Col>
            <h4> All Rights
-            Reserved @ TAWI Facilities 2015–2022 .</h4> 
+            Reserved @ <Link to='/superadminlogin'> TAWI Facilities 2015–2022. </Link></h4> 
         </Col>
         <Col>
         <img src="../assets/image/instagram.png" alt="" />

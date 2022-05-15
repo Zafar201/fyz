@@ -39,6 +39,7 @@ function PropertyEdit() {
     }
     else{
         setName(property.name);
+        // setImage(property.imgaes[0].location)
         setAddress(property.address);
         setLocation(property.location);
         setMap(property.map);
@@ -71,8 +72,9 @@ function PropertyEdit() {
           'Content-Type': 'multipart/form-data'
         },
       });
-      console.log(data)
+      console.log(data,'dt')
       setImage(data);
+      console.log(image,'img')
       setLoadingUpload(false);
     } catch (error) {
       setErrorUpload(error.message);
@@ -178,12 +180,8 @@ function PropertyEdit() {
        
 
           <Row>
-          <Col className="addproperty-2" >
-                {/* <button >
-                  <img src="../assets/image/cam.png" alt="" />
-                  Add images <span>(upto 15 images)</span>
-                </button>
-                <h3>delete image</h3> */}
+          {/* <Col className="addproperty-2" >
+               
                 <label htmlFor="image">Image</label>
                 <input
                 id="image"
@@ -195,7 +193,7 @@ function PropertyEdit() {
               
               </Col>
 
-              <Col>
+              <Col className="addproperty-2">
               <label htmlFor="imageFile">Image File</label>
               <input
                 type="file"
@@ -205,7 +203,7 @@ function PropertyEdit() {
                 onChange={uploadFileHandler}
               ></input>
               
-              </Col>
+              </Col> */}
 
               {/* <Col className='addproperty-3' md={{span: 6, offset: 1}}>
                   <div style={{backgroundColor:"white"}}>
@@ -224,11 +222,16 @@ function PropertyEdit() {
 
               
           </Row>
+        
 
           <Row className='addproperty-4'>
               <button type='submit'>Submit</button>
           </Row>
           </form>
+
+          <Row className='addproperty-4'>
+              <button onClick={() => navigate(`/addimage/${propertyId}`)}>Add images</button>
+          </Row>
            
           
       </Container>

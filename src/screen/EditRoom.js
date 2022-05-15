@@ -18,6 +18,7 @@ import {
 } from '../actions/generalAction';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
+import axios from 'axios'
 
 function EditRoom() {
   const params = useParams();
@@ -35,6 +36,9 @@ function EditRoom() {
   const [second, setSecond] = useState('');
   const [third, setThird] = useState('');
   const [fourth, setFourth] = useState('');
+  const [loadingUpload, setLoadingUpload] = useState(false);
+  const [errorUpload, setErrorUpload] = useState('');
+  const [image, setImage] = useState('');
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const location = useLocation();
@@ -103,6 +107,28 @@ function EditRoom() {
     console.log(amenities);
   };
 
+
+  const uploadFileHandler = async (e) => {
+    const file = e.target.files[0];
+    const bodyFormData = new FormData();
+    bodyFormData.append('room-image', file);
+    setLoadingUpload(true); 
+    try {
+      const { data } = await axios.post(`https://tawi-backend.herokuapp.com/api/users/room-upload/?propId=${propertyId}&roomId=${location.state}`,bodyFormData ,{
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        },
+      });
+      console.log(data)
+      setImage(data);
+      setLoadingUpload(false);
+    } catch (error) {
+      setErrorUpload(error.message);
+      setLoadingUpload(false);
+      console.log(error.message)
+      console.log(image,'dt')
+    }
+  };
   return (
     <div>
       <div className="admin-nav">
@@ -172,22 +198,32 @@ function EditRoom() {
                 ></textarea>
               </Row>
 
-              <Row>
-                <Col className="addproperty-2" md={4}>
-                  <button>
-                    <img src="../assets/image/cam.png" alt="" />
-                    Add images <span>(upto 15 images)</span>
-                  </button>
-                  <h3>delete image</h3>
-                </Col>
+              {/* <Row>
+              <Col className="addproperty-2" >
+                
+                <label htmlFor="image">Image</label>
+                <input
+                id="image"
+                type="text"
+                placeholder="Enter image"
+                value={image}
+                onChange={(e) => setImage(e.target.value)}
+              ></input>
+              
+              </Col>
 
-                <Col className="addproperty-3" md={{ span: 6, offset: 1 }}>
-                  <div style={{ backgroundColor: 'white' }}></div>
-                  <div style={{ backgroundColor: ' #EBEBEB' }}></div>
-                  <div style={{ backgroundColor: ' #E3E3E3;' }}></div>
-                  <div style={{ backgroundColor: '#A7A6A6' }}></div>
-                </Col>
-              </Row>
+              <Col className="addproperty-2">
+              <label htmlFor="imageFile">Image File</label>
+              <input
+                type="file"
+                name='property-image'
+                id="imageFile"
+                label="Choose Image"
+                onChange={uploadFileHandler}
+              ></input>
+              
+              </Col>
+              </Row> */}
 
               <Row className="addroom-4">
                 <Col>
@@ -660,6 +696,10 @@ function EditRoom() {
                 <button type="submit">Submit</button>
               </Row>
             </form>
+
+            <Row className='addproperty-4'>
+              <button onClick={() => navigate(`/addimage/propId/${propertyId}/roomId/${location.state}`)}>Add images</button>
+           </Row>
           </Container>
         </div>
       )}

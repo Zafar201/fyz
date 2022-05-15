@@ -2,10 +2,22 @@ import React, { useEffect, useState } from 'react'
 import { Col, Container, Nav, Navbar, Row } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate, useParams } from 'react-router-dom'
+import Slider from 'react-slick/lib/slider';
 import { checkProperty } from '../actions/generalAction';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
+import NewSlider from '../components/NewSlider';
 function PropertyUi() {
+  const settings = {
+    className: "center",
+    centerMode: true,
+    infinite: true,
+    centerPadding: "60px",
+    slidesToShow: 3,
+    autoplay: true,
+    speed: 2000,
+    autoplaySpeed: 2000,
+  };
   const params = useParams();
     const dispatch = useDispatch()
     const [props,setProps]=useState('')
@@ -30,6 +42,7 @@ function PropertyUi() {
       const filt = prop.find((e)=>e._id == propId);
       console.log(filt,'filt');
       setProps(filt)
+      
     }
     // const filterd= prop.find((e=>{
     //   return e._id == propId
@@ -96,7 +109,7 @@ const truncate=(str,n)=>{
 
            
             <Col md={4} className='prop-wd'>
-               <img src="/assets/image/home2.png" alt="" />
+               <img src={prop.find((e)=>e._id== propId).images.length !== 0 ? prop.find((e)=>e._id== propId).images[1].location : ""} alt="" />
             </Col>
             <Col md={8}>
               <Row>
@@ -120,6 +133,30 @@ const truncate=(str,n)=>{
            
          </Row>
       </Container>
+
+
+    
+      <div className='autoplay'>
+   
+        <Container>
+       
+          <Row>  
+           
+        <Slider {...settings}>
+        {prop.find((e)=>e._id== propId).images.length !== 0 && prop.find((e)=>e._id== propId).images.map((img)=>(    
+          <div>
+        
+            <img src={img.location} alt="" /> 
+    
+          </div>
+                  )) }
+        </Slider>
+      
+        </Row>
+          
+       </Container> 
+   
+      </div>
 
       
       {prop.find((e)=>e._id==propId).rooms.map((sRoom)=>(

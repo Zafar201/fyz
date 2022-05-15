@@ -68,8 +68,8 @@ function About() {
        
       </div> */}
         <div
-        className="luxury-container"
-        style={{ backgroundImage: `url("../assets/image/61.jpg")` }}
+        className="luxury-container about-container"
+        style={{ backgroundImage: `url("../assets/image/5.jpg")` }}
       >
         <Navbar collapseOnSelect expand="lg" variant="dark">
           <Container className="nav-pad">

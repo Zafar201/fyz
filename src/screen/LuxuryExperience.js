@@ -256,7 +256,7 @@ function LuxuryExperience() {
         </Col>
         <Col>
         <a href='https://www.instagram.com/tawi_facilities/?utm_medium=copy_link' > <img src="../assets/image/instagram.png" alt="" /></a>
-       <a href='https://www.facebook.com/tawilifestyle/' >  <img  src="../assets/image/facebook.png" alt="" /></a>
+       <a href='https://www.facebook.com/tawifacilities/' >  <img  src="../assets/image/facebook.png" alt="" /></a>
         </Col>
       </Row>   
         

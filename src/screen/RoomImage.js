@@ -68,7 +68,7 @@ function RoomImage() {
     useEffect(()=>{
         dispatch(detailsRoom(propId,roomId));     
         
-    },[dispatch,successUpload])
+    },[dispatch])
 
     const deleteHandler=(imageId)=>{
       dispatch(deleteRoomImg(propId,roomId,imageId))

@@ -135,7 +135,7 @@ function Contact() {
             </Row>
 
             <Row className="contact-right3">
-              <img src="../assets/image/location.png" alt="" />
+              <img src="../assets/image/loc.png" alt="" />
             </Row>
             <Row className='contact-right4'>
               <p>

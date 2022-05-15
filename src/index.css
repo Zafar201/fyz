@@ -263,8 +263,8 @@
   letter-spacing: 1.2px;
 }
 .contact-right3 img {
-  height: 42px;
-  width: 57px;
+  height: 38px;
+  width: 65px;
 }
 .contact-right4 p {
   font-family: Montserrat;
@@ -555,7 +555,7 @@ cursor:pointer;
   /* text-align: center; */
   letter-spacing: -0.025em;
   color: #9bc699;
-  padding-top: 49px;
+  padding-top: 23px;
 }
 .home-2-container {
   background: #ffff;
@@ -751,11 +751,11 @@ a {
 .logo img {
   width: 170px;
 }
-.home-2-explore {
-  /* text-align-last: center; */
+/* .home-2-explore {
+  
   padding-top: 90px;
-  /* justify-content: center; */
-}
+  
+} */
 .home-2-explore h4 {
   font-family: 'Raleway', sans-serif;
   font-style: normal;

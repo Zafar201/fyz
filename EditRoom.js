@@ -38,7 +38,7 @@ function EditRoom() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const location = useLocation();
-  console.log(location.state, 'statee');
+ 
 
   const roomDetails = useSelector((state) => state.roomDetails);
   const { loading, error, room } = roomDetails;
@@ -53,7 +53,7 @@ function EditRoom() {
   useEffect(() => {
     if (successUpdate) {
       navigate('/dashboard');
-      console.log('heyyyyyyyy');
+      // console.log('heyyyyyyyy');
     }
     if (!room || successUpdate || room._id !== location.state) {
       dispatch(detailsRoom(propertyId, location.state));
@@ -73,7 +73,7 @@ function EditRoom() {
       setFourth(room.price.fourth);
     }
 
-    console.log(room, 'room');
+
   }, [dispatch, propertyId, location.state, room, successUpdate]);
 
   const submitHandler = (e) => {
@@ -100,7 +100,7 @@ function EditRoom() {
     } else {
       setAmneties([...amneties, a]);
     }
-    console.log(amneties);
+    // console.log(amneties);
   };
 
   return (

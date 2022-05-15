@@ -42,7 +42,7 @@ function PropertyDetails() {
     }
     dispatch(detailsProperty(propertyId));
     if (!loading && !error) {
-      console.log(property.rooms, "prop");
+      // console.log(property.rooms, "prop");
     }
   }, [dispatch, detailsProperty,success,succesDelete,successUpdate]);
 

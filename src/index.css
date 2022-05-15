@@ -74,7 +74,7 @@
   padding-bottom: 90px;
 }
 .about-2-bg{
-  background: #e5e5e5;
+  background: white;
   height: auto;
   /* padding-bottom: 90px; */
 }
@@ -387,11 +387,11 @@ cursor:pointer;
   font-size: 61px;
   line-height: 133.9%;
   padding-top: 45px;
-  padding-bottom:25px;
+  padding-bottom:35px;
   /* identical to box height, or 82px */
 
   text-align: center;
-  letter-spacing: -0.055em;
+  letter-spacing: -0.0em;
 
   color: #ffffff;
 }
@@ -552,7 +552,7 @@ cursor:pointer;
   font-weight: 600;
   font-size: 56px;
   line-height: 76px;
-  text-align: center;
+  /* text-align: center; */
   letter-spacing: -0.025em;
   color: #9bc699;
   padding-top: 49px;
@@ -2875,7 +2875,7 @@ padding-bottom: 64px;
 }
 .luxury-4{
   /* justify-content:center; */
-  text-align-last:center;
+  text-align:center;
   margin-top: 60px !important;
 }
 .luxury-4 button{
@@ -2893,14 +2893,14 @@ padding-bottom: 64px;
   margin-bottom: 70px;
 }
 .luxury-4-box h1{
-  text-align-last: center;
+  text-align: center;
   align-self: center;
   margin-top: 60px;
   color: white;
   font-weight: 800;
 }
 .luxury-4-box p{
-  text-align-last: center;
+  text-align: center;
     margin-bottom: 60px;
     color: white;
     font-size: 18px;
@@ -3006,6 +3006,9 @@ padding-bottom: 64px;
   place-content:center;
   
 } */
+.foooter-3{
+  justify-content:center;
+}
 .foooter h3{
   font-size: 19px !important;
   color: white !important;
@@ -3017,7 +3020,7 @@ padding-bottom: 64px;
 }
 .foooter p{
   color: white;
-    text-align-last: center;
+    text-align: center;
     font-size: 14px;
     font-weight: 400;
 }
@@ -3032,6 +3035,7 @@ padding-bottom: 64px;
 .rights img{
   float:right;
   padding-left: 14px;
+  cursor:pointer;
 }
 .home-button{
   width:100%;
@@ -3095,9 +3099,20 @@ margin:3px !important;
 .slider{
   margin-top: 37px;
 }
+.pdf button {
+  width: 211px;
+  padding: 17px;
+   
+  font-size: 16px;
+
+
+}
 } 
 
 .about-container{
+  box-shadow:inset 0 0 0 2000px rgba(25, 0, 150, 0.3);
+}
+.luxury-container{
   box-shadow:inset 0 0 0 2000px rgba(25, 0, 150, 0.3);
 }
 
@@ -3131,5 +3146,25 @@ margin:3px !important;
  .updt-left h1{
   margin-left: 123px;
  }
+
+}
+
+
+@media only screen and (max-width: 400px){
+  .home-2-rec h1{
+    font-size:25px;
+  }
+}
+
+.pdf button{
+    width: 230px;
+    padding: 20px;
+    background: #9bc699;
+    border: none;
+    color: white;
+    font-size: 17px;
+    border-radius: 12px;
+    margin-bottom: 54px;
+    margin-top: 17px;
 
 }

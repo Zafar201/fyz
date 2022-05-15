@@ -42,7 +42,7 @@ function EditRoom() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const location = useLocation();
-  console.log(location.state, 'statee');
+
 
   const roomDetails = useSelector((state) => state.roomDetails);
   const { loading, error, room } = roomDetails;
@@ -57,7 +57,7 @@ function EditRoom() {
   useEffect(() => {
     if (successUpdate) {
       navigate(`/property/${propertyId}`);
-      console.log('heyyyyyyyy');
+ 
     }
     if (!room || successUpdate || room._id !== location.state) {
       dispatch(detailsRoom(propertyId, location.state));
@@ -77,7 +77,7 @@ function EditRoom() {
       setFourth(room.price.fourth);
     }
 
-    console.log(room, 'room');
+
   }, [dispatch, propertyId, location.state, room, successUpdate]);
 
   const submitHandler = (e) => {
@@ -104,7 +104,7 @@ function EditRoom() {
     } else {
       setAmenities([...amenities, a]);
     }
-    console.log(amenities);
+    // console.log(amenities);
   };
 
 
@@ -119,14 +119,14 @@ function EditRoom() {
           'Content-Type': 'multipart/form-data'
         },
       });
-      console.log(data)
+      // console.log(data)
       setImage(data);
       setLoadingUpload(false);
     } catch (error) {
       setErrorUpload(error.message);
       setLoadingUpload(false);
-      console.log(error.message)
-      console.log(image,'dt')
+      // console.log(error.message)
+      // console.log(image,'dt')
     }
   };
   return (

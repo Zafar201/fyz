@@ -62,7 +62,7 @@ function AddRoom() {
     } else {
       setAmneties([...amneties, a]);
     }
-    console.log(amneties);
+    // console.log(amneties);
   }
 
   return (

@@ -49,7 +49,7 @@ export const getCountDetails = () => async (dispatch,getState) => {
     const {
       adminSignin: { adminInfo },
     } = getState();
-    console.log(adminInfo.token)
+    // console.log(adminInfo.token)
     try{
       const {data} = await axios.put(`${URL}/api/admin/approve-booking/${bookId}`)
       dispatch({type:APPROVE_BOOKING_SUCCESS,payload:data});
@@ -105,14 +105,14 @@ export const getCountDetails = () => async (dispatch,getState) => {
   export const approveUser=(userId)=>async(dispatch,getState)=>{
     dispatch({type:APPROVE_USER_REQUEST});
     const {adminSignin: { adminInfo },} = getState();
-    console.log(adminInfo.token)
+    // console.log(adminInfo.token)
     try{
       const {data} = await axios.put(`${URL}/api/admin/approve-user/${userId}`,)
-      console.log(adminInfo.token,"succ")
+ 
       dispatch({type:APPROVE_USER_SUCCESS,payload:data});
      
     }catch(error){
-      console.log(adminInfo.token,'err')
+   
       const message =
       error.response && error.response.data.message
         ? error.response.data.message

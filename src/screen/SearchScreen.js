@@ -12,7 +12,7 @@ function SearchScreen() {
     const checkPropertys= useSelector(state=>state.checkPropertys)
     const {loading, error, prop}= checkPropertys
      const { adult,child,location,startingDate,endingDate } = params;
-     console.log(adult,child,location);
+   //   console.log(adult,child,location); 
      useEffect(()=>{
         dispatch(checkProperty(location,adult,child,startingDate,endingDate))                       
       

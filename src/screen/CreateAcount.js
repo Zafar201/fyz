@@ -30,9 +30,9 @@ function CreateAcount() {
       // setPhone('')
       // setAddress('')
     }
-    if(error){
-      console.log(error)
-    }
+    // if(error){
+    //   console.log(error)
+    // }
 
   },[success])
  

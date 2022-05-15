@@ -3,7 +3,7 @@ import {DELETE_PROPIMG_REQUEST,DELETE_PROPIMG_SUCCESS,DELETE_PROPIMG_FAIL, ADD_P
 
 export const listProperties = () => async (dispatch,getState) => {
     dispatch({ type: PROPERTIES_LIST_REQUEST });
-    console.log("heloo1");
+    
     const {
       userSignin: { userInfo },
     } = getState();
@@ -12,7 +12,7 @@ export const listProperties = () => async (dispatch,getState) => {
         headers: { "x-auth-token": `${userInfo.token}` },
       })      
       dispatch({ type: PROPERTIES_LIST_SUCCESS, payload: data.properties }); 
-      // console.log(data.properties,'data');
+
     } catch (error) {
       const message =
         error.response && error.response.data.message
@@ -90,15 +90,12 @@ export const updateProperty=(property)=>async(dispatch,getState)=>{
       headers: { "x-auth-token": `${userInfo.token}` },
     })
     dispatch({type:UPDATE_PROPERTIES_SUCCESS,payload:data});
-    console.log('2');
-    console.log(data,'dts');
   }catch(error){
     const message =
     error.response && error.response.data.message
       ? error.response.data.message
       : error.message;
      dispatch({ type: UPDATE_PROPERTIES_FAIL, payload: message });
-     console.log('3');
   }
 }
 
@@ -113,7 +110,7 @@ export const addRoom = (name,description,adult,child,size,bedType,amenities,firs
           headers: { "x-auth-token": `${userInfo.token}` },
         })
          dispatch({type:ADD_ROOM_SUCCESS,payload:data})
-         console.log(amenities,'am2');
+  
     }catch(error){
       const message =
     error.response && error.response.data.message
@@ -153,7 +150,7 @@ export const detailsRoom = (propId,roomId) => async(dispatch,getState)=>{
       headers: { "x-auth-token": ` ${userInfo.token}` },
      })
      dispatch({type:ROOM_DETAILS_SUCCESS,payload:data})
-    //  console.log(data,'dts');
+ 
   }catch(error){
       const message =
       error.response && error.response.data.message
@@ -195,15 +192,14 @@ export const detailsRoom = (propId,roomId) => async(dispatch,getState)=>{
         headers: { "x-auth-token": ` ${userInfo.token}` },
       })
       dispatch({type:UPDATE_ROOM_SUCCESS,payload:data});
-      console.log('2');
-      console.log(data,'dts');
+    
     }catch(error){
       const message =
       error.response && error.response.data.message
         ? error.response.data.message
         : error.message;
        dispatch({ type: UPDATE_ROOM_FAIL, payload: message });
-       console.log('3');
+
     }
   }
   
@@ -246,7 +242,7 @@ export const createAccount=( f_name,l_name,email,phone,address)=>async(dispatch)
       ? error.response.data.message
       : error.message;
      dispatch({ type: CREATE_ACCOUNT_FAIL, payload: error.response.data.message })
-    //  console.log('heloooo',error.response.data.message)
+
    }
 }
 

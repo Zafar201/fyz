@@ -53,10 +53,10 @@ function RoomUi() {
 
     dispatch(checkProperty( location,adult,child,startingDate,endingDate))
 
-    console.log(roomId);
+    // console.log(roomId);
     if(!loading && !error){
       const filt = prop.find((e)=>e._id == propId ).rooms.find((e)=>e._id == roomId);
-      console.log(filt.price.first,'filt');
+      // console.log(filt.price.first,'filt');
       setProps(filt)
 
       setPrices(prop.find((e)=>e._id == propId ).rooms.find((e)=>e._id == roomId).price.first)
@@ -70,7 +70,7 @@ function RoomUi() {
 }, [dispatch,props.name,setName,setPrices]);
 
 const sal = (e) => {
-  console.log(prices,"pri");
+  // console.log(prices,"pri");
   setPrices(e.target.value)
   setName(e.target.id)
   // console.log(name,prices,'ok');
@@ -78,7 +78,7 @@ const sal = (e) => {
 }
 
 const zaf=(value)=>{
-   console.log(value,'st')
+  //  console.log(value,'st')
 }
 
 
@@ -121,7 +121,7 @@ const zaf=(value)=>{
                       href="#deets"
                       style={{ color: ' #D9B061 !important;' }}
                     >
-                     Luxury experience
+                     Luxury Experience
                     </Nav.Link>
                   </Link>
                 </Col>
@@ -367,13 +367,13 @@ error? <MessageBox></MessageBox>:
           <h3>About </h3>
           </Col>
           <Col md={2}>
-          <h3>Luxury experience</h3>
+          <h3>Luxury Experience</h3>
           </Col>
           <Col md={2}>
           <h3>Book now</h3>
           </Col>
           <Col md={2}>
-          <Link to='/admin'><h3  style={{cursor:"pointer"}}>login</h3></Link>
+          <Link to='/admin'><h3  style={{cursor:"pointer"}}>Login</h3></Link>
           </Col>
           <center>    <hr/></center>
        </Row>  
@@ -387,9 +387,8 @@ error? <MessageBox></MessageBox>:
             Reserved @ <Link to='/superadminlogin'> TAWI Facilities 2015–2022. </Link></h4> 
         </Col>
         <Col>
-        <img src="/assets/image/instagram.png" alt="" />
-          <img src="/assets/image/facebook.png" alt="" />
-          <img src="/assets/image/youtube.png" alt="" />
+        <a href='https://www.instagram.com/tawi_facilities/?utm_medium=copy_link' > <img src="../assets/image/instagram.png" alt="" /></a>
+       <a href='https://www.facebook.com/tawilifestyle/' >  <img  src="../assets/image/facebook.png" alt="" /></a>
         </Col>
       </Row>   
         

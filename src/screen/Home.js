@@ -28,11 +28,8 @@ function Home() {
   useEffect(() => {
     window.scrollTo(0, 0);
     dispatch(listProperties())
-    console.log(selectedDate,'dte');
+
    
-    if(!loading && !!error){
-      console.log(property,'hoyy');
-    }
       
     const timeout = setTimeout(() => {
       setShowHot(false)
@@ -96,7 +93,7 @@ const lux=()=>{
                       href="#deets"
                       style={{ color: ' #D9B061 !important;' }}
                     >
-                     Luxury experience
+                     Luxury Experience
                     </Nav.Link>
                   </Link>
                 </Col>

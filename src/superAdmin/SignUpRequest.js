@@ -38,11 +38,11 @@ function SignUpRequest() {
 
    
    const approveHandler=(userId)=>{
-      console.log('heloo',userId)
+      // console.log('heloo',userId)
      dispatch(approveUser(userId))
    }
    const rejectHandler=(userId)=>{
-      console.log('heloo',userId)
+      // console.log('heloo',userId)
      dispatch(rejectUser(userId))
    }
    const signoutHandler = () => {

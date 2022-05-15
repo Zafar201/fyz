@@ -18,7 +18,7 @@ function AcceptBooking() {
    const {propId,bookId} = params;
    const navigate = useNavigate()
    const dispatch = useDispatch()
-   console.log(propId,'pr')
+   // console.log(propId,'pr')
 
 
    useEffect(() => {

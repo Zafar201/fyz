@@ -30,12 +30,12 @@ function PropertyEdit() {
   useEffect(()=>{
     if (successUpdate) {
       navigate('/dashboard');
-      console.log('heyyyyyyyy');
+     
     }
     if(!property || property._id !== propertyId || successUpdate){
       dispatch({type:UPDATE_PROPERTIES_RESET})
         dispatch(detailsProperty(propertyId))
-        console.log(property,'edit');      
+             
     }
     else{
         setName(property.name);
@@ -44,7 +44,7 @@ function PropertyEdit() {
         setLocation(property.location);
         setMap(property.map);
         setDescription(property.description);
-        console.log(name,address,map,'edits');
+        // console.log(name,address,map,'edits');
     }   
   },[dispatch,property,propertyId,navigate,successUpdate])
   const submitHandler=(e)=>{
@@ -57,7 +57,7 @@ function PropertyEdit() {
       map,
       description
     }))
-   console.log(name,address,map,'helooo');
+  //  console.log(name,address,map,'helooo');
     
   }
   const uploadFileHandler = async (e) => {
@@ -72,15 +72,14 @@ function PropertyEdit() {
           'Content-Type': 'multipart/form-data'
         },
       });
-      console.log(data,'dt')
+      // console.log(data,'dt')
       setImage(data);
-      console.log(image,'img')
+      // console.log(image,'img')
       setLoadingUpload(false);
     } catch (error) {
       setErrorUpload(error.message);
       setLoadingUpload(false);
-      console.log(error.message)
-      console.log(image,'dt')
+    
     }
 
     // const file = e.target.files[0];

@@ -8,7 +8,7 @@ function Sliders() {
     customPaging: function(i) {
       return (
         <a className='bottom-img'>
-          <img src={`../assets/image/slider${i + 1}.jpg`} />
+         <center> <img src={`../assets/image/slider${i + 1}.jpg`} /></center>
         </a>
       );
     },

@@ -20,19 +20,19 @@ function ConfirmBooking() {
   const checkPropertys= useSelector(state=>state.checkPropertys)
   const {loading, error, prop}= checkPropertys
   const { adult,child,location,startingDate,endingDate,propId,roomId,prices:price1,name:selectedplan} = params;
-  console.log(price1,'1');
+ 
   const bookingConfirm= useSelector((state=>state.bookingConfirm))
   const {success}=bookingConfirm
   const navigate = useNavigate()
   const [price, setPrice] = useState('');
   const [prices, setPrices] = useState('');
-  console.log(code,'cod')
+
   useEffect(() => {
     dispatch(checkProperty( location,adult,child,startingDate,endingDate))
-    console.log(roomId);
+
     if(!loading && !error){
       const filt = prop.find((e)=>e._id == propId ).rooms.find((e)=>e._id == roomId);
-      console.log(filt.price.first,'filt');
+      // console.log(filt.price.first,'filt');
       setProps(filt)
 
     }
@@ -88,7 +88,7 @@ function ConfirmBooking() {
                       href="#deets"
                       style={{ color: ' #D9B061 !important;' }}
                     >
-                     Luxury experience
+                     Luxury Experience
                     </Nav.Link>
                   </Link>
                 </Col>
@@ -596,13 +596,13 @@ function ConfirmBooking() {
           <h3>About </h3>
           </Col>
           <Col md={2}>
-          <h3>Luxury experience</h3>
+          <h3>Luxury Experience</h3>
           </Col>
           <Col md={2}>
           <h3>Book now</h3>
           </Col>
           <Col md={2}>
-          <Link to='/admin'><h3  style={{cursor:"pointer"}}>login</h3></Link>
+          <Link to='/admin'><h3  style={{cursor:"pointer"}}>Login</h3></Link>
           </Col>
           <center>    <hr/></center>
        </Row>  
@@ -616,9 +616,8 @@ function ConfirmBooking() {
             Reserved @ <Link to='/superadminlogin'> TAWI Facilities 2015–2022. </Link></h4> 
         </Col>
         <Col>
-        <img src="/assets/image/instagram.png" alt="" />
-          <img src="/assets/image/facebook.png" alt="" />
-          <img src="/assets/image/youtube.png" alt="" />
+        <a href='https://www.instagram.com/tawi_facilities/?utm_medium=copy_link' > <img src="../assets/image/instagram.png" alt="" /></a>
+       <a href='https://www.facebook.com/tawilifestyle/' >  <img  src="../assets/image/facebook.png" alt="" /></a>
         </Col>
       </Row>   
         

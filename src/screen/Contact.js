@@ -11,7 +11,7 @@ function Contact() {
     <>
     <div
         className="luxury-container"
-        style={{ backgroundImage: `url("../assets/image/61.jpg")` }}
+        style={{ backgroundImage: `url("../assets/image/4.jpg")` }}
       >
         <Navbar collapseOnSelect expand="lg" variant="dark">
           <Container className="nav-pad">
@@ -50,7 +50,7 @@ function Contact() {
                       
                       style={{ color: ' #D9B061 !important;' }}
                     >
-                     Luxury experience
+                     Luxury Experience
                     </Nav.Link>
                   </Link>
                 </Col>
@@ -121,14 +121,14 @@ function Contact() {
 
           <Col className="contact-right">
             <Row className="contact-right1">
-              <img src="../assets/image/email.png" alt="" />
+              <img src="../assets/image/mail.png" alt="" />
             </Row>
             <Row className="contact-right2">
               <p>info@tawifacilities.com</p>
             </Row>
 
             <Row className="contact-right1">
-              <img src="../assets/image/phone.png" alt="" />
+              <img src="../assets/image/phone2.png" alt="" />
             </Row>
             <Row className="contact-right2">
               <p> 0484-7180465</p>

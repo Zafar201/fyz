@@ -108,7 +108,7 @@ function About() {
                       
                       style={{ color: ' #D9B061 !important;' }}
                     >
-                     Luxury experience
+                     Luxury Experience
                     </Nav.Link>
                   </Link>
                 </Col>
@@ -188,9 +188,9 @@ function About() {
     <div className='about-2-bg'>
      <Container className="about-2">
           <Row>
-            <h1>Who Are We</h1>
+            <h1>Who are we</h1>
           </Row>
-          <Row>
+          <Row className='pdf'>
             <p>
               Tawi Explores was founded in 2022 to foster the Maldives travel
               experience from India. The Maldives, the island country with azure
@@ -220,9 +220,12 @@ function About() {
               needs. Tawi Explores has a highly enthusiastic and energetic team
               to meet customers' needs.
             </p>
+            <a href='../assets/image/brochure.pdf' download><button >Download Brochure</button></a>
           </Row>
         </Container>
       </div>
+
+
 
       <div className="team">
 
@@ -232,7 +235,7 @@ function About() {
 
         <Container>
           <Row style={{ justifyContent: 'center' }} className="team-1">
-            <h1>Meet the Team</h1>
+            <h1>Meet the team</h1>
             <img src="../assets/image/line.png" alt="" />
           </Row>
           <Row className='team-pad'>

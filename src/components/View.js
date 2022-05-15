@@ -13,19 +13,19 @@ function View() {
     }
 
     const cancel=()=>{
-        console.log('cancel')
+        // console.log('cancel')
         setShowTask(false)
     }
     const confirm=()=>{
-        console.log('confirm')
+        // console.log('confirm')
         setShowTask(false)
     }
     const cancelUser=()=>{
-        console.log('cancel')
+        // console.log('cancel')
         setShowTaskUser(false)
     }
     const confirmUser=()=>{
-        console.log('confirm')
+        // console.log('confirm')
         setShowTaskUser(false)
     }
     useEffect(()=>{

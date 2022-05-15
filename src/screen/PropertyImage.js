@@ -52,7 +52,7 @@ function PropertyImage() {
                 text: "Thanks",
                 type: 'success',            
               });        
-              navigate('/dashboard')
+              // navigate('/dashboard')
             }).catch(err=>{
                 console.log(err)
             });

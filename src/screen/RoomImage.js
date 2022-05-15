@@ -14,14 +14,14 @@ import MessageBox from '../components/MessageBox';
 function RoomImage() {
     const params = useParams();
     const {propId,roomId} = params;
-    console.log(propId,roomId)
+
     const [selectedImages, setSelectedImages] = useState([]);
     const [successUpload, setSuccessUpload] = useState(false);
     const [errorUpload, setErrorUpload] = useState('');
     const dispatch = useDispatch()
     const { id: propertyId} = params;  
     const [images, setImages] =useState([]);
-    console.log(propertyId)
+  
     const roomDetails = useSelector((state) => state.roomDetails);
     const { loading, error, room } = roomDetails;
     const navigate = useNavigate()
@@ -30,7 +30,7 @@ function RoomImage() {
     
     const onChange = (imageList, addUpdateIndex) => {
       // data for submit
-      console.log(imageList, addUpdateIndex);
+      // console.log(imageList, addUpdateIndex);
       
       setImages(imageList);
     };
@@ -57,7 +57,7 @@ function RoomImage() {
                 type: 'success',            
               });      
               setSuccessUpload(true)
-              navigate(`/property/${propId}`);
+              // navigate(`/property/${propId}`);
 
             }).catch(err=>{
                 console.log(err)
@@ -66,17 +66,13 @@ function RoomImage() {
     }
 
     useEffect(()=>{
-        dispatch(detailsRoom(propId,roomId));
-        if(!error && !loading){
-            console.log(room.images[0].location)
-        }
-        
+        dispatch(detailsRoom(propId,roomId));     
         
     },[dispatch,successUpload])
 
     const deleteHandler=(imageId)=>{
       dispatch(deleteRoomImg(propId,roomId,imageId))
-      console.log(propId,roomId,imageId)
+      // console.log(propId,roomId,imageId)
     }
 
   return (

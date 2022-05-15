@@ -13,7 +13,7 @@ function LuxuryExperience() {
     <div>
          <div
         className="luxury-container"
-        style={{ backgroundImage: `url("../assets/image/61.jpg")` }}
+        style={{ backgroundImage: `url("../assets/image/luxury.png")` }}
       >
         <Navbar collapseOnSelect expand="lg" variant="dark">
           <Container className="nav-pad">
@@ -51,7 +51,7 @@ function LuxuryExperience() {
                       className='act'
                       style={{ color: ' #D9B061 !important;' }}
                     >
-                     Luxury experience
+                     Luxury Experience
                     </Nav.Link>
                   </Link>
                 </Col>
@@ -165,18 +165,27 @@ function LuxuryExperience() {
                 <Col md={{ span: 4, offset: 2 }} className='luxury-right'>
                     <h1>Villas</h1>
                     <ul>
-                        <li>THE AQUA VILLAS</li>
-                        <li>THE ROYAL SUITE</li>
-                        <li>TWO BEDROOM OCEAN POOL VILLA</li>
-                        <li>OCEAN POOL SUITE </li>
-                        <li>SUNSET OCEAN POOL VILLA </li>
-                        <li>OCEAN POOL VILLA </li>
-                        <li>OCEAN VILLA</li>
-                        <li>TWO BEDROOM BEACH POOL VILLA</li>
-                        <li>BEACH POOL VILLA</li>
-                        <li>FAMILY BEACH POOL VILLA</li>
-                        <li>FAMILY BEACH VILLA </li>
-                        <li>BEACH VILLA </li>
+                    
+                    
+                
+                 
+
+
+
+ 
+
+                        <li>The Aqua Villas</li>
+                        <li>The Royal Suite</li>
+                        <li>Two Bedroom Ocean Pool Villa</li>
+                        <li>Ocean Pool Suite </li>
+                        <li>Sunset Ocean Pool Villa  </li>
+                        <li>Ocean Pool Villa </li>
+                        <li>Ocean Villa</li>
+                        <li>Two Bedroom Beach Pool Villa</li>
+                        <li>Beach Pool Villa</li>
+                        <li>Family Beach Pool Villa</li>
+                        <li>Family Beach Villa</li>
+                        <li>Beach Villa </li>
                     </ul>
 
                 </Col>
@@ -189,7 +198,7 @@ function LuxuryExperience() {
             </Row> 
             <Row className='luxury-4-box'>
               <h1>Stay with is & get 50% OFF</h1>
-              <p>only for indians market</p>
+              <p>only for indian market</p>
             </Row>   
          </Container>
 
@@ -226,13 +235,13 @@ function LuxuryExperience() {
           <h3>About </h3>
           </Col>
           <Col md={2}>
-          <h3>Luxury experience</h3>
+          <h3>Luxury Experience</h3>
           </Col>
           <Col md={2}>
           <h3>Book now</h3>
           </Col>
           <Col md={2}>
-          <Link to='/admin'><h3  style={{cursor:"pointer"}}>login</h3></Link>
+          <Link to='/admin'><h3  style={{cursor:"pointer"}}>Login</h3></Link>
           </Col>
           <center>    <hr/></center>
        </Row>  
@@ -246,9 +255,8 @@ function LuxuryExperience() {
             Reserved @ <Link to='/superadminlogin'> TAWI Facilities 2015–2022. </Link></h4> 
         </Col>
         <Col>
-        <img src="../assets/image/instagram.png" alt="" />
-          <img src="../assets/image/facebook.png" alt="" />
-          <img src="../assets/image/youtube.png" alt="" />
+        <a href='https://www.instagram.com/tawi_facilities/?utm_medium=copy_link' > <img src="../assets/image/instagram.png" alt="" /></a>
+       <a href='https://www.facebook.com/tawilifestyle/' >  <img  src="../assets/image/facebook.png" alt="" /></a>
         </Col>
       </Row>   
         

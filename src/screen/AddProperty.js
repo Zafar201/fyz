@@ -24,8 +24,6 @@ function AddProperty() {
     e.preventDefault();
     dispatch(addproperty(name, address, location, map, description));
     navigate('/dashboard');
-    console.log(name, address, map, 'namsn');
-    console.log(error, newproperty, 'heyy');
   };
   const uploadFileHandler=()=>{
 

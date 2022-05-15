@@ -34,10 +34,15 @@ function UpdateUser() {
     }
   }, [dispatch, success,UnsuspendSuccess]);
   const suspend = (userId) => {
-    dispatch(suspendUser(userId));
+    if (window.confirm('Are you sure you want to suspend?')){
+      dispatch(suspendUser(userId));
+    }
+    
   };
   const unsuspend = (userId) => {
+    if (window.confirm('Are you sure you want to unsuspend?')){
     dispatch(unSuspendUser(userId));
+    }
   };
   const signoutHandler = () => {
     if (window.confirm('Are you sure you want to signout?')){
@@ -102,7 +107,9 @@ function UpdateUser() {
                    <input type='search' placeholder='Serach User'/>
                  </Row> */}
             <Row className="updateuser-body">
-              <h1>Users</h1>
+              <Col><h1>Users</h1></Col>
+              <Col className='updt-left'><h1>Activate/Deactivate</h1></Col>
+              
             </Row>
             {users.map((user) => (
               <Row

@@ -34,26 +34,26 @@ function Booking() {
         <>
        <div
         className="home-container"
-        style={{ backgroundImage: `url("/assets/image/homebg3.jpeg")`,height:"88vh" }}
+        style={{ backgroundImage: `url("/assets/image/61.jpg")`,height:"88vh" }}
       >
-        <Navbar collapseOnSelect expand="lg" variant="dark">
+       <Navbar collapseOnSelect expand="lg" variant="dark">
           <Container className="nav-pad">
-            <Col md={8}>
+            <Col md={4}>
               <Navbar.Brand className="logo">
-              <Link to="/"> <img src="/assets/image/log4.png" alt="" /></Link>
+              <Link to="/"> <img src="/assets/image/log1.png" alt="" /></Link>
               </Navbar.Brand> 
             </Col>
 
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
               <Nav>
-                <Col md={6}>
+                <Col md={4}>
                   <Link to="/">
                     {' '}
-                    <Nav.Link href="#deets">Home</Nav.Link>{' '}
+                    <Nav.Link href="#deets" className='act'>Home</Nav.Link>{' '}
                   </Link>{' '}
                 </Col>
-                <Col md={6}>
+                <Col md={4}>
                   <Link to="/about">
                     {' '}
                     <Nav.Link
@@ -65,6 +65,17 @@ function Booking() {
                   </Link>
                 </Col>
                 <Col md={6}>
+                  <Link to="/luxury">
+                    {' '}
+                    <Nav.Link
+                      href="#deets"
+                      style={{ color: ' #D9B061 !important;' }}
+                    >
+                     Luxury experience
+                    </Nav.Link>
+                  </Link>
+                </Col>
+                <Col md={4}>
                   <Link to="/contact">
                     {' '}
                     <Nav.Link href="#deets">Contact Us</Nav.Link>
@@ -97,13 +108,16 @@ function Booking() {
           </Row>
 
         </Container>
+
+
       </div>
+      <div className='mttop'>
       {prop.map((itm)=>(
        <div key={itm._id} className='home-card card-2'>     
         <Container className="home-3">
           <Row>
             <Col style={{ padding: '0px' }} md={3} className="home-3-img">
-              <img src="/assets/image/home2.png" alt="" />
+              <img src={itm.images.length !== 0 && itm.images[0].location } alt="" />
             </Col>
             <Col>
               <Container>
@@ -139,50 +153,65 @@ function Booking() {
         </Container>
         </div>
    ))}
-      
+     </div> 
 
         
 
 
-        <div className="about-4" style={{marginTop:"80px"}}>
-        <Container>
-        <Row>
-            <Col md={3}></Col>
-            <Col className="about-4-fnt">
-              <img src="/assets/image/phone.png" alt="" />
-               0484-7180465
-            </Col>
-            <Col className="about-4-fnt">
-              <img src="/assets/image/email.png" alt="" />
-              info@tawifacilities.com
-            </Col>
-            <Col md={2}></Col>
-          </Row>
+      
+        <div className='foooter' style={{marginTop:"80px"}}>
+    <Container>
+        <Row className='foooter-1'>
+           <img src='/assets/image/Asset 20.png'  />
 
-          <Row className="about-4-2">
-            <Col md={1}>
-              <p>About Us</p>
-            </Col>
-            <Col md={1}>
-              <p>Support</p>
-            </Col>
-            <Col md={1} className="about-4-2-pad">
-              <p>Follow us on</p>
-            </Col>
-            <Col>
-              <img src="/assets/image/instagram.png" alt="" />
-              <img src="/assets/image/facebook.png" alt="" />
-              <img src="/assets/image/youtube.png" alt="" />
-            </Col>
-            <Col md={7} className="copyright">
-              <p>
-              All material herein © 2005–2022 TAWI Facilities All Rights
-                Reserved.
-              </p>
-            </Col>
-          </Row>
-        </Container>
-      </div>
+        </Row>
+        
+        <Row className="about-4-fnt foooter-2">
+          <img src="/assets/image/phone.png" alt="" />
+           0484-7180465
+        </Row>
+        <Row className="about-4-fnt foooter-2" style={{paddingBottom:"30px"}}>
+          <img src="/assets/image/email.png" alt="" />
+          info@tawifacilities.com
+        </Row>
+       <Row className='foooter-3' >
+          <center>    <hr/></center>
+          <Col md={{ span: 1, offset: 2 }}>
+          <h3>Home</h3>
+          </Col>
+          <Col md={1}>
+          <h3>About </h3>
+          </Col>
+          <Col md={2}>
+          <h3>Luxury experience</h3>
+          </Col>
+          <Col md={2}>
+          <h3>Book now</h3>
+          </Col>
+          <Col md={2}>
+          <Link to='/admin'><h3  style={{cursor:"pointer"}}>login</h3></Link>
+          </Col>
+          <center>    <hr/></center>
+       </Row>  
+       <Row>
+          <p> SatyaSim Niwas Near Ramavarma <br/>
+             High School Cherai Kerala-683514 (India)</p>
+       </Row>  
+      <Row className='rights'>
+        <Col>
+           <h4> All Rights
+            Reserved @ <Link to='/superadminlogin'> TAWI Facilities 2015–2022. </Link></h4> 
+        </Col>
+        <Col>
+        <img src="/assets/image/instagram.png" alt="" />
+          <img src="/assets/image/facebook.png" alt="" />
+          <img src="/assets/image/youtube.png" alt="" />
+        </Col>
+      </Row>   
+        
+     </Container> 
+</div>
+     
       </>
     )}  
         

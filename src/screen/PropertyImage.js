@@ -2,11 +2,11 @@ import React ,{useState,useEffect}from 'react'
 import "./Imagebox.css";
 import axios from 'axios'
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams} from 'react-router-dom';
+import { useParams,useNavigate} from 'react-router-dom';
 import ImageUploading from 'react-images-uploading';
 import Swal from 'sweetalert2';
 import { Col, Container, Row } from 'react-bootstrap';
-import { detailsProperty } from '../actions/generalAction';
+import { deletePropImg, detailsProperty } from '../actions/generalAction';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
 
@@ -19,7 +19,8 @@ function PropertyImage() {
     const params = useParams();
     const { id: propertyId} = params;  
     const [images, setImages] =useState([]);
-    console.log(propertyId)
+    const navigate= useNavigate()
+    // console.log(propertyId)
    
     const maxNumber = 15;
     
@@ -51,6 +52,7 @@ function PropertyImage() {
                 text: "Thanks",
                 type: 'success',            
               });        
+              navigate('/dashboard')
             }).catch(err=>{
                 console.log(err)
             });
@@ -60,15 +62,20 @@ function PropertyImage() {
     useEffect(()=>{
         dispatch(detailsProperty(propertyId))
         if(!loading && !error){
-            console.log(property.images[0].location)
+            // console.log(property.images[0].location)
         }
         setImages()
+        
     },[dispatch])
  
+    const deleteHandler=(imageId)=>{
+      // console.log(propertyId,fileName,'hey')
+      dispatch(deletePropImg(propertyId,imageId))
+    }
   
   return (
     <div className="App">   
-    <h1>Images</h1> 
+    <h1>Images{propertyId}</h1> 
     {loading ? <LoadingBox></LoadingBox>:
     error ? <MessageBox>{error}</MessageBox>:(
 
@@ -79,7 +86,7 @@ function PropertyImage() {
       multiple
       value={images}
       onChange={onChange}
-      maxNumber={maxNumber}
+      maxNumber={maxNumber - property.images.length}
       dataURLKey="data_url"
     >
       {({
@@ -103,13 +110,13 @@ function PropertyImage() {
               Click or Drop here
             </button>
             
-            <button className="btn btn-danger" onClick={onImageRemoveAll}>Remove all images</button>
+            {/* <button className="btn btn-danger" onClick={onImageRemoveAll}>Remove all images</button> */}
           </div>
           {imageList.map((image, index) => (
             <Col md={3} key={index} className="image-item mt-5 mb-5 mr-5">
               <img src={image['data_url']} />
               <div className="image-item__btn-wrapper">
-                <button className="btn btn-primary" onClick={() => onImageUpdate(index)}>Update</button>
+                <button className="btn btn-primary" onClick={() => onImageUpdate(index)}>Edit</button>
                 <button className="btn btn-danger" onClick={() => onImageRemove(index)}>Remove</button>
               </div>
             </Col>
@@ -119,7 +126,7 @@ function PropertyImage() {
               <img src={image.location} />
               <div className="image-item__btn-wrapper">
                 {/* <button className="btn btn-primary" onClick={() => onImageUpdate(index)}>Update</button> */}
-                <button className="btn btn-danger" onClick={() => onImageRemove(index)}>Delete</button>
+                <button className="btn btn-danger" onClick={() => deleteHandler(image._id)}>{image._id}</button>
               </div>
             </Col>
           ))}

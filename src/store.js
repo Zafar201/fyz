@@ -2,7 +2,7 @@
 import {applyMiddleware, combineReducers, compose, createStore} from 'redux'
 import thunk from 'redux-thunk';
 import {passwordCreateReducer, userRejectReducer,countListReducer,bookingListReducer ,approveBookingReducer,rejectBookingReducer,getSignupRequestReducer,userApproveReducer, getAllUsersApproved, userSuspendReducer,adminSigninReducer, unSuspendReducer} from './reducers/adminReducer';
-import { addproperrtyReducer,accountCreateReducer, addRoomReducer, bookingConfirmReducer, checkPropertyReducer, getRoomDetailsReducer, getRoomsDetailsReducer, propertyCreateReducer, propertyDeleteReducer, propertyDetailsReducer, propertyListReducer, propertyUpdateReducer, roomDeleteReducer, roomDetailsReducer, roomUpdateReducer,userSigninReducer } from './reducers/generalReducer';
+import { addproperrtyReducer,accountCreateReducer, addRoomReducer, bookingConfirmReducer, checkPropertyReducer, getRoomDetailsReducer, getRoomsDetailsReducer, propertyCreateReducer, propertyDeleteReducer, propertyDetailsReducer, propertyListReducer, propertyUpdateReducer, roomDeleteReducer, roomDetailsReducer, roomUpdateReducer,userSigninReducer, propImageDeleteReducer, roomImageDeleteReducer } from './reducers/generalReducer';
 
 const initialState = {
     userSignin: {
@@ -43,7 +43,8 @@ const reducer=combineReducers({
  userSuspend:userSuspendReducer,
  adminSignin:adminSigninReducer,
  unSuspend:unSuspendReducer,
- 
+ propImgDelete:propImageDeleteReducer,
+ roomImgDelete:roomImageDeleteReducer,
 })
 
 

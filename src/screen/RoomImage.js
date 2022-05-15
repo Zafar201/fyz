@@ -2,11 +2,11 @@ import React ,{useState , useEffect} from 'react'
 import "./Imagebox.css";
 import axios from 'axios'
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams} from 'react-router-dom';
+import { useNavigate, useParams} from 'react-router-dom';
 import ImageUploading from 'react-images-uploading';
 import Swal from 'sweetalert2';
 import { Col, Container, Row } from 'react-bootstrap';
-import { detailsRoom } from '../actions/generalAction';
+import { deleteRoomImg, detailsRoom } from '../actions/generalAction';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
 
@@ -24,6 +24,7 @@ function RoomImage() {
     console.log(propertyId)
     const roomDetails = useSelector((state) => state.roomDetails);
     const { loading, error, room } = roomDetails;
+    const navigate = useNavigate()
    
     const maxNumber = 15;
     
@@ -56,6 +57,7 @@ function RoomImage() {
                 type: 'success',            
               });      
               setSuccessUpload(true)
+              navigate(`/property/${propId}`);
 
             }).catch(err=>{
                 console.log(err)
@@ -71,6 +73,11 @@ function RoomImage() {
         
         
     },[dispatch,successUpload])
+
+    const deleteHandler=(imageId)=>{
+      dispatch(deleteRoomImg(propId,roomId,imageId))
+      console.log(propId,roomId,imageId)
+    }
 
   return (
     <div className="App">   
@@ -109,13 +116,13 @@ function RoomImage() {
               Click or Drop here
             </button>
             
-            <button className="btn btn-danger" onClick={onImageRemoveAll}>Remove all images</button>
+            {/* <button className="btn btn-danger" onClick={onImageRemoveAll}>Remove all images</button> */}
           </div>
           {imageList.map((image, index) => (
             <Col md={3} key={index} className="image-item mt-5 mb-5 mr-5">
               <img src={image['data_url']} />
               <div className="image-item__btn-wrapper">
-                <button className="btn btn-primary" onClick={() => onImageUpdate(index)}>Update</button>
+                <button className="btn btn-primary" onClick={() => onImageUpdate(index)}>Edit</button>
                 <button className="btn btn-danger" onClick={() => onImageRemove(index)}>Remove</button>
               </div>
             </Col>
@@ -126,7 +133,7 @@ function RoomImage() {
               <img src={image.location} />
               <div className="image-item__btn-wrapper">
                 {/* <button className="btn btn-primary" onClick={() => onImageUpdate(index)}>Update</button> */}
-                <button className="btn btn-danger" onClick={() => onImageRemove(index)}>Delete</button>
+                <button className="btn btn-danger" onClick={() => deleteHandler(image._id)}>{image._id}</button>
               </div>
             </Col>
           ))}

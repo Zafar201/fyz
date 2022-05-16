@@ -384,7 +384,7 @@ error? <MessageBox></MessageBox>:
       <Row className='rights'>
         <Col>
            <h4> All Rights
-            Reserved @ <Link to='/superadminlogin'> TAWI Facilities 2015–2022. </Link></h4> 
+            Reserved @ <Link to='/superadminlogin'>TAWI Facilities 2015–2022.</Link></h4> 
         </Col>
         <Col>
         <a href='https://www.instagram.com/tawi_facilities/?utm_medium=copy_link' > <img src="../assets/image/instagram.png" alt="" /></a>

@@ -11,9 +11,9 @@ function PropertyUi() {
   const settings = {
     className: "center",
     centerMode: true,
-    infinite: true,
+    infinite:  false,
     centerPadding: "60px",
-    slidesToShow: 5,
+    slidesToShow: 3,
     autoplay: true,
     speed: 2000,
     autoplaySpeed: 2000,

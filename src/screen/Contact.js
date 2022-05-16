@@ -1,12 +1,41 @@
-import React, { useEffect } from 'react';
+import React, { useEffect,useState } from 'react';
 import { Col, Container, Nav, Navbar, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import Footer from '../components/Footer';
+import axios from 'axios'
+import Swal from 'sweetalert2';
 
 function Contact() {
   useEffect(() => {
     window.scrollTo(0, 0);
 }, []);
+const [name , setName]= useState ('')
+const [email , setEmail]= useState ('')
+const [description , setDescription]= useState('')
+const [val, setVal] = useState();
+
+
+const submitHandler=(e)=>{
+ e.preventDefault()
+ console.log(name,email,description)
+  axios.post('https://script.google.com/macros/s/AKfycbzbZM9OC0778rLQYRmBHlpU8VnaHqEP0ZhncrkrtIx0MHD6lWLDPyrSkUYyeTUsqWDZ/exec',name,email,description).then(res=>
+  { 
+      //Success Message in Sweetalert modal
+      Swal.fire({
+        title: 'form has been successfully.',
+        text: "Thanks",
+        type: 'success',            
+      });  
+ 
+  }).catch(err=>console.log(err,'er'))
+}
+
+// const handleReset = (e) => {
+ 
+//       setName(e.value = "")
+//       setEmail(e.value = "")
+//       setDescription(e.value = "")
+// };
   return (
     <>
     <div
@@ -76,9 +105,10 @@ function Contact() {
          </Container>   
     </div>
 
-
+    <form onSubmit={submitHandler}>
         <Container className="contact-2">
         <Row>
+          
           <Col md={8}>
             <Container>
               <Row>
@@ -90,10 +120,17 @@ function Contact() {
               <Row>
                 <div className="contact-2-pad">
                   <Row>
-                    <input type="text" placeholder="Your name" />
+                    <input type="text" 
+                    placeholder="Your name"
+                    required
+                    id='name' 
+                    onChange={(e)=>setName(e.target.value)}/>
                   </Row>
                   <Row className="contact-2-pd">
-                    <input type="text" placeholder="Your email" />
+                    <input type="text"
+                     placeholder="Your email" 
+                     id='email'
+                     onChange={(e)=>setEmail(e.target.value)}/>
                   </Row>
                   <Row>
                    
@@ -102,22 +139,25 @@ function Contact() {
                       id=""
                       cols="6"
                       rows="6"
+                      onChange={(e)=>setDescription(e.target.value)}
                       placeholder="what whould you like to know"
                     ></textarea>
                   </Row>
                   <Row className='submit'>
                     <Col md={3}>
-                    <button>Submit</button>
+                    <button type='submit'>Submit</button>
                     </Col>
-                    <Col md={2}>
-                       <h5>Clear form </h5>
-                    </Col>
+                    {/* <Col md={2}>
+                       <h5 onClick={handleReset}>Clear form </h5>
+                    </Col> */}
                    
                   </Row>
                 </div>
               </Row>
             </Container>
           </Col>
+         
+
 
           <Col className="contact-right">
             <Row className="contact-right1">
@@ -146,6 +186,7 @@ function Contact() {
           </Col>
         </Row>
       </Container>
+      </form>
 
       <Container className='contact-map'>
         <Row className='contact-map1'>

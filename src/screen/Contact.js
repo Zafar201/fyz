@@ -123,20 +123,22 @@ const submitHandler=(e)=>{
                     <input type="text" 
                     placeholder="Your name"
                     required
+                    name='name'
                     id='name' 
                     onChange={(e)=>setName(e.target.value)}/>
                   </Row>
                   <Row className="contact-2-pd">
                     <input type="text"
                      placeholder="Your email" 
+                     name='email'
                      id='email'
                      onChange={(e)=>setEmail(e.target.value)}/>
                   </Row>
                   <Row>
                    
                     <textarea
-                      name=""
-                      id=""
+                      name="description"
+                      id="description"
                       cols="6"
                       rows="6"
                       onChange={(e)=>setDescription(e.target.value)}

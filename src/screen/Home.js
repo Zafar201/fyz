@@ -22,6 +22,9 @@ function Home() {
   const [showHot, setShowHot] = useState(false)
   const navigate = useNavigate()
 
+  const bookingConfirm= useSelector((state=>state.bookingConfirm))
+  const {success}=bookingConfirm
+
   const close=()=>{
     setShowHot(false)
   }

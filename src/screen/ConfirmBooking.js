@@ -5,7 +5,7 @@ import { Link, useNavigate, useParams } from 'react-router-dom';
 import { checkProperty, confirmBooking } from '../actions/generalAction';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
-
+import { CONFIRM_BOOING_RESET} from '../constants/generalConstants';
 function ConfirmBooking() {
   const params = useParams();
   const dispatch = useDispatch()
@@ -42,6 +42,7 @@ function ConfirmBooking() {
 
   if(success){
     alert("Booking request recieved, our team will contact you")
+    dispatch({type:CONFIRM_BOOING_RESET})
     navigate('/')
   }
 

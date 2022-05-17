@@ -12,7 +12,7 @@ function RoomUi() {
   const settings = {
     className: "center",
     centerMode: true,
-    infinite: true,
+    infinite: false,
     centerPadding: "60px",
     slidesToShow: 3,
     autoplay: true,

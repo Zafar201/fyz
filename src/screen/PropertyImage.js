@@ -15,6 +15,7 @@ function PropertyImage() {
     const propertyDetails = useSelector(state=>state.propertyDetails)
     const {loading,error,property} = propertyDetails;
     const [selectedImages, setSelectedImages] = useState([]);
+    const [deleteLoading,setDeleteLoading]=useState(false)
     const dispatch = useDispatch()
     const params = useParams();
     const { id: propertyId} = params;  
@@ -46,41 +47,52 @@ function PropertyImage() {
             }
             ).then(res=>
             {
-              //Success Message in Sweetalert modal
+              if(a > images.length){
+                console.log('oksss')
+              }
+              console.log('ok',images.length)
               Swal.fire({
                 title: 'Images hava been uploaded successfully.',
-                text: "Thanks",
+                text: `thanks ${a}`,
                 type: 'success',            
               });        
-              // navigate('/dashboard')
+            
             }).catch(err=>{
                 console.log(err)
             });
-          }       
+          }        
     }
 
     useEffect(()=>{
-        dispatch(detailsProperty(propertyId))
-        if(!loading && !error){
-            // console.log(property.images[0].location)
-        }
-        setImages()
-        
-    },[dispatch])
+        dispatch(detailsProperty(propertyId)) 
+           
+    },[dispatch,deleteLoading])
  
     const deleteHandler=(imageId)=>{
-      // console.log(propertyId,fileName,'hey')
-      dispatch(deletePropImg(propertyId,imageId))
+      axios.post('https://tawi-backend.herokuapp.com/api/users/property-delete',{
+       propId:propertyId,
+       imageId
+      })
+      .then(function (response) {
+        console.log(response,'res');
+        Swal.fire({
+          title: 'Images hava been deleted successfully.',
+          text: `thanks`,
+          type: 'success',            
+        });  
+        setDeleteLoading(true)
+      })
+      .catch(function (error) {
+        console.log(error,'er');
+      });
     }
   
   return (
     <div className="App">   
-    <h1>Images{propertyId}</h1> 
+    <h1>Property Images</h1> 
     {loading ? <LoadingBox></LoadingBox>:
     error ? <MessageBox>{error}</MessageBox>:(
-
-<>
-    
+<>   
     <Container>
     <ImageUploading
       multiple
@@ -126,7 +138,7 @@ function PropertyImage() {
               <img src={image.location} />
               <div className="image-item__btn-wrapper">
                 {/* <button className="btn btn-primary" onClick={() => onImageUpdate(index)}>Update</button> */}
-                <button className="btn btn-danger" onClick={() => deleteHandler(image._id)}>{image._id}</button>
+                <button className="btn btn-danger" onClick={() =>deleteHandler(image._id)}>delete</button>
               </div>
             </Col>
           ))}

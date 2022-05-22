@@ -10,13 +10,13 @@ import MessageBox from '../components/MessageBox';
 
 function RoomUi() {
   const settings = {
-    className: "center",
-    centerMode: true,
+    dots: false,
     infinite: false,
-    centerPadding: "60px",
-    slidesToShow: 3,
+    speed: 500,
+    slidesToShow: 4,
     autoplay: true,
     speed: 2000,
+    slidesToScroll: 3,
     autoplaySpeed: 2000,
     responsive: [
       {
@@ -31,7 +31,7 @@ function RoomUi() {
       {
         breakpoint: 600,
         settings: {
-          slidesToShow: 1,
+          slidesToShow: 2,
           slidesToScroll: 2,
           initialSlide: 2
         }

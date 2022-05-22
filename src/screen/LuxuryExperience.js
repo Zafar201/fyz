@@ -192,7 +192,7 @@ function LuxuryExperience() {
             </Row>   
          </Container>
 
-         <Container>
+         <Container className='mb-box'>
             <Row className='luxury-4'>
             <Link to='/'>  <button>Book now</button> </Link>
             </Row> 

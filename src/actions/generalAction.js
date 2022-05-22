@@ -269,13 +269,13 @@ export const signout = () => (dispatch) => {
 };
 
 
-export const deletePropImg = (propId,imageId) => async (dispatch) => {
-  dispatch({ type: DELETE_PROPIMG_REQUEST ,propId,imageId});
+export const deletePropImg=(propId,imageId)=>async(dispatch)=>{
+  dispatch({type:DELETE_PROPIMG_REQUEST,propId,imageId});
+  console.log(propId,imageId,'gnr')
   try {
-  const {data}=  await axios.delete(`https://tawi-backend.herokuapp.com/api/users/property-delete`,propId,imageId)
-    
-    dispatch({ type: DELETE_PROPIMG_SUCCESS ,payload:data});
-  } catch (error) {
+  const {data}=await axios.post('https://tawi-backend.herokuapp.com/api/users/property-delete',propId,imageId)  
+    dispatch({type:DELETE_PROPIMG_SUCCESS,payload:data});
+  }catch (error) {
     const message =
       error.response && error.response.data.message
         ? error.response.data.message
@@ -284,6 +284,10 @@ export const deletePropImg = (propId,imageId) => async (dispatch) => {
   }
 };
 
+// export const deleteimg=(propId,imageId)=>async(dispatch)=>{
+//   const {data}=await axios.post('https://tawi-backend.herokuapp.com/api/users/property-delete',propId,imageId)
+//   dispatch({type:DELETE_PROPIMG_SUCCESS,payload:data})
+// }
 
 export const deleteRoomImg = (propId,roomId,imageId) => async (dispatch) => {
   dispatch({ type: DELETE_ROOMIMG_REQUEST ,propId,roomId,imageId});

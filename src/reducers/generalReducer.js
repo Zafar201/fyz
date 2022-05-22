@@ -218,7 +218,7 @@ export const propImageDeleteReducer = (state = {}, action) => {
     case DELETE_PROPIMG_REQUEST:
       return { loading: true };
     case DELETE_PROPIMG_SUCCESS:
-      return { loading: false, success: true };
+      return { loading: false, success: true};
     case DELETE_PROPIMG_FAIL:
       return { loading: false, error: action.payload };
     case DELETE_PROPIMG_RESET:

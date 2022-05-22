@@ -9,13 +9,13 @@ import MessageBox from '../components/MessageBox';
 import NewSlider from '../components/NewSlider';
 function PropertyUi() {
   const settings = {
-    className: "center",
-    centerMode: true,
-    infinite:  false,
-    centerPadding: "60px",
-    slidesToShow: 3,
+    dots: false,
+    infinite: false,
+    speed: 500,
+    slidesToShow: 4,
     autoplay: true,
-    speed: 2000,
+      speed: 2000,
+    slidesToScroll: 3,
     autoplaySpeed: 2000,
     responsive: [
       {

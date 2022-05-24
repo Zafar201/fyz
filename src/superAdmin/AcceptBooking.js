@@ -101,9 +101,9 @@ function AcceptBooking() {
                         <h1> Property Name</h1>
                         <h4>{property.bookings.find((e)=>e._id == bookId).propName}</h4>
                      </Col>
-                     <Col>
-                     <h1 md={3}> Duration</h1>
-                        <h4>{property.bookings.find((e)=>e._id == bookId).duration}</h4>
+                     <Col md={3}>
+                        <h1> Room Name</h1>
+                        <h4>{property.bookings.find((e)=>e._id == bookId).roomName}</h4>
                      </Col>
                      <Col>
                         <h1> Customer detail</h1>
@@ -129,13 +129,16 @@ function AcceptBooking() {
                  </Row>
 
                  <Row className='acceptbooking-body-2'>
-                     <Col>
+                     <Col md={3}>
                         <h1> Price selected</h1>
                         <h4>{property.bookings.find((e)=>e._id == bookId).price}</h4>
                      </Col>
-                     <Col>
                      
+                     <Col md={3}>
+                       <h1> Duration</h1>
+                        <h4>{property.bookings.find((e)=>e._id == bookId).duration}</h4>
                      </Col>
+                     
                    <Col>
                    
                    </Col>

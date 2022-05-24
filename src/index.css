@@ -1620,9 +1620,9 @@ border-radius: 25px;
 }
 
 @media screen and (min-device-width: 1203px) {
-  .roomuiimg img{
-    /* width: 360px; */
-  }
+  /* .roomuiimg img{
+    width: 360px;
+  } */
 }
 .confirm h1{
   font-family: ''Raleway', sans-serif';
@@ -2034,6 +2034,12 @@ color: #000000;
   margin-left: 70PX !important;
   margin-bottom:25px;
 }
+.updateuser-body-card2{
+  width: 50% !important;
+  background: #FFFFFF;
+  margin-left: 250PX !important;
+  margin-bottom:25px;
+}
 .updateuser{
   min-height:100vh;
 }
@@ -2218,7 +2224,7 @@ color: #000000;
     line-height: 68px;
     letter-spacing: -0.04em;
     color: #312B74;
-    padding-bottom: 51px;
+    padding-bottom: 35px;
 }
 
 .acceptbooking{
@@ -2239,11 +2245,11 @@ color: #000000;
 
 }
 .acceptbooking-body-2 h4{
-  font-family: ''Raleway', sans-serif';
+  /* font-family: 'Raleway', 'sans-serif'; */
   font-style: normal;
   font-weight: 500;
-  font-size: 33px;
-  line-height: 43px;
+  font-size: 26px;
+  /* line-height: 43px; */
   letter-spacing: -0.02em;
   
   color: #051D97;
@@ -2467,6 +2473,18 @@ border-radius: 6px;
   padding-top: 1rem;
   padding-bottom: 1rem;
 }
+.dialog__content2 {
+  padding-left: 0rem;
+  padding-right: 0rem;
+  padding-top: 1rem;
+  padding-bottom: o !important;
+}
+.dialog h6{
+  float: right;
+  font-size: 27px;
+  padding-right: 10px;
+  cursor: pointer;
+}
 
 .dialog__title {
   font-weight: 500;
@@ -2483,6 +2501,10 @@ border-radius: 6px;
   margin-bottom: 1rem;
   --tw-text-opacity: 1;
   color: rgba(107, 114, 128, var(--tw-text-opacity));
+}
+.dialog__description span{
+   font-size:19px;
+   font-weight:700;
 }
 
 .dialog__footer {
@@ -2579,9 +2601,19 @@ border-radius: 6px;
 }
 
 @media (min-width: 640px){
+
 }
 
 @media (min-width: 768px){
+  /* .home-3-img img{
+    height:100%;
+  } */
+  .props-card img{
+    height: 100%;
+  }
+  .dialog2{
+    width:34rem;
+  }
 }
 
 @media (min-width: 1024px){
@@ -3172,4 +3204,8 @@ margin:3px !important;
     margin-bottom: 55px;
     margin-top: 18px;
 
+}
+
+.overlay img{
+  width:100%;
 }

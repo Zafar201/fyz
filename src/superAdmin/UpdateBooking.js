@@ -43,7 +43,7 @@ if(rejectSuccess){
                  </Col>
                  <Col className='superadmin-bg2 superadmin-nav-active'>
                      <Row>
-                     <Link to="/updateuser">     <h1>Update user</h1></Link>
+                        <h1>Update Booking</h1>
                      </Row>
                  </Col>
                  <Col className=''>

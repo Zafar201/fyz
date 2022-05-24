@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Col, Container, Row ,Button} from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -12,18 +12,26 @@ import {
 import { SUSPEND_USER_RESET,UN_SUSPEND_USER_RESET } from "../constants/adminConstants";
 import ReactTooltip from "react-tooltip";
 import { adminSignout } from "../actions/adminAction";
+import { Modal } from "bootstrap";
+import Dialog from "../components/Dialog";
 
 function UpdateUser() {
   const dispatch = useDispatch();
   const Users = useSelector((state) => state.allUsersApproved);
   const { loading, error, users } = Users;
-
+  const [showPop,setShowPop] = useState(false)
+  const [data,setData]=useState('')
   const suspendedUsers = useSelector((state) => state.userSuspend);
   const { success } = suspendedUsers;
   const unSuspendedUsers = useSelector((state) => state.unSuspend);
   const { success:UnsuspendSuccess } = unSuspendedUsers;
   const adminsignin = useSelector((state) => state.adminSignin);
   const { adminInfo } = adminsignin;
+  const [showTask, setShowTask] = useState(false)
+ 
+
+
+
   useEffect(() => {
     dispatch(getAllApprovedUsers());
     if (success) {
@@ -48,7 +56,26 @@ function UpdateUser() {
     if (window.confirm('Are you sure you want to signout?')){
       dispatch(adminSignout());
     }
+
+  
   };
+  const openNow=(userId)=>{
+      const post =users.find((e)=>e._id === userId) 
+      console.log(post)
+      setData(post)
+      console.log('heloooooo')
+      setShowTask(true)
+      // setShowPop(true )
+      // setShow(true)
+  }
+  const cancel=()=>{
+    // console.log('cancel')
+    setShowTask(false)
+}
+const confirm=()=>{
+    // console.log('confirm')
+    setShowTask(false)
+}
   return (
     <div className="superadmin updateuser">
       <Row className="superadmin-top">
@@ -85,6 +112,13 @@ function UpdateUser() {
           </Col>
       </Row>
 
+      <Dialog show={showTask}
+      cancel={cancel}
+      confirm={confirm}
+      datas={data}
+      description='are you sure you want to delete'/>
+
+
       <Row className="superadmin-2">
         <Col md={3}>
           <div className="superadmin-active">
@@ -112,37 +146,26 @@ function UpdateUser() {
               
             </Row>
             {users.map((user) => (
-              <Row
-                key={user._id}
-                className={`updateuser-body-card ${
-                  user.adminSuspended ? "suspended" : ""
-                }`}
-              >
+              <>
+              <Row key={user._id} className={`updateuser-body-card ${user.adminSuspended ? "suspended" : ""}`}>
                 <Col>
                   <h4>{user.f_name}</h4>
                 </Col>
-                {/* {!user.adminSuspended && (
-                  <Col md={1}>
-                    <img
-                      data-tip
-                      data-for="registerTip"
-                      multiline
+                {!user.adminSuspended && (
+                  <Col md={1} style={{alignSelf:"center"}}  >
+                    <img  
+                      onClick={()=>openNow(user._id)}
+                      // data-tip
+                
+                      // data-for="registerTip"
+                      // multiline
+                    
                       src="../assets/image/eyes.png"
                     />
+                  
                   </Col>
-                )} */}
-                  <Col>
-                <ReactTooltip
-                  id="registerTip"
-                  multiline
-                  place="bottom"
-                  effect="solid"
-                  type="success"
-                >
-                  <div>{user.email}</div>
-                  <div>{user.phone}</div>
-                  <div>{user.address}</div>
-                </ReactTooltip>
+                )}
+                  <Col> 
                 </Col>
 
                 <Col style={{ alignSelf: "center" }}>
@@ -157,13 +180,52 @@ function UpdateUser() {
                       src="../assets/image/nulluser.png"
                     />
                   )}
+                
                 </Col>
-              
+             
               </Row>
+              {/* <ReactTooltip
+                  id="registerTip"
+                  multiline
+                  place="bottom"
+                  effect="solid"
+                  type="success"
+                  event="click"
+                
+                >
+                  <div>{data.email}</div>
+                  <div>{data.phone}</div>
+                  <div>{data.address}</div>
+                </ReactTooltip> */}
+
+
+         {/* {showPop && (
+          <Container   className={`updateuser-body-card2 ${user.adminSuspended ? "suspended" : ""}`}>
+            <Row>
+              <h4>{data.f_name}</h4>
+              </Row>
+
+              <Row>
+              <h4>{data.f_name}</h4>
+              </Row>
+
+              <Row>
+              <h4>{data.f_name}</h4>
+              </Row>
+        </Container>
+        )}       */}
+
+
+ 
+   
+          </>
+              
             ))}
           </Col>
         )}
       </Row>
+
+     
 
       <Row className="superadmin-2">
         <Col>

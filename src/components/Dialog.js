@@ -1,27 +1,35 @@
 import React from 'react'
 
-function Dialog({show,title,description,cancel,confirm}) {
+function Dialog({show,title,datas,cancel,confirm}) {
 
     if(!show){
         return <>
         </>
     }
+    console.log(datas.f_name)
   return (
     <div>
         <div className="overlay">
-          <div className="dialog">
+          {/* <img src='../assets/image/2.jpeg'/> */}
+         <div className="dialog">
            <div className="dialog__content">
-             <h2 className="dialog__title">{title}</h2>
+             <h2 className="dialog__title">User Information</h2>
              <p className="dialog__description">
-                 {description}
+               Name: <span>{datas.f_name} </span>
+             </p>
+             <p className="dialog__description">
+               Address:<span> {datas.address}  </span>
+             </p>
+             <p className="dialog__description">
+             Mobile: <span> {datas.phone}  </span> 
              </p>
             </div>
               <hr />
                 <div className="dialog__footer">
-                   <button className="dialog__cancel" onClick={cancel}>Cancel</button>
-                   <button className="dialog__confirm" onClick={confirm}>Yes, delete it</button>
+                   <button className="dialog__cancel" onClick={cancel}>close</button>
+                   {/* <button className="dialog__confirm" onClick={confirm}>ok</button> */}
                 </div>
-            </div>
+            </div> 
           </div>
     </div>
   )

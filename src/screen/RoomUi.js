@@ -7,6 +7,7 @@ import Slider from 'react-slick/lib/slider';
 import { checkProperties, checkProperty } from '../actions/generalAction';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
+import ImgDialog from '../components/ImgDialog';
 
 function RoomUi() {
   const settings = {
@@ -48,6 +49,8 @@ function RoomUi() {
   const navigate = useNavigate()
   const [prices, setPrices] = useState('');
   const [name,setName] = useState('')
+  const [image,setImage]=useState('')
+  const [showTask, setShowTask] = useState(false)
  
   useEffect(() => {
 
@@ -77,10 +80,22 @@ const sal = (e) => {
 
 }
 
-const zaf=(value)=>{
-  //  console.log(value,'st')
+const open=(location)=>{
+     
+  console.log(location,'ls')
+  setImage(location)
+  console.log(image,'imga')
+  // setShowTask(true)
 }
 
+const cancel=()=>{
+  // console.log('cancel')
+  setShowTask(false)
+}
+const confirm=()=>{
+  // console.log('confirm')
+  setShowTask(false)
+}
 
   return (
     <div>
@@ -136,6 +151,14 @@ const zaf=(value)=>{
           </Container>
         </Navbar>
 
+        
+        <ImgDialog show={showTask}
+      cancel={cancel}
+      confirm={confirm}
+      data={image}
+      title='heloo'
+      description='are you sure you want to delete'/>
+
 {loading ? <LoadingBox></LoadingBox>:
 error? <MessageBox></MessageBox>:
 
@@ -146,14 +169,14 @@ error? <MessageBox></MessageBox>:
      </Col> */}
      <Col md={6} className='roomuiimg'>
        <Row>
-        <img src={prop.find((e)=>e._id == propId ).rooms.find((e)=>e._id == roomId).images.length !==0 &&  prop.find((e)=>e._id == propId ).rooms.find((e)=>e._id == roomId).images[0].location} alt="" />
+        <img src={image? image : prop.find((e)=>e._id == propId ).rooms.find((e)=>e._id == roomId).images.length !==0 &&  prop.find((e)=>e._id == propId ).rooms.find((e)=>e._id == roomId).images[0].location} alt="" />
        </Row>
        <Row style={{marginTop:"20px"}}>
        <Slider {...settings}>
         {prop.find((e)=>e._id == propId ).rooms.find((e)=>e._id == roomId).images.length !== 0 && prop.find((e)=>e._id == propId ).rooms.find((e)=>e._id == roomId).images.map((img)=>(    
           <div>
         
-            <img src={img.location} alt="" /> 
+            <img onClick={()=>open(img.location)} src={img.location} alt="" /> 
     
           </div>
                   )) }

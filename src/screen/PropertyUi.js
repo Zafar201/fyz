@@ -1,9 +1,12 @@
+import { Button } from 'bootstrap';
+import { Modal } from 'bootstrap';
 import React, { useEffect, useState } from 'react'
 import { Col, Container, Nav, Navbar, Row } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import Slider from 'react-slick/lib/slider';
 import { checkProperty } from '../actions/generalAction';
+import ImgDialog from '../components/ImgDialog';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
 import NewSlider from '../components/NewSlider';
@@ -43,34 +46,57 @@ function PropertyUi() {
     const checkPropertys= useSelector(state=>state.checkPropertys)
     const {loading, error, prop}= checkPropertys
     const { adult,child,location,startingDate,endingDate,propId } = params;
+    const [image,setImage]=useState('')
     const navigate = useNavigate()
+    const [showTask, setShowTask] = useState(false)
+
+    const open=(location)=>{
+     
+      console.log(location,'ls')
+      setImage(location)
+      console.log(image,'imga')
+      // setShowTask(true)
+    }
+
   useEffect(() => {
     window.scrollTo(0, 0);
     dispatch(checkProperty( location,adult,child,startingDate,endingDate))
    
-      console.log(prop,'prop');
+      // console.log(prop,'prop');
   
-      // localStorage.setItem('props', String(props));
+  
+
     // if(!loading){
     //      const sc = prop.filter((e) => e._id == propId);
     //       console.log(sc,'sc');
     //       setProps(sc[0])            
     //       console.log(props,'prps');                 
     // }
-    if(!loading){
-      const filt = prop.find((e)=>e._id == propId);
-      console.log(filt,'filt');
-      setProps(filt)
+    // if(!loading){
+    //   const filt = prop.find((e)=>e._id == propId);
+    //   console.log(filt,'filt');
+    //   setProps(filt)
       
-    }
-    // const filterd= prop.find((e=>{
-    //   return e._id == propId
-    // }))
-    // console.log(filterd,'fl');
+    // }
+    // if(!loading && !error){
+    //   const img=prop.find((e)=>e._id== propId).images.length !== 0 && prop.find((e)=>e._id== propId).images[0].location 
+    //   setImage(img)
+    //   console.log(img,'img')
 
-}, [dispatch,props]);
+    // }
+
+}, [dispatch]);
 const truncate=(str,n)=>{
   return str.length>n?str.substr(0,n-1)+ "...." :str
+}
+
+const cancel=()=>{
+  // console.log('cancel')
+  setShowTask(false)
+}
+const confirm=()=>{
+  // console.log('confirm')
+  setShowTask(false)
 }
 
 
@@ -129,6 +155,13 @@ const truncate=(str,n)=>{
             </Navbar.Collapse>
           </Container>
         </Navbar>
+
+        <ImgDialog show={showTask}
+      cancel={cancel}
+      confirm={confirm}
+      data={image}
+      title='heloo'
+      description='are you sure you want to delete'/>
      
 
         {/* {prop.find((e)=>e._id==propId).map((property)=>( */}
@@ -139,7 +172,7 @@ const truncate=(str,n)=>{
 
            
             <Col md={4} className='prop-wd'>
-               <img src={prop.find((e)=>e._id== propId).images.length !== 0 ? prop.find((e)=>e._id== propId).images[0].location : ""} alt="" />
+               <img src={image ? image : prop.find((e)=>e._id== propId).images.length !== 0 ? prop.find((e)=>e._id== propId).images[0].location : ""} alt="" />
             </Col>
             <Col md={8}>
               <Row>
@@ -176,7 +209,7 @@ const truncate=(str,n)=>{
         {prop.find((e)=>e._id== propId).images.length !== 0 && prop.find((e)=>e._id== propId).images.map((img)=>(    
           <div>
         
-            <img src={img.location} alt="" /> 
+            <img onClick={()=>open(img.location)} src={img.location} alt="" /> 
     
           </div>
                   )) }
@@ -315,3 +348,8 @@ const truncate=(str,n)=>{
 }
 
 export default PropertyUi
+
+
+
+
+

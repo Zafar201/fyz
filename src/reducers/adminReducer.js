@@ -93,7 +93,7 @@ export const countListReducer = (state = { loading:true,count:[] }, action) => {
       case REJECT_USER_REQUEST:
         return {loading:true};
       case REJECT_USER_SUCCESS:
-        return {loading:false,success:true};
+        return {loading:false,done:true};
       case REJECT_USER_FAIL:
         return {loading:false,error:action.payload}
       case REJECT_USER_RESET:

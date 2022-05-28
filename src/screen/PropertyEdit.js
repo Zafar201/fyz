@@ -111,7 +111,13 @@ function PropertyEdit() {
          error? <MessageBox>{error}</MessageBox>:(
           <Container>
           <Row>
-              <h1>Property edit:{property.name}</h1>
+              
+              <Col>
+                 <h1>Property edit:{property.name}</h1>
+              </Col>
+              <Col className='add-img'>
+              <button onClick={() => navigate(`/addimage/${propertyId}`)}>Add images</button>
+             </Col>
           </Row>
           {loadingUpdate && <LoadingBox></LoadingBox>}
            {errorUpdate && <MessageBox variant="danger">{errorUpdate}</MessageBox>} 
@@ -229,7 +235,7 @@ function PropertyEdit() {
           </form>
 
           <Row className='addproperty-4'>
-              <button onClick={() => navigate(`/addimage/${propertyId}`)}>Add images</button>
+              <button >Add images</button>
           </Row>
            
           

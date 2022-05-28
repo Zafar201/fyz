@@ -189,8 +189,8 @@ const confirm=()=>{
               <Row>
                 <p>{prop.find((e)=>e._id== propId).description}</p>
               </Row>
-              <Row>
-                  
+              <Row className='g-map'>
+                 <button >Locate us on google Map</button> 
               </Row>
             </Col>
            
@@ -232,10 +232,10 @@ const confirm=()=>{
           <Col>
           
              <Row style={{paddingTop:"38px"}}>
-                <Col>
+                <Col md={4}>
                    <h2>{sRoom.name}</h2>
                 </Col>
-                <Col md={3} className='prop-room-vect'> 
+                <Col md={6} className='prop-room-vect'> 
                 <Row className='prop-img'>
                     <Col md={2}>
                     <img src="/assets/image/child2.png" alt="" />
@@ -260,6 +260,15 @@ const confirm=()=>{
                     </Col>
                     <Col>
                     <p>{sRoom.bedType}</p>
+                    </Col>
+                   
+                  </Row>
+                  <Row className='prop-img'>
+                    <Col md={2}>
+                    <img src="/assets/image/roomsize.png" alt="" />
+                    </Col>
+                    <Col>
+                    <p>{sRoom.size}</p>
                     </Col>
                    
                   </Row>

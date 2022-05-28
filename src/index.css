@@ -1271,6 +1271,7 @@ select:focus {
   .addroom-5 img {
     padding: 7px 14px 5px 14px;
   }
+ 
 }
 @media screen and (min-device-width: 1203px) {
   .addroom-5 img {
@@ -1482,7 +1483,8 @@ border-radius: 25px;
   border-radius: 19px;
 }
 .prop-room-vect{
-  margin-top:-17px !important;
+  margin-top:5px !important;
+  display: inherit;
 }
 .prop-card h2{
   font-family: ''Raleway', sans-serif';
@@ -1624,10 +1626,13 @@ border-radius: 25px;
   color: #121B3D;
 }
 
-@media screen and (min-device-width: 1203px) {
-  /* .roomuiimg img{
-    width: 360px;
-  } */
+@media screen and (min-device-width: 800px) {
+  .prop-img{
+    margin-left:10px !important;
+  }
+  .prop-card h3{
+    margin-top:40px;
+  }
 }
 .confirm h1{
   font-family: ''Raleway', sans-serif';
@@ -2384,12 +2389,13 @@ border-radius: 6px;
 .register button{
   width: 202px;
     height: 69px;
-    /* left: 241px; */
+
     margin-top: 42px;
-    /* top: 1398px; */
+  
     margin-bottom: 110px;
-    background: #312B74;
+    background: white;
     border-radius: 4px;
+    border:none;
 }
 .card-left{
   margin-left:120px;
@@ -2753,10 +2759,17 @@ border-radius: 6px;
    
     margin-left: 270px;
       margin-top: -50px !important;
-      width: 75px !important;
+      width: 35px !important;
   }
+ 
 }
 
+@media only screen and (max-width: 570px){
+.amn-algn{
+  width:47% !important;
+  padding-right: 0 !important;
+}
+}
 
 .navbar-collapse {
   flex-basis: 100%;
@@ -3226,4 +3239,24 @@ margin:3px !important;
 }
 *:focus{
   outline:none
+}
+.g-map button{
+  width: 238px;
+  border: none;
+  padding: 14px;
+  color:green;
+}
+.add-img button{
+  width: 159px;
+    background: #434bff;
+    border: none;
+}
+.add-img{
+  text-align:end;
+}
+@media screen and (max-device-width: 800px) {
+  .autoplay .slick-slide img{
+    margin-left: 29px;
+  }
+ 
 }

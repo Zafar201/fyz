@@ -131,7 +131,7 @@ function PropertyImage() {
             <Col md={3} key={index} className="image-item mt-5 mb-5 mr-5">
               <img src={image['data_url']} />
               <div className="image-item__btn-wrapper">
-                <button className="btn btn-primary" onClick={() => onImageUpdate(index)}>Edit</button>
+                <button className="btn btn-primary" style={{background:"grey",border:"1px grey"}} onClick={() => onImageUpdate(index)}>Edit</button>
                 <button className="btn btn-danger" onClick={() => onImageRemove(index)}>Remove</button>
               </div>
             </Col>

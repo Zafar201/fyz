@@ -24,17 +24,23 @@ function CreateAcount() {
     if(success){
       alert("your account is created wait for admin approvel")
       // window.location.href('/register')
-      // setName(e.target.value)== ''
-      // setName2('')
-      // setEmail('')
-      // setPhone('')
-      // setAddress('')
+      setName('')
+      setName2('')
+      setEmail('')
+      setPhone('')
+      setAddress('')
     }
-    // if(error){
-    //   console.log(error)
-    // }
+    if(error){
+      alert(error)
+    }
 
-  },[success])
+  },[success,error])
+
+ const maxLengthCheck = (e) => {
+    if (e.target.value.length > e.target.maxLength) {
+     e.target.value = e.target.value.slice(0, e.target.maxLength)
+      }
+    }
  
   return (
   
@@ -64,15 +70,14 @@ function CreateAcount() {
        <Container className='register-body'>
            <Row >
               <h1>Create Account</h1>
-              {loading && <LoadingBox> </LoadingBox> }
-              {error && <MessageBox>{error}</MessageBox>}
+             
            </Row>
            <form onSubmit={submitHandler}>
            <Row className='register-body-1' style={{marginTop:"60px"}}>
                <Col md={4} style={{paddingLeft:"0px"}}>
                   <p>First name</p>
                 <input type="text" 
-               
+                 value={name}
                 required 
                 id="name" 
                 name="name" 
@@ -82,6 +87,7 @@ function CreateAcount() {
                     <p>Last name</p>
                     <input 
                     type="text" 
+                    value={name2}
                     required
                     id="name2" 
                     name="name2" 
@@ -93,6 +99,7 @@ function CreateAcount() {
                <input 
                type="email" 
                id="email" 
+               value={email}
                required 
                ame="email" 
                onChange={(e)=>setEmail(e.target.value)}/>
@@ -103,6 +110,9 @@ function CreateAcount() {
                type="number" 
                id="phone" 
                required 
+               value={phone}
+               maxLength = "10"
+                onInput={maxLengthCheck}
                name="phone" 
                onChange={(e)=>setPhone(e.target.value)}/>
            </Row>
@@ -114,12 +124,16 @@ function CreateAcount() {
                   cols="4"
                   rows="5"
                   required
+                  value={address}
                   onChange={(e)=>setAddress(e.target.value)}
                 ></textarea>
            </Row>
+           {loading && <LoadingBox> </LoadingBox> }
+             {/* {error && <MessageBox>{error}</MessageBox>} */}
            <Row>
               <button type='submit'>Submit</button> 
            </Row>
+          
            </form>
        </Container>
        </div>

@@ -221,6 +221,12 @@ error? <MessageBox></MessageBox>:
                <div>
                <p>{prop.find((e)=>e._id == propId ).rooms.find((e)=>e._id == roomId).bedType}</p>
                </div>
+               <div className='prop-pd'>
+                 <img src="/assets/image/roomsize.png" alt="" />
+               </div>
+               <div>
+               <p>{prop.find((e)=>e._id == propId ).rooms.find((e)=>e._id == roomId).size}</p>
+               </div>
              </div>
 
 

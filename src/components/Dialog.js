@@ -23,6 +23,9 @@ function Dialog({show,title,datas,cancel,confirm}) {
              <p className="dialog__description">
              Mobile: <span> {datas.phone}  </span> 
              </p>
+             <p className="dialog__description">
+              Email: <span> {datas.email}  </span> 
+             </p>
             </div>
               <hr />
                 <div className="dialog__footer">

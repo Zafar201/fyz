@@ -18,7 +18,7 @@ function SignUpRequest() {
    const approveUsers= useSelector((state)=>state.approveUser);
    const {success} = approveUsers
    const rejectUsers = useSelector((state)=>state.rejectUser);
-   const {success: succesReject} = rejectUsers
+   const {done} = rejectUsers
    const adminsignin = useSelector((state) => state.adminSignin);
    const { adminInfo } = adminsignin;
    const [data,setData]=useState('')
@@ -30,13 +30,14 @@ function SignUpRequest() {
          alert("User accepted")
          dispatch({type:APPROVE_USER_RESET})
        }
-       if(succesReject){
+       
+       if(done){
         alert("User rejected")
         dispatch({type:REJECT_USER_RESET})
       }
      
 
-   },[dispatch,success,succesReject])
+   },[dispatch,success,done])
 
    
    const approveHandler=(userId)=>{

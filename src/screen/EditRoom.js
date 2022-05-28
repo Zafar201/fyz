@@ -158,8 +158,12 @@ function EditRoom() {
         <div className="addproperty">
           <Container>
             <Row>
+              <Col>
               <h1>Edit Room:{room.name}</h1>
-              {/* <p>{location.state}</p> */}
+              </Col>
+              <Col className='add-img'>
+              <button onClick={() => navigate(`/addimage/propId/${propertyId}/roomId/${location.state}`)}>Add images</button>
+             </Col>
             </Row>
             <form onSubmit={submitHandler}>
               <Row>
@@ -198,32 +202,7 @@ function EditRoom() {
                 ></textarea>
               </Row>
 
-              {/* <Row>
-              <Col className="addproperty-2" >
-                
-                <label htmlFor="image">Image</label>
-                <input
-                id="image"
-                type="text"
-                placeholder="Enter image"
-                value={image}
-                onChange={(e) => setImage(e.target.value)}
-              ></input>
-              
-              </Col>
-
-              <Col className="addproperty-2">
-              <label htmlFor="imageFile">Image File</label>
-              <input
-                type="file"
-                name='property-image'
-                id="imageFile"
-                label="Choose Image"
-                onChange={uploadFileHandler}
-              ></input>
-              
-              </Col>
-              </Row> */}
+          
 
               <Row className="addroom-4">
                 <Col>
@@ -697,9 +676,7 @@ function EditRoom() {
               </Row>
             </form>
 
-            <Row className='addproperty-4'>
-              <button onClick={() => navigate(`/addimage/propId/${propertyId}/roomId/${location.state}`)}>Add images</button>
-           </Row>
+          
           </Container>
         </div>
       )}

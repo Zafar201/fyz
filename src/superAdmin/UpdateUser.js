@@ -10,9 +10,7 @@ import {
   unSuspendUser,
 } from "../actions/adminAction";
 import { SUSPEND_USER_RESET,UN_SUSPEND_USER_RESET } from "../constants/adminConstants";
-import ReactTooltip from "react-tooltip";
 import { adminSignout } from "../actions/adminAction";
-import { Modal } from "bootstrap";
 import Dialog from "../components/Dialog";
 
 function UpdateUser() {

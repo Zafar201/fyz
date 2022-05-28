@@ -127,7 +127,7 @@ function AddRoom() {
               ></textarea>
             </Row>
 
-            <Row>
+            {/* <Row>
               <Col className="addproperty-2" md={4}>
                 <button>
                   <img src="../assets/image/cam.png" alt="" />
@@ -142,7 +142,7 @@ function AddRoom() {
                 <div style={{ backgroundColor: ' #E3E3E3;' }}></div>
                 <div style={{ backgroundColor: '#A7A6A6' }}></div>
               </Col>
-            </Row>
+            </Row> */}
 
             <Row className="addroom-4">
               <Col>

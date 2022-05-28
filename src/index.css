@@ -1430,6 +1430,11 @@ select:focus {
 }
 .propertyui-2 img{
   width: 100%;
+
+}
+.prop-ui-2 img{
+  height: 300px;
+  object-fit:cover;
 }
 .propertyui-2 h2{
   font-family: ''Raleway', sans-serif';
@@ -1836,7 +1841,7 @@ transform: matrix(0, 1, -1, 0, 0, 0);
 font-family: ''Raleway', sans-serif';
 font-style: normal;
 font-weight: 500;
-font-size: 31px;
+font-size: 25px;
 letter-spacing: -0.04em;
 color: #000000;
 padding-top: 14px;
@@ -1877,8 +1882,8 @@ margin-top:20px
     font-family: 'Montserrat';
     font-style: normal;
     font-weight: 500;
-    font-size: 58px;
-    line-height: 58px;
+    font-size: 36px;
+    line-height: 38px;
     text-align: center;
     letter-spacing: -0.04em;
     color: #ffff;
@@ -1899,11 +1904,12 @@ margin-top:20px
   }
   
   .superadmin-2 span{
-    font-size: 34px;
+    font-size: 23px;
     text-align: center;
     letter-spacing: -0.01em;
     color: #ffff;
     font-weight: 800;
+    line-height:35px;
   }
   .prop-img img{
     height: 25px;
@@ -2672,6 +2678,10 @@ border-radius: 6px;
 .navbar-dark .navbar-nav .act{
   color:#F8F263 !important;
 }
+.roomuiimg img{
+  height:380px;
+  object-fit:cover;
+}
 
 
 @media only screen and (max-width: 767px){
@@ -2718,6 +2728,7 @@ border-radius: 6px;
 } */
 .home-2-explore h4{
   font-size:48px;
+  padding-top: 44px !important;
 }
 }
 
@@ -2896,6 +2907,7 @@ padding-bottom: 64px;
     margin-top: 20px;
     font-weight: 700;
     margin-top:20px;
+    padding-bottom:8px;
 }
 .luxury-right h1{
   font-weight: 800;
@@ -3048,6 +3060,7 @@ padding-bottom: 64px;
   font-size: 19px !important;
   color: white !important;
   font-weight: 200;
+  cursor:pointer;
 }
 .foooter a{
   color: white !important;
@@ -3092,8 +3105,7 @@ padding-bottom: 64px;
     width: 82PX;
     HEIGHT: 65PX;
   }
-  .slick-dots li {
-    
+  .slick-dots li {  
     margin-right: -8px !important;
 }
 .foooters {
@@ -3208,4 +3220,10 @@ margin:3px !important;
 
 .overlay img{
   width:100%;
+}
+.updt-eyes img{
+  cursor:pointer;
+}
+*:focus{
+  outline:none
 }

@@ -16,6 +16,7 @@ function PropertyImage() {
     const {loading,error,property} = propertyDetails;
     const [selectedImages, setSelectedImages] = useState([]);
     const [deleteLoading,setDeleteLoading]=useState(false)
+    const [successLoading,setSuccessLoading]=useState(false)
     const dispatch = useDispatch()
     const params = useParams();
     const { id: propertyId} = params;  
@@ -55,7 +56,8 @@ function PropertyImage() {
                 title: 'Images hava been uploaded successfully.',
                 text: `thanks ${a}`,
                 type: 'success',            
-              });        
+              });     
+              setSuccessLoading(true)   
             
             }).catch(err=>{
                 console.log(err)
@@ -66,7 +68,7 @@ function PropertyImage() {
     useEffect(()=>{
         dispatch(detailsProperty(propertyId)) 
            
-    },[dispatch,deleteLoading])
+    },[dispatch,deleteLoading,successLoading])
  
     const deleteHandler=(imageId)=>{
       axios.post('https://tawi-backend.herokuapp.com/api/users/property-delete',{
@@ -121,6 +123,7 @@ function PropertyImage() {
             >
               Click or Drop here
             </button>
+            <button className="btn btn-primary" onClick={() =>navigate('/dashboard')}> Back to Dashboard</button>
             
             {/* <button className="btn btn-danger" onClick={onImageRemoveAll}>Remove all images</button> */}
           </div>

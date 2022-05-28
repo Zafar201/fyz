@@ -1,4 +1,4 @@
-import  React, { useEffect } from 'react'
+import  React, { useEffect, useState } from 'react'
 import { Col, Container, Row,Button } from 'react-bootstrap'
 import { Link, useParams} from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
@@ -6,8 +6,8 @@ import {getSignUpRequest,approveUser,rejectUser } from '../actions/adminAction';
 import LoadingBox from "../components/LoadingBox";
 import MessageBox from "../components/MessageBox";
 import {APPROVE_USER_RESET ,REJECT_USER_RESET} from '../constants/adminConstants';
-import ReactTooltip from "react-tooltip"; 
 import { adminSignout } from "../actions/adminAction";
+import Dialog from "../components/Dialog";
 
 function SignUpRequest() {
   
@@ -21,6 +21,8 @@ function SignUpRequest() {
    const {success: succesReject} = rejectUsers
    const adminsignin = useSelector((state) => state.adminSignin);
    const { adminInfo } = adminsignin;
+   const [data,setData]=useState('')
+   const [showTask, setShowTask] = useState(false)
    useEffect(()=>{
      
        dispatch(getSignUpRequest())
@@ -50,6 +52,19 @@ function SignUpRequest() {
       dispatch(adminSignout());
     }
   };
+
+  const openNow=(userId)=>{
+    const post =users.find((e)=>e._id === userId) 
+    console.log(post)
+    setData(post)
+    setShowTask(true)
+}
+const cancel=()=>{
+  setShowTask(false)
+}
+const confirm=()=>{
+  setShowTask(false)
+}
   return (
 <div className='superadmin updatebooking'>   
 <Row className='superadmin-top'>
@@ -87,6 +102,12 @@ function SignUpRequest() {
    
 </Row>
 
+<Dialog show={showTask}
+      cancel={cancel}
+      confirm={confirm}
+      datas={data}
+      description='are you sure you want to delete'/>
+
 
 <Row className='superadmin-2'> 
  <Col md={3}>
@@ -118,13 +139,18 @@ users &&  users.map((user)=>(
 <>
     <Row key={user._id} className='updatebooking-body-card'>
   
-      <Col md={2}>
+      <Col md={3}>
         <h4>{user.f_name}</h4>     
       </Col>      
-         <Col md={1}>         
-            {/* <img data-tip data-for="registerTip" multiline src='../assets/image/eyes.png'/> */}
-          </Col>
-          <Col  md={{ span: 1, offset: 2 }}>
+      <Col md={1} style={{alignSelf:"center"}}  >
+                    <img  
+                      onClick={()=>openNow(user._id)}
+                      style={{cursor:"pointer"}}
+                      src="../assets/image/eyes.png"
+                    />
+                  
+                  </Col>
+          <Col  md={{ span: 1, offset: 3 }}>
            <button type='submit'onClick={() => approveHandler(user._id)}>accept</button>
           </Col>
           <Col style={{marginLeft:"70px"}} className='signup-body-button'>
@@ -134,17 +160,7 @@ users &&  users.map((user)=>(
           {/* <Col>
            <p>7:50pm</p>
           </Col> */}
-          <ReactTooltip  id="registerTip"  place="bottom" effect="solid" type='success'>         
-            <div>
-                {user.email} 
-           </div>
-             <div>
-               {user.phone}
-             </div>
-             <div>
-               {user.address}
-             </div>           
-            </ReactTooltip>
+    
           </Col>
      
      

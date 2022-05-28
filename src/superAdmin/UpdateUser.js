@@ -152,13 +152,10 @@ const confirm=()=>{
                   <h4>{user.f_name}</h4>
                 </Col>
                 {!user.adminSuspended && (
-                  <Col md={1} style={{alignSelf:"center"}}  >
+                  <Col md={1} style={{alignSelf:"center"}} >
                     <img  
                       onClick={()=>openNow(user._id)}
-                      // data-tip
-                
-                      // data-for="registerTip"
-                      // multiline
+                     
                     
                       src="../assets/image/eyes.png"
                     />

@@ -167,7 +167,7 @@ const confirm=()=>{
         {/* {prop.find((e)=>e._id==propId).map((property)=>( */}
      <>
      <Container>
-        <Row className='propertyui-2 prop-ui-2'>
+        <Row className='propertyui-2 prop-ui-2 '>
        
 
            
@@ -308,16 +308,16 @@ const confirm=()=>{
        <Row className='foooter-3' >
           <center>    <hr/></center>
           <Col md={{ span: 1, offset: 2 }}>
-          <h3>Home</h3>
+          <Link to='/'><h3>Home</h3></Link>
           </Col>
           <Col md={1}>
-          <h3>About </h3>
+          <Link to='/about'><h3>About </h3></Link>
           </Col>
           <Col md={2}>
-          <h3>Luxury Experience</h3>
+          <Link to='/luxury'><h3>Luxury Experience</h3></Link>
           </Col>
           <Col md={2}>
-          <h3>Book now</h3>
+          <Link to='/'> <h3>Book now</h3></Link>
           </Col>
           <Col md={2}>
           <Link to='/admin'><h3  style={{cursor:"pointer"}}>Login</h3></Link>

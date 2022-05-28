@@ -66,7 +66,7 @@ function RoomImage() {
     useEffect(()=>{
         dispatch(detailsRoom(propId,roomId));     
         
-    },[dispatch,deleteLoading])
+    },[dispatch,deleteLoading,successUpload])
 
     const deleteHandler=(imageId)=>{
       console.log(propId,roomId,imageId)
@@ -125,6 +125,7 @@ function RoomImage() {
             >
               Click or Drop here
             </button>
+            <button className="btn btn-primary" onClick={() =>navigate('/dashboard')}> Back to Dashboard</button>
             
             {/* <button className="btn btn-danger" onClick={onImageRemoveAll}>Remove all images</button> */}
           </div>

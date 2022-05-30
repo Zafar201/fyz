@@ -26,6 +26,10 @@ const submitHandler=(e)=>{
         text: "Thanks",
         type: 'success',            
       });  
+      setName('')
+      setEmail('')
+      setDescription('')
+      console.log(res)
  
   }).catch(err=>console.log(err,'er'))
 }
@@ -123,6 +127,7 @@ const submitHandler=(e)=>{
                     <input type="text" 
                     placeholder="Your name"
                     required
+                    value={name}
                     name='name'
                     id='name' 
                     onChange={(e)=>setName(e.target.value)}/>
@@ -132,6 +137,7 @@ const submitHandler=(e)=>{
                      placeholder="Your email" 
                      name='email'
                      id='email'
+                     value={email}
                      onChange={(e)=>setEmail(e.target.value)}/>
                   </Row>
                   <Row>
@@ -141,6 +147,7 @@ const submitHandler=(e)=>{
                       id="description"
                       cols="6"
                       rows="6"
+                      value={description}
                       onChange={(e)=>setDescription(e.target.value)}
                       placeholder="what whould you like to know"
                     ></textarea>
@@ -197,7 +204,7 @@ const submitHandler=(e)=>{
         </Row>
         <Row>
         <iframe style={{height:"450px"}} src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3927.642562700067!2d76.19520311479523!3d10.128315492763246!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b0810bc1f9c2027%3A0xeab32e7778557666!2sRama%20Varma%20Union%20High%20School!5e0!3m2!1sen!2sin!4v1644147798803!5m2!1sen!2sin" 
-        title='map' allowfullscreen="" loading="lazy"></iframe>
+        title='map' loading="lazy"></iframe>
         </Row>
       </Container>
 

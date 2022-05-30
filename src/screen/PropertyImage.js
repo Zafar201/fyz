@@ -9,6 +9,7 @@ import { Col, Container, Row } from 'react-bootstrap';
 import { deletePropImg, detailsProperty } from '../actions/generalAction';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
+import { DELETE_PROPIMG_RESET } from '../constants/generalConstants';
 
 
 function PropertyImage() {
@@ -24,7 +25,7 @@ function PropertyImage() {
     const navigate= useNavigate()
     // console.log(propertyId)
    
-    const maxNumber = 15;
+    const maxNumber = 1;
     
     const onChange = (imageList, addUpdateIndex) => {
       // data for submit
@@ -48,16 +49,14 @@ function PropertyImage() {
             }
             ).then(res=>
             {
-              if(a > images.length){
-                console.log('oksss')
-              }
+              setSuccessLoading(true) 
               console.log('ok',images.length)
               Swal.fire({
                 title: 'Images hava been uploaded successfully.',
-                text: `thanks ${a}`,
+                text: `thanks `,
                 type: 'success',            
               });     
-              setSuccessLoading(true)   
+                
             
             }).catch(err=>{
                 console.log(err)
@@ -67,6 +66,9 @@ function PropertyImage() {
 
     useEffect(()=>{
         dispatch(detailsProperty(propertyId)) 
+        if(deleteLoading){
+          dispatch({type:DELETE_PROPIMG_RESET})
+        }
            
     },[dispatch,deleteLoading,successLoading])
  
@@ -76,13 +78,13 @@ function PropertyImage() {
        imageId
       })
       .then(function (response) {
-        console.log(response,'res');
+        setDeleteLoading(true)
         Swal.fire({
           title: 'Images hava been deleted successfully.',
           text: `thanks`,
           type: 'success',            
         });  
-        setDeleteLoading(true)
+    
       })
       .catch(function (error) {
         console.log(error,'er');
@@ -100,7 +102,8 @@ function PropertyImage() {
       multiple
       value={images}
       onChange={onChange}
-      maxNumber={maxNumber - property.images.length}
+      // maxNumber={maxNumber - property.images.length}
+      maxNumber={maxNumber}
       dataURLKey="data_url"
     >
       {({

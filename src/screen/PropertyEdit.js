@@ -234,9 +234,9 @@ function PropertyEdit() {
           </Row>
           </form>
 
-          <Row className='addproperty-4'>
+          {/* <Row className='addproperty-4'>
               <button >Add images</button>
-          </Row>
+          </Row> */}
            
           
       </Container>

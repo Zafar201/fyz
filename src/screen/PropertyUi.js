@@ -89,6 +89,10 @@ function PropertyUi() {
 const truncate=(str,n)=>{
   return str.length>n?str.substr(0,n-1)+ "...." :str
 }
+const redirect=(map)=>{
+  // console.log(map)
+  window.location.href= map
+}
 
 const cancel=()=>{
   // console.log('cancel')
@@ -190,7 +194,7 @@ const confirm=()=>{
                 <p>{prop.find((e)=>e._id== propId).description}</p>
               </Row>
               <Row className='g-map'>
-                 <button >Locate us on google Map</button> 
+                 <button onClick={()=>redirect(prop.find((e)=>e._id== propId).map)}>Locate us on google Map</button> 
               </Row>
             </Col>
            

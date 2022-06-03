@@ -49,6 +49,8 @@ function PropertyUi() {
     const [image,setImage]=useState('')
     const navigate = useNavigate()
     const [showTask, setShowTask] = useState(false)
+    const [small,setSmall] = useState(true)
+    const [large,setLarge] = useState(false)
 
     const open=(location)=>{
      
@@ -89,6 +91,9 @@ function PropertyUi() {
 const truncate=(str,n)=>{
   return str.length>n?str.substr(0,n-1)+ "...." :str
 }
+const truncate2=(str,n)=>{
+  return str.length>n?str.substr(0,n-1)+ "...." :str
+}
 const redirect=(map)=>{
   // console.log(map)
   window.location.href= map
@@ -103,6 +108,13 @@ const confirm=()=>{
   setShowTask(false)
 }
 
+const showFull=()=>{
+  setSmall(false)
+}
+
+const showLess=()=>{
+  setSmall(true)
+}
 
   return (
     <div>
@@ -175,10 +187,10 @@ const confirm=()=>{
        
 
            
-            <Col md={4} className='prop-wd'>
+            <Col md={6} className='prop-wd'>
                <img src={image ? image : prop.find((e)=>e._id== propId).images.length !== 0 ? prop.find((e)=>e._id== propId).images[0].location : ""} alt="" />
             </Col>
-            <Col md={8}>
+            <Col md={6 }>
               <Row>
                 <h2>{prop.find((e)=>e._id== propId).name ? prop.find((e)=>e._id== propId).name : ""}</h2>
               </Row>
@@ -190,8 +202,42 @@ const confirm=()=>{
                      <h3>{startingDate} - {endingDate}</h3>
                   </Col>
               </Row>
-              <Row>
-                <p>{prop.find((e)=>e._id== propId).description}</p>
+              <Row className='desc-bt'>
+                {prop.find((e)=>e._id== propId).description.length > 300 && (
+                  <>     
+                  {small && (  
+                    <>
+                    <p>{truncate2(prop.find((e)=>e._id== propId).description,300)}</p>
+                    </>  
+                    )}         
+                  </>
+                )}
+
+                    {prop.find((e)=>e._id== propId).description.length < 300 && (
+                  <>     
+                  {small && (  
+                    <>
+                    <p>{prop.find((e)=>e._id== propId).description}</p>
+                    </>  
+                    )}         
+                  </>
+                )}
+
+                {small && prop.find((e)=>e._id== propId).description.length > 300 && (
+                  <button onClick={showFull}>Read More</button>
+                )}
+
+               
+                  <>
+                  {!small && (
+                    <>
+                    <p>{prop.find((e)=>e._id== propId).description}</p>
+                    <button onClick={showLess}>Show less</button>
+                    </>
+                  )}          
+                  </>
+           
+                
               </Row>
               <Row className='g-map'>
                  <button onClick={()=>redirect(prop.find((e)=>e._id== propId).map)}>Locate us on google Map</button> 

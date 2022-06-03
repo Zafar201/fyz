@@ -9,6 +9,8 @@ import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
 import ImgDialog from '../components/ImgDialog';
 
+
+
 function RoomUi() {
   const settings = {
     dots: false,
@@ -51,6 +53,8 @@ function RoomUi() {
   const [name,setName] = useState('')
   const [image,setImage]=useState('')
   const [showTask, setShowTask] = useState(false)
+  const [small,setSmall] = useState(true)
+  const [large,setLarge] = useState(false)
  
   useEffect(() => {
 
@@ -78,6 +82,14 @@ const sal = (e) => {
   setName(e.target.id)
   // console.log(name,prices,'ok');
 
+}
+const showFull=()=>{
+  setSmall(false)
+  setLarge(true)
+}
+const showLess=()=>{
+  setSmall(true)
+  setLarge(false)
 }
 
 const open=(location)=>{
@@ -240,44 +252,78 @@ error? <MessageBox></MessageBox>:
        <Row className='roomui-img'>
            <Col  md={4}>
         
-             <Row>
-             {prop.find((e)=>e._id == propId ).rooms.find((e)=>e._id == roomId).amenities.map((amnt,i)=>(
-               <Col md={6} className='amn-algn' >
-               <img src={`/assets/image/${amnt}.png`} alt="" />
-                  <h5>{amnt}</h5>
+             <Row className='amnt-bt'>
+
+             {prop.find((e)=>e._id == propId ).rooms.find((e)=>e._id == roomId).amenities.length < 6  && prop.find((e)=>e._id == propId ).rooms.find((e)=>e._id == roomId).amenities.map((amnt,i)=>(
+               <Col md={6} className='amn-algn' >                           
+                    <img src={`/assets/image/${amnt}.png`} alt="" />
+                    <h5>{ amnt }</h5>                                         
                </Col>
                ))} 
-             </Row>   
+             
+             {prop.find((e)=>e._id == propId ).rooms.find((e)=>e._id == roomId).amenities.length > 6  && prop.find((e)=>e._id == propId ).rooms.find((e)=>e._id == roomId).amenities.slice(0,6).map((amnt,i)=>(
+               <Col md={6} className='amn-algn'>       
+                 {small && (
+                     <>
+                    <img src={`/assets/image/${amnt}.png`} alt="" />
+                    <h5>{ amnt }</h5>
+                    
+                    </>
+                 )}             
+               </Col>
+               ))} 
+                  { prop.find((e)=>e._id == propId ).rooms.find((e)=>e._id == roomId).amenities.map((amnt,i)=>(
+               <Col md={6} className='amn-algn'>        
+                 {large && (
+                     <>
+                    <img src={`/assets/image/${amnt}.png`} alt="" />
+                    <h5>{ amnt }</h5>                
+                    </>
+                 )}           
+               </Col>
+               ))} 
+             {small && prop.find((e)=>e._id == propId ).rooms.find((e)=>e._id == roomId).amenities.length > 6 &&  (
+               
+                <button onClick={showFull}>show more</button>
+             )}  
+             {!small && (
+                <button onClick={showLess}>show Less</button>
+             )}
+          </Row>   
               
-          </Col>               
-       
-          <Col className='price-radio' md={8}>
-            <Row className='radio-mob'>
-              <Col md={1}>
-                <input
-                type="radio"
-                id="Reserve Experience"
-                value={prop.find((e)=>e._id == propId ).rooms.find((e)=>e._id == roomId).price.first}
-                name="price"
-                required
-                checked ={true}
-                onClick={sal}
-                   />
-              </Col>
-           <Col className='rabio-mob-2'>
-              <h1>Reserve Experience</h1>
-              <h6>View plans exclusive</h6>
-           </Col>
-           <Col md={3} className='rabio-mob-3'>
-           <p2>{prop.find((e)=>e._id == propId ).rooms.find((e)=>e._id == roomId).price.first}</p2> 
-           </Col>
+          </Col>        
          
-            </Row>
+                 <Col className='price-radio' md={8}>
+                 {prop.find((e)=>e._id == propId ).rooms.find((e)=>e._id == roomId).price.first !== 0 && (
+                 <Row className='radio-mob'>
+                   <Col md={1}>
+                     <input
+                     type="radio"
+                     id="Room"
+                     value={prop.find((e)=>e._id == propId ).rooms.find((e)=>e._id == roomId).price.first}
+                     name="price"
+                     required
+                     checked ={true}
+                     onClick={sal}
+                        />
+                   </Col>
+                <Col className='rabio-mob-2'>
+                   <h1>Room</h1>
+                   <h6>View plans exclusive</h6>
+                </Col>
+                <Col md={3} className='rabio-mob-3'>
+                <p2>{prop.find((e)=>e._id == propId ).rooms.find((e)=>e._id == roomId).price.first}</p2> 
+                </Col>
+              
+                 </Row>
+                )}       
+       
+       {prop.find((e)=>e._id == propId ).rooms.find((e)=>e._id == roomId).price.fourth !== 0 && (
             <Row>
               <Col md={1}>
                 <input
                 type="radio"
-                id="Reserve "
+                id="Room with Breakfast + Lunch+Dinner "
                 value={prop.find((e)=>e._id == propId ).rooms.find((e)=>e._id == roomId).price.fourth}
                 name="price"
                 required
@@ -286,7 +332,7 @@ error? <MessageBox></MessageBox>:
                    />
               </Col>
            <Col className='rabio-mob-2'>
-              <h1>Reserved</h1>
+              <h1>Room with Breakfast + Lunch+Dinner</h1>
               <h6>View plans exclusive</h6>
            </Col>
            <Col md={3} className='rabio-mob-3'>
@@ -294,11 +340,14 @@ error? <MessageBox></MessageBox>:
            </Col>
          
             </Row>
+       )}
+
+ {prop.find((e)=>e._id == propId ).rooms.find((e)=>e._id == roomId).price.second !== 0 && (
             <Row >
               <Col md={1}>
                 <input
                 type="radio"
-                id="Reserve Plan Flex"
+                id="Room with Breakfast"
                 value={prop.find((e)=>e._id == propId ).rooms.find((e)=>e._id == roomId).price.second}
                 name="price"
                 required
@@ -307,19 +356,23 @@ error? <MessageBox></MessageBox>:
                 
                    />
               </Col>
+             
               <Col className='rabio-mob-2'>
-                  <h1>Reserve Plan Flex</h1>
+                  <h1>Room with Breakfast</h1>
                   <h6>View plans exclusive</h6>
               </Col>
               <Col  md={3} className='rabio-mob-3'>
                   <p2>{prop.find((e)=>e._id == propId ).rooms.find((e)=>e._id == roomId).price.second}</p2> 
               </Col>
             </Row>
+ )}
+
+ {prop.find((e)=>e._id == propId ).rooms.find((e)=>e._id == roomId).price.third !== 0 && (
             <Row>
               <Col md={1}>
                 <input
                 type="radio"
-                id="ELENA Spa and Wellness"
+                id="Room with Breakfast + Lunch/Dinner"
                 value={prop.find((e)=>e._id == propId ).rooms.find((e)=>e._id == roomId).price.third}
                 name="price"
                 required
@@ -329,7 +382,7 @@ error? <MessageBox></MessageBox>:
                    />
               </Col>
            <Col className='rabio-mob-2'>
-           <h1>ELENA Spa and Wellness</h1>
+           <h1>Room with Breakfast + Lunch/Dinner</h1>
            <h6>View plans exclusive</h6>
            </Col>
            <Col md={3} className='rabio-mob-3'>
@@ -337,6 +390,7 @@ error? <MessageBox></MessageBox>:
            </Col>
          
             </Row>
+)}
           </Col> 
        
    

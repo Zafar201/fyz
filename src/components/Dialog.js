@@ -18,13 +18,13 @@ function Dialog({show,title,datas,cancel,confirm}) {
                Name: <span>{datas.f_name} </span>
              </p>
              <p className="dialog__description">
-               Address:<span> {datas.address}  </span>
-             </p>
-             <p className="dialog__description">
              Mobile: <span> {datas.phone}  </span> 
              </p>
              <p className="dialog__description">
               Email: <span> {datas.email}  </span> 
+             </p>
+             <p className="dialog__description">
+               Address:<span> {datas.address}  </span>
              </p>
             </div>
               <hr />

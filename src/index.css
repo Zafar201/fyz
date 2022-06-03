@@ -1500,6 +1500,7 @@ border-radius: 25px;
 }
 .prop-img{
   display: flex;
+  flex-wrap:wrap;
 }
 .prop-pd{
   padding-left: 20px;
@@ -3259,4 +3260,38 @@ margin:3px !important;
     margin-left: 29px;
   }
  
+}
+
+@media screen and (max-width: 350px) and (min-width: 250px){
+.rabio-mob-3 {
+  margin-left: 243px;
+  margin-top: -50px !important;
+  width: 35px !important;
+}
+}
+.amnt-bt button{
+  width: 61%;
+  font-size: 18px;
+  border: none;
+  padding: 8px;
+  margin-top: 14px;
+  margin-left: 48px;
+  color: white;
+  background: #9bc699;
+}
+.desc-bt button{
+  width: 150px;
+  font-size: 14px;
+  border: none;
+  padding: 8px;
+  margin-top: 14px;
+  margin-bottom: 48px;
+  color: white;
+  background: #9bc699;
+}
+
+@media screen and (min-device-width: 900px){
+.prop-wd img{
+  height:479px;
+}
 }

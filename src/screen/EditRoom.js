@@ -252,10 +252,10 @@ function EditRoom() {
                     id="cars"
                     onChange={(e) => setBedType(e.target.value)}
                   >
-                    <option value="volvo">Volvo</option>
-                    <option value="saab">Saab</option>
-                    <option value="mercedes">Mercedes</option>
-                    <option value="audi">Audi</option>
+                    <option value="King Bed">King Bed</option>
+                    <option value="Queen Bed">Queen Bed</option>
+                    <option value="Standard Double bed">Standard Double bed</option>
+                    <option value="Twin Bed">Twin Bed</option>
                   </select>
                 </Col>
                 <Col></Col>
@@ -610,7 +610,7 @@ function EditRoom() {
               </Row>
               <Row className="addprice">
                 <Col>
-                  <h2>Reserve Experience</h2>
+                  <h2>Room</h2>
                   <div className="price">
                     <img src="/assets/image/dollar.png" alt="" />
                     <input
@@ -624,7 +624,7 @@ function EditRoom() {
                   </div>
                 </Col>
                 <Col>
-                  <h2>Reserve Plan Flex</h2>
+                  <h2>Room with Breakfast</h2>
                   <div className="price">
                     <img src="/assets/image/dollar.png" alt="" />
                     <input
@@ -641,7 +641,7 @@ function EditRoom() {
 
               <Row style={{ paddingTop: '30px' }} className="addprice">
                 <Col>
-                  <h2>Spa & Wellness</h2>
+                  <h2>Room with Breakfast + Lunch/Dinner</h2>
                   <div className="price">
                     <img src="/assets/image/dollar.png" alt="" />
                     <input
@@ -655,7 +655,7 @@ function EditRoom() {
                   </div>
                 </Col>
                 <Col>
-                  <h2>Stay More Pay Less</h2>
+                  <h2>Room with Breakfast + Lunch+Dinner</h2>
                   <div className="price">
                     <img src="/assets/image/dollar.png" alt="" />
                     <input

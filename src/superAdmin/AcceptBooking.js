@@ -5,6 +5,7 @@ import { Link, useNavigate, useParams } from 'react-router-dom';
 import { approveBooking, getBookings, rejectBooking } from '../actions/adminAction';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
+import { APPROVE_BOOKING_RESET, REJECT_BOOKING_RESET } from '../constants/adminConstants';
 
 function AcceptBooking() {
    const bookingList = useSelector((state) => state.bookingList);
@@ -26,12 +27,12 @@ function AcceptBooking() {
   }, [dispatch,succesBooking,rejectSuccess]);
   if(succesBooking){
      alert("Booking accepted")
-       navigate('/updatebooking')
-      
-   
+     dispatch({type:APPROVE_BOOKING_RESET})
+       navigate('/updatebooking') 
   }
   if(rejectSuccess){
    alert("Booking rejected")
+   dispatch({type:REJECT_BOOKING_RESET})
    navigate('/updatebooking')
 }
 

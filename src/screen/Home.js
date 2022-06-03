@@ -175,6 +175,7 @@ const lux=()=>{
                       type="number" 
                       id="adult"
                       // placeholder="Enter numbers"
+                      min="0"
                       required
                       value={adult}
                       onChange={(e) => setAdult(e.target.value)}/>
@@ -197,6 +198,7 @@ const lux=()=>{
                       type="number"
                       id="child"
                       value={child}
+                      min="0"
                       // placeholder="Enter numbers"
                       required
                       onChange={(e) => setChild(e.target.value)} />

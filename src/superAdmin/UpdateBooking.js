@@ -22,12 +22,12 @@ function UpdateBooking() {
 
     
  }, [dispatch,success,rejectSuccess]);
-if(success){
-  dispatch({type:APPROVE_BOOKING_RESET})
-}
-if(rejectSuccess){
-  dispatch({type:REJECT_BOOKING_RESET})
-}
+// if(success){
+//   dispatch({type:APPROVE_BOOKING_RESET})
+// }
+// if(rejectSuccess){
+//   dispatch({type:REJECT_BOOKING_RESET})
+// }
  
   return (
     <div className='superadmin updatebooking'>

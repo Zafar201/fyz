@@ -43,7 +43,6 @@ function Home() {
 
 
 const date= ()=>{
-  
   const startingDate = format(selectedDate, "MM-dd-yyyy")
   const endingDate = format(selectedDate2, "MM-dd-yyyy")
   navigate(`/search/location/${location}/adult/${adult}/child/${child}/startingDate/${startingDate}/endingDate/${endingDate}`);
@@ -199,7 +198,6 @@ const lux=()=>{
                       id="child"
                       value={child}
                       min="0"
-                      // placeholder="Enter numbers"
                       required
                       onChange={(e) => setChild(e.target.value)} />
                     </Row>

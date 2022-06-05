@@ -3182,6 +3182,7 @@ margin:3px !important;
   width:95%;
   height:210px;
   object-fit:cover;
+  cursor:pointer;
 }
 
 .image-item img {
@@ -3293,5 +3294,12 @@ margin:3px !important;
 @media screen and (min-device-width: 900px){
 .prop-wd img{
   height:479px;
+}
+}
+
+@media screen and (max-device-width: 500px){
+.price-radio h1{
+  font-size:15px;
+  line-height: 103.85%;
 }
 }

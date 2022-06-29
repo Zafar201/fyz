@@ -31,6 +31,9 @@ import Sliders from "./components/Sliders";
 import PropertyImage from "./screen/PropertyImage";
 import RoomImage from "./screen/RoomImage";
 import NewSlider from "./components/NewSlider";
+import AgentLoginScreen from "./agent/AgentLoginScreen";
+import AgentSearchScreen from "./agent/AgentSearchScreen";
+import AgentSearchListScreen from "./agent/AgentSearchListScreen";
 
 function App() {
   return (
@@ -57,8 +60,10 @@ function App() {
             {" "}
           </Route>
           <Route path="/admin" element={<AdminLogin />}>
+          
             {" "}
           </Route>
+       
           <Route path="/register" element={<CreateAcount />}>
             {" "}
           </Route>
@@ -143,6 +148,23 @@ function App() {
             }>
             {" "}
           </Route>
+
+
+          <Route path="/agent" element={<AgentLoginScreen />}>
+          
+          {" "}
+        </Route>
+        <Route path="/agentsearch" element={<AgentSearchScreen />}>
+          
+          {" "}
+        </Route>
+        <Route path="/agentsearchlist" element={<AgentSearchListScreen />}>
+          
+          {" "}
+        </Route>
+
+
+
           <Route
             path="/addroom/:id"
             element={

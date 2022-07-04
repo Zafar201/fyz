@@ -3351,6 +3351,9 @@ margin:3px !important;
 }
 
 /* agentsearchlist */
+.agent-searchlist{
+  margin-top: 26px;
+}
 .searchlist-box{
   width: 93%;
   border: 2px solid rgba(0,145,255,.42);
@@ -3408,7 +3411,121 @@ margin:3px !important;
 .agent-searchlist .home-3-img img{
   height: 100%;
 }
+/* agentNav */
+.agent-nav {
+  width: 100%;
+  background: #9bc699;
+  height: auto;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.agent-nav h1 {
+  font-family: Vanitas-Extrabold;
+  font-size: 33px;
+  line-height: 42px;
+  color: #585858;
+}
+.agent-nav img {
+  height: 40px;
+}
 
+/* AgentSearchDeatils */
+.agentpropdetails{
+  margin-top: 18px !important;
+}   
+.agentpropdetails-header{
+  width: 100%;
+  position: relative;
+  background-size: cover;
+  background-position: 50%;
+  height: 220px;
+}
+
+.agentpropdetails-content{
+  height: 58px;
+  width: 100%;
+  background-color: #f1f1f1;
+  position: absolute;
+  bottom: 0;
+  /* left: 12px; */
+
+}
+.agentpropdetails ul{
+  list-style: none;
+  display: inline-flex;
+  margin: 0 10px 0 -20px;
+}
+.agentpropdetails ul li{
+  background-color: rgba(255, 255, 255, 0.3);
+  margin: 10px 2px -5px 2px;
+  padding: 11px 15px 0px 15px;
+  height: 36px;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  font-size: 14px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 0.1px;
+  color: #676767;
+  cursor: pointer;
+
+}
+.agentpropdetails-nav{
+  width: 100%;
+  height: 46px;
+  background-color: #dde3e4;
+  display: inline-flex;
+  justify-content: space-between;
+  margin-left: -12px;
+
+}
+.agentpropdetails-nav .act{
+  background-color: #ffffff;
+}
+.agentprop-tabcontent{
+  
+  background: #ffffff;
+  padding: 18px;
+  /* background: red; */
+  margin-left: -12px;
+  width: 100%;
+  height: 60vh;
+}
+.agentpropdetails-nav2{
+   width: 100%;
+    height: 46px;
+    background-color: #dde3e4;
+    display: inline-flex;
+    justify-content: flex-end !important;
+}
+.agentpropdetails-header .row{
+  --bs-gutter-x: 0rem !important;
+}
+.agentpropdetailsreen{
+  background-color: #dfebfe;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Agent Media Queries */
 @media only screen and (max-width: 1000px) {
   .agent-search-left {
     display: none;

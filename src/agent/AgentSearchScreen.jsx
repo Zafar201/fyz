@@ -3,6 +3,7 @@ import { Col, Container, Row } from "react-bootstrap";
 import DatePicker from "react-datepicker";
 import { Link, useNavigate } from "react-router-dom";
 import Slider from "react-slick";
+import AgentNavbar from "../components/AgentNavbar";
 
 function AgentSearchScreen() {
   const settings = {
@@ -20,17 +21,7 @@ function AgentSearchScreen() {
   console.log(selectedDate);
   return (
     <div>
-      <div className="admin-nav">
-        <Container>
-          <Row>
-            <Col className="admin-logo">
-              <Link to="/">
-                <img src="../assets/image/log3.png" alt="" />
-              </Link>
-            </Col>
-          </Row>
-        </Container>
-      </div>
+     <AgentNavbar/>
 
       <div className="agent-search">
         <Container>

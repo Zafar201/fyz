@@ -1,13 +1,17 @@
 import React, { useEffect } from 'react'
 import { Col, Container, Row } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { checkProperty } from '../actions/generalAction'
+import AgentNavbar from '../components/AgentNavbar'
+import LoadingBox from '../components/LoadingBox'
+import MessageBox from '../components/MessageBox'
 
 function AgentSearchListScreen() {
     const checkPropertys= useSelector(state=>state.checkPropertys)
     const {loading, error, prop}= checkPropertys
     const dispatch= useDispatch()
+    const navigate = useNavigate()
 
     useEffect(()=>{
         dispatch(checkProperty('kerala','1','2','06-29-2022','06-29-2022'))                         
@@ -19,17 +23,7 @@ function AgentSearchListScreen() {
       }
   return (
     <div>
-         <div className="admin-nav">
-        <Container>
-          <Row>
-            <Col className="admin-logo">
-              <Link to="/">
-                <img src="../assets/image/log3.png" alt="" />
-              </Link>
-            </Col>
-          </Row>
-        </Container>
-      </div>
+       <AgentNavbar/>
 
       <div className="agent-searchlist">
         <Container>
@@ -61,6 +55,8 @@ function AgentSearchListScreen() {
                 </Col>
                 <Col md={9} className="searchlist-right">
                 <div >
+                  {loading && <LoadingBox></LoadingBox>}
+                  {error && <MessageBox>{error}</MessageBox>}
       {!loading && !error && prop.map((itm)=>(
        <div key={itm._id} className='home-card card-2'>     
         <Container >
@@ -93,7 +89,7 @@ function AgentSearchListScreen() {
                     {/* <h6>₹ 1,20,850</h6> */}
                   </Col>
                   <Col>
-                    <button >Select room</button>
+                    <button onClick={()=>navigate('/agentpropertydetails')}>Select room</button>
                   </Col>
                 </Row>
               </Container>

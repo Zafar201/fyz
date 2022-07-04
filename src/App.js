@@ -34,6 +34,7 @@ import NewSlider from "./components/NewSlider";
 import AgentLoginScreen from "./agent/AgentLoginScreen";
 import AgentSearchScreen from "./agent/AgentSearchScreen";
 import AgentSearchListScreen from "./agent/AgentSearchListScreen";
+import AgentPropertyDetails from "./agent/AgentPropertyDetails";
 
 function App() {
   return (
@@ -159,6 +160,10 @@ function App() {
           {" "}
         </Route>
         <Route path="/agentsearchlist" element={<AgentSearchListScreen />}>
+          
+          {" "}
+        </Route>
+        <Route path="/agentpropertydetails" element={<AgentPropertyDetails />}>
           
           {" "}
         </Route>

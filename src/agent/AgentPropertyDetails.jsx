@@ -1,13 +1,45 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import { Accordion, Col, Container, Row, Table } from "react-bootstrap";
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import Slider from "react-slick";
+import { checkProperty } from "../actions/generalAction";
 import AgentNavbar from "../components/AgentNavbar";
+import Criteria from "../components/Criteria";
 
 function AgentPropertyDetails() {
+  const settings = {
+    fade: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    speed: 2000,
+    autoplaySpeed: 2000,
+
+  };
     const [deals, setDeals] = useState(true)
     const [photos, setPhotos] = useState(false)
     const [map, setMap] = useState(false)
     const [deatails, setDeatails] = useState(false)
+    const dispatch = useDispatch()
+    const checkPropertys= useSelector(state=>state.checkPropertys)
+    const {loading, error, prop}= checkPropertys
+
+    const photopage=()=>{
+      setDeals(false)
+      setPhotos(true)
+    }
+    const dealpage=()=>{
+      setDeals(true)
+      setPhotos(false)
+    }
+    useEffect(()=>{
+      dispatch(checkProperty('kerala','1','2','06-29-2022','06-29-2022'))                         
+    
+   },[dispatch])
   return (
     <div>
       <AgentNavbar />
@@ -30,19 +62,21 @@ function AgentPropertyDetails() {
               </Row>
               <div className="agentpropdetails-nav">
                 <ul>
-                  <li className={`${deals ? 'act' : ''}`}>deals</li>
+                  <li onClick={dealpage} className={`${deals ? 'act' : ''}`}>deals</li>
                 </ul>
                 <ul>
                   <li>Room Details </li>
-                  <li>Photos</li>
+                  <li className={`${photos ? 'act' : ''}`} onClick={photopage}>Photos</li>
                   <li>Map </li>
                   {/* <li>About </li> */}
                 </ul>
               </div>
-              {deals && (
+            
 
               
               <div className="agentprop-tabcontent">
+              {deals && (
+                <>
                 <div className="agentpropdetails-nav2">
                   <ul>
                     <li>About </li>
@@ -172,11 +206,31 @@ function AgentPropertyDetails() {
                     </Accordion.Item>
                   </Accordion>
                 </Row>
+                </>
+                    )}
+
+                    {photos && (
+                      <>
+                      {/* <div >
+                    <img src={!loading && !error && prop[0].images.length !== 0 ? prop[0].images[0].location : ""} alt="" />
+                  </div> */}
+                  <Slider {...settings} className="agent-prop-pic">
+                    {!loading && !error && prop[0].images.length !== 0 && prop[0].images.map((img)=>(
+                          <div >
+                            <img src={img.location} alt="" />
+                          </div>
+                    ))}
+                     
+                    </Slider>
+                    </>
+                    )}
               </div>
 
-                )}
+            
             </Col>
-            <Col></Col>
+            <Col style={{marginTop:'18px'}}>
+              <Criteria/>
+            </Col>
           </Row>
         </Container>
       </div>

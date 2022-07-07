@@ -3491,7 +3491,8 @@ margin:3px !important;
   /* background: red; */
   margin-left: -12px;
   width: 100%;
-  height: 140vh;
+  height: auto;
+  min-height: 30vh;
   margin-bottom: 40px;
 }
 .agentpropdetails-nav2{
@@ -3548,11 +3549,15 @@ margin:3px !important;
   margin-bottom: 12px;
 }
 
+.agent-prop-pic img{
 
-
-
-
-
+  width: 98%;
+    height: 236px;
+    object-fit: contain;
+}
+/* .agent-prop-pic .slick-dots{
+  display: none !important;
+} */
 
 
 

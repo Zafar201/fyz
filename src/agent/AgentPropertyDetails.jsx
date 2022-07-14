@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Accordion, Col, Container, Row, Table } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import Slider from "react-slick";
 import { checkProperty } from "../actions/generalAction";
 import AgentNavbar from "../components/AgentNavbar";
@@ -31,6 +32,7 @@ function AgentPropertyDetails() {
     const dispatch = useDispatch()
     const checkPropertys= useSelector(state=>state.checkPropertys)
     const {loading, error, prop}= checkPropertys
+    const navigate = useNavigate()
 
     const photopage=()=>{
       setDeals(false)
@@ -296,6 +298,11 @@ function AgentPropertyDetails() {
             </Col>
             <Col style={{marginTop:'18px'}}>
               <Criteria/>
+              {/* <Criteria/>
+              <Criteria/> */}
+              <div className="proceed-btn">
+                <button onClick={()=>navigate('/summary')}>Proceed</button>
+              </div>
             </Col>
           </Row>
         </Container>

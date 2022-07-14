@@ -35,6 +35,7 @@ import AgentLoginScreen from "./agent/AgentLoginScreen";
 import AgentSearchScreen from "./agent/AgentSearchScreen";
 import AgentSearchListScreen from "./agent/AgentSearchListScreen";
 import AgentPropertyDetails from "./agent/AgentPropertyDetails";
+import SummaryScreen from "./agent/SummaryScreen";
 
 function App() {
   return (
@@ -167,7 +168,10 @@ function App() {
           
           {" "}
         </Route>
-
+        <Route path="/summary" element={<SummaryScreen />}>
+          
+          {" "}
+        </Route>
 
 
           <Route

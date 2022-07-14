@@ -7,6 +7,8 @@ import Slider from "react-slick";
 import { checkProperty } from "../actions/generalAction";
 import AgentNavbar from "../components/AgentNavbar";
 import Criteria from "../components/Criteria";
+import LoadingBox from "../components/LoadingBox";
+import MessageBox from "../components/MessageBox";
 
 function AgentPropertyDetails() {
   const settings = {
@@ -21,7 +23,9 @@ function AgentPropertyDetails() {
 
   };
     const [deals, setDeals] = useState(true)
+    const [about, setAbout] = useState(false)
     const [photos, setPhotos] = useState(false)
+  
     const [map, setMap] = useState(false)
     const [deatails, setDeatails] = useState(false)
     const dispatch = useDispatch()
@@ -31,10 +35,38 @@ function AgentPropertyDetails() {
     const photopage=()=>{
       setDeals(false)
       setPhotos(true)
+      setDeatails(false)
+      setAbout(false)
+      setMap(false)
     }
     const dealpage=()=>{
       setDeals(true)
       setPhotos(false)
+      setDeatails(false)
+      setAbout(false)
+      setMap(false)
+    }
+    const roomDetails=()=>{
+      setDeatails(true)
+      setDeals(false)
+      setPhotos(false)
+      setAbout(false)
+      setMap(false)
+    }
+    const aboutpage=()=>{
+      setDeatails(false)
+      setDeals(false)
+      setPhotos(false)
+      setAbout(true)
+      setMap(false)
+    }
+
+    const mappage=()=>{
+      setDeatails(false)
+      setDeals(false)
+      setPhotos(false)
+      setAbout(false)
+      setMap(true)
     }
     useEffect(()=>{
       dispatch(checkProperty('kerala','1','2','06-29-2022','06-29-2022'))                         
@@ -65,9 +97,10 @@ function AgentPropertyDetails() {
                   <li onClick={dealpage} className={`${deals ? 'act' : ''}`}>deals</li>
                 </ul>
                 <ul>
-                  <li>Room Details </li>
+                  <li  className={`${about ? 'act' : ''}`} onClick={aboutpage}>About </li>
+                  <li  className={`${deatails ? 'act' : ''}`} onClick={roomDetails}>Room Details </li>
                   <li className={`${photos ? 'act' : ''}`} onClick={photopage}>Photos</li>
-                  <li>Map </li>
+                  <li className={`${map ? 'act' : ''}`} onClick={mappage}>Map </li>
                   {/* <li>About </li> */}
                 </ul>
               </div>
@@ -136,7 +169,7 @@ function AgentPropertyDetails() {
                         </Col>   
                         <Col style={{textAlignLast:'right'}}>
                             
-                         <input type="radio" />
+                         <input type="radio"  name="test"/>
                         </Col>   
                       </div>
                       <Accordion.Body  >
@@ -151,7 +184,7 @@ function AgentPropertyDetails() {
                         </Col>   
                         <Col style={{textAlignLast:'right'}}>
                             
-                         <input type="radio" />
+                         <input type="radio" name="test"/>
                         </Col>       
                       </Accordion.Body>
 
@@ -167,7 +200,7 @@ function AgentPropertyDetails() {
                         </Col>
                         <Col style={{textAlignLast:'right'}}>
                             
-                            <input type="radio" />
+                            <input type="radio" name="test" />
                            </Col>             
                       </Accordion.Body>
                     </Accordion.Item>
@@ -185,7 +218,7 @@ function AgentPropertyDetails() {
                         </Col>   
                         <Col style={{textAlignLast:'right'}}>
                             
-                         <input type="radio" />
+                         <input type="radio"  name="test"/>
                         </Col>   
                       </div>
                       <Accordion.Body>
@@ -198,9 +231,10 @@ function AgentPropertyDetails() {
                         <Col>
                           heyyy
                         </Col>
-                        <Col>
-                          heyyy
-                        </Col>    
+                        <Col style={{textAlignLast:'right'}}>
+                            
+                            <input type="radio"  name="test"/>
+                           </Col>     
                  
                       </Accordion.Body>
                     </Accordion.Item>
@@ -209,20 +243,52 @@ function AgentPropertyDetails() {
                 </>
                     )}
 
+
+                    {about && (
+                      <div className="agent-about">
+                      <h2>{!loading && !error && prop[0].name}</h2>
+                      <h1 > {!loading && !error && prop[0].description}</h1>
+                      
+                      </div>
+                      
+                    )}
+
+                    {map && (
+                      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3895.181771524664!2d75.0807957!3d12.504107899999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba4846bda0b9525%3A0x1a6965b115fbfb96!2sLBS%20College%20of%20Engineering!5e0!3m2!1sen!2sin!4v1657770216020!5m2!1sen!2sin"
+                      allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" style={{width:'100%',height:'450px'}}></iframe>
+                    )}
+
                     {photos && (
                       <>
-                      {/* <div >
-                    <img src={!loading && !error && prop[0].images.length !== 0 ? prop[0].images[0].location : ""} alt="" />
-                  </div> */}
                   <Slider {...settings} className="agent-prop-pic">
                     {!loading && !error && prop[0].images.length !== 0 && prop[0].images.map((img)=>(
                           <div >
                             <img src={img.location} alt="" />
                           </div>
-                    ))}
-                     
+                    ))}    
                     </Slider>
                     </>
+                    )}
+
+
+                    {deatails && (
+                      
+                      <div>
+                           {loading && <LoadingBox></LoadingBox>}
+                             {error && <MessageBox>{error}</MessageBox>}
+                         {!loading && !error && prop[0].rooms.length !== 0 && prop[0].rooms.map((room)=>(
+                            <Row className="agent-room-det">
+                            <Col md={4} className='ag-img'>
+                            <img src={room.images[0].location} alt="" /> 
+                            </Col>
+                            <Col className='ag-img'>
+                            <h2> {room.description}</h2> 
+                            </Col>
+                            </Row>
+                      
+                    ))}   
+                    
+                      </div>
                     )}
               </div>
 

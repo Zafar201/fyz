@@ -16,12 +16,12 @@ function AgentSearchScreen() {
   };
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [selectedDate2, setSelectedDate2] = useState(new Date());
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   console.log(selectedDate);
   return (
     <div>
-     <AgentNavbar/>
+      <AgentNavbar />
 
       <div className="agent-search">
         <Container>
@@ -105,26 +105,52 @@ function AgentSearchScreen() {
                   <option value="jammu">Jammu</option>
                 </select>
 
-                <button onClick={()=>navigate('/agentsearchlist')} style={{ marginLeft: "23px" }}>Search</button>
+                <button
+                  onClick={() => navigate("/agentsearchlist")}
+                  style={{ marginLeft: "23px" }}
+                >
+                  Search
+                </button>
               </Row>
 
-              <Row>
-                <Col>
-                  {/* <Slider {...settings}>
-                    <div>
-                      <img src="../assets/image/slider1.jpg" />
-                    </div>
-                    <div>
-                      <img src="../assets/image/slider2.jpg" />
-                    </div>
-                    <div>
-                      <img src="../assets/image/slider3.jpg" />
-                    </div>
-                    <div>
-                      <img src="../assets/image/slider4.jpg" />
-                    </div>
-                  </Slider> */}
+              <Row className="agent-search-group">
+                <div className="d-flexs">
+                  <Col className="agent-search-group-1">
+                    <span>Solo travaller</span>
+                    <span style={{ float: "right" }}>1adualt 1children</span>
+                  </Col>
+                  <Col
+                    className="agent-search-group-1"
+                    style={{ marginLeft: "16px" }}
+                  >
+                    <span>Solo travaller</span>
+                    <span style={{ float: "right" }}>1adualt 1children</span>
+                  </Col>
+                </div>
+                <div className="agent-search-room">
+                <Col md={3} className='agent-search-room1'>
+                  <ul>
+                    <li><input type="checkbox" value='true' defaultChecked='true' /> Room 1</li>
+                    <li ><input type="checkbox" defaultChecked='true' />Room 2</li>
+                    <li><input type="checkbox" defaultChecked='true' />Room 3</li>
+                    <li><input type="checkbox" defaultChecked='true' />Room 4</li>
+                  </ul>
                 </Col>
+
+                <Col md={9} className='agent-search-room2'>
+                   <Row style={{paddingLeft:'12px'}}>
+                    <Col>
+                      <h3>  adulats</h3>
+                      <input type="text" name="" id="" />
+                    </Col>
+                    <Col>
+                    <h3>  children</h3>
+                    <input type="text" name="" id="" />
+                    </Col>
+                    
+                   </Row>
+                </Col>
+              </div>
               </Row>
             </Col>
           </Row>

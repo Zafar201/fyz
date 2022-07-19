@@ -15,9 +15,9 @@ function PropertyUi() {
     dots: false,
     infinite: false,
     speed: 500,
-    slidesToShow: 4,
+    slidesToShow: 6,
     autoplay: true,
-      speed: 2000,
+    speed: 2000,
     slidesToScroll: 3,
     autoplaySpeed: 2000,
     responsive: [
@@ -53,7 +53,6 @@ function PropertyUi() {
     const [large,setLarge] = useState(false)
 
     const open=(location)=>{
-     
       console.log(location,'ls')
       setImage(location)
       console.log(image,'imga')
@@ -63,30 +62,12 @@ function PropertyUi() {
   useEffect(() => {
     window.scrollTo(0, 0);
     dispatch(checkProperty( location,adult,child,startingDate,endingDate))
-   
-      // console.log(prop,'prop');
-  
-  
-
-    // if(!loading){
-    //      const sc = prop.filter((e) => e._id == propId);
-    //       console.log(sc,'sc');
-    //       setProps(sc[0])            
-    //       console.log(props,'prps');                 
-    // }
     // if(!loading){
     //   const filt = prop.find((e)=>e._id == propId);
     //   console.log(filt,'filt');
     //   setProps(filt)
       
     // }
-    // if(!loading && !error){
-    //   const img=prop.find((e)=>e._id== propId).images.length !== 0 && prop.find((e)=>e._id== propId).images[0].location 
-    //   setImage(img)
-    //   console.log(img,'img')
-
-    // }
-
 }, [dispatch]);
 const truncate=(str,n)=>{
   return str.length>n?str.substr(0,n-1)+ "...." :str

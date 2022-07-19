@@ -80,20 +80,42 @@ function AgentSearchScreen() {
   setGroup1(false)
   setGroup3(false)
   setGroup3(false)
+  setGroup2(false)
  }
 
 
  const close2=()=>{
+  if(!room4 && !room3){
   setRoom1(true)
   setGroup1(true)
   setRoom2(false)
   setGroup2(false)
+  }else if(room4){
+    setRoom4(false)
+    setGroup4(false)
+    setRoom3(true)
+    setGroup3(true)
+    setGroup2(false)
+  }else if(room3){
+    setRoom3(false)
+    setGroup3(false)
+    setRoom2(true)
+    setGroup2(true)
+    
+  }
  }
 const close3=()=>{
+  if(!room4){
   setRoom2(true)
   setGroup2(true)
   setRoom3(false)
   setGroup3(false)
+  }else {
+    setRoom4(false)
+    setGroup4(false)
+    setRoom3(true)
+    setGroup3(true)
+  }
  }
  const close4=()=>{
   setRoom3(true)

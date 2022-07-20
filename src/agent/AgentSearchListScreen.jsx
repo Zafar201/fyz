@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Col, Container, Row } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom'
@@ -22,6 +22,12 @@ function AgentSearchListScreen() {
      const truncate=(str,n)=>{
         return str.length>n?str.substr(0,n-1)+ "...." :str
       }
+
+      // const [show, setShow] = useState(false);
+
+      // const handleClose = () => setShow(false);
+      // const handleShow = () => setShow(true);
+    
   return (
     <div>
        <AgentNavbar/>
@@ -30,7 +36,7 @@ function AgentSearchListScreen() {
         <Container>
             <Row>
                 <Col md={3}>
-                    <Criteria/>
+                    <Criteria  />
                 </Col>
                 <Col md={9} className="searchlist-right">
                 <div >

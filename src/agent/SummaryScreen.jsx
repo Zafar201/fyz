@@ -2,6 +2,7 @@ import React from 'react'
 import { Col, Container, Row } from 'react-bootstrap'
 import AgentNavbar from '../components/AgentNavbar'
 import Criteria from '../components/Criteria'
+import SearchCriteria from '../components/SearchCriteria'
 
 function SummaryScreen() {
   return (
@@ -24,6 +25,7 @@ function SummaryScreen() {
                     </Row>
                   
                 </Col>
+                {/* <SearchCriteria/> */}
                 <Col md={4}>
                    <Row className='summary-right-1'>
                         <Container>

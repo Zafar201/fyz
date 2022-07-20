@@ -3785,7 +3785,7 @@ height: 53px;
     font-size: 20px;
 }
 .agent-search-room2{
-  background: wheat;
+  background: white;
   width: 75% !important;
 }
 .agent-search-room{
@@ -3815,12 +3815,27 @@ height: 53px;
   transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
 .agent-search-room1 .act{
-  background-color: wheat !important;
+  background-color: white;
 }
-
+.model .agent-search-right select{
+  box-shadow: 0 .125rem .25rem rgba(0,0,0,.075)!important;
+}
+.model .agent-search-date input{
+  box-shadow: 0 .125rem .25rem rgba(0,0,0,.075)!important;
+}
+.modal-body{
+  padding-right: 31px !important;
+  padding-left: 31px !important;
+}
 /* Agent Media Queries */
 @media only screen and (max-width: 1000px) {
   .agent-search-left {
     display: none;
+  }
+}
+
+@media (min-width: 576px){
+  .modal-dialog{
+    max-width: 769px !important;
   }
 }

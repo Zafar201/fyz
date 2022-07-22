@@ -1,3 +1,4 @@
+import { format } from "date-fns";
 import React, { useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
@@ -124,7 +125,12 @@ function SearchCriteria() {
       setGroup4(false)
      }
 
-     console.log(adualt1,adualt2,adualt3,adualt4)
+     
+     const date= ()=>{
+      const startingDate = format(selectedDate, "MM-dd-yyyy")
+      const endingDate = format(selectedDate2, "MM-dd-yyyy")
+      console.log(selectedDate,selectedDate2)
+    }
   return (
          <div className="agent-search-right">           
               <Row >
@@ -206,6 +212,7 @@ function SearchCriteria() {
 
                 <button
                   onClick={() => navigate("/agentsearchlist")}
+                  // onClick={date}
                   style={{ marginLeft: "23px" }}
                 >
                   Search

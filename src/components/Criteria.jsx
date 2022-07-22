@@ -28,6 +28,9 @@ function Criteria() {
           </Button>
         </Modal.Footer>
       </Modal>
+
+
+      
         <Row className='criteria'>
           <div  className="searchlist-left">
                     <Row className="searchlist-box">
